@@ -252,3 +252,29 @@
 /obj/effect/decal/cleanable/garbage/Initialize()
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLUDGE, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 15)
+
+/obj/effect/decal/cleanable/ants
+	name = "space ants"
+	desc = "A bunch of space ants."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "spaceants"
+	beauty = -150
+	mergeable_decal = FALSE
+
+/obj/effect/decal/cleanable/ants/Initialize(mapload)
+	. = ..()
+	var/scale = (rand(6, 8) / 10) + (rand(2, 5) / 50)
+	transform = matrix(transform, scale, scale, MATRIX_SCALE)
+	setDir(pick(GLOB.cardinals))
+	reagents.add_reagent(/datum/reagent/toxin/ants, 5)
+	pixel_x = rand(-5, 5)
+	pixel_y = rand(-5, 5)
+
+/obj/effect/decal/cleanable/ants/Crossed(atom/movable/AM)
+	if(isliving(AM))
+		var/mob/living/L = AM
+		if(!(L.is_flying() || L.is_floating() || L.buckled))
+			L.adjustBruteLoss(1)
+			to_chat(L, "<span class='warning'>The ants bite at you!</span>")
+			playsound(loc, 'sound/weapons/bite.ogg', 15, TRUE, -3)
+	return ..()

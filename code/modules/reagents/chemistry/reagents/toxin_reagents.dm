@@ -1007,3 +1007,82 @@
 		to_chat(M, "<span class='notice'>Ah, what was that? You thought you heard something...</span>")
 		M.add_confusion(5)
 	return ..()
+
+////////////////////////////////////////
+/////////////  HEAVEN ADDS /////////////
+////////////////////////////////////////
+
+/datum/reagent/toxin/ants
+	name = "Ants"
+	description = "A sample of a lost breed of Space Ants (formicidae bastardium tyrannus), they are well-known for ravaging the living shit out of pretty much anything."
+	reagent_state = SOLID
+	color = "#993333"
+	taste_mult = 1.3
+	toxpwr = 0
+	taste_description = "<span class='warning'>ANTS OH GOD</span>"
+	metabolization_rate = 2.5 * REAGENTS_METABOLISM //One per tick
+	var/ant_damage = 0
+
+/datum/reagent/toxin/ants/on_mob_life(mob/living/carbon/M)
+	M.adjustBruteLoss(max(1, round((ant_damage * 0.3),0.1)))
+	if(prob(25))
+		M.say("THEY'RE UNDER MY SKIN!!", forced = /datum/reagent/toxin/ants)
+		M.emote("scream")
+	ant_damage += 1
+	..()
+
+/datum/reagent/toxin/ants/on_mob_end_metabolize(mob/living/L)
+	ant_damage = 0
+
+/datum/reagent/toxin/ants/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
+	. = ..()
+	if(!iscarbon(exposed_mob) || (exposed_mob.stat == DEAD) || (methods & (INGEST|INJECT)))
+		return
+	var/amount_left = round(reac_volume,0.1)
+	if(methods & (PATCH|TOUCH|VAPOR))
+		if(exposed_mob.touch_chem_afflicted)
+			amount_left += round(reac_volume,0.1)
+			return
+		else do
+			var/mob/living/carbon/M = exposed_mob
+			exposed_mob.touch_chem_afflicted = TRUE
+			M.adjustBruteLoss(max(0.2, round((amount_left * 0.06),0.1)))
+			if(prob(25))
+				M.say("GET THEM OFF ME!!", forced = /datum/reagent/toxin/ants)
+				M.emote("scream")
+			if(prob(15))
+				var/obj/item/bodypart/head/hed = M.get_bodypart(BODY_ZONE_HEAD)
+				to_chat(M, "<span class='danger'>You scratch at the ants on your scalp!.</span>")
+				hed.receive_damage(0.1,0)
+				. = 1
+			if(prob(15))
+				var/obj/item/bodypart/leg = M.get_bodypart(pick(BODY_ZONE_L_LEG,BODY_ZONE_R_LEG))
+				to_chat(M, "<span class='danger'>You scratch at the ants on your leg!</span>")
+				leg.receive_damage(0.1,0)
+				. = 1
+			if(prob(15))
+				var/obj/item/bodypart/arm = M.get_bodypart(pick(BODY_ZONE_L_ARM,BODY_ZONE_R_ARM))
+				to_chat(M, "<span class='danger'>You scratch at the ants on your arms!</span>")
+				arm.receive_damage(0.1,0)
+				. = 1
+			if(prob(3))
+				M.reagents.add_reagent(/datum/reagent/toxin/histamine,rand(1,3))
+				amount_left -= 1
+			amount_left -= 1
+			sleep(10)
+			exposed_mob.touch_chem_afflicted = FALSE
+		while(amount_left)
+	return ..()
+
+/datum/reagent/toxin/ants/liquid
+	name = "Liquid Ants"
+	description = "May god have mercy on your soul."
+	color = "#bb2626"
+	reagent_state = LIQUID
+
+/datum/reagent/toxin/ants/gas
+	name = "Gaseous Ants"
+	description = "The FBI has been given your IP address."
+	color = "#db4067"
+	reagent_state = GAS
+

@@ -920,23 +920,28 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDEHAIR|HIDEEARS
 	can_be_bloody = FALSE
 	var/handled = FALSE
+	var/mob/living/carbon/human/fox = null
 
 /obj/item/clothing/suit/boxfox/equipped(mob/user, slot)
 	if(slot != ITEM_SLOT_OCLOTHING)
 		return
 	else
 		to_chat(user, "<span class='notice'>Your body feels a little stiff...</span.?>")
-		addtimer(CALLBACK(src, /obj/item/clothing/suit/boxfox/proc/box), 5 SECONDS)
 		handled = TRUE
+		fox = user
+		addtimer(CALLBACK(src, /obj/item/clothing/suit/boxfox/proc/box), 5 SECONDS)
 
-/obj/item/clothing/suit/boxfox/proc/box(mob/user, slot)
+/obj/item/clothing/suit/boxfox/proc/box()
 	if(handled)
 		var/when_it_feels_like_it = rand(45,180)
-		user.petrify()
-		playsound(loc, 'sound/magic/fleshtostone.ogg', 45, TRUE, -3)
+		fox.Stun(40)
+		fox.apply_damage(15, STAMINA, BODY_ZONE_CHEST)
+		fox.petrify()
+		playsound(get_turf(fox), 'sound/magic/fleshtostone.ogg', 45, TRUE, -3)
 		addtimer(CALLBACK(src, /obj/item/clothing/suit/boxfox/proc/box), when_it_feels_like_it SECONDS)
 
 /obj/item/clothing/suit/boxfox/dropped(mob/user)
 	if(handled)
 		handled = FALSE
+		fox = null
 		to_chat(user, "<span class='notice'>Your body loosens up!</span.?>")

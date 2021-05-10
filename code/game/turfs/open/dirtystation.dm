@@ -30,7 +30,10 @@
 														/area/vacant_room/office,
 														/area/ruin/space))
 	if(is_type_in_typecache(A, high_dirt_areas))
-		new /obj/effect/decal/cleanable/dirt(src)	//vanilla, but it works
+		if(prob(1))
+			new /obj/effect/decal/cleanable/ants(src)
+		else
+			new /obj/effect/decal/cleanable/dirt(src)	//vanilla, but it works
 		return
 
 
@@ -54,8 +57,10 @@
 					new /obj/effect/decal/cleanable/robot_debris/old(src)
 				else
 					new /obj/effect/decal/cleanable/oil(src)
-			else
+			else if(prob(90))
 				new /obj/effect/decal/cleanable/dirt(src)
+			else
+				new /obj/effect/decal/cleanable/ants(src)
 		return
 
 		//Bathrooms. Blood, vomit, and shavings in the sinks.
@@ -67,6 +72,8 @@
 				new /obj/effect/decal/cleanable/vomit/old(src)
 			else
 				new /obj/effect/decal/cleanable/blood/old(src)
+		else if(prob(15))
+			new /obj/effect/decal/cleanable/ants(src)
 		return
 
 		//Hangars and pods covered in oil.
@@ -97,10 +104,12 @@
 														/area/crew_quarters/cafeteria))
 	if(is_type_in_typecache(A, kitchen_dirt_areas))
 		if(prob(60))
-			if(prob(50))
+			if(prob(40))
 				new /obj/effect/decal/cleanable/food/egg_smudge(src)
 			else
 				new /obj/effect/decal/cleanable/food/flour(src)
+		else if(prob(5))
+			new /obj/effect/decal/cleanable/ants(src)
 		return
 
 		//Medical areas. Mostly clean by space-OSHA standards, but has some blood and oil spread about.

@@ -91,3 +91,16 @@
 	results = list(/datum/reagent/toxin/bonehurtingjuice = 5)
 	required_reagents = list(/datum/reagent/toxin/mutagen = 1, /datum/reagent/toxin/itching_powder = 3, /datum/reagent/consumable/milk = 1)
 	mix_message = "<span class='danger'>The mixture suddenly becomes clear and looks a lot like water. You feel a strong urge to drink it.</span>"
+
+/datum/chemical_reaction/ants
+	results = list(/datum/reagent/toxin/ants = 2)
+	required_reagents = list(/datum/reagent/toxin/ants = 1, /datum/reagent/consumable/sugar = 3)
+
+/datum/chemical_reaction/liquidants
+	results = list(/datum/reagent/toxin/ants/liquid = 1)
+	required_reagents = list(/datum/reagent/toxin/ants = 1, /datum/reagent/napalm = 3)
+
+/datum/chemical_reaction/gasants
+	results = list(/datum/reagent/toxin/ants/gas = 1)
+	required_reagents = list(/datum/reagent/toxin/ants = 1, /datum/reagent/nitrous_oxide = 3)
+	required_temp = 475
