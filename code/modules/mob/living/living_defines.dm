@@ -159,3 +159,4 @@
 	var/mob_radio_sounds = list('sound/voice/species/radio.ogg' = 75, \
 								'sound/voice/species/radio_2.ogg' = 75)
 
+	var/touch_chem_afflicted = FALSE

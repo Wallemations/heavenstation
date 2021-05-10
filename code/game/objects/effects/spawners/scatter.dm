@@ -40,7 +40,9 @@
 					/mob/living/simple_animal/hostile/cockroach = 25,
 					/obj/effect/decal/cleanable/garbage = 20,
 					/obj/effect/decal/cleanable/vomit/old = 15,
-					/obj/effect/spawner/lootdrop/cigbutt = 10)
+					/obj/effect/spawner/lootdrop/cigbutt = 10,
+					/obj/effect/decal/cleanable/ants = 5,
+					/obj/effect/spawner/lootdrop/gross_decal_spawner = 15)
 
 ///This spawner will scatter water related items around a moist site.
 /obj/effect/spawner/scatter/moisture

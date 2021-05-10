@@ -3843,6 +3843,7 @@
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
+/obj/effect/spawner/lootdrop/gross_decal_spawner,
 /turf/open/floor/plating,
 /area/quartermaster/storage)
 "bLF" = (
@@ -5683,6 +5684,10 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/engine/engineering)
+"cBo" = (
+/obj/effect/spawner/lootdrop/gross_decal_spawner,
+/turf/open/floor/plating,
+/area/quartermaster/warehouse)
 "cBw" = (
 /obj/machinery/atmospherics/pipe/simple/orange/visible{
 	dir = 4
@@ -10016,6 +10021,7 @@
 /area/maintenance/central)
 "elk" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/lootdrop/gross_decal_spawner,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -42967,6 +42973,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 5
 	},
+/obj/effect/spawner/lootdrop/gross_decal_spawner,
 /turf/open/floor/plasteel,
 /area/quartermaster/warehouse)
 "rAm" = (
@@ -105108,7 +105115,7 @@ qnp
 nKn
 vPP
 rhQ
-fhe
+cBo
 fhe
 gNV
 nKn
