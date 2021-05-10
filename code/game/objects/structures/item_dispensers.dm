@@ -35,6 +35,9 @@
 	. = ..()
 	if(.)
 		return
+	if(!charges)
+		to_chat(user, "<span class='notice'>It's empty!</span>")
+		return
 	if(iscyborg(user) || isalien(user))
 		return
 	if(charges)
@@ -45,9 +48,6 @@
 		user.put_in_hands(O)
 		playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
 		charges -= 1
-	if(!charges)
-		to_chat(user, "<span class='notice'>It's empty!</span>")
-		return
 
 /obj/structure/item_dispenser/glasses
 	name = "glasses dispenser"
