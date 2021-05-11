@@ -1,0 +1,33 @@
+/mob/living/simple_animal/pet/ant
+	name = "giant ant"
+	desc = "Ain't it just the cutest thing?"
+	icon = 'icons/mob/pets.dmi'
+	icon_state = "ant"
+	icon_living = "ant"
+	icon_dead = "ant_dead"
+	speak = list("BZZZZT!", "CHTCHTCHT!", "Bzzz", "ChtChtCht")
+	speak_emote = list("buzzes", "chitters")
+	emote_hear = list("buzzes.", "clacks.")
+	emote_see = list("shakes its head.", "twitches its antennae.")
+	speak_chance = 1
+	turns_per_move = 5
+	see_in_dark = 6
+	ventcrawler = VENTCRAWLER_ALWAYS
+	pass_flags = PASSTABLE
+	mob_size = MOB_SIZE_SMALL
+	mob_biotypes = MOB_ORGANIC|MOB_BEAST
+	minbodytemp = 200
+	maxbodytemp = 400
+	unsuitable_atmos_damage = 1
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 2, /obj/effect/decal/cleanable/ants = 1)
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	response_disarm_continuous = "gently pushes aside"
+	response_disarm_simple = "gently push aside"
+	response_harm_continuous = "kicks"
+	response_harm_simple = "kick"
+	gold_core_spawnable = FRIENDLY_SPAWN
+	can_be_held = FALSE
+	pet_bonus = TRUE
+	pet_bonus_emote = "buzzes!"
+	footstep_type = FOOTSTEP_MOB_CLAW

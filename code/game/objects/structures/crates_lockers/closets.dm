@@ -141,6 +141,7 @@
 	var/atom/L = drop_location()
 	for(var/atom/movable/AM in src)
 		AM.forceMove(L)
+		SEND_SIGNAL(AM, COMSIG_CLOSET_CONTENTS_EXPOSED, src)
 		if(throwing) // you keep some momentum when getting out of a thrown closet
 			step(AM, dir)
 	if(throwing)
@@ -149,6 +150,7 @@
 /obj/structure/closet/proc/take_contents()
 	var/atom/L = drop_location()
 	for(var/atom/movable/AM in L)
+		SEND_SIGNAL(AM, COMSIG_CLOSET_CONTENTS_SEALED, src)
 		if(AM != src && insert(AM) == -1) // limit reached
 			break
 

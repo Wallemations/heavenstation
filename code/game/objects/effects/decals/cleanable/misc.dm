@@ -266,7 +266,7 @@
 	var/scale = (rand(6, 8) / 10) + (rand(2, 5) / 50)
 	transform = matrix(transform, scale, scale, MATRIX_SCALE)
 	setDir(pick(GLOB.cardinals))
-	reagents.add_reagent(/datum/reagent/toxin/ants, 5)
+	reagents.add_reagent(/datum/reagent/toxin/ants, rand(3, 6))
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 

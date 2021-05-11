@@ -53,7 +53,7 @@
 
 /obj/item/reagent_containers/food/dropped()
 	.=..()
-	if (locate(/obj/structure/table) in loc || preserved_food)
+	if (locate(/obj/structure/table) in loc || preserved_food || locate(/obj/structure/closet) in loc)
 		return
 	START_PROCESSING(SSobj, src)
 
@@ -65,6 +65,7 @@
 	decomposition_level += 1 //Gonna fire every 2 seconds, so to find specific values in minutes use (minutes*60)/2. Do NOT use the actual minutes proc, it will come out too large.
 	if(decomposition_level == 150)
 		qdel(src)
+		new /obj/item/reagent_containers/food/snacks/badrecipe/rotten(get_turf(src))
 		return
 	if(decomposition_level == 75)
 		new /obj/effect/decal/cleanable/ants(get_turf(src))

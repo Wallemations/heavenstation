@@ -825,3 +825,9 @@
 // /datum/component/container_item
 /// (atom/container, mob/user) - returns bool
 #define COMSIG_CONTAINER_TRY_ATTACH "container_try_attach"
+
+// /datum/component/decomposition
+///from closet close()
+#define COMSIG_CLOSET_CONTENTS_SEALED "closet_contents_sealed"
+///from closet open()
+#define COMSIG_CLOSET_CONTENTS_EXPOSED "closet_contents_exposed"
