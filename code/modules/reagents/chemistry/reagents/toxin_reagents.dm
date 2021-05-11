@@ -1021,6 +1021,8 @@
 	toxpwr = 0
 	taste_description = "<span class='warning'>ANTS OH GOD</span>"
 	metabolization_rate = 2.5 * REAGENTS_METABOLISM //One per tick
+	glass_name = "glass of ants"
+	glass_desc = "Bottoms up...?"
 	var/ant_damage = 0
 
 /datum/reagent/toxin/ants/on_mob_life(mob/living/carbon/M)
@@ -1077,6 +1079,7 @@
 /datum/reagent/toxin/ants/liquid
 	name = "Liquid Ants"
 	description = "May god have mercy on your soul."
+	glass_name = "glass of liquid ants"
 	color = "#bb2626"
 	reagent_state = LIQUID
 

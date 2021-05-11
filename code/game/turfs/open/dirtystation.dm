@@ -55,11 +55,13 @@
 			if(prob(35))
 				if(prob(4))
 					new /obj/effect/decal/cleanable/robot_debris/old(src)
-				else
+				else if(prob(90))
 					new /obj/effect/decal/cleanable/oil(src)
+				else
+					new /obj/effect/decal/cleanable/ants(src)
 			else if(prob(90))
 				new /obj/effect/decal/cleanable/dirt(src)
-			else
+			else if(prob(90))
 				new /obj/effect/decal/cleanable/ants(src)
 		return
 
@@ -72,7 +74,7 @@
 				new /obj/effect/decal/cleanable/vomit/old(src)
 			else
 				new /obj/effect/decal/cleanable/blood/old(src)
-		else if(prob(15))
+		else if(prob(40))
 			new /obj/effect/decal/cleanable/ants(src)
 		return
 

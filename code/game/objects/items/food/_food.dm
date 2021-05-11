@@ -24,6 +24,10 @@
 	var/microwaved_type
 	///Type of atom thats spawned after eating this item
 	var/trash_type
+	///How decomposed a specific food item is. This will go rather high due to the 2 second process timer.
+	var/decomposition_level = 0
+	///If a food is unable to decompose
+	var/preserved_food = FALSE
 
 /obj/item/food/Initialize()
 	. = ..()
@@ -60,3 +64,21 @@
 	if(trash_type)
 		AddElement(/datum/element/food_trash, trash_type)
 	return
+
+/obj/item/food/dropped()
+	.=..()
+	if (locate(/obj/structure/table) in loc || preserved_food)
+		return
+	START_PROCESSING(SSobj, src)
+
+/obj/item/food/pickup()
+	.=..()
+	STOP_PROCESSING(SSobj, src)
+
+/obj/item/food/process(delta_time)
+	decomposition_level += 1 //Gonna fire every 2 seconds, so to find specific values in minutes use (minutes*60)/2. Do NOT use the actual minutes proc, it will come out too large.
+	if(decomposition_level == 150)
+		qdel(src)
+		return
+	if(decomposition_level == 75)
+		new /obj/effect/decal/cleanable/ants(get_turf(src))
