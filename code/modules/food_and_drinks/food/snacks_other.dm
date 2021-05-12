@@ -170,6 +170,11 @@
 	filling_color = "#8B4513"
 	foodtype = GROSS
 	value = FOOD_WORTHLESS
+	preserved_food = TRUE
+
+/obj/item/reagent_containers/food/snacks/badrecipe/rotten
+	name = "rotten mess"
+	desc = "That looks absolutely disgusting."
 
 /obj/item/reagent_containers/food/snacks/carrotfries
 	name = "carrot fries"

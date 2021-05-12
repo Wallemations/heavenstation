@@ -919,6 +919,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDEHAIR|HIDEEARS
 	can_be_bloody = FALSE
+	custom_price = 1000
 	var/handled = FALSE
 	var/mob/living/carbon/human/fox = null
 
@@ -936,7 +937,7 @@
 		var/when_it_feels_like_it = rand(45,180)
 		fox.Stun(40)
 		fox.apply_damage(15, STAMINA, BODY_ZONE_CHEST)
-		fox.petrify()
+		fox.petrify(10)
 		playsound(get_turf(fox), 'sound/magic/fleshtostone.ogg', 45, TRUE, -3)
 		addtimer(CALLBACK(src, /obj/item/clothing/suit/boxfox/proc/box), when_it_feels_like_it SECONDS)
 

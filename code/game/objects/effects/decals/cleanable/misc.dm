@@ -266,7 +266,7 @@
 	var/scale = (rand(6, 8) / 10) + (rand(2, 5) / 50)
 	transform = matrix(transform, scale, scale, MATRIX_SCALE)
 	setDir(pick(GLOB.cardinals))
-	reagents.add_reagent(/datum/reagent/toxin/ants, 5)
+	reagents.add_reagent(/datum/reagent/toxin/ants, rand(3, 6))
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 
@@ -274,7 +274,7 @@
 	if(isliving(AM))
 		var/mob/living/L = AM
 		if(!(L.is_flying() || L.is_floating() || L.buckled))
-			L.adjustBruteLoss(1)
+			L.adjustBruteLoss(0.2)
 			to_chat(L, "<span class='warning'>The ants bite at you!</span>")
 			playsound(loc, 'sound/weapons/bite.ogg', 15, TRUE, -3)
 	return ..()

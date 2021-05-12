@@ -586,3 +586,13 @@
 /datum/chemical_reaction/exotic_stabilizer
 	results = list(/datum/reagent/exotic_stabilizer = 2)
 	required_reagents = list(/datum/reagent/plasma_oxide = 1,/datum/reagent/stabilizing_agent = 1)
+
+/datum/chemical_reaction/big_ant
+	required_reagents = list(/datum/reagent/toxin/ants = 20, /datum/reagent/medicine/omnizine = 20, /datum/reagent/medicine/strange_reagent = 5)
+	required_temp = 374
+
+/datum/chemical_reaction/big_ant/on_reaction(datum/reagents/holder, created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = rand(1, created_volume), i <= created_volume, i++)
+		new /mob/living/simple_animal/pet/ant(location)
+	..()

@@ -15,6 +15,11 @@
 	var/last_check_time
 	var/in_container = FALSE //currently just stops "was bitten X times!" messages on canned food
 
+	///How decomposed a specific food item is. This will go rather high due to the 2 second process timer.
+	var/decomposition_level = 0
+	///If a food is unable to decompose
+	var/preserved_food = FALSE
+
 /obj/item/reagent_containers/food/Initialize(mapload)
 	. = ..()
 	if(!mapload)
@@ -45,3 +50,22 @@
 			if((foodtype & BREAKFAST) && world.time - SSticker.round_start_time < STOP_SERVING_BREAKFAST)
 				SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "breakfast", /datum/mood_event/breakfast)
 			last_check_time = world.time
+
+/obj/item/reagent_containers/food/dropped()
+	.=..()
+	if (locate(/obj/structure/table) in loc || preserved_food || locate(/obj/structure/closet) in loc)
+		return
+	START_PROCESSING(SSobj, src)
+
+/obj/item/reagent_containers/food/pickup()
+	.=..()
+	STOP_PROCESSING(SSobj, src)
+
+/obj/item/reagent_containers/food/process(delta_time)
+	decomposition_level += 1 //Gonna fire every 2 seconds, so to find specific values in minutes use (minutes*60)/2. Do NOT use the actual minutes proc, it will come out too large.
+	if(decomposition_level == 150)
+		qdel(src)
+		new /obj/item/reagent_containers/food/snacks/badrecipe/rotten(get_turf(src))
+		return
+	if(decomposition_level == 75)
+		new /obj/effect/decal/cleanable/ants(get_turf(src))

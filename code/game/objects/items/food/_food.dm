@@ -24,6 +24,8 @@
 	var/microwaved_type
 	///Type of atom thats spawned after eating this item
 	var/trash_type
+	///Makes food not decompose
+	var/preserved_food = FALSE
 
 /obj/item/food/Initialize()
 	. = ..()
@@ -36,6 +38,7 @@
 	MakeEdible()
 	MakeProcessable()
 	MakeLeaveTrash()
+	MakeDecompose()
 
 ///This proc adds the edible component, overwrite this if you for some reason want to change some specific args like callbacks.
 /obj/item/food/proc/MakeEdible()
@@ -59,4 +62,10 @@
 /obj/item/food/proc/MakeLeaveTrash()
 	if(trash_type)
 		AddElement(/datum/element/food_trash, trash_type)
+	return
+
+///This proc makes things decompose. Set preserved_food to TRUE to make it never decompose.
+/obj/item/food/proc/MakeDecompose()
+	if(!preserved_food)
+		AddComponent(/datum/component/decomposition)
 	return

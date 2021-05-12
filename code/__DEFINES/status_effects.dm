@@ -89,6 +89,8 @@
 
 #define STATUS_EFFECT_CLOUDSTRUCK /datum/status_effect/cloudstruck //blinds and applies an overlay.
 
+#define STATUS_EFFECT_ANTS /datum/status_effect/ants //Covers the target in ants
+
 /// Makes the mob move randomly.
 /// Read the documentation for /datum/status_effect/confusion for more information.
 #define STATUS_EFFECT_CONFUSION /datum/status_effect/confusion
