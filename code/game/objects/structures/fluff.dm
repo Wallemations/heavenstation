@@ -203,7 +203,11 @@
 /obj/structure/fluff/lightbulb/attackby(obj/item/O, mob/user)
 	var/turf/T = get_turf(src)
 	if(istype(O, /obj/item/light/bulb) && !replaced_light)
-		if(do_after(user, 2.5 SECONDS, TRUE))
+		to_chat(user, "<span class='notice'>You start trying to push the new bulb into the old one.</span>")
+		if(!do_after(user, 2.5 SECONDS, TRUE))
+			to_chat(user, "<span class='notice'>The new bulb passes through the old one. You'll probably need to focus to line them up.</span>")
+			return
+		else
 			to_chat(user, "<span class='warning'>The red bulb shatters as you place the new bulb into the space it occupied. A key falls among the shards.</span>")
 			qdel(O)
 			playsound(loc, 'sound/effects/glassbr1.ogg', 50, TRUE)
@@ -223,8 +227,7 @@
 			new /obj/item/britevidence/blue_key(loc)
 			replaced_light = TRUE
 			return 1
-		else
-			to_chat(user, "<span class='notice'>The new bulb passes through the old one. You'll probably need to focus to line them up.</span>")
+
 	else
 		return ..()
 

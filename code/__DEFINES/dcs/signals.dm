@@ -161,9 +161,9 @@
 #define COMSIG_ATOM_SET_OPACITY "atom_set_opacity"
 
 //from base of atom/movable/on_enter_storage(): (datum/component/storage/concrete/master_storage)
-#define COMISG_STORAGE_ENTERED "storage_entered"
+#define COMSIG_STORAGE_ENTERED "storage_entered"
 //from base of atom/movable/on_exit_storage(): (datum/component/storage/concrete/master_storage)
-#define CONSIG_STORAGE_EXITED "storage_exited"
+#define COMSIG_STORAGE_EXITED "storage_exited"
 
 ///from base of atom/expose_reagents(): (/list, /datum/reagents, methods, volume_modifier, show_message)
 #define COMSIG_ATOM_EXPOSE_REAGENTS "atom_expose_reagents"
@@ -826,7 +826,7 @@
 /// (atom/container, mob/user) - returns bool
 #define COMSIG_CONTAINER_TRY_ATTACH "container_try_attach"
 
-// /datum/component/decomposition
+// Stuff for /datum/component/decomposition
 ///from closet close()
 #define COMSIG_CLOSET_CONTENTS_SEALED "closet_contents_sealed"
 ///from closet open()

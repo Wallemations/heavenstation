@@ -274,7 +274,7 @@
 	if(isliving(AM))
 		var/mob/living/L = AM
 		if(!(L.is_flying() || L.is_floating() || L.buckled))
-			L.adjustBruteLoss(1)
+			L.adjustBruteLoss(0.2)
 			to_chat(L, "<span class='warning'>The ants bite at you!</span>")
 			playsound(loc, 'sound/weapons/bite.ogg', 15, TRUE, -3)
 	return ..()

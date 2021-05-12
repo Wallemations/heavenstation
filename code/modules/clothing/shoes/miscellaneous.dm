@@ -181,6 +181,10 @@
 /obj/item/clothing/shoes/jackboots/fast
 	slowdown = -1
 
+/obj/item/clothing/shoes/jackboots/reallyfast
+	slowdown = -1.5
+	color = "#bd3827"
+
 /obj/item/clothing/shoes/winterboots
 	name = "winter boots"
 	desc = "Boots lined with 'synthetic' animal fur."

@@ -241,14 +241,19 @@ GLOBAL_LIST_EMPTY(species_list)
 	return ..()
 
 ///Timed action involving one mob user. Target is optional.
-/proc/do_after(mob/user, delay, needhand = TRUE, atom/target = null, progress = TRUE, datum/callback/extra_checks = null)
+/proc/do_after(mob/user, delay, needhand = TRUE, atom/target = null, progress = TRUE, datum/callback/extra_checks, interaction_key, max_interact_count = 1)
 	if(!user)
 		return FALSE
 	var/atom/Tloc = null
 	if(target && !isturf(target))
 		Tloc = target.loc
 
-	if(target)
+	if(!interaction_key && target)
+		interaction_key = target //Use the direct ref to the target
+	if(interaction_key) //Do we have a interaction_key now?
+		var/current_interaction_count = LAZYACCESS(user.do_afters, interaction_key) || 0
+		if(current_interaction_count >= max_interact_count) //We are at our peak
+			return
 		LAZYADD(user.do_afters, target)
 		LAZYADD(target.targeted_by, user)
 

@@ -174,7 +174,7 @@
 
 /obj/item/reagent_containers/food/snacks/badrecipe/rotten
 	name = "rotten mess"
-	desc = "Eugh, it's covered in dead ants..."
+	desc = "That looks absolutely disgusting."
 
 /obj/item/reagent_containers/food/snacks/carrotfries
 	name = "carrot fries"
