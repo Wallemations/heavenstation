@@ -28,12 +28,18 @@
 			mode = WAND_EMERGENCY
 		if(WAND_EMERGENCY)
 			mode = WAND_OPEN
-	to_chat(user, "<span class='notice'>Now in mode: [mode].</span>")
+	balloon_alert(user, "mode: [mode]")
 
 // Airlock remote works by sending NTNet packets to whatever it's pointed at.
 /obj/item/door_remote/afterattack(atom/A, mob/user)
 	. = ..()
 	var/datum/component/ntnet_interface/target_interface = A.GetComponent(/datum/component/ntnet_interface)
+
+	// Try to find an airlock in the clicked turf
+	if(!target_interface)
+		var/obj/machinery/door/airlock/door = locate() in get_turf(A)
+		if(door)
+			target_interface = door.GetComponent(/datum/component/ntnet_interface)
 
 	if(!target_interface)
 		return

@@ -10,13 +10,13 @@
 
 
 #define OPENSPACE_LAYER 17 //Openspace layer over all
-#define OPENSPACE_PLANE -4 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -3 //Black square just over openspace plane to guaranteed cover all in openspace turf
+#define OPENSPACE_PLANE -9 //Openspace plane below all turfs
+#define OPENSPACE_BACKDROP_PLANE -8 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
 
-#define FLOOR_PLANE -2
+#define FLOOR_PLANE -7
 #define FLOOR_PLANE_RENDER_TARGET "FLOOR_PLANE"
-#define GAME_PLANE -1
+#define GAME_PLANE -4
 #define GAME_PLANE_RENDER_TARGET "GAME_PLANE"
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
 #define BLACKNESS_PLANE_RENDER_TARGET "BLACKNESS_PLANE"
@@ -128,8 +128,11 @@
 
 #define RUNECHAT_PLANE 20
 
-#define ATMOS_GROUP_PLANE 21
-#define ATMOS_GROUP_LAYER 21
+/// Plane for balloon text (text that fades up)
+#define BALLOON_CHAT_PLANE 21
+
+#define ATMOS_GROUP_PLANE 22
+#define ATMOS_GROUP_LAYER 22
 
 //HUD layer defines
 
