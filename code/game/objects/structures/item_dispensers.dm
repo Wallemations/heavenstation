@@ -30,7 +30,7 @@
 		return
 	if(I.tool_behaviour == TOOL_WRENCH && charges)
 		to_chat(user, "<span class='notice'>The [name] needs to be empty to be deconstructed!</span>")
-	if(!I.w_class > 2 && !stock)
+	/*if(!I.w_class > 2 && !stock)
 		stock = I
 		item_name = I.name
 		name = "[item_name] dispenser"
@@ -40,7 +40,7 @@
 		return
 	else if(I.w_class > 2)
 		to_chat(user, "<span class='notice'>It's too large for the dispenser!</span>")
-		return
+		return*/
 	if(istype(I, stock))
 		playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
 		qdel(I)
