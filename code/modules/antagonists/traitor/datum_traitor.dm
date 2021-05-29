@@ -18,6 +18,8 @@
 	var/datum/contractor_hub/contractor_hub
 	can_hijack = HIJACK_HIJACKER
 
+	var/finalize_antag = TRUE /// NON-MODULE CHANGE
+
 /datum/antagonist/traitor/on_gain()
 	if(owner.current && isAI(owner.current))
 		traitor_kind = TRAITOR_AI
@@ -26,7 +28,8 @@
 	owner.special_role = special_role
 	if(give_objectives)
 		forge_traitor_objectives()
-	finalize_traitor()
+	if(finalize_antag) /// NON-MODULE CHANGE
+		finalize_traitor()
 	return ..()
 
 /datum/antagonist/traitor/on_removal()

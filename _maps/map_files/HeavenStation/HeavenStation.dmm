@@ -31,7 +31,9 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "abw" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 4
+	},
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -9382,14 +9384,15 @@
 	name = "Atmospherics Storage"
 	})
 "dXv" = (
-/obj/structure/chair/stool{
-	pixel_y = 8
-	},
 /obj/effect/turf_decal/trimline/red/filled/corner,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
 /obj/effect/landmark/start/depsec/engineering,
+/obj/structure/chair/stool{
+	dir = 1;
+	pixel_y = 8
+	},
 /turf/open/floor/plasteel,
 /area/security/checkpoint/engineering)
 "dXC" = (
@@ -11551,6 +11554,10 @@
 /obj/machinery/light_switch{
 	pixel_x = 22;
 	pixel_y = 25
+	},
+/obj/structure/chair/stool{
+	dir = 1;
+	pixel_y = 8
 	},
 /turf/open/floor/plasteel,
 /area/security/checkpoint/medical)
@@ -36328,11 +36335,11 @@
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/tcommsat/server)
 "oPg" = (
-/obj/structure/chair/stool{
-	pixel_y = 8
-	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/landmark/start/station_engineer,
+/obj/structure/chair/stool{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/engine/break_room)
 "oPM" = (
@@ -37259,13 +37266,13 @@
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "phU" = (
-/obj/structure/chair/stool{
-	pixel_y = 8
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/effect/landmark/start/voidtech,
+/obj/structure/chair/stool{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/engine/break_room)
 "phZ" = (
@@ -45050,10 +45057,10 @@
 /turf/open/floor/wood,
 /area/crew_quarters/abandoned_gambling_den)
 "srf" = (
-/obj/structure/chair/stool{
-	pixel_y = 8
-	},
 /obj/effect/landmark/start/voidtech,
+/obj/structure/chair/stool{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/engine/break_room)
 "srw" = (
@@ -50506,13 +50513,13 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "uwQ" = (
-/obj/structure/chair/stool{
-	pixel_y = 8
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/effect/landmark/start/atmospheric_technician,
+/obj/structure/chair/stool{
+	dir = 4
+	},
 /turf/open/floor/plasteel,
 /area/engine/break_room)
 "uwY" = (
