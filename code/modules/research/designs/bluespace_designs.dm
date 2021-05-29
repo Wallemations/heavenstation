@@ -43,7 +43,7 @@
 	build_path = /obj/item/gps
 	category = list("Bluespace Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
-	
+
 /datum/design/desynchronizer
 	name = "Desynchronizer"
 	desc = "A device that can desynchronize the user from spacetime."
@@ -63,7 +63,7 @@
 	build_path = /obj/item/storage/bag/ore/holding
 	category = list("Bluespace Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
-	
+
 /datum/design/swapper
 	name = "Quantum Spin Inverter"
 	desc = "An experimental device that is able to swap the locations of two entities by switching their particles' spin values. Must be linked to another device to function."
@@ -73,3 +73,13 @@
 	build_path = /obj/item/swapper
 	category = list("Bluespace Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/bsconstruction
+	name = "Bluespace Construction Bag"
+	desc = "A bag designed to hold absurd amounts of electronics and device frames."
+	id = "bsconstruct"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 1000, /datum/material/glass = 2000, /datum/material/bluespace = 500, /datum/material/diamond = 100)//expensive-ish for a reason
+	build_path = /obj/item/storage/bag/construction/bluespace
+	category = list("Bluespace Designs")
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING

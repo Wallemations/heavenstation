@@ -7761,7 +7761,9 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "dvC" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 4
+	},
 /obj/item/stack/spacecash/c20,
 /turf/open/floor/wood{
 	icon_state = "wood-broken7"
@@ -15187,10 +15189,11 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/effect/landmark/start/assistant,
 /obj/structure/chair/stool{
+	dir = 1;
 	pixel_y = 8
 	},
-/obj/effect/landmark/start/assistant,
 /turf/open/floor/plasteel,
 /area/crew_quarters/locker)
 "goI" = (
@@ -17806,13 +17809,15 @@
 /turf/open/floor/plasteel,
 /area/security/checkpoint/medical)
 "htk" = (
-/obj/structure/chair/stool,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/chair/stool{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -18820,6 +18825,7 @@
 	dir = 6
 	},
 /obj/structure/chair/stool{
+	dir = 1;
 	pixel_y = 8
 	},
 /turf/open/floor/plasteel,
@@ -20708,16 +20714,6 @@
 /obj/machinery/navbeacon/wayfinding/library,
 /turf/open/floor/wood,
 /area/library)
-"iGX" = (
-/obj/structure/chair/stool{
-	pixel_y = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/landmark/start/atmospheric_technician,
-/turf/open/floor/plasteel,
-/area/engine/break_room)
 "iHa" = (
 /obj/machinery/computer/cargo,
 /obj/structure/cable,
@@ -27077,7 +27073,9 @@
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "lhp" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 8
+	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -29602,7 +29600,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/obj/structure/chair/stool/bar,
+/obj/structure/chair/stool/bar{
+	dir = 4
+	},
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/bar/atrium)
 "mfC" = (
@@ -30100,6 +30100,10 @@
 /obj/structure/sign/warning/pods,
 /turf/closed/wall,
 /area/hallway/secondary/entry)
+"mqA" = (
+/obj/structure/plaque/static_plaque/golden/commission/heaven,
+/turf/closed/wall,
+/area/bridge)
 "mqF" = (
 /obj/machinery/mecha_part_fabricator/maint,
 /turf/open/floor/plating,
@@ -37144,7 +37148,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/landmark/start/station_engineer,
+/obj/effect/landmark/start/voidtech,
 /turf/open/floor/plasteel,
 /area/engine/break_room)
 "phZ" = (
@@ -38773,7 +38777,9 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "pKR" = (
-/obj/item/chair/stool,
+/obj/item/chair/stool{
+	dir = 1
+	},
 /turf/open/floor/wood{
 	icon_state = "wood-broken2"
 	},
@@ -41592,7 +41598,9 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/structure/chair/stool/bar,
+/obj/structure/chair/stool/bar{
+	dir = 4
+	},
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/bar/atrium)
 "qWz" = (
@@ -44928,7 +44936,7 @@
 /obj/structure/chair/stool{
 	pixel_y = 8
 	},
-/obj/effect/landmark/start/atmospheric_technician,
+/obj/effect/landmark/start/voidtech,
 /turf/open/floor/plasteel,
 /area/engine/break_room)
 "srw" = (
@@ -47144,7 +47152,9 @@
 	dir = 8
 	},
 /obj/effect/landmark/start/assistant,
-/obj/structure/chair/stool/bar,
+/obj/structure/chair/stool/bar{
+	dir = 4
+	},
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/bar/atrium)
 "tiz" = (
@@ -49030,7 +49040,9 @@
 	dir = 4;
 	pixel_x = -23
 	},
-/obj/item/chair/stool,
+/obj/item/chair/stool{
+	dir = 1
+	},
 /turf/open/floor/wood,
 /area/crew_quarters/abandoned_gambling_den)
 "tXD" = (
@@ -50688,13 +50700,15 @@
 /turf/open/floor/plasteel/dark,
 /area/science/storage)
 "uDb" = (
-/obj/structure/chair/stool,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/chair/stool{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -50943,6 +50957,16 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat/foyer)
+"uIE" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/landmark/start/cargo_technician,
+/obj/structure/chair/stool{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/quartermaster/sorting)
 "uIL" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
 /obj/structure/disposalpipe/segment{
@@ -51166,10 +51190,11 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/effect/landmark/start/assistant,
 /obj/structure/chair/stool{
+	dir = 1;
 	pixel_y = 8
 	},
-/obj/effect/landmark/start/assistant,
 /turf/open/floor/plasteel,
 /area/crew_quarters/locker)
 "uQd" = (
@@ -53296,7 +53321,7 @@
 	pixel_y = 2
 	},
 /obj/effect/turf_decal/siding/wood,
-/obj/machinery/light/small{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/open/floor/carpet,
@@ -55368,6 +55393,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/landmark/start/voidtech,
 /turf/open/floor/plasteel,
 /area/engine/break_room)
 "wAu" = (
@@ -57532,7 +57558,9 @@
 /turf/open/floor/wood,
 /area/security/brig)
 "xwn" = (
-/obj/item/chair/stool,
+/obj/item/chair/stool{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/crew_quarters/abandoned_gambling_den)
 "xwo" = (
@@ -84024,7 +84052,7 @@ fUc
 kPC
 jzT
 rBp
-iGX
+phU
 srf
 mte
 edi
@@ -97099,7 +97127,7 @@ lgR
 iZc
 sKU
 laM
-aJE
+mqA
 oos
 bfP
 dis
@@ -104701,7 +104729,7 @@ mfC
 wSV
 gOV
 lhp
-lhp
+uIE
 oCr
 bmA
 hXB

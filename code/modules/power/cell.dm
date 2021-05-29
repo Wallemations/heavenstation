@@ -308,6 +308,20 @@
 	charge = 0
 	update_icon()
 
+/obj/item/stock_parts/cell/void
+	name = "void power cell"
+	desc = "A rechargeable pataphysical power cell."
+	icon_state = "vcell"
+	maxcharge = 50000
+	custom_materials = list(/datum/material/iron = 1000, /datum/material/glass = 5500, /datum/material/plasma = 3500, /datum/material/diamond = 1000, /datum/material/bluespace = 1000)
+	chargerate = 5000
+	rating = 6
+
+/obj/item/stock_parts/cell/void/empty/Initialize()
+	. = ..()
+	charge = 0
+	update_icon()
+
 /obj/item/stock_parts/cell/infinite
 	name = "infinite-capacity power cell!"
 	icon_state = "icell"

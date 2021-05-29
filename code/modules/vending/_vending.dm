@@ -998,11 +998,12 @@ GLOBAL_LIST_EMPTY(vending_products)
 
 /obj/machinery/vending/custom
 	name = "Custom Vendor"
-	icon_state = "robotics"
-	icon_deny = "robotics-deny"
+	icon_state = "custom"
+	icon_deny = "custom-deny"
 	max_integrity = 400
 	payment_department = NO_FREEBIES
 	refill_canister = /obj/item/vending_refill/custom
+	light_mask = "custom-light-mask"
 	/// where the money is sent
 	var/datum/bank_account/private_a
 	/// max number of items that the custom vendor can hold
@@ -1190,3 +1191,22 @@ GLOBAL_LIST_EMPTY(vending_products)
 		var/obj/item/I = target
 		I.custom_price = price
 		to_chat(user, "<span class='notice'>You set the price of [I] to [price] cr.</span>")
+
+/obj/machinery/vending/custom/greed //name and like decided by the spawn
+	icon_state = "greed"
+	icon_deny = "greed-deny"
+	light_mask = "greed-light-mask"
+	custom_materials = list(/datum/material/gold = MINERAL_MATERIAL_AMOUNT * 5)
+
+/obj/machinery/vending/custom/greed/Initialize(mapload)
+	. = ..()
+	//starts in a state where you can move it
+	panel_open = TRUE
+	anchored = FALSE
+	add_overlay("[initial(icon_state)]-panel")
+	//and references the deity
+	name = "[GLOB.deity]'s Consecrated Vendor"
+	desc = "A vending machine created by [GLOB.deity]."
+	slogan_list = list("[GLOB.deity] says: It's your divine right to buy!")
+	add_filter("vending_outline", 9, list("type" = "outline", "color" = COLOR_VERY_SOFT_YELLOW))
+	add_filter("vending_rays", 10, list("type" = "rays", "size" = 35, "color" = COLOR_VIVID_YELLOW))

@@ -750,6 +750,7 @@
 	desc = "An ancient spear made of brass, I mean gold, I mean bronze. It looks highly mechanical."
 	icon_state = "ratvarian_spear"
 	inhand_icon_state = "ratvarian_spear"
+	worn_icon_state = "ratvarian_spear"
 	lefthand_file = 'icons/mob/inhands/antag/clockwork_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/antag/clockwork_righthand.dmi'
 	icon = 'icons/obj/clockwork_objects.dmi'
@@ -760,3 +761,23 @@
 	attack_verb_continuous = list("stabs", "pokes", "slashes", "clocks")
 	attack_verb_simple = list("stab", "poke", "slash", "clock")
 	hitsound = 'sound/weapons/bladeslice.ogg'
+
+/obj/item/nullrod/spear/captain
+	name = "lance of longinus"
+	desc = "The weapon of an angelic captain."
+	icon_state = "longinus"
+	inhand_icon_state = "longinus"
+	worn_icon_state = "longinus"
+	slot_flags = ITEM_SLOT_BELT
+	force = 16
+	throwforce = 43
+	throw_speed = 5
+	throw_range = 7
+	bare_wound_bonus = 7
+	sharpness = SHARP_POINTY
+	w_class = WEIGHT_CLASS_HUGE
+	attack_verb_continuous = list("stabs", "pierces", "slashes")
+	attack_verb_simple = list("stab", "pierces", "slash")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	embedding = list("embed_chance" = 100, "fall_chance" = 0)
+	max_integrity = 200

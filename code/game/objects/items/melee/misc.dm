@@ -137,6 +137,38 @@
 		user.death(FALSE)
 	REMOVE_TRAIT(src, TRAIT_NODROP, SABRE_SUICIDE_TRAIT)
 
+/obj/item/melee/rapier
+	name = "officer's rapier"
+	desc = "Somehow even more elegant than the officer's sabre.... you're not too sure if this is any stronger than it"
+	icon_state = "rapier"
+	inhand_icon_state = "sabre"
+	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	flags_1 = CONDUCT_1
+	obj_flags = UNIQUE_RENAME
+	force = 12
+	throwforce = 10
+	w_class = WEIGHT_CLASS_BULKY
+	block_chance = 60
+	armour_penetration = 90
+	sharpness = SHARP_EDGED
+	attack_verb_continuous = list("stabs", "slashes")
+	attack_verb_simple = list("stabs", "slashes")
+	hitsound = 'sound/weapons/rapierhit.ogg'
+	custom_materials = list(/datum/material/iron = 1000)
+	wound_bonus = 10
+	bare_wound_bonus = 32
+
+/obj/item/melee/rapier/Initialize()
+	. = ..()
+	AddComponent(/datum/component/butchering, 30, 95, 5) //fast and effective, but as a sword, it might damage the results.
+
+/obj/item/melee/rapier/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+	if(attack_type == PROJECTILE_ATTACK)
+		final_block_chance = 0 //Don't bring a sword to a gunfight
+	return ..()
+
+
 /obj/item/melee/beesword
 	name = "The Stinger"
 	desc = "Taken from a giant bee and folded over one thousand times in pure honey. Can sting through anything."

@@ -100,6 +100,19 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 		new /obj/item/stock_parts/cell/bluespace(src)
 		new /obj/item/stock_parts/electrolite/bluespace(src)
 
+/obj/item/storage/part_replacer/bluespace/tier5
+
+/obj/item/storage/part_replacer/bluespace/tier5/PopulateContents()
+	for(var/i in 1 to 10)
+		new /obj/item/stock_parts/capacitor/void(src)
+		new /obj/item/stock_parts/scanning_module/void(src)
+		new /obj/item/stock_parts/manipulator/void(src)
+		new /obj/item/stock_parts/micro_laser/void(src)
+		new /obj/item/stock_parts/matter_bin/void(src)
+		new /obj/item/reagent_containers/glass/beaker/void(src)
+		new /obj/item/stock_parts/cell/void(src)
+		new /obj/item/stock_parts/electrolite/void(src)
+
 /obj/item/storage/part_replacer/cargo //used in a cargo crate
 
 /obj/item/storage/part_replacer/cargo/PopulateContents()
@@ -306,6 +319,50 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	icon_state = "bluespace_electrolite"
 	rating = 4
 	custom_materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
+
+// Rating 5
+
+/obj/item/stock_parts/capacitor/void
+	name = "void capacitor"
+	desc = "An antimatter capacitor used in the construction of various devices."
+	icon_state = "void_capacitor"
+	rating = 5
+	custom_materials = list(/datum/material/iron = 225, /datum/material/glass = 180, /datum/material/gold = 135, /datum/material/diamond = 90)
+
+/obj/item/stock_parts/scanning_module/void
+	name = "antimatter scanning module"
+	desc = "A special scanning module using a mix of bluespace and void tech to scan even other-dimensional materials."
+	icon_state = "void_scan_module"
+	rating = 5
+	custom_materials = list(/datum/material/iron = 225, /datum/material/glass = 180, /datum/material/diamond = 54, /datum/material/bluespace = 54)
+
+/obj/item/stock_parts/manipulator/void
+	name = "antimatter manipulator"
+	desc = "A strange, almost intangible manipulator that uses antimatter tech to manipulate and fold pataphysical states."
+	icon_state = "void_mani"
+	rating = 5
+	custom_materials = list(/datum/material/iron = 180, /datum/material/diamond = 27, /datum/material/titanium = 27, /datum/material/uranium = 27)
+
+/obj/item/stock_parts/micro_laser/void
+	name = "void micro-laser"
+	desc = "A micro-laser which converts antimatter into matter, discharging the resulting energy."
+	icon_state = "void_micro_laser"
+	rating = 5
+	custom_materials = list(/datum/material/iron = 180, /datum/material/glass = 180, /datum/material/uranium = 90, /datum/material/diamond = 90)
+
+/obj/item/stock_parts/matter_bin/void
+	name = "antimatter bin"
+	desc = "An antimatter containment chamber which converts materials into a nearly non-existent state for easy storage."
+	icon_state = "void_matter_bin"
+	rating = 5
+	custom_materials = list(/datum/material/iron = 225, /datum/material/diamond = 90, /datum/material/bluespace = 135)
+
+/obj/item/stock_parts/electrolite/void
+	name = "void electrolite"
+	desc = "An electrolite component to separate matters into others"
+	icon_state = "bluespace_electrolite"
+	rating = 5
+	custom_materials = list(/datum/material/iron = 225, /datum/material/glass = 180, /datum/material/diamond = 30)
 
 // Subspace stock parts
 

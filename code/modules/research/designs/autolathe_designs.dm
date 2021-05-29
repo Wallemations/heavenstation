@@ -763,6 +763,14 @@
 	build_path = /obj/item/wallframe/bounty_board
 	category = list("initial", "Construction")
 
+/datum/design/item_dispenser
+	name = "Item Dispenser Frame"
+	id = "item_dispenser_frame"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
+	build_path = /obj/item/wallframe/item_dispenser
+	category = list("initial", "Construction")
+
 /datum/design/syringe
 	name = "Syringe"
 	id = "syringe"

@@ -56,6 +56,17 @@
 	category = list("Misc","Power Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
+/datum/design/void_cell
+	name = "Void Power Cell"
+	desc = "A rechargeable pataphysical power cell."
+	id = "voidcell"
+	build_type = PROTOLATHE | MECHFAB
+	materials = list(/datum/material/iron = 1000, /datum/material/glass = 5500, /datum/material/plasma = 3500, /datum/material/diamond = 1000, /datum/material/bluespace = 1000)
+	build_path = /obj/item/stock_parts/cell/void/empty
+	category = list("Power Designs","Misc")
+	lathe_time_factor = 0.2
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
 /datum/design/inducer
 	name = "Inducer"
 	desc = "The NT-75 Electromagnetic Power Inducer can wirelessly induce electric charge in an object, allowing you to recharge power cells without having to remove them."

@@ -258,6 +258,7 @@
 	new /obj/item/reagent_containers/glass/beaker/meta(src)
 	new /obj/item/reagent_containers/glass/beaker/noreact(src)
 	new /obj/item/reagent_containers/glass/beaker/bluespace(src)
+	new /obj/item/reagent_containers/glass/beaker/void(src)
 
 /obj/item/storage/box/medigels
 	name = "box of medical gels"

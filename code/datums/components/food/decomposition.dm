@@ -43,22 +43,24 @@
 	SIGNAL_HANDLER
 	STOP_PROCESSING(SSobj, src)
 
-/datum/component/decomposition/process(delta_time, obj/item/food/decomp)
-	decomposition_level += 1 //Gonna fire every 2 seconds, so to find specific values in minutes use (minutes*60)/2.
-	if(decomposition_level == 300) //10 minutes
-		new /obj/item/reagent_containers/food/snacks/badrecipe/rotten(get_turf(parent))
-		qdel(parent)
+/datum/component/decomposition/process(delta_time)
+	var/obj/item/food/decomp = parent //Lets us spawn things at decomp
+	decomposition_level += delta_time
+	if(decomposition_level >= 600) //10 minutes
+		new /obj/item/reagent_containers/food/snacks/badrecipe/rotten(decomp.loc)
+		qdel(decomp)
 		return
-	if(decomposition_level == 150) //5 minutes
-		new /obj/effect/decal/cleanable/ants(get_turf(parent))
+	if(decomposition_level == 300) //5 minutes
+		new /obj/effect/decal/cleanable/ants(decomp.loc)
 
 /datum/component/decomposition/proc/examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-	if (decomposition_level < 50)
-		return
-	if(decomposition_level >= 50 && decomposition_level < 150)
-		examine_list += "[parent] looks kinda stale."
-	if(decomposition_level >= 150 && decomposition_level < 250)
-		examine_list += "[parent] is starting to look pretty gross."
-	if(decomposition_level >= 250)
-		examine_list += "[parent] looks barely edible."
+	switch(decomposition_level)
+		if (0 to 149)
+			return
+		if(150 to 299)
+			examine_list += "[parent] looks kinda stale."
+		if(300 to 449)
+			examine_list += "[parent] is starting to look pretty gross."
+		if(450 to 600)
+			examine_list += "[parent] looks barely edible."

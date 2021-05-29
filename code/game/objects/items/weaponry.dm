@@ -247,6 +247,10 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
+/obj/item/katana/captain
+	name = "captain's katana"
+	desc = "This Captain has some sort of 'class'"
+
 /obj/item/wirerod
 	name = "wired rod"
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."

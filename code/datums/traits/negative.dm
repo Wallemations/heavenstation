@@ -415,9 +415,11 @@
 	var/slot_string = "limb"
 	medical_record_text = "During physical examination, patient was found to have a prosthetic limb."
 	hardcore_value = 3
+	var/limb_slot
 
 /datum/quirk/prosthetic_limb/on_spawn()
-	var/limb_slot = pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+	if(!limb_slot) // If it's empty - it will choose random limb.
+		limb_slot = pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 	var/mob/living/carbon/human/H = quirk_holder
 	var/obj/item/bodypart/old_part = H.get_bodypart(limb_slot)
 	var/obj/item/bodypart/prosthetic
@@ -442,29 +444,34 @@
 	to_chat(quirk_holder, "<span class='boldannounce'>Your [slot_string] has been replaced with a surplus prosthetic. It is fragile and will easily come apart under duress. Additionally, \
 	you need to use a welding tool and cables to repair it, instead of bruise packs and ointment.</span>")
 
-/datum/quirk/prosthetic_arm
-	name = "Prosthetic Arm"
-	desc = "An accident caused you to lose your arm. Because of this, you now have a prostheticarm!"
-	value = -1
-	var/slot_string = "limb"
-	medical_record_text = "During physical examination, patient was found to have a prosthetic arm."
+//Prosthetic Limb Specific
+//Right Arm
+/datum/quirk/prosthetic_limb/r_arm
+	name = "Prosthetic Right Arm"
+	desc = "An accident caused you to your right arm. Because of this, you now have a prosthetic arm!"
+	medical_record_text = "During physical examination, patient was found to have a prosthetic right arm."
+	limb_slot = BODY_ZONE_R_ARM
 
-/datum/quirk/prosthetic_arm/on_spawn()
-	var/limb_slot = pick(BODY_ZONE_R_ARM)
-	var/mob/living/carbon/human/H = quirk_holder
-	var/obj/item/bodypart/old_part = H.get_bodypart(limb_slot)
-	var/obj/item/bodypart/prosthetic
-	switch(limb_slot)
-		if(BODY_ZONE_R_ARM)
-			prosthetic = new/obj/item/bodypart/r_arm/robot/surplus(quirk_holder)
-			slot_string = "right arm"
-	prosthetic.replace_limb(H)
-	qdel(old_part)
-	H.regenerate_icons()
+//Left Arm
+/datum/quirk/prosthetic_limb/l_arm
+	name = "Prosthetic Left Arm"
+	desc = "An accident caused you to your left arm. Because of this, you now have a prosthetic arm!"
+	medical_record_text = "During physical examination, patient was found to have a prosthetic left arm."
+	limb_slot = BODY_ZONE_L_ARM
 
-/datum/quirk/prosthetic_arm/post_add()
-	to_chat(quirk_holder, "<span class='boldannounce'>Your [slot_string] has been replaced with a surplus prosthetic. It is fragile and will easily come apart under duress. Additionally, \
-	you need to use a welding tool and cables to repair it, instead of bruise packs and ointment.</span>")
+//Right Leg
+/datum/quirk/prosthetic_limb/r_leg
+	name = "Prosthetic Right Leg"
+	desc = "An accident caused you to your right leg. Because of this, you now have a prosthetic leg!"
+	medical_record_text = "During physical examination, patient was found to have a prosthetic right leg."
+	limb_slot = BODY_ZONE_R_LEG
+
+//Left Leg
+/datum/quirk/prosthetic_limb/l_leg
+	name = "Prosthetic Left Leg"
+	desc = "An accident caused you to your left leg. Because of this, you now have a prosthetic leg!"
+	medical_record_text = "During physical examination, patient was found to have a prosthetic left leg."
+	limb_slot = BODY_ZONE_L_LEG
 
 /datum/quirk/pushover
 	name = "Pushover"

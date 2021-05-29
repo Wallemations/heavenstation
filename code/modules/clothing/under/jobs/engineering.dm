@@ -71,3 +71,10 @@
 	can_adjust = FALSE
 	fitted = FEMALE_UNIFORM_TOP
 
+/obj/item/clothing/under/rank/engineering/void
+	desc = "It's a grey jumpsuit worn by those that love the void."
+	name = "void technician's jumpsuit"
+	icon_state = "voidtech"
+	inhand_icon_state = "void_suit"
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 30, ACID = 10)
+	resistance_flags = NONE

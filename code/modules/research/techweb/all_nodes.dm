@@ -212,7 +212,7 @@
 	display_name = "Applied Bluespace Research"
 	description = "Using bluespace to make things faster and better."
 	prereq_ids = list("bluespace_basic", "engineering")
-	design_ids = list("bs_rped","minerbag_holding", "bluespacebeaker", "bluespacesyringe", "phasic_scanning", "roastingstick", "ore_silo", "plumbing_receiver")
+	design_ids = list("bs_rped","minerbag_holding", "bluespacebeaker", "bluespacesyringe", "phasic_scanning", "roastingstick", "ore_silo", "plumbing_receiver", "bsconstruct")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 
 /datum/techweb_node/bluespace_power
@@ -239,6 +239,34 @@
 	design_ids = list("desynchronizer")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
+
+////////////////////////void tech////////////////////////
+/datum/techweb_node/void_tech
+	id = "void_tech"
+	starting_node = FALSE
+	display_name = "Void Tech"
+	description = "We've learned to harness the power of the void, morphing even antimatter to our wills."
+	design_ids = list("voidscan","voidmanip","voidbin","voidbeaker","voidelectrolite")
+	prereq_ids = list("micro_bluespace")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 50000)
+
+/datum/techweb_node/void_tech_power
+	id = "void_tech_power"
+	starting_node = FALSE
+	display_name = "Void Power Technology"
+	description = "Void based power technologies, making apt use of newly discovered Antimatter Folds and Pataphysical Tears"
+	design_ids = list("voidcap","voidcell")
+	prereq_ids = list("bluespace_power")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 50000)
+
+/datum/techweb_node/void_tech_laser
+	id = "void_tech_laser"
+	starting_node = FALSE
+	display_name = "Integrated Void Laser Theory"
+	description = "Condensed antimatter technologies that shake the foundations of the focal sciences. How far is too far?"
+	design_ids = list("voidlaser")
+	prereq_ids = list("emp_super")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 50000)
 
 /////////////////////////plasma tech/////////////////////////
 /datum/techweb_node/basic_plasma
