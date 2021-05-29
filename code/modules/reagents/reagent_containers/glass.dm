@@ -203,6 +203,16 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,300)
 
+/obj/item/reagent_containers/glass/beaker/void
+	name = "void beaker"
+	desc = "A void beaker, powered by an antimatter core combined with experimental pataphysical technology. Capable of holding a massive 500 units of any reagent."
+	icon_state = "voidbeaker"
+	custom_materials = list(/datum/material/iron = 500, /datum/material/glass = 5000, /datum/material/plasma = 3000, /datum/material/diamond = 1500, /datum/material/bluespace = 1500)
+	volume = 500
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,300,500)
+
+
 /obj/item/reagent_containers/glass/beaker/cryoxadone
 	list_reagents = list(/datum/reagent/medicine/cryoxadone = 30)
 

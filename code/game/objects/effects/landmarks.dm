@@ -219,6 +219,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	primary_ai = FALSE
 	latejoin_active = FALSE
 
+/obj/effect/landmark/start/voidtech
+	name = "Void Technician"
+	icon_state = "Void Technician"
+
 //Department Security spawns
 
 /obj/effect/landmark/start/depsec

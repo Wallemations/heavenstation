@@ -503,6 +503,11 @@
 	},
 /turf/template_noop,
 /area/ruin/unpowered)
+"fj" = (
+/obj/structure/table,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plasteel/airless/cafeteria,
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 aa
@@ -702,7 +707,7 @@ ai
 aI
 aR
 aW
-aW
+fj
 bh
 ap
 ap

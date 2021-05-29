@@ -1634,11 +1634,11 @@
 	crate_name = "soft drinks supply crate"
 
 /datum/supply_pack/service/vending/vendomat
-	name = "Vendomat Supply Crate"
+	name = "Part-Mart Supply Crate"
 	desc = "More tools for your IED testing facility."
 	cost = 1000
 	contains = list(/obj/item/vending_refill/assist)
-	crate_name = "vendomat supply crate"
+	crate_name = "Part-Mart supply crate"
 
 /datum/supply_pack/service/wedding
 	name = "Wedding Crate"

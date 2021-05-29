@@ -86,6 +86,7 @@
 /obj/item/clothing/suit/space/syndicate/orange,
 /obj/item/clothing/head/helmet/space/syndicate/orange,
 /obj/item/clothing/mask/breath,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plating,
 /area/ruin/space/djstation)
 "at" = (
@@ -310,6 +311,7 @@
 /obj/structure/rack,
 /obj/item/clothing/under/costume/soviet,
 /obj/item/clothing/head/ushanka,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/space/djstation)
 "be" = (

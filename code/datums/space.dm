@@ -308,3 +308,9 @@
 	name = "Abandoned Casino"
 	description = "An overgrown casino. Somehow, it's still powered."
 	unpickable = TRUE
+
+/datum/map_template/ruin/space/spaceshower
+	id = "spaceshower"
+	suffix = "SpaceShower.dmm"
+	name = "Space shower"
+	description = "A creepy space shower"

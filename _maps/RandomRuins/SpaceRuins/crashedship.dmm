@@ -1216,6 +1216,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plasteel,
 /area/awaymission/bmpship/aft)
 "eH" = (
@@ -1263,6 +1264,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plasteel,
 /area/awaymission/bmpship/aft)
 "eS" = (
@@ -1655,6 +1657,7 @@
 /area/awaymission/bmpship/fore)
 "gq" = (
 /obj/structure/rack,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plating/airless,
 /area/awaymission/bmpship/fore)
 "gr" = (
@@ -1936,6 +1939,15 @@
 	},
 /turf/open/floor/plating/airless,
 /area/awaymission/bmpship/midship)
+"Mm" = (
+/obj/structure/rack,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating,
+/area/awaymission/bmpship/fore)
 "Mx" = (
 /turf/closed/mineral/random,
 /area/awaymission/bmpship/midship)
@@ -1947,6 +1959,14 @@
 	icon_state = "platingdmg1"
 	},
 /area/awaymission/bmpship/midship)
+"Uo" = (
+/obj/structure/rack,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating,
+/area/awaymission/bmpship/fore)
 "Xc" = (
 /obj/structure/frame/computer{
 	anchored = 1;
@@ -2739,7 +2759,7 @@ aa
 aa
 aa
 cG
-aV
+Mm
 bp
 bv
 aT
@@ -2841,7 +2861,7 @@ aa
 aa
 aa
 cG
-aV
+Uo
 bp
 bw
 aq

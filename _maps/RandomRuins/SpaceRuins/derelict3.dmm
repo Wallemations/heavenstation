@@ -12,6 +12,10 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
+"n" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating/airless,
+/area/ruin/unpowered/no_grav)
 
 (1,1,1) = {"
 a
@@ -104,7 +108,7 @@ b
 b
 b
 b
-b
+n
 b
 b
 c
@@ -572,7 +576,7 @@ b
 c
 c
 c
-b
+n
 c
 b
 b
@@ -786,7 +790,7 @@ b
 b
 b
 c
-b
+n
 b
 b
 b

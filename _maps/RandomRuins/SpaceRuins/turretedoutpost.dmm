@@ -89,6 +89,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/turretedoutpost)
 "at" = (
@@ -331,6 +332,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/turretedoutpost)
 "aX" = (
@@ -368,6 +370,17 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/turretedoutpost)
+"gz" = (
+/obj/structure/rack,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/turretedoutpost)
 "tK" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -387,6 +400,21 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
+/area/ruin/space/has_grav/turretedoutpost)
+"SF" = (
+/obj/structure/rack,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/turretedoutpost)
 
 (1,1,1) = {"
@@ -479,7 +507,7 @@ al
 ad
 ad
 ay
-aF
+gz
 aL
 aF
 ad
@@ -519,7 +547,7 @@ al
 ad
 at
 az
-aG
+SF
 aG
 az
 aX

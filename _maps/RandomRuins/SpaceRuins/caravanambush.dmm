@@ -622,6 +622,8 @@
 	amount = 25
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plasteel/airless/dark,
 /area/shuttle/caravan/freighter3)
 "hy" = (
@@ -753,6 +755,7 @@
 	amount = 25
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/freighter3)
 "ic" = (
@@ -827,6 +830,7 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/freighter2)
 "is" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plasteel/airless{
 	icon_state = "damaged2"
 	},

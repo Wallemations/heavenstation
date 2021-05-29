@@ -11,6 +11,10 @@
 "d" = (
 /turf/open/floor/plating/asteroid/airless,
 /area/ruin/unpowered)
+"w" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating/asteroid/airless,
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 a
@@ -521,7 +525,7 @@ c
 c
 b
 d
-d
+w
 c
 d
 d
@@ -896,7 +900,7 @@ b
 a
 b
 b
-d
+w
 d
 d
 a

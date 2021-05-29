@@ -286,6 +286,13 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	inhand_icon_state = "cent_headset_alt"
 	keyslot = null
 
+/obj/item/radio/headset/subspace/void
+	name = "voidtech's subspace headset"
+	desc = "A headset made with special tech in mind to explore deep space. A rarity around these parts"
+	icon_state = "subspace_headset"
+	keyslot = new /obj/item/encryptionkey/headset_void
+	subspace_transmission = FALSE
+
 /obj/item/radio/headset/headset_cent/alt/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))

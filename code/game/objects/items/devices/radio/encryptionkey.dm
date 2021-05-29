@@ -135,3 +135,8 @@
 
 /obj/item/encryptionkey/secbot
 	channels = list(RADIO_CHANNEL_AI_PRIVATE = 1, RADIO_CHANNEL_SECURITY = 1)
+
+/obj/item/encryptionkey/headset_void
+	name = "void technician radio encryption key"
+	icon_state = "eng_cypherkey"
+	channels = list(RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_ENGINEERING = 1)

@@ -53,6 +53,10 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"L" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 a
@@ -166,7 +170,7 @@ d
 h
 d
 d
-d
+L
 d
 d
 c
@@ -213,7 +217,7 @@ a
 c
 c
 d
-d
+L
 d
 g
 d
@@ -265,7 +269,7 @@ c
 c
 c
 d
-d
+L
 d
 d
 d

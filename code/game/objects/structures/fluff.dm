@@ -318,10 +318,10 @@
 			playsound(loc, 'sound/machines/wooden_closet_open.ogg', 50, TRUE)
 			opened = TRUE
 			icon_state = "palacechest_open"
-			desc = "An empty chest. There's white fur inside of it."
+			desc = "An empty chest, smelling vaguely of rotting meat. There are small patches of white fur scattered through it."
 			new /obj/item/britevidence/ribbon(loc)
 			for(var/obj/structure/fluff/mannequin/hallucinations in range(7, src))
-				hallucinations.say("Going so soon?")
+				hallucinations.say("We're sorry you're leaving so soon...")
 			return 1
 		else
 			to_chat(user, "<span class='notice'>You struggle to get the key in the hole. Maybe focusing a little more...?</span>")

@@ -332,8 +332,9 @@
 /obj/structure/rack{
 	dir = 8
 	},
-/obj/item/multitool,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/obj/item/multitool,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/listeningstation)
 "aC" = (
@@ -553,6 +554,8 @@
 	},
 /obj/item/stock_parts/cell/high/plus,
 /obj/structure/cable,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
 "aP" = (

@@ -67,6 +67,17 @@
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
+/datum/design/void_capacitor
+	name = "Void Capacitor"
+	desc = "An antimatter capacitor used in the construction of various devices."
+	id = "voidcap"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron =225, /datum/material/glass =180, /datum/material/gold =135, /datum/material/diamond = 90)
+	build_path = /obj/item/stock_parts/capacitor/void
+	category = list("Stock Parts")
+	lathe_time_factor = 0.2
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
 //Scanning modules
 /datum/design/basic_scanning
 	name = "Basic Scanning Module"
@@ -108,6 +119,17 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 200, /datum/material/diamond = 30, /datum/material/bluespace = 30)
 	build_path = /obj/item/stock_parts/scanning_module/triphasic
+	category = list("Stock Parts")
+	lathe_time_factor = 0.2
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/void_scanning
+	name = "Antimatter Scanning Module"
+	desc = "A special scanning module using a mix of bluespace and void tech to scan even other-dimensional materials."
+	id = "quantumscan"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron= 225, /datum/material/glass = 180, /datum/material/diamond = 54, /datum/material/bluespace = 54)
+	build_path = /obj/item/stock_parts/scanning_module/void
 	category = list("Stock Parts")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
@@ -157,6 +179,17 @@
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
+/datum/design/void_manip
+	name = "Antimatter Manipulator"
+	desc = "A strange, almost intangible manipulator that uses antimatter tech to manipulate and fold pataphysical states."
+	id = "voidmanip"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron= 180, /datum/material/diamond = 27, /datum/material/titanium = 27, /datum/material/uranium = 27)
+	build_path = /obj/item/stock_parts/manipulator/void
+	category = list("Stock Parts")
+	lathe_time_factor = 0.2
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
 //Micro-lasers
 /datum/design/basic_micro_laser
 	name = "Basic Micro-Laser"
@@ -202,6 +235,18 @@
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
+/datum/design/void_laser
+	name = "Void Micro-Laser"
+	desc = "A micro-laser which converts antimatter into matter, discharging the resulting energy."
+	id = "voidlaser"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron= 180, /datum/material/glass = 180, /datum/material/uranium = 90, /datum/material/diamond = 90)
+	build_path = /obj/item/stock_parts/micro_laser/void
+	category = list("Stock Parts")
+	lathe_time_factor = 0.2
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+// Matter Bins
 /datum/design/basic_matter_bin
 	name = "Basic Matter Bin"
 	desc = "A stock part used in the construction of various devices."
@@ -245,6 +290,18 @@
 	category = list("Stock Parts")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/void_bin
+	name = "antimatter bin"
+	desc = "An antimatter containment chamber which converts materials into a nearly non-existent state for easy storage."
+	id = "voidbin"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron= 225, /datum/material/diamond = 90, /datum/material/bluespace = 135)
+	build_path = /obj/item/stock_parts/matter_bin/void
+	category = list("Stock Parts")
+	lathe_time_factor = 0.2
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
 
 //electrolite
 /datum/design/basic_electrolite
@@ -290,6 +347,18 @@
 	category = list("Stock Parts")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/void_electrolite
+	name = "void electrolite"
+	desc = "An electrolite component to separate matters into others"
+	id = "voidelectrolite"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron= 225, /datum/material/diamond = 90, /datum/material/bluespace = 135)
+	build_path = /obj/item/stock_parts/electrolite/void
+	category = list("Stock Parts")
+	lathe_time_factor = 0.2
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
 
 //T-Comms devices
 /datum/design/subspace_ansible

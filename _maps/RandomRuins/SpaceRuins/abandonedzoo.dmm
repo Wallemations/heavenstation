@@ -189,6 +189,7 @@
 "aN" = (
 /obj/structure/table/reinforced,
 /obj/item/folder,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plasteel/dark/side,
 /area/ruin/space/has_grav/abandonedzoo)
 "aO" = (
@@ -417,6 +418,11 @@
 /obj/item/bedsheet/green,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/dark/side,
+/area/ruin/space/has_grav/abandonedzoo)
+"bq" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/grass,
 /area/ruin/space/has_grav/abandonedzoo)
 "br" = (
 /obj/structure/table/reinforced,
@@ -663,6 +669,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/abandonedzoo)
+"xA" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/abandonedzoo)
 "Ck" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 1
@@ -677,9 +687,19 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/abandonedzoo)
+"MA" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/abandonedzoo)
 "Ng" = (
 /obj/structure/alien/weeds,
 /obj/structure/alien/weeds/node,
+/turf/open/floor/plating/airless,
+/area/ruin/space/has_grav/abandonedzoo)
+"Yt" = (
+/obj/structure/alien/weeds,
+/obj/structure/alien/weeds/node,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/abandonedzoo)
 
@@ -729,7 +749,7 @@ aa
 ac
 ah
 ap
-ai
+xA
 ai
 aD
 aL
@@ -762,7 +782,7 @@ at
 ac
 bw
 bv
-bv
+MA
 bv
 ac
 aa
@@ -971,7 +991,7 @@ bl
 at
 ac
 bB
-Ng
+Yt
 bD
 bH
 ac
@@ -1021,7 +1041,7 @@ bW
 "}
 (17,1,1) = {"
 ac
-ao
+bq
 an
 av
 aC

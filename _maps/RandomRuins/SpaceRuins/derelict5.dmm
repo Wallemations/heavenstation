@@ -72,6 +72,21 @@
 /obj/machinery/door/airlock/external,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"E" = (
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
+"F" = (
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
+"N" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 a
@@ -648,7 +663,7 @@ g
 i
 i
 m
-g
+N
 f
 g
 g
@@ -688,7 +703,7 @@ g
 g
 g
 g
-h
+E
 f
 g
 g
@@ -924,8 +939,8 @@ a
 a
 b
 e
-h
-h
+E
+F
 g
 o
 g
@@ -1005,7 +1020,7 @@ a
 a
 d
 i
-h
+F
 g
 f
 l
