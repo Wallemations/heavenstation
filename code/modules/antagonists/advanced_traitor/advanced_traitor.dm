@@ -24,10 +24,14 @@
 	var/starting_tc = 20
 	/// Lazylist of our goals datums linked to this antag.
 	var/list/datum/advanced_antag_goal/our_goals
+	/// List of objectives AIs can get, because apparently they're not initialized anywhere like normal objectives.
+	var/static/list/ai_objectives = list("no organics on shuttle" = /datum/objective/block, "no mutants on shuttle" = /datum/objective/purge, "robot army" = /datum/objective/robot_army, "survive AI" = /datum/objective/survive/malf)
 	/// Some blacklsited objectives we don't want showing up in the similar objectives pool
 	var/static/list/blacklisted_similar_objectives = list("custom", "absorb", "nuclear", "capture")
 	/// Goals that advanced traitor malf AIs shouldn't be able to pick
 	var/static/list/blacklisted_ai_objectives = list("survive", "destroy AI", "download", "steal", "escape", "debrain")
+	/// All advanced traitor panels we have open (assoc list user to panel)
+	var/list/open_panels
 
 /datum/antagonist/traitor/traitor_plus/on_gain()
 	setup_advanced_traitor()
@@ -38,11 +42,18 @@
 	custom_objective.explanation_text = "Set your custom goals via the IC tab."
 	objectives += custom_objective
 
+	add_advanced_goal()
+
 	return ..()
 
 /datum/antagonist/traitor/traitor_plus/on_removal()
 	remove_verb(owner.current, /mob/proc/open_advanced_traitor_panel)
 	QDEL_LIST(our_goals)
+
+	for(var/panel_user in open_panels)
+		var/datum/adv_traitor_panel/tgui_panel = open_panels[panel_user]
+		tgui_panel.ui_close(panel_user)
+
 	return ..()
 
 /// Greet the antag with big menacing text, then move to greet_two after 3 seconds.
@@ -58,20 +69,13 @@
 
 /// Give them a short guide on how to use the goal panel, and what all the buttons do.
 /datum/antagonist/traitor/traitor_plus/proc/greet_three()
-	to_chat(owner.current, "<span class='danger'>\nIn your goal panel, you can set a few things:</span>")
-	to_chat(owner.current, "<span class='danger'>- You can set your traitor name, your employer, and your backstory. A backstory and an Employer is optional.</span>")
-	to_chat(owner.current, "<span class='danger'>- You can add new goals to your list and tweak them.\n\
-		[FOURSPACES]- <B>GOALS</B> is the actual objective you're adding. It can be anything from annoying security in minor ways to stealing staplers to releasing a singularity.\n\
-		[FOURSPACES]- <B>INTENSITY</B> is what level of relative danger the goal is. Higher intensity levels are more dangerous or threatening to the crew.\n\
-		[FOURSPACES]- <B>NOTES</B> is any extra notes you want people to know about the goal. Admins are alerted if you add a note and they're displayed at round-end. This is optional - include things that would be useful to know, like your method of going about the goal.\n\
-		[FOURSPACES]- <B>SIMILAR OBJECTIVES</B> is a list of equivilant objectives to your goal. You can set multiple and they'll be checked at round-end for success. You can also choose whether you only need one objective in your list to be successful or all of them. This is optional - you can set them if you want a defined win or loss condition on your goal.</span>")
-	to_chat(owner.current, "<span class='danger'>\nWhen all your iniital goals are set, FINALIZE your goals to recieve your traitor uplink. You can still change your goals after you finalize them!</span>")
+	to_chat(owner.current, "<span class='danger'>In your goal panel, you should set a few goals to get started and finalize them to recieve your uplink. If you're not sure how to use the panel or its functions, use the inbuilt tutorial.</span>")
 
 /datum/antagonist/traitor/traitor_plus/roundend_report()
 	var/list/result = list()
 
 	result += printplayer(owner)
-	result += "<b>[owner]</b> was a/an <b>[name]</b>[employer? " employed by <b>[employer]</b>":""]."
+	result += "<b>[owner]</b> was \a <b>[name]</b>[employer? " employed by <b>[employer]</b>":""]."
 	if(backstory)
 		result += "<b>[owner]'s</b> backstory was the following: <br>[backstory]"
 
@@ -110,7 +114,11 @@
 
 /// Set their name to default "Traitor" and give the traitor the verb to open their goal panel.
 /datum/antagonist/traitor/traitor_plus/proc/setup_advanced_traitor()
-	name = "Traitor"
+	switch(traitor_kind)
+		if(TRAITOR_AI)
+			name = "Malfunctioning AI"
+		if(TRAITOR_HUMAN)
+			name = "Traitor"
 	show_advanced_traitor_panel(owner.current)
 	add_verb(owner.current, /mob/proc/open_advanced_traitor_panel)
 
@@ -158,140 +166,26 @@
 		if(istype(our_mode))
 			our_mode.mulligan_choice()
 
-/* Show the user the advanced traitor panel.
+/* Updates the user's currently open TGUI panel, or open a new panel if they don't have one.
  *
  * user - the user, opening the panel (usually, [owner.current], but sometimes admins)
  */
 /datum/antagonist/traitor/traitor_plus/proc/show_advanced_traitor_panel(mob/user)
-	var/panel_html = build_advanced_panel_html()
-
-	winshow(user, "advanced_traitor_goals", TRUE)
-	var/datum/browser/adv_traitor_panel = new(user, "advanced_traitor_goals", "Advanced Traitor Panel", 900, 600)
-	adv_traitor_panel.window_options = "can_close=1;can_minimize=0;can_maximize=0;can_resize=0;titlebar=1;"
-	adv_traitor_panel.set_content(panel_html)
-	adv_traitor_panel.open(FALSE)
-	onclose(user, "advanced_traitor_goals")
-
-/// Topic chain for the advanced traitor panel.
-/datum/antagonist/traitor/traitor_plus/Topic(href, href_list)
-	if(href_list["add_new_goal"])
-		if(LAZYLEN(our_goals) > TRAITOR_PLUS_MAX_GOALS)
-			to_chat(usr, "Max amount of goals reached.")
+	var/datum/adv_traitor_panel/tgui
+	if(LAZYLEN(open_panels))
+		tgui = open_panels[user]
+		if(tgui)
+			tgui.ui_interact(user, tgui.open_ui)
 			return
-		add_advanced_goal()
+	tgui = new(user, src)
+	tgui.ui_interact(user)
+	LAZYADDASSOC(open_panels, user, tgui)
 
-	if(href_list["edit_new_goal"])
-		var/datum/advanced_antag_goal/edited_goal = locate(href_list["target_goal"])
-		if(!edited_goal)
-			return
-
-		switch(href_list["edit_new_goal"])
-			// Set some things about the goal
-			if("set_goal")
-				var/new_goal = input(usr, "What's your goal?", "Add Goal", "[edited_goal.goal]") as message|null
-				if(new_goal)
-					edited_goal.set_goal_text(strip_html_simple(new_goal, TRAITOR_PLUS_MAX_GOAL_LENGTH))
-				else
-					return
-
-			if("set_level")
-				var/new_intensity = input(usr, "What's the intensity of this goal?", "Set Intensity", "3") as null|anything in sortList(TRAITOR_PLUS_INTENSITIES)
-				if(new_intensity)
-					edited_goal.set_intensity(text2num(copytext_char(new_intensity, 1, 2)))
-				else
-					return
-
-			if("set_notes")
-				var/new_notes = input(usr, "Extra notes (how you'll accomplish it, reasoning for it, etc)", "Add notes", "") as message|null
-				edited_goal.notes = strip_html_simple(new_notes, TRAITOR_PLUS_MAX_NOTE_LENGTH)
-
-			// Add, remove, and clear objectives from the similar objectives list
-			if("add_sim_objectives")
-				if(LAZYLEN(edited_goal.similar_objectives) > TRAITOR_PLUS_MAX_SIMILAR_OBJECTIVES)
-					to_chat(usr, "Max amount of similar objectives reached for this goal.")
-					return
-
-				if(!GLOB.admin_objective_list)
-					generate_admin_objective_list()
-				var/list/objectives_to_choose = GLOB.admin_objective_list.Copy() - blacklisted_similar_objectives
-				if(traitor_kind == TRAITOR_AI)
-					var/list/ai_objectives = list( \
-						"no organics on shuttle" = /datum/objective/block, \
-						"no mutants on shuttle" = /datum/objective/purge, \
-						"robot army" = /datum/objective/robot_army, \
-						"survive AI" = /datum/objective/survive/malf)
-					objectives_to_choose -= blacklisted_ai_objectives
-					objectives_to_choose += ai_objectives
-
-				var/list/edited_similar_objectives = LAZYCOPY(edited_goal.similar_objectives)
-				var/datum/objective/new_objective_type = input("Add an objective:", "Objective type", null) as null|anything in objectives_to_choose
-				new_objective_type = objectives_to_choose[new_objective_type]
-				if(new_objective_type)
-					var/datum/objective/added_objective = new new_objective_type
-					added_objective.owner = owner
-					edited_similar_objectives.Add(added_objective)
-					added_objective.admin_edit(usr)
-				else
-					return
-
-				edited_goal.similar_objectives = edited_similar_objectives
-
-			if("cut_sim_objectives")
-				var/list/edited_similar_objectives = edited_goal.similar_objectives.Copy()
-				var/datum/objective/removed_objective = locate(href_list["target_objective"])
-				if(edited_similar_objectives.Remove(removed_objective))
-					qdel(removed_objective)
-					edited_goal.similar_objectives = edited_similar_objectives
-				else
-					return
-
-			if("toggle_check_all_objectives")
-				edited_goal.check_all_objectives = !edited_goal.check_all_objectives
-
-			if("clear_sim_objectives")
-				if(!LAZYLEN(edited_goal.similar_objectives))
-					return
-				QDEL_LIST(edited_goal.similar_objectives)
-
-	if(href_list["remove_goal"])
-		remove_advanced_goal(locate(href_list["remove_goal"]))
-
-	if(href_list["finalize_goals"])
-		if(should_equip)
-			return
-		should_equip = TRUE
-		finalize_traitor()
-		modify_traitor_points()
-		log_goals_on_finalize()
-
-	if(href_list["set_name"])
-		var/new_name = input(usr, "Set your antagonist name:", "Set name", "[name]") as message|null
-		if(new_name)
-			name = strip_html_simple(new_name, MAX_NAME_LEN)
-		else
-			return
-
-	if(href_list["set_employer"])
-		var/new_employer = input(usr, "Set your antagonist employer:", "Set employer", "[employer]") as message|null
-		employer = strip_html_simple(new_employer, MAX_NAME_LEN)
-
-	if(href_list["set_backstory"])
-		var/new_backstory = input(usr, "Set your antagonist backstory:", "Set backstory", "[backstory]") as message|null
-		backstory = strip_html_simple(new_backstory, MAX_MESSAGE_LEN)
-
-	if(check_rights(R_ADMIN, FALSE))
-		. = ..()
-
-	show_advanced_traitor_panel(usr)
-	return TRUE
-
-/* Opens this antag datum's advanced traitor panel as an admin.
- *
- * user - the admin opening the panel
- */
-/datum/antagonist/traitor/traitor_plus/proc/aview_advanced_traitor_panel(mob/user)
-	to_chat(user, "You're viewing [owner.current.real_name]'s goal panel as an admin.")
-	show_advanced_traitor_panel(usr)
+/datum/antagonist/traitor/traitor_plus/proc/cleanup_advanced_traitor_panel(mob/viewer)
+	open_panels[viewer] = null
+	open_panels -= viewer
+	if(!LAZYLEN(open_panels))
+		open_panels = null
 
 /// Miscellaneous logging for the antagonist's goals after they finalize them.
 /datum/antagonist/traitor/traitor_plus/proc/log_goals_on_finalize()
@@ -320,7 +214,7 @@
 /// An extra button for the TP, to open the goal panel
 /datum/antagonist/traitor/traitor_plus/get_admin_commands()
 	. = ..()
-	.["View Goals"] = CALLBACK(src, .proc/aview_advanced_traitor_panel, usr)
+	.["View Goals"] = CALLBACK(src, .proc/show_advanced_traitor_panel, usr)
 
 /// An extra button for check_antagonists, to open the goal panel
 /datum/antagonist/traitor/traitor_plus/antag_listing_commands()
@@ -333,10 +227,9 @@
 	if(href_list["admin_check_goals"])
 		var/datum/antagonist/traitor/traitor_plus/our_traitor = locate(href_list["admin_check_goals"])
 		if(!check_rights(R_ADMIN))
-			to_chat(usr, "<span class='danger'>Insufficient rights</span>")
 			return
 
-		our_traitor.aview_advanced_traitor_panel(usr)
+		our_traitor.show_advanced_traitor_panel(usr)
 		return
 
 /// Modify the traitor's starting_tc (TC or processing points) based on their goals.

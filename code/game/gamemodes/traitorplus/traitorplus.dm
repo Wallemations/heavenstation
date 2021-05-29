@@ -6,7 +6,10 @@
 	false_report_weight = 15
 	restricted_jobs = list("Cyborg") // Sorry, no cyborg traitors
 	//protected_jobs = list("Prisoner","Security Officer", "Warden", "Detective", "Head of Security", "Captain") // No protected jobs!
-	required_players = 1
+	required_enemies = 1
+	recommended_enemies = 4
+	reroll_friendly = 1
+	enemy_minimum_age = 0
 	reroll_friendly = FALSE
 
 	announce_span = "danger"

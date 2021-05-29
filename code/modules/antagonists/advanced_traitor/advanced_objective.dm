@@ -20,8 +20,10 @@
 	var/list/datum/objective/similar_objectives
 	/// Whether we check all objectives or just the first successful one in our [similar_objectives]
 	var/check_all_objectives = TRUE
+	/// Whether this objective is successful, regardless of our [similar_objectives]
+	var/always_succeed = FALSE
 
-/datum/advanced_antag_goal/New(datum/antagonist/antag_datum, identifier)
+/datum/advanced_antag_goal/New(datum/antagonist/antag_datum)
 	our_antag = antag_datum
 
 /datum/advanced_antag_goal/Destroy()
@@ -30,22 +32,33 @@
 	return ..()
 
 /// Set our goal to our passed goal.
-/datum/advanced_antag_goal/proc/set_goal_text(_goal)
-	goal = _goal
+/datum/advanced_antag_goal/proc/set_goal_text(goal)
+	src.goal = strip_html_simple(goal, TRAITOR_PLUS_MAX_GOAL_LENGTH)
+
+/// Set our goal to our passed goal.
+/datum/advanced_antag_goal/proc/set_note_text(notes)
+	src.notes = strip_html_simple(notes, TRAITOR_PLUS_MAX_NOTE_LENGTH)
 
 /// Set our intensity level to our passed intensity.
-/datum/advanced_antag_goal/proc/set_intensity(_intensity)
-	if(_intensity)
-		intensity = _intensity
-	else
-		intensity = 1
+/datum/advanced_antag_goal/proc/set_intensity(intensity)
+	src.intensity = clamp(intensity, 1, 5)
+
+/// Adds an objective to our similar objective list. Pass an instantiated objective.
+/datum/advanced_antag_goal/proc/add_similar_objective(datum/objective/added_objective)
+	added_objective.owner = our_antag.owner
+	LAZYADD(similar_objectives, added_objective)
+
+/// Remove an objective to our similar objective list. Pass an instantiated objective ref.
+/datum/advanced_antag_goal/proc/remove_similar_objective(datum/objective/removed_objective)
+	if(similar_objectives.Remove(removed_objective))
+		qdel(removed_objective)
 
 /// Generate roundend text for the roundend report for this advanced goal.
 /// Number is the number in the list that this objective is. (1 to 5)
 /datum/advanced_antag_goal/proc/get_roundend_text(number)
 	var/datum/antagonist/our_antag_datum = our_antag
 	var/formatted_text = "<br><B>Objective #[number]</B>: [goal]"
-	if(LAZYLEN(similar_objectives))
+	if(LAZYLEN(similar_objectives) || always_succeed)
 		if(check_relative_success())
 			formatted_text += "<br><span class='greentext'> The [our_antag_datum.name] succeeded this goal!</span>"
 		else
@@ -62,7 +75,7 @@
 	for(var/datum/objective/objective in similar_objectives)
 		if(check_all_objectives)
 			if(!objective.check_completion())
-				return FALSE
+				return FALSE || always_succeed
 		else
 			if(objective.check_completion())
 				return TRUE
