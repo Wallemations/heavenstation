@@ -61,6 +61,7 @@
 /area/ruin/unpowered)
 "p" = (
 /obj/structure/table,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/mineral/titanium/blue/airless,
 /area/ruin/unpowered)
 "q" = (
@@ -88,6 +89,14 @@
 "t" = (
 /obj/structure/girder,
 /turf/open/floor/plating/airless,
+/area/ruin/unpowered)
+"K" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating/airless,
+/area/ruin/unpowered)
+"W" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating/asteroid/airless,
 /area/ruin/unpowered)
 
 (1,1,1) = {"
@@ -623,7 +632,7 @@ d
 b
 b
 b
-g
+K
 g
 o
 b
@@ -658,7 +667,7 @@ d
 d
 b
 b
-c
+W
 e
 g
 m

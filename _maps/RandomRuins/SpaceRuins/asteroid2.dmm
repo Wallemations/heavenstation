@@ -11,6 +11,10 @@
 "d" = (
 /turf/closed/mineral/random/high_chance,
 /area/ruin/unpowered/no_grav)
+"f" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating/asteroid/airless,
+/area/ruin/unpowered/no_grav)
 
 (1,1,1) = {"
 a
@@ -166,7 +170,7 @@ c
 c
 c
 c
-b
+f
 b
 b
 a
@@ -195,7 +199,7 @@ a
 (10,1,1) = {"
 a
 b
-b
+f
 b
 c
 c

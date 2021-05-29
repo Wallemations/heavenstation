@@ -313,6 +313,10 @@
 /obj/item/stack/sheet/metal/fifty,
 /turf/open/floor/plating/asteroid/airless,
 /area/ruin/unpowered/no_grav)
+"Oj" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating/asteroid/airless,
+/area/ruin/unpowered/no_grav)
 "XA" = (
 /obj/structure/fluff/bus/passable/seat,
 /obj/effect/decal/cleanable/dirt,
@@ -429,7 +433,7 @@ ab
 ab
 ab
 ad
-ad
+Oj
 aj
 am
 ax
@@ -693,7 +697,7 @@ ab
 ab
 ab
 ab
-ad
+Oj
 ad
 ad
 ad

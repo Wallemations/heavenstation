@@ -1279,6 +1279,17 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
+"Xh" = (
+/obj/structure/closet/crate/secure/gear{
+	req_one_access_txt = "150"
+	},
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/syndicate_forgotten_ship)
 
 (1,1,1) = {"
 aa
@@ -2934,7 +2945,7 @@ aa
 aa
 ac
 bZ
-aw
+Xh
 bZ
 aw
 cu

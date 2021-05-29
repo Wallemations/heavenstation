@@ -23,10 +23,12 @@
 /turf/closed/wall/mineral/sandstone,
 /area/ruin/powered/clownplanet)
 "ag" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/engine,
 /area/ruin/powered/clownplanet)
 "ah" = (
 /mob/living/simple_animal/hostile/retaliate/clown/clownhulk/destroyer,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/engine,
 /area/ruin/powered/clownplanet)
 "ai" = (

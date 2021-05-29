@@ -68,6 +68,16 @@
 	},
 /turf/open/floor/plasteel/airless,
 /area/ruin/space/oldteleporter)
+"y" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plasteel/airless{
+	icon_state = "damaged2"
+	},
+/area/ruin/space/oldteleporter)
+"C" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plasteel/airless,
+/area/ruin/space/oldteleporter)
 
 (1,1,1) = {"
 a
@@ -162,7 +172,7 @@ b
 d
 c
 e
-e
+C
 m
 e
 d
@@ -202,7 +212,7 @@ a
 b
 c
 d
-f
+y
 e
 j
 e

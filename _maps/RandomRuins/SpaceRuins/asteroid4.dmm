@@ -48,6 +48,7 @@
 /obj/item/stack/sheet/mineral/bananium{
 	amount = 15
 	},
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/mineral/titanium/blue,
 /area/ruin/unpowered)
 "n" = (

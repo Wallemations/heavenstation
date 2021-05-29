@@ -270,6 +270,7 @@
 "aX" = (
 /obj/structure/closet/crate,
 /obj/effect/turf_decal/delivery,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/derelictoutpost/cargobay)
 "aY" = (
@@ -2037,6 +2038,12 @@
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/derelictoutpost/cargobay)
+"nv" = (
+/obj/structure/closet/crate/secure/loot,
+/obj/effect/turf_decal/delivery,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/derelictoutpost/cargostorage)
 "uV" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -2044,12 +2051,30 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/derelictoutpost/powerstorage)
+"Cf" = (
+/obj/structure/alien/weeds{
+	color = "#4BAE56";
+	desc = "A thick gelatinous surface covers the floor.  Someone get the golashes.";
+	name = "gelatinous floor"
+	},
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/derelictoutpost)
 "LB" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
 /turf/open/floor/plating,
+/area/ruin/space/has_grav/derelictoutpost)
+"NT" = (
+/obj/structure/alien/weeds{
+	color = "#4BAE56";
+	desc = "A thick gelatinous surface covers the floor.  Someone get the golashes.";
+	name = "gelatinous floor"
+	},
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plasteel,
 /area/ruin/space/has_grav/derelictoutpost)
 
 (1,1,1) = {"
@@ -2619,7 +2644,7 @@ ea
 ek
 er
 ex
-dX
+nv
 dL
 aR
 aZ
@@ -3114,7 +3139,7 @@ ci
 cA
 bF
 bl
-bl
+NT
 bF
 bF
 bF
@@ -3158,7 +3183,7 @@ bl
 cR
 dD
 bl
-cR
+Cf
 eg
 cR
 dR
@@ -3226,7 +3251,7 @@ bl
 bF
 bF
 bF
-bl
+NT
 cR
 cm
 cR
@@ -3296,7 +3321,7 @@ bl
 bF
 bF
 bF
-bl
+NT
 bF
 dk
 cR
@@ -3364,7 +3389,7 @@ bG
 bX
 cl
 cD
-cR
+Cf
 cm
 dm
 cm

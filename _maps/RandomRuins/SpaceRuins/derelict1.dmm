@@ -79,6 +79,21 @@
 /obj/effect/decal/remains/xeno,
 /turf/open/floor/plating/airless,
 /area/ruin/unpowered)
+"z" = (
+/obj/structure/alien/weeds,
+/obj/structure/table,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating/airless,
+/area/ruin/unpowered)
+"D" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating/airless,
+/area/ruin/unpowered)
+"N" = (
+/obj/structure/alien/weeds,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating/airless,
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 a
@@ -199,7 +214,7 @@ b
 b
 q
 q
-q
+D
 q
 c
 b
@@ -681,7 +696,7 @@ f
 f
 f
 f
-f
+N
 f
 f
 f
@@ -894,7 +909,7 @@ a
 b
 b
 c
-m
+z
 o
 c
 a

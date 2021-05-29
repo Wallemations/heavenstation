@@ -47,10 +47,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/abandoned_tele)
-"l" = (
-/obj/item/stock_parts/cell,
-/turf/open/floor/plating/airless,
-/area/ruin/space/abandoned_tele)
 "m" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/airless,
@@ -123,6 +119,10 @@
 /area/ruin/space/abandoned_tele)
 "B" = (
 /obj/structure/girder,
+/turf/open/floor/plating/airless,
+/area/ruin/space/abandoned_tele)
+"K" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plating/airless,
 /area/ruin/space/abandoned_tele)
 "O" = (
@@ -221,7 +221,7 @@ a
 b
 b
 g
-l
+K
 q
 u
 h
@@ -266,7 +266,7 @@ h
 n
 h
 h
-h
+K
 A
 h
 a

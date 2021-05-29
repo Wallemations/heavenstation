@@ -156,6 +156,7 @@
 /obj/structure/rack,
 /obj/item/tank/internals/emergency_oxygen,
 /obj/item/clothing/mask/breath,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/plasteel/airless/dark,
 /area/ruin/unpowered/no_grav)
 "K" = (

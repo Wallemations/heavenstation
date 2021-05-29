@@ -157,6 +157,29 @@
 /obj/item/shovel,
 /turf/open/floor/mineral/bananium/airless,
 /area/ruin/unpowered)
+"D" = (
+/obj/structure/closet/crate,
+/obj/item/stack/ore/bananium,
+/obj/item/stack/ore/bananium,
+/obj/item/stack/ore/bananium,
+/obj/item/stack/ore/bananium,
+/obj/item/stack/ore/bananium,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/mineral/bananium/airless,
+/area/ruin/unpowered)
+"E" = (
+/obj/structure/closet/crate,
+/obj/item/stack/ore/bananium,
+/obj/item/stack/ore/bananium,
+/obj/item/stack/ore/bananium,
+/obj/item/stack/ore/bananium,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/mineral/bananium/airless,
+/area/ruin/unpowered)
+"P" = (
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/turf/open/floor/plating/asteroid/airless,
+/area/ruin/unpowered/no_grav)
 
 (1,1,1) = {"
 a
@@ -420,7 +443,7 @@ b
 b
 b
 b
-c
+P
 b
 a
 "}
@@ -582,7 +605,7 @@ a
 a
 a
 d
-i
+D
 h
 h
 h
@@ -605,7 +628,7 @@ i
 h
 p
 h
-y
+E
 d
 b
 a

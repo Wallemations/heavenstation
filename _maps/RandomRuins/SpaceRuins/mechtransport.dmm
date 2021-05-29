@@ -15,10 +15,15 @@
 "f" = (
 /obj/structure/closet/crate/secure/loot,
 /obj/effect/decal/cleanable/cobweb,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/mineral/titanium/blue,
 /area/ruin/space/has_grav/powered/mechtransport)
 "g" = (
 /obj/structure/closet/crate/secure/loot,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
+/obj/effect/spawner/lootdrop/stockpart_spawner,
 /turf/open/floor/mineral/titanium/blue,
 /area/ruin/space/has_grav/powered/mechtransport)
 "h" = (
