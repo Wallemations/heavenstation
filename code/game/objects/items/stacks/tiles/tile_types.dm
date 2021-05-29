@@ -372,3 +372,115 @@
 
 /obj/item/stack/tile/eighties/loaded
 	amount = 15
+
+/obj/item/stack/tile/plasteel/textured
+	name = "textured tile"
+	singular_name = "textured floor tile"
+	icon_state = "tile_textured"
+	turf_type = /turf/open/floor/plasteel/textured
+	merge_type = /obj/item/stack/tile/plasteel/textured
+
+/obj/item/stack/tile/plasteel/textured/edge
+	name = "textured edge tile"
+	singular_name = "textured edge floor tile"
+	icon_state = "tile_textured_edge"
+	turf_type = /turf/open/floor/plasteel/textured/edge
+	merge_type = /obj/item/stack/tile/plasteel/textured/edge
+
+/obj/item/stack/tile/plasteel/textured/half
+	name = "halved textured tile"
+	singular_name = "halved textured floor tile"
+	icon_state = "tile_textured_half"
+	turf_type = /turf/open/floor/plasteel/textured/half
+	merge_type = /obj/item/stack/tile/plasteel/textured/half
+
+/obj/item/stack/tile/plasteel/textured/large
+	name = "large textured tile"
+	singular_name = "large textured floor tile"
+	icon_state = "tile_textured_large"
+	turf_type = /turf/open/floor/plasteel/textured/large
+	merge_type = /obj/item/stack/tile/plasteel/textured/large
+
+/obj/item/stack/tile/plasteel/dark/textured
+	name = "dark textured tile"
+	singular_name = "dark textured floor tile"
+	icon_state = "tile_textured_dark"
+	turf_type = /turf/open/floor/plasteel/dark/textured
+	merge_type = /obj/item/stack/tile/plasteel/dark/textured
+
+/obj/item/stack/tile/plasteel/dark/textured/edge
+	name = "dark textured edge tile"
+	singular_name = "dark textured edge floor tile"
+	icon_state = "tile_textured_dark_edge"
+	turf_type = /turf/open/floor/plasteel/dark/textured/edge
+	merge_type = /obj/item/stack/tile/plasteel/dark/textured/edge
+
+/obj/item/stack/tile/plasteel/dark/textured/half
+	name = "halved dark textured tile"
+	singular_name = "halved dark textured floor tile"
+	icon_state = "tile_textured_dark_half"
+	turf_type = /turf/open/floor/plasteel/dark/textured/half
+	merge_type = /obj/item/stack/tile/plasteel/dark/textured/half
+
+/obj/item/stack/tile/plasteel/dark/textured/large
+	name = "large dark textured tile"
+	singular_name = "large dark textured floor tile"
+	icon_state = "tile_textured_dark_large"
+	turf_type = /turf/open/floor/plasteel/dark/textured/large
+	merge_type = /obj/item/stack/tile/plasteel/dark/textured/large
+
+/obj/item/stack/tile/plasteel/white/textured
+	name = "white textured tile"
+	singular_name = "white textured floor tile"
+	icon_state = "tile_textured_white"
+	turf_type = /turf/open/floor/plasteel/white/textured
+	merge_type = /obj/item/stack/tile/plasteel/white/textured
+
+/obj/item/stack/tile/plasteel/white/textured/edge
+	name = "white textured edge tile"
+	singular_name = "white textured edge floor tile"
+	icon_state = "tile_textured_white_edge"
+	turf_type = /turf/open/floor/plasteel/white/textured/edge
+	merge_type = /obj/item/stack/tile/plasteel/white/textured/edge
+
+/obj/item/stack/tile/plasteel/white/textured/half
+	name = "halved white textured tile"
+	singular_name = "halved white textured floor tile"
+	icon_state = "tile_textured_white_half"
+	turf_type = /turf/open/floor/plasteel/white/textured/half
+	merge_type = /obj/item/stack/tile/plasteel/white/textured/half
+
+/obj/item/stack/tile/plasteel/white/textured/large
+	name = "large white textured tile"
+	singular_name = "large white textured floor tile"
+	icon_state = "tile_textured_white_large"
+	turf_type = /turf/open/floor/plasteel/white/textured/large
+	merge_type = /obj/item/stack/tile/plasteel/white/textured/large
+
+/obj/item/stack/tile/plasteel/smooth
+	name = "smooth tile"
+	singular_name = "smooth floor tile"
+	icon_state = "tile_smooth"
+	turf_type = /turf/open/floor/plasteel/smooth
+	merge_type = /obj/item/stack/tile/plasteel/smooth
+
+/obj/item/stack/tile/plasteel/smooth/edge
+	name = "smooth edge tile"
+	singular_name = "smooth edge floor tile"
+	icon_state = "tile_smooth_edge"
+	turf_type = /turf/open/floor/plasteel/smooth/edge
+	merge_type = /obj/item/stack/tile/plasteel/smooth/edge
+
+/obj/item/stack/tile/plasteel/smooth/half
+	name = "halved smooth tile"
+	singular_name = "halved smooth floor tile"
+	icon_state = "tile_smooth_half"
+	turf_type = /turf/open/floor/plasteel/smooth/half
+	merge_type = /obj/item/stack/tile/plasteel/smooth/half
+
+/obj/item/stack/tile/plasteel/smooth/large
+	name = "large smooth tile"
+	singular_name = "large smooth floor tile"
+	icon_state = "tile_smooth_large"
+	turf_type = /turf/open/floor/plasteel/smooth/large
+	merge_type = /obj/item/stack/tile/plasteel/smooth/large

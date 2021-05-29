@@ -71,6 +71,10 @@
 /obj/machinery/suit_storage_unit/engine/hev
 	suit_type = /obj/item/clothing/suit/space/hardsuit/hev
 
+/obj/machinery/suit_storage_unit/voidtech
+	suit_type = /obj/item/clothing/suit/space/hardsuit/voidtech
+	mask_type = /obj/item/clothing/mask/breath
+
 /obj/machinery/suit_storage_unit/atmos
 	suit_type = /obj/item/clothing/suit/space/hardsuit/engine/atmos
 	mask_type = /obj/item/clothing/mask/gas/atmos
