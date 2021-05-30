@@ -7023,14 +7023,14 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "dhP" = (
-/obj/machinery/computer/station_alert{
-	dir = 4
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
 /obj/machinery/airalarm{
 	pixel_y = 22
+	},
+/obj/machinery/modular_computer/console/preset/engineering{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/heads/chief)
@@ -13252,6 +13252,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel,
 /area/crew_quarters/dorms)
+"fzM" = (
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/research/glass/incinerator/toxmix_exterior,
+/turf/open/floor/engine/vacuum,
+/area/science/mixing/chamber)
 "fzS" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon,
@@ -80665,7 +80670,7 @@ gCe
 fQc
 nMX
 dDx
-nMX
+fzM
 irG
 gel
 kqD
