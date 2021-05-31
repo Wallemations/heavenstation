@@ -173,3 +173,84 @@
 
 /turf/open/floor/plasteel/sepia
 	icon_state = "sepia"
+
+/turf/open/floor/plasteel/textured
+	icon_state = "textured"
+	base_icon_state = "textured"
+	floor_tile = /obj/item/stack/tile/plasteel/textured
+
+/turf/open/floor/plasteel/textured/edge
+	icon_state = "textured_edge"
+	base_icon_state = "textured_edge"
+	floor_tile = /obj/item/stack/tile/plasteel/textured/edge
+
+/turf/open/floor/plasteel/textured/half
+	icon_state = "textured_half"
+	base_icon_state = "textured_half"
+	floor_tile = /obj/item/stack/tile/plasteel/textured/half
+
+/turf/open/floor/plasteel/textured/large
+	icon_state = "textured_large"
+	base_icon_state = "textured_large"
+	floor_tile = /obj/item/stack/tile/plasteel/textured/large
+
+/turf/open/floor/plasteel/dark/textured
+	icon_state = "textured_dark"
+	base_icon_state = "textured_dark"
+	floor_tile = /obj/item/stack/tile/plasteel/dark/textured
+
+/turf/open/floor/plasteel/dark/textured/edge
+	icon_state = "textured_dark_edge"
+	base_icon_state = "textured_dark_edge"
+	floor_tile = /obj/item/stack/tile/plasteel/dark/textured/edge
+
+/turf/open/floor/plasteel/dark/textured/half
+	icon_state = "textured_dark_half"
+	base_icon_state = "textured_dark_half"
+	floor_tile = /obj/item/stack/tile/plasteel/dark/textured/half
+
+/turf/open/floor/plasteel/dark/textured/large
+	icon_state = "textured_dark_large"
+	base_icon_state = "textured_dark_large"
+	floor_tile = /obj/item/stack/tile/plasteel/dark/textured/large
+
+/turf/open/floor/plasteel/white/textured
+	icon_state = "textured_white"
+	base_icon_state = "textured_white"
+	floor_tile = /obj/item/stack/tile/plasteel/white/textured
+
+/turf/open/floor/plasteel/white/textured/edge
+	icon_state = "textured_white_edge"
+	base_icon_state = "textured_white_edge"
+	floor_tile = /obj/item/stack/tile/plasteel/white/textured/edge
+
+/turf/open/floor/plasteel/white/textured/half
+	icon_state = "textured_white_half"
+	base_icon_state = "textured_white_half"
+	floor_tile = /obj/item/stack/tile/plasteel/white/textured/half
+
+/turf/open/floor/plasteel/white/textured/large
+	icon_state = "textured_white_large"
+	base_icon_state = "textured_white_large"
+	floor_tile = /obj/item/stack/tile/plasteel/white/textured/large
+
+/turf/open/floor/plasteel/smooth
+	icon_state = "smooth"
+	base_icon_state = "smooth"
+	floor_tile = /obj/item/stack/tile/plasteel/smooth
+
+/turf/open/floor/plasteel/smooth/edge
+	icon_state = "smooth_edge"
+	base_icon_state = "smooth_edge"
+	floor_tile = /obj/item/stack/tile/plasteel/smooth/edge
+
+/turf/open/floor/plasteel/smooth/half
+	icon_state = "smooth_half"
+	base_icon_state = "smooth_half"
+	floor_tile = /obj/item/stack/tile/plasteel/smooth/half
+
+/turf/open/floor/plasteel/smooth/large
+	icon_state = "smooth_large"
+	base_icon_state = "smooth_large"
+	floor_tile = /obj/item/stack/tile/plasteel/smooth/large
+

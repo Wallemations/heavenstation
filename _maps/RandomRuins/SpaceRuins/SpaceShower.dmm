@@ -39,7 +39,7 @@
 "j" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/space/nearstation)
+/area/ruin/unpowered/no_grav)
 "k" = (
 /obj/structure/fluff/broken_flooring{
 	dir = 4;
@@ -83,7 +83,7 @@
 /obj/structure/lattice,
 /obj/item/bodypart/chest,
 /turf/template_noop,
-/area/space/nearstation)
+/area/ruin/unpowered/no_grav)
 "q" = (
 /obj/machinery/shower{
 	dir = 8
@@ -95,7 +95,7 @@
 /obj/structure/lattice,
 /obj/item/bodypart/l_leg,
 /turf/template_noop,
-/area/space/nearstation)
+/area/ruin/unpowered/no_grav)
 
 (1,1,1) = {"
 a

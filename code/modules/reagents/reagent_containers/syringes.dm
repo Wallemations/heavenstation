@@ -43,6 +43,11 @@
 /obj/item/reagent_containers/syringe/attack_self(mob/user)
 	mode = !mode
 	update_icon()
+	switch(mode)
+		if(SYRINGE_DRAW)
+			balloon_alert(user, "mode: Draw")
+		if(SYRINGE_INJECT)
+			balloon_alert(user, "mode: Inject")
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/item/reagent_containers/syringe/attack_hand()

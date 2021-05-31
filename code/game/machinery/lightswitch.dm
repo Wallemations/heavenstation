@@ -25,7 +25,7 @@
 
 /obj/machinery/light_switch/LateInitialize()
 	. = ..()
-	if(prob(20) && area.lightswitch) //20% chance for area to start with lights off.
+	if(prob(5) && area.lightswitch) //5% chance for area to start with lights off.
 		turn_off()
 
 /obj/machinery/light_switch/update_icon_state()

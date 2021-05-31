@@ -134,3 +134,6 @@ config/title_music/sounds/Icarus.ogg
 config/title_music/sounds/Greenpath.ogg
 config/title_music/sounds/In The Garden.ogg
 config/title_music/sounds/Icarus.ogg
+config/title_music/sounds/Romantic Now.ogg
+config/title_music/sounds/Night_Running.ogg
+config/title_music/sounds/White Space.ogg

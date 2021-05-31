@@ -28,3 +28,8 @@
 				/obj/item/stock_parts/cell/void/empty = 5,
 				/obj/item/stock_parts/electrolite/void = 5
 				)
+
+/obj/item/paper/crumpled/bloody/kitty_note
+	name = "note"
+	info = {"If anyone comes across this I beg of you,<br>
+	please leave and forget you ever found this place..."}
