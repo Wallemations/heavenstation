@@ -1,0 +1,23 @@
+"a" = (/turf/template_noop,/area/template_noop)
+"i" = (/obj/item/paper/crumpled/bloody/kitty_note,/turf/open/floor/mineral/diamond,/area/ruin/unpowered/no_grav)
+"F" = (/turf/closed/wall/mineral/gold,/area/ruin/unpowered/no_grav)
+"G" = (/turf/open/floor/mineral/diamond,/area/ruin/unpowered/no_grav)
+"M" = (/obj/structure/lattice,/turf/template_noop,/area/ruin/unpowered/no_grav)
+"Q" = (/turf/open/floor/mineral/gold,/area/ruin/unpowered/no_grav)
+"R" = (/turf/closed/wall/mineral/diamond,/area/ruin/unpowered/no_grav)
+"S" = (/obj/structure/table/wood/fancy/red,/obj/item/melee/baseball_bat/kitty/cursed,/turf/open/floor/mineral/gold,/area/ruin/unpowered/no_grav)
+
+(1,1,1) = {"
+aaaaaaaaaaaa
+aaaaaaaaaaaa
+aaaaaaaQaMaa
+aaMaMaMaaMaa
+aaMRFMGRMaaa
+aFMMQMQMaQaa
+MMMFGSGFMaaa
+aaQGQiaFaMaa
+aaMRFaMRaaaa
+aMaMaMQMMaaa
+aaaaQaaMaaaa
+aaaaaMaaaaaa
+"}

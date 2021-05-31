@@ -314,3 +314,9 @@
 	suffix = "SpaceShower.dmm"
 	name = "Space shower"
 	description = "A creepy space shower"
+
+/datum/map_template/ruin/space/kitty
+	id = "kittyshrine"
+	suffix = "kittyshrine.dmm"
+	name = "Kitty Shrine"
+	description = "A shrine to a long forgotten evil."

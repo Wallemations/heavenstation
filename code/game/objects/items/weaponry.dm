@@ -794,32 +794,41 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	desc = "'Now I am become Death, the destroyer of worlds.' -J. Robert Oppenheimer"
 	icon_state = "baseball_bat_kitty"
 	inhand_icon_state = "baseball_bat_kitty"
-	attack_verb_simple = list("beat", "bashed", "smacked", "bopped", "poked", "whacked")
-	attack_verb_continuous = list("beats", "bashes", "smacks", "bops", "pokes", "whacks")
+	attack_verb_simple = list("beat")
+	attack_verb_continuous = list("beats")
 	force = 10
 	wound_bonus = -10
 	bare_wound_bonus = 0
 	throwforce = 12
-	var/effect = null
+	var/effect = 1
 	var/stun_sound = 'sound/weapons/egloves.ogg'
 	var/confusion_amt = 0
 	var/stamina_loss_amt = 0
 	var/apply_stun_delay = 0 SECONDS
 	var/stun_time = 0 SECONDS
 
-/obj/item/melee/baseball_bat/kitty/attack(mob/living/target, mob/living/user)
+/obj/item/melee/baseball_bat/kitty/pickup()
+	.=..()
+	START_PROCESSING(SSfastprocess, src)
+
+/obj/item/melee/baseball_bat/kitty/dropped()
+	.=..()
+	STOP_PROCESSING(SSfastprocess, src)
+
+/obj/item/melee/baseball_bat/kitty/Destroy()
+	STOP_PROCESSING(SSfastprocess, src)
+	set_light(0, 0)
 	. = ..()
-	set_light(rand(1, 3))
-	light_power = 10
-	var/atom/throw_target = get_edge_target_turf(target, user.dir)
-	if(!target.anchored)
-		var/whack_speed = (prob(90) ? 7 : 10)
-		target.throw_at(throw_target, rand(3, 6), whack_speed, user)
-	if(istype(target, /mob/living))
-		effect = pick(1, 2, 3, 4, 5)
+
+/obj/item/melee/baseball_bat/kitty/process(delta_time)
+	var/last_effect = effect
+	set_light(rand(2, 3), 15)
+	effect = rand(1, 9)
+	if(effect == last_effect)
+		return
 	switch(effect)
-		if(1)
-			light_color = "#FF5733"
+		if(1) //High-Wound
+			light_color = LIGHT_COLOR_PURPLE
 			force = 10
 			confusion_amt = 0
 			stamina_loss_amt = 0
@@ -827,15 +836,103 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 			stun_time = 0 SECONDS
 			wound_bonus = 100
 			bare_wound_bonus = 200
-		if(2)
+			attack_verb_simple = list("crushed")
+			attack_verb_continuous = list("crushes")
+		if(2) //Dismember
+			light_color = LIGHT_COLOR_BLOOD_MAGIC
 			force = 10
-			light_color = "#E6ED3B"
 			wound_bonus = -10
 			bare_wound_bonus = 0
 			confusion_amt = 0
 			stamina_loss_amt = 0
 			apply_stun_delay = 0 SECONDS
 			stun_time = 0 SECONDS
+			attack_verb_simple = list("slashed")
+			attack_verb_continuous = list("slashes")
+		if(3) //Disarm
+			light_color = LIGHT_COLOR_DARK_BLUE
+			force = 10
+			wound_bonus = -10
+			bare_wound_bonus = 0
+			confusion_amt = 0
+			stamina_loss_amt = 0
+			apply_stun_delay = 0 SECONDS
+			stun_time = 0 SECONDS
+			attack_verb_simple = list("pummeled")
+			attack_verb_continuous = list("pummels")
+		if(4) //Stun Baton
+			force = 10
+			light_color = LIGHT_COLOR_ELECTRIC_GREEN
+			wound_bonus = -10
+			bare_wound_bonus = 0
+			confusion_amt = 10
+			stamina_loss_amt = 60
+			apply_stun_delay = 2 SECONDS
+			stun_time = 5 SECONDS
+			attack_verb_simple = list("battered")
+			attack_verb_continuous = list("batters")
+		if(5) //Double Damage
+			force = 20
+			light_color = LIGHT_COLOR_PINK
+			wound_bonus = -10
+			bare_wound_bonus = 0
+			confusion_amt = 0
+			stamina_loss_amt = 0
+			apply_stun_delay = 0 SECONDS
+			stun_time = 0 SECONDS
+			attack_verb_simple = list("trashed")
+			attack_verb_continuous = list("thrashes")
+		if(6) //Half Damage
+			force = 5
+			light_color = LIGHT_COLOR_ORANGE
+			wound_bonus = -10
+			bare_wound_bonus = 0
+			confusion_amt = 0
+			stamina_loss_amt = 0
+			apply_stun_delay = 0 SECONDS
+			stun_time = 0 SECONDS
+			attack_verb_simple = list("poked")
+			attack_verb_continuous = list("pokes")
+		if(7) //ARE THESE FUCKING ANTS?!
+			force = 10
+			light_color = LIGHT_COLOR_YELLOW
+			wound_bonus = -10
+			bare_wound_bonus = 0
+			confusion_amt = 0
+			stamina_loss_amt = 0
+			apply_stun_delay = 0 SECONDS
+			stun_time = 0 SECONDS
+			attack_verb_simple = list("hammered")
+			attack_verb_continuous = list("hammers")
+		if(8) //HOMERUN!!
+			force = 2
+			light_color = LIGHT_COLOR_CYAN
+			wound_bonus = -30
+			bare_wound_bonus = 0
+			confusion_amt = 0
+			stamina_loss_amt = 0
+			apply_stun_delay = 0 SECONDS
+			stun_time = 0 SECONDS
+			attack_verb_simple = list("striked")
+			attack_verb_continuous = list("strikes")
+		if(9) //Standard
+			force = 10
+			light_color = LIGHT_COLOR_HALOGEN
+			wound_bonus = -10
+			bare_wound_bonus = 0
+			confusion_amt = 0
+			stamina_loss_amt = 0
+			apply_stun_delay = 0 SECONDS
+			stun_time = 0 SECONDS
+			attack_verb_simple = list("beat")
+			attack_verb_continuous = list("beats")
+
+/obj/item/melee/baseball_bat/kitty/attack(mob/living/target, mob/living/user)
+	. = ..()
+	set_light(rand(2, 3))
+	light_power = 10
+	switch(effect)
+		if(2)
 			if(iscarbon(target))
 				var/mob/living/carbon/C = target
 				if(HAS_TRAIT(C, TRAIT_NODISMEMBER))
@@ -850,38 +947,27 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 					var/obj/item/bodypart/bodypart = pick(parts)
 					bodypart.dismember()
 		if(3)
-			force = 10
-			light_color = "#3B40ED"
-			wound_bonus = -10
-			bare_wound_bonus = 0
 			if(ishuman(target))
 				var/mob/living/carbon/human/H = target
 				H.drop_all_held_items()
 				H.visible_message("<span class='danger'>[user] disarms [H]!</span>", "<span class='userdanger'>[user] disarmed you!</span>")
-
 		if(4)
-			force = 10
-			light_color = "#119e34"
 			var/mob/living/carbon/human/L = target
-			wound_bonus = -10
-			bare_wound_bonus = 0
-			confusion_amt = 10
-			stamina_loss_amt = 60
-			apply_stun_delay = 2 SECONDS
-			stun_time = 5 SECONDS
 			L.apply_damage(stamina_loss_amt, STAMINA, BODY_ZONE_CHEST)
-
 			SEND_SIGNAL(L, COMSIG_LIVING_MINOR_SHOCK)
 			addtimer(CALLBACK(src, .proc/apply_stun_effect_end, L), apply_stun_delay)
-		if(5)
-			force = 25
-			light_color = "#ED3BE4"
-			wound_bonus = -10
-			bare_wound_bonus = 0
-			confusion_amt = 0
-			stamina_loss_amt = 0
-			apply_stun_delay = 0 SECONDS
-			stun_time = 0 SECONDS
+			L.visible_message("<span class='danger'>[user] stuns [L]!</span>", "<span class='userdanger'>[user] stunned you!</span>")
+		if(7)
+			var/mob/living/carbon/human/L = target
+			var/amount_left = 5
+			L.apply_status_effect(STATUS_EFFECT_ANTS, amount_left)
+			L.visible_message("<span class='danger'>[L] is covered in ants!</span>", "<span class='userdanger'>JESUS CHRIST YOU'RE COVERED IN ANTS!!!</span>")
+		if(8)
+			var/atom/throw_target = get_edge_target_turf(target, user.dir)
+			if(!target.anchored)
+				var/whack_speed = (prob(90) ? 3 : 6)
+				target.throw_at(throw_target, rand(3, 6), whack_speed, user)
+
 	return ..()
 
 /obj/item/melee/baseball_bat/kitty/proc/apply_stun_effect_end(mob/living/target)
@@ -893,6 +979,16 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		target.Knockdown(stun_time * 0.1)
 	else
 		target.Knockdown(stun_time)
+
+/obj/item/melee/baseball_bat/kitty/cursed
+	desc = "Just looking at it makes you want to hurl."
+	var/handled = FALSE
+
+/obj/item/melee/baseball_bat/kitty/cursed/pickup(mob/living/carbon/user)
+	.=..()
+	if(!handled)
+		user.gain_trauma(/datum/brain_trauma/magic/stalker)//I told you about the shrines bro!!!!!!!!!
+		handled = TRUE //Thinking about it, I'd prefer if people weren't ALL assaulted for picking it up. A death in exchange for this item is enough.
 
 /obj/item/melee/flyswatter
 	name = "flyswatter"
