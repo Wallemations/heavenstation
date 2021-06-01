@@ -2428,3 +2428,22 @@
 		M.adjustOxyLoss(2, FALSE)
 		M.adjustBruteLoss(2, FALSE)
 	..()
+
+/datum/reagent/glue //Look into a slowdown debuff when stepping on glued tiles.
+	name = "Space Glue"
+	description = "You remember chuggin' this stuff back in preschool. Good times."
+	reagent_state = LIQUID
+	color = "#c4c4af"
+	taste_mult = 0
+
+/datum/reagent/starch //Unfinished
+	name = "Starch"
+	description = "I'm actually on a starchless diet, so..."
+	reagent_state = SOLID
+	color = "#f3c98a"
+	taste_mult = 0
+
+/datum/reagent/starch/on_mob_life(mob/living/carbon/M)
+	. = ..()
+	if(M.blood_volume)
+		M.blood_volume += 0.1 // placeholder until I could figure out how to make starch more interesting
