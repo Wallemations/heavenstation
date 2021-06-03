@@ -19993,12 +19993,10 @@
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
 "irH" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 26
-	},
-/turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/kitchen)
+/obj/machinery/biogenerator,
+/obj/structure/table/reinforced,
+/turf/closed/wall,
+/area/hydroponics)
 "irM" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -43090,14 +43088,8 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 8
 	},
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = -12;
-	pixel_y = 2
-	},
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = -30
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/hydroponics)
@@ -47366,6 +47358,21 @@
 	req_one_access_txt = "30;35"
 	},
 /obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/hydroponics)
+"tke" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = -30
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = -12;
+	pixel_y = 2
+	},
 /turf/open/floor/plasteel,
 /area/hydroponics)
 "tkg" = (
@@ -54662,7 +54669,7 @@
 "weZ" = (
 /obj/structure/table,
 /obj/item/kitchen/knife/bread{
-	pixel_y = 8
+	pixel_y = 15
 	},
 /obj/item/reagent_containers/food/condiment/enzyme{
 	layer = 5
@@ -58268,9 +58275,12 @@
 /turf/open/floor/plasteel,
 /area/science/robotics/mechbay)
 "xIS" = (
-/obj/machinery/biogenerator,
-/turf/closed/wall,
-/area/hydroponics)
+/obj/structure/disposalpipe/segment,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 26
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/crew_quarters/kitchen)
 "xIZ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -97815,12 +97825,12 @@ uWT
 odg
 seK
 ate
-irH
+fDW
 fDW
 kCW
 dsH
 fDW
-fDW
+xIS
 tqF
 seK
 eQI
@@ -98067,12 +98077,12 @@ uWT
 uLL
 xWl
 xWl
-xWl
+irH
 tyd
 xWl
 som
 ecO
-xIS
+xWl
 xWl
 xWl
 iwW
@@ -98319,12 +98329,12 @@ uWT
 bSE
 xWl
 kfA
+ffL
+ffL
 ryV
 ffL
 ffL
-ffL
-ffL
-ffL
+tke
 jPp
 som
 qTN
