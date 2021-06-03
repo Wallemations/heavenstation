@@ -3583,4 +3583,6 @@
 #include "interface\menu.dm"
 #include "interface\stylesheet.dm"
 #include "interface\skin.dmf"
+#include "modular_heaven\_module_DEFINES.dm"
+#include "modular_heaven\modules\item_dispenser\code\game\object\structures\item_dispenser.dm"
 // END_INCLUDE
