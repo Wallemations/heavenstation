@@ -168,6 +168,8 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 #define TURF_WET_LUBE		(1<<3)
 #define TURF_WET_SUPERLUBE	(1<<4)
 
+#define TURF_GLUED
+
 #define IS_WET_OPEN_TURF(O) O.GetComponent(/datum/component/wet_floor)
 
 //Maximum amount of time, (in deciseconds) a tile can be wet for.

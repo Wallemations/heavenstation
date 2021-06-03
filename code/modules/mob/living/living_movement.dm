@@ -57,3 +57,14 @@
 
 /mob/living/canZMove(dir, turf/target)
 	return can_zTravel(target, dir) && (movement_type & FLYING | FLOATING)
+
+/mob/living/proc/update_glue_movespeed()
+	add_movespeed_modifier(/datum/movespeed_modifier/glued)
+	glued = TRUE
+	addtimer(CALLBACK(src, .proc/update_unglued_movespeed), 5 SECONDS)
+
+/mob/living/proc/update_unglued_movespeed()
+	if(glued)
+		remove_movespeed_modifier(/datum/movespeed_modifier/glued)
+		to_chat(src,"<span class='notice'>The glue smeared off your feet, allowing you to move freely.</span>")
+		glued = FALSE

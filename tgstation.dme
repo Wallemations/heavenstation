@@ -478,6 +478,7 @@
 #include "code\datums\components\squeak.dm"
 #include "code\datums\components\stationloving.dm"
 #include "code\datums\components\stationstuck.dm"
+#include "code\datums\components\sticky_floor.dm"
 #include "code\datums\components\summoning.dm"
 #include "code\datums\components\surgery_initiator.dm"
 #include "code\datums\components\swabbing.dm"

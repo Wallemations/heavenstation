@@ -596,3 +596,22 @@
 	for(var/i = rand(1, created_volume), i <= created_volume, i++)
 		new /mob/living/simple_animal/pet/ant(location)
 	..()
+
+//Uses space-cola because baking soda's actual chemical composition couldn't be made due to lye's recipe. Soda joke instead.
+/datum/chemical_reaction/asmr_slime //Bust out the high-sensitivity mics & red-hot knives
+	required_reagents = list(/datum/reagent/glue = 4, /datum/reagent/consumable/space_cola = 2, /datum/reagent/starch = 1)
+
+/datum/chemical_reaction/asmr_slime/on_reaction(datum/reagents/holder, created_volume)
+	var/mob/living/simple_animal/slime/S = new(get_turf(holder.my_atom), "grey")
+	S.visible_message("<span class='danger'>Your slime begins to shift and distort itself to life!</span>")
+	..()
+	..()
+
+/datum/chemical_reaction/starch //Without the hassle of grindin' up food!
+	results = list(/datum/reagent/starch = 10)
+	required_reagents = list(/datum/reagent/oxygen = 5, /datum/reagent/hydrogen = 10, /datum/reagent/carbon = 6)
+
+/datum/chemical_reaction/glue //Sticky!
+	results = list(/datum/reagent/glue = 3)
+	required_reagents = list(/datum/reagent/oxygen = 2, /datum/reagent/sulfur = 6, /datum/reagent/carbon = 4)//Swapped out hydrogen with sulfur so starch could still function
+
