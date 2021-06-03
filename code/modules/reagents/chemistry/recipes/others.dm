@@ -608,10 +608,10 @@
 	..()
 
 /datum/chemical_reaction/starch //Without the hassle of grindin' up food!
-	results = list(/datum/reagent/starch = 1)
+	results = list(/datum/reagent/starch = 10)
 	required_reagents = list(/datum/reagent/oxygen = 5, /datum/reagent/hydrogen = 10, /datum/reagent/carbon = 6)
 
 /datum/chemical_reaction/glue //Sticky!
-	results = list(/datum/reagent/glue = 1)
+	results = list(/datum/reagent/glue = 3)
 	required_reagents = list(/datum/reagent/oxygen = 2, /datum/reagent/sulfur = 6, /datum/reagent/carbon = 4)//Swapped out hydrogen with sulfur so starch could still function
 

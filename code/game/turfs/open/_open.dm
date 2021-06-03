@@ -279,3 +279,5 @@
 		air.garbage_collect()
 		air_update_turf()
 
+/turf/open/proc/MakeSticky(minimum_duration = 0, duration = 0, _permanent)
+	AddComponent(/datum/component/sticky_floor, minimum_duration, duration, _permanent)

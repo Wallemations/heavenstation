@@ -19,3 +19,8 @@
 
 /datum/movespeed_modifier/sanity/disturbed
 	multiplicative_slowdown = 0.25
+
+/datum/movespeed_modifier/glued
+	multiplicative_slowdown = 1.5
+	movetypes = GROUND
+

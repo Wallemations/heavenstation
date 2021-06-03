@@ -2429,12 +2429,28 @@
 		M.adjustBruteLoss(2, FALSE)
 	..()
 
-/datum/reagent/glue //Look into a slowdown debuff when stepping on glued tiles.
+/datum/reagent/glue
 	name = "Space Glue"
 	description = "You remember chuggin' this stuff back in preschool. Good times."
 	reagent_state = LIQUID
-	color = "#c4c4af"
+	color = "#78cd6d"
 	taste_mult = 0
+
+/datum/reagent/glue/expose_turf(turf/open/exposed_turf, reac_volume)
+	. = ..()
+	if(!istype(exposed_turf))
+		return
+
+	if(reac_volume >= 5)
+		exposed_turf.MakeSticky(10, min(reac_volume*1.5, 60))
+
+/datum/reagent/glue/on_mob_metabolize(mob/living/L)
+	..()
+	L.add_movespeed_modifier(/datum/movespeed_modifier/glued)
+
+/datum/reagent/glue/on_mob_end_metabolize(mob/living/L)
+	L.remove_movespeed_modifier(/datum/movespeed_modifier/glued)
+	..()
 
 /datum/reagent/starch //Unfinished
 	name = "Starch"
