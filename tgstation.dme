@@ -3585,4 +3585,6 @@
 #include "interface\skin.dmf"
 #include "modular_heaven\_module_DEFINES.dm"
 #include "modular_heaven\modules\item_dispenser\code\game\object\structures\item_dispenser.dm"
+#include "modular_heaven\modules\pizza_burgers\code\game\object\item\food\burgers.dm"
+#include "modular_heaven\modules\pizza_burgers\code\game\object\item\food\pizza.dm"
 // END_INCLUDE
