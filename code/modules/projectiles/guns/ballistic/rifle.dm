@@ -63,11 +63,6 @@
 	knife_x_offset = 27
 	knife_y_offset = 13
 	can_be_sawn_off = TRUE
-	var/jamming_chance = 20
-	var/unjam_chance = 10
-	var/jamming_increment = 5
-	var/jammed = FALSE
-	var/can_jam = TRUE
 
 /obj/item/gun/ballistic/rifle/boltaction/sawoff(mob/user)
 	. = ..()
@@ -75,7 +70,7 @@
 		spread = 36
 		can_bayonet = FALSE
 		update_appearance()
-
+/*
 /obj/item/gun/ballistic/rifle/boltaction/attack_self(mob/user)
 	if(can_jam)
 		if(jammed)
@@ -107,7 +102,7 @@
 					user.visible_message("<span class='notice'>[user] finishes maintenance of [src].</span>")
 					jamming_chance = 10
 					qdel(item)
-
+*/
 /obj/item/gun/ballistic/rifle/boltaction/blow_up(mob/user)
 	. = FALSE
 	if(chambered?.loaded_projectile)
@@ -123,13 +118,13 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/harpoon
 	fire_sound = 'sound/weapons/gun/sniper/shot.ogg'
 	can_be_sawn_off = FALSE
-	can_jam = FALSE
+
 
 /obj/item/gun/ballistic/rifle/boltaction/brand_new
 	name = "Mosin Nagant"
 	desc = "Brand new Mosin Nagant issued by Nanotrasen for their interns. You would rather not to damage it."
 	can_be_sawn_off = FALSE
-	can_jam = FALSE
+
 
 /obj/item/gun/ballistic/rifle/boltaction/pipegun
 	name = "pipegun"
@@ -167,7 +162,6 @@
 	worn_icon_state = "musket_prime"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/pipegun/prime
 	can_misfire = FALSE
-	can_jam = FALSE
 	misfire_probability = 0
 	misfire_percentage_increment = 0
 	projectile_damage_multiplier = 1
