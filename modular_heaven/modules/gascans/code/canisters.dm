@@ -1,3 +1,4 @@
+// Original Sprites by Tex & Partheo
 /obj/machinery/portable_atmospherics/canister
 	icon = 'modular_heaven/modules/gascans/icons/canisters.dmi'
 	canister_overlay_file = 'modular_heaven/modules/gascans/icons/canisters.dmi'
