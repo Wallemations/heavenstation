@@ -1,7 +1,7 @@
 /datum/quirk/unholy
 	name = "Dead Man Walking"
 	desc = "You have an extremely adverse reaction to holy figures."
-	value = -7
+	value = -6
 	gain_text = "<span class='warning'>You feel your soul trying to escape your body. Try to stay away from sources of holiness!</span>"
 	var/antispam = FALSE // Stops spam in chat
 
