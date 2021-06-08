@@ -674,9 +674,11 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		to_chat(user, "<span class='warning'>You're already ready to do a home run!</span>")
 		..()
 		return
+	set_light(1) // NON-MODULE CHANGE
 	to_chat(user, "<span class='warning'>You begin gathering strength...</span>")
 	playsound(get_turf(src), 'sound/magic/lightning_chargeup.ogg', 65, TRUE)
 	if(do_after(user, 90, target = src))
+		set_light(3) // NON-MODULE CHANGE
 		to_chat(user, "<span class='userdanger'>You gather power! Time for a home run!</span>")
 		homerun_ready = 1
 	..()
@@ -692,6 +694,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		SSexplosions.medturf += throw_target
 		playsound(get_turf(src), 'sound/weapons/homerun.ogg', 100, TRUE)
 		homerun_ready = 0
+		set_light(0) // NON-MODULE CHANGE
 		return
 	else if(!target.anchored)
 		var/whack_speed = (prob(60) ? 1 : 4)
