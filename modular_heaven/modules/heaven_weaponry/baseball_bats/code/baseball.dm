@@ -467,26 +467,6 @@
 	worn_icon_state = initial(worn_icon_state)
 	for(var/obj/item/melee/baseball_bat/B in contents)
 		worn_icon_state += "[B.belt_sprite]"
-	/*for(var/obj/item/melee/baseball_bat/B in contents)
-		worn_icon_state += "-basic"
-	for(var/obj/item/melee/baseball_bat/bluespace/BLSP in contents)
-		worn_icon_state += "-bluespace"
-	for(var/obj/item/melee/baseball_bat/barbed/BARB in contents)
-		worn_icon_state += "-barbed"
-	for(var/obj/item/melee/baseball_bat/homerun/HMRN in contents)
-		worn_icon_state += "-home"
-	for(var/obj/item/melee/baseball_bat/buzz/BZZ in contents)
-		worn_icon_state += "-buzz"
-	for(var/obj/item/melee/baseball_bat/knife/KN in contents)
-		worn_icon_state += "-knife"
-	for(var/obj/item/melee/baseball_bat/magic/MAG in contents)
-		worn_icon_state += "-magic"
-	for(var/obj/item/melee/baseball_bat/kitty/KIT in contents)
-		worn_icon_state += "-kitty"
-	for(var/obj/item/melee/baseball_bat/burn/BRN in contents)
-		worn_icon_state += "-burn"
-	for(var/obj/item/melee/baseball_bat/ablative/MET in contents)
-		worn_icon_state += "-metal"*/
 	for(var/obj/item/melee/baton/baseball/STUN in contents)
 		worn_icon_state += "-baton"
 	for(var/obj/item/fireaxe/baseball/EXEC in contents)
