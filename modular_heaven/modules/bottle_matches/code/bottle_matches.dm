@@ -1,6 +1,17 @@
 /obj/item/storage/box/matches
 	icon = 'modular_heaven/modules/bottle_matches/icons/matches.dmi'
 
+/obj/item/storage/box/matches/update_icon_state()
+	switch(length(contents))
+		if(10)
+			icon_state = initial(icon_state)
+		if(5 to 9)
+			icon_state = "[initial(icon_state)]_almostfull"
+		if(1 to 4)
+			icon_state = "[initial(icon_state)]_almostempty"
+		if(0)
+			icon_state = "[initial(icon_state)]_e"
+
 /obj/item/reagent_containers/food/drinks
 	icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
 
