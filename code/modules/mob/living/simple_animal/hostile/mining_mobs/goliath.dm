@@ -107,6 +107,19 @@
 	bonus_tame_chance = 5
 	var/saddled = FALSE
 
+/mob/living/simple_animal/hostile/asteroid/goliath/beast/clockwork
+	name = "clockwork goliath"
+	desc = "A standard goliath, but turned crudely mechanical by some unknown force."
+	icon_state = "goliath_clockwork"
+	icon_living = "goliath_clockwork"
+	icon_aggro = "goliath_clockwork"
+	icon_dead = "goliath_clockwork_dead"
+	pre_attack_icon = "goliath_clockwork2"
+	mob_biotypes = MOB_BEAST
+	maxHealth = 200
+	health = 200
+	throw_message = "does nothing to the metallic hide of the"
+
 /mob/living/simple_animal/hostile/asteroid/goliath/beast/attackby(obj/item/O, mob/user, params)
 	if(istype(O, /obj/item/saddle) && !saddled)
 		if(tame && do_after(user,55,target=src))
