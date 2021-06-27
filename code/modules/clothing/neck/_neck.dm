@@ -283,3 +283,9 @@
 /obj/item/clothing/neck/beads/Initialize()
 	. = ..()
 	color = color = pick("#ff0077","#d400ff","#2600ff","#00ccff","#00ff2a","#e5ff00","#ffae00","#ff0000", "#ffffff")
+
+/obj/item/clothing/neck/bunnyears
+	name = "bunny ears"
+	desc = "Bnnuy."
+	icon_state = "facial_bnuuy"
+	inhand_icon_state = "facial_bnuuy"
