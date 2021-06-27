@@ -602,3 +602,4 @@
 	desc = "Bnnuy."
 	icon_state = "facial_bnuuy"
 	inhand_icon_state = "facial_bnuuy"
+	
