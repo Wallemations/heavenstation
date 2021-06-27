@@ -596,3 +596,10 @@
 	desc = "Mystic Eye Killers. They're more for everyone else's safety than your own. "
 	icon_state = "mystic_killer"
 	inhand_icon_state = "mystic_killer"
+
+/obj/item/clothing/glasses/bunnyears
+	name = "bunny ears"
+	desc = "Bnnuy."
+	icon_state = "facial_bnuuy"
+	inhand_icon_state = "facial_bnuuy"
+	

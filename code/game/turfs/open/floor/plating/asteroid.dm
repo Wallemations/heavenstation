@@ -180,9 +180,9 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 	has_data = TRUE
 
 /turf/open/floor/plating/asteroid/airless/cave/volcanic
-	mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50, /obj/structure/spawner/lavaland/goliath = 3, \
-		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 40, /obj/structure/spawner/lavaland = 2, \
-		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 30, /obj/structure/spawner/lavaland/legion = 3, \
+	mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/goliath/beast/clockwork = 50, /obj/structure/spawner/lavaland/goliath = 3, \
+		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/clockwork = 40, /obj/structure/spawner/lavaland = 2, \
+		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/clockwork = 30, /obj/structure/spawner/lavaland/legion = 3, \
 		SPAWN_MEGAFAUNA = 6, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10, )
 
 	data_having_type = /turf/open/floor/plating/asteroid/airless/cave/volcanic/has_data
@@ -240,7 +240,7 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(/mob/living/simple_animal/hostile/me
 
 /turf/open/floor/plating/asteroid/airless/cave/Initialize()
 	if (!mob_spawn_list)
-		mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/goldgrub = 1, /mob/living/simple_animal/hostile/asteroid/goliath = 5, /mob/living/simple_animal/hostile/asteroid/basilisk = 4, /mob/living/simple_animal/hostile/asteroid/hivelord = 3)
+		mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/goldgrub = 1, /mob/living/simple_animal/hostile/asteroid/goliath/beast/clockwork = 5, /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/clockwork = 4, /mob/living/simple_animal/hostile/asteroid/hivelord = 3)
 	if (!megafauna_spawn_list)
 		megafauna_spawn_list = GLOB.megafauna_spawn_list
 	if (!flora_spawn_list)
