@@ -341,3 +341,9 @@
 	icon_state = "mask_golden"
 	flags_inv = HIDEFACE|HIDEFACIALHAIR
 	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/clothing/mask/bunnyears
+	name = "bunny ears"
+	desc = "Bnnuy."
+	icon_state = "facial_bnuuy"
+	inhand_icon_state = "facial_bnuuy"
