@@ -122,6 +122,32 @@
 	var/dwarf_mob = FALSE
 	var/mob/living/carbon/human/stored_mob
 
+/mob/living/simple_animal/hostile/asteroid/hivelord/legion/clockwork
+	name = "clockwork legion"
+	desc = "Its heads and arms have been replaced with brass duplicates. Horrifyingly, that makes it a machine that infects people."
+	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
+	icon_state = "legion_clockwork"
+	icon_living = "legion_clockwork"
+	icon_aggro = "legion_clockwork"
+	icon_dead = "legion_clockwork"
+	icon_gib = "syndicate_gib"
+	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
+	mouse_opacity = MOUSE_OPACITY_ICON
+	obj_damage = 60
+	melee_damage_lower = 15
+	melee_damage_upper = 15
+	attack_verb_continuous = "lashes out at"
+	attack_verb_simple = "lash out at"
+	speak_emote = list("echoes")
+	attack_sound = 'sound/weapons/pierce.ogg'
+	throw_message = "bounces harmlessly off of"
+	crusher_loot = /obj/item/crusher_trophy/legion_skull
+	loot = list(/obj/item/organ/regenerative_core/legion)
+	brood_type = /mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/clockwork
+	del_on_death = 1
+	stat_attack = HARD_CRIT
+	robust_searching = 1
+
 /mob/living/simple_animal/hostile/asteroid/hivelord/legion/random/Initialize()
 	. = ..()
 	if(prob(5))
@@ -187,6 +213,31 @@
 	robust_searching = 1
 	var/can_infest_dead = FALSE
 
+/mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/clockwork
+	name = "clockwork legion"
+	desc = "One of a mechanical many."
+	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
+	icon_state = "legion_head_clockwork"
+	icon_living = "legion_head_clockwork"
+	icon_aggro = "legion_head_clockwork"
+	icon_dead = "legion_head_clockwork"
+	icon_gib = "syndicate_gib"
+	friendly_verb_continuous = "buzzes near"
+	friendly_verb_simple = "buzz near"
+	vision_range = 10
+	maxHealth = 1
+	health = 5
+	harm_intent_damage = 5
+	melee_damage_lower = 12
+	melee_damage_upper = 12
+	attack_verb_continuous = "bites"
+	attack_verb_simple = "bite"
+	speak_emote = list("echoes")
+	attack_sound = 'sound/weapons/pierce.ogg'
+	throw_message = "is shrugged off by"
+	del_on_death = TRUE
+	stat_attack = HARD_CRIT
+	robust_searching = 1
 
 /mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/Life()
 	. = ..()

@@ -119,6 +119,8 @@
 	maxHealth = 200
 	health = 200
 	throw_message = "does nothing to the metallic hide of the"
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/goliath = 2, /obj/item/stack/sheet/bone = 2)
+	guaranteed_butcher_results = list(/obj/item/stack/sheet/animalhide/goliath_hide = 1, /obj/item/stack/tile/bronze= 5)
 
 /mob/living/simple_animal/hostile/asteroid/goliath/beast/attackby(obj/item/O, mob/user, params)
 	if(istype(O, /obj/item/saddle) && !saddled)
