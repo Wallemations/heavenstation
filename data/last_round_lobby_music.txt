@@ -139,3 +139,5 @@ config/title_music/sounds/Night_Running.ogg
 config/title_music/sounds/White Space.ogg
 config/title_music/sounds/Tomorrow without you.ogg
 config/title_music/sounds/Noise channel theme.ogg
+config/title_music/sounds/Icarus.ogg
+config/title_music/sounds/By Your Side.ogg

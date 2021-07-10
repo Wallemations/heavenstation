@@ -576,10 +576,10 @@ ENABLE_NIGHT_SHIFTS
 #SHIFT_TIME_REALTIME
 
 ## A cap on how many monkeys may be created via monkey cubes
-MONKEYCAP 64
+MONKEYCAP 32
 
 ## A cap on how many mice can be bred via cheese wedges
-RATCAP 64
+RATCAP 32
 
 ## Maximum fine for a citation
 MAXFINE 2000
