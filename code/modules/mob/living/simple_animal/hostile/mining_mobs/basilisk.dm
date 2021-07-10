@@ -212,3 +212,18 @@
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/tendril
 	fromtendril = TRUE
+
+/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/clockwork
+	name = "clockwork watcher"
+	desc = "A fully mechanical and brass covered watcher, though its sinews are still natural and are leaking blood."
+	icon_state = "watcher_clockwork"
+	icon_living = "watcher_clockwork"
+	icon_aggro = "watcher_clockwork"
+	icon_dead = "watcher_clockwork_dead"
+	maxHealth = 215 // Brass is pretty hard to dent
+	health = 215
+	light_system = MOVABLE_LIGHT
+	light_range = 3
+	light_power = 2.5
+	light_color = LIGHT_COLOR_HOLY_MAGIC
+	butcher_results = list(/obj/item/stack/ore/diamond = 2, /obj/item/stack/sheet/sinew = 2, /obj/item/stack/sheet/bone = 1)
