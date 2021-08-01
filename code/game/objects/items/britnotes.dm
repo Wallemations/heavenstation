@@ -281,3 +281,67 @@
 			user.visible_message("<span class='danger'>[user] tries to feed [M] the [src], but [M.p_they()] spit it out!</span>")
 		else
 			to_chat(M, "<span class='danger'>You try to eat the [src], but the taste makes you spit it out!</span>")
+
+/obj/item/britevidence/hellphone
+	name = "pulsating red phone"
+	desc = "A vintage phone, with gold ornaments piercing into its writhing mass. There is no visible way to input a number."
+	icon_state = "hellphone"
+	force = 3
+	throwforce = 2
+	throw_speed = 3
+	throw_range = 4
+	w_class = WEIGHT_CLASS_SMALL
+	attack_verb_continuous = list("calls", "rings")
+	attack_verb_simple = list("call", "ring")
+	hitsound = 'sound/weapons/ring.ogg'
+	var/handled = FALSE
+
+/obj/item/britevidence/hellphone/suicide_act(mob/user)
+	if(locate(/obj/structure/chair/stool) in user.loc)
+		user.visible_message("<span class='suicide'>[user] begins to tie a noose with [src]'s cord! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	else
+		user.visible_message("<span class='suicide'>[user] is strangling [user.p_them()]self with [src]'s cord! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	return(OXYLOSS)
+
+/obj/item/britevidence/hellphone/attack_hand(mob/user)
+	if(isliving(user))
+		var/mob/living/L = user
+		if(!(L.mobility_flags & MOBILITY_PICKUP))
+			return
+	if(!handled)
+		var/obj/item/britevidence/bloodphone/flesh = new /obj/item/britevidence/bloodphone(get_turf(src))
+		flesh.add_fingerprint(user)
+		user.put_in_hands(flesh)
+		to_chat(user, "<span class='notice'>You take [flesh] off of [src].</span>")
+		handled = TRUE
+		icon_state = "hellphone-1"
+		playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
+		message_admins("<font color='blue'>[user.key] has begun a phone call.</font>")
+	else
+		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+	add_fingerprint(user)
+
+
+/obj/item/britevidence/hellphone/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/britevidence/bloodphone) && handled)
+		to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
+		qdel(I)
+		icon_state = "hellphone"
+		playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
+		handled = FALSE
+		message_admins("<font color='blue'>[user.key] has hung up a phone call.</font>")
+	else
+		return ..()
+
+/obj/item/britevidence/bloodphone
+	name = "fleshy handset"
+	desc = "The smell of the bleeding handset is almost too much to bear."
+	icon_state = "bloodphone"
+	force = 2
+	throwforce = 1
+	throw_speed = 4
+	throw_range = 6
+	w_class = WEIGHT_CLASS_SMALL
+	attack_verb_continuous = list("calls", "rings")
+	attack_verb_simple = list("call", "ring")
+	hitsound = 'sound/weapons/ring.ogg'

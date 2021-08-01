@@ -25413,6 +25413,8 @@
 	pixel_y = 9
 	},
 /obj/item/pen,
+/obj/item/coin/plasma,
+/obj/item/melee/chainofcommand,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "kxV" = (
@@ -42035,7 +42037,13 @@
 /area/crew_quarters/heads/hos)
 "rgt" = (
 /obj/structure/table/wood,
-/obj/item/hand_tele,
+/obj/item/book/manual/wiki/security_space_law{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/obj/item/hand_tele{
+	pixel_x = 5
+	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
 "rgu" = (
@@ -51940,15 +51948,15 @@
 /area/quartermaster/storage)
 "vcf" = (
 /obj/structure/table/wood,
-/obj/item/book/manual/wiki/security_space_law,
-/obj/item/coin/plasma,
-/obj/item/melee/chainofcommand,
 /obj/machinery/requests_console{
 	announcementConsole = 1;
 	department = "Captain's Desk";
 	departmentType = 5;
 	name = "Captain RC";
 	pixel_x = 32
+	},
+/obj/item/britevidence/hellphone{
+	pixel_y = 4
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/heads/captain)
