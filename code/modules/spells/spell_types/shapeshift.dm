@@ -7,7 +7,7 @@
 	cooldown_min = 50
 	range = -1
 	include_user = TRUE
-	invocation = "RAC'WA NO!"
+	invocation = "TOPI ALL'UOMO!"
 	invocation_type = INVOCATION_SHOUT
 	action_icon_state = "shapeshift"
 

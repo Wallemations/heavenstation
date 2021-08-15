@@ -295,6 +295,7 @@
 	attack_verb_simple = list("call", "ring")
 	hitsound = 'sound/weapons/ring.ogg'
 	var/handled = FALSE
+	var/answered = FALSE
 
 /obj/item/britevidence/hellphone/suicide_act(mob/user)
 	if(locate(/obj/structure/chair/stool) in user.loc)
@@ -309,33 +310,39 @@
 		if(!(L.mobility_flags & MOBILITY_PICKUP))
 			return
 	if(!handled)
+		to_chat(user, "<span class='notice'>You start pulling the handset away from the phone. Its connective tissues make this a difficult process.</span>")
+		if(!(do_after(user, 5 SECONDS, TRUE)))
+			return
 		var/obj/item/britevidence/bloodphone/flesh = new /obj/item/britevidence/bloodphone(get_turf(src))
 		flesh.add_fingerprint(user)
 		user.put_in_hands(flesh)
-		to_chat(user, "<span class='notice'>You take [flesh] off of [src].</span>")
+		to_chat(user, "<span class='notice'>You tear [flesh] off of [src]. It starts to ring as soon as you lift it.</span>")
 		handled = TRUE
 		icon_state = "hellphone-1"
-		playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
-		message_admins("<font color='blue'>[user.key] has begun a phone call.</font>")
+		playsound(get_turf(user), 'sound/effects/wounds/blood2.ogg', 50, TRUE)
+		message_admins("[user.key] has begun a phone call. [ADMIN_VERBOSEJMP(src)]")
+		answered = FALSE
+		if(do_after(user, 20 SECONDS, TRUE) && !answered && handled)
+			playsound(get_turf(user), 'sound/misc/busy_phone.ogg', 50, TRUE)
+			to_chat(user, "<span class='notice'>Looks like they're busy.</span>")
 	else
 		to_chat(user, "<span class='warning'>[src] is empty!</span>")
 	add_fingerprint(user)
 
-
 /obj/item/britevidence/hellphone/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/britevidence/bloodphone) && handled)
-		to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
+		to_chat(user, "<span class='notice'>You put [I] in [src]. The flesh connecting the handset to the phone regenerates.</span>")
 		qdel(I)
 		icon_state = "hellphone"
-		playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
+		playsound(get_turf(user), 'sound/misc/hang_up_phone.ogg', 50, TRUE)
 		handled = FALSE
-		message_admins("<font color='blue'>[user.key] has hung up a phone call.</font>")
+		message_admins("[user.key] has hung up a phone call.")
 	else
 		return ..()
 
 /obj/item/britevidence/bloodphone
 	name = "fleshy handset"
-	desc = "The smell of the bleeding handset is almost too much to bear."
+	desc = "The smell of the bleeding handset is almost too much to bear. An umbilical chord connects it to the phone."
 	icon_state = "bloodphone"
 	force = 2
 	throwforce = 1

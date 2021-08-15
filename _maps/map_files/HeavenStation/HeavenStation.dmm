@@ -4993,6 +4993,7 @@
 /obj/structure/closet/secure_closet/bar{
 	req_access_txt = "25"
 	},
+/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing,
 /turf/open/floor/carpet/black,
 /area/hallway/secondary/service)
 "cll" = (
@@ -6167,13 +6168,13 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/kitchen)
 "cNV" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad2"
-	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor";
 	name = "Supply Dock Loading Door"
+	},
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "cargoload"
 	},
 /turf/open/floor/plating,
 /area/quartermaster/storage)
@@ -9113,9 +9114,9 @@
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "dRP" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 5;
-	id = "QMLoad2"
+	id = "cargoload"
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
@@ -10583,12 +10584,12 @@
 /turf/open/floor/wood,
 /area/lawoffice)
 "ewz" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMLoad"
-	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "cargounload"
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
@@ -17099,11 +17100,11 @@
 /turf/open/floor/plasteel,
 /area/engine/break_room)
 "hdj" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMLoad"
-	},
 /obj/structure/plasticflaps,
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "cargounload"
+	},
 /turf/open/floor/plating,
 /area/quartermaster/storage)
 "hdm" = (
@@ -23885,8 +23886,8 @@
 /area/science/lab)
 "jUm" = (
 /obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad2"
+	dir = 4;
+	id = "cargoload"
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
@@ -29894,11 +29895,11 @@
 /turf/open/floor/wood,
 /area/crew_quarters/theatre)
 "mjg" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad2"
-	},
 /obj/machinery/light,
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "cargoload"
+	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
 "mjh" = (
@@ -31395,13 +31396,13 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
 "mNB" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMLoad"
-	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor2";
 	name = "Supply Dock Loading Door"
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "cargounload"
 	},
 /turf/open/floor/plating,
 /area/quartermaster/storage)
@@ -34561,11 +34562,11 @@
 /turf/open/floor/plasteel/white,
 /area/science/genetics)
 "oeb" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad2"
-	},
 /obj/structure/plasticflaps,
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "cargoload"
+	},
 /turf/open/floor/plating,
 /area/quartermaster/storage)
 "oeE" = (
@@ -35258,8 +35259,8 @@
 /area/space/nearstation)
 "orR" = (
 /obj/machinery/conveyor{
-	dir = 4;
-	id = "QMLoad"
+	dir = 8;
+	id = "cargounload"
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
@@ -37367,9 +37368,9 @@
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "pji" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 9;
-	id = "QMLoad"
+	id = "cargounload"
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
@@ -38201,7 +38202,8 @@
 /area/lawoffice)
 "pwo" = (
 /obj/machinery/conveyor{
-	id = "QMLoad2"
+	dir = 1;
+	id = "cargoload"
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
@@ -39029,8 +39031,8 @@
 /area/engine/engineering)
 "pNB" = (
 /obj/machinery/conveyor_switch/oneway{
-	id = "QMLoad2";
-	name = "Unloading Conveyor";
+	id = "cargoload";
+	name = "Loading Conveyor";
 	pixel_x = 12;
 	pixel_y = -4
 	},
@@ -40939,9 +40941,9 @@
 	name = "Research Experiment Chamber"
 	})
 "qCN" = (
-/obj/machinery/conveyor{
+/obj/machinery/conveyor/inverted{
 	dir = 6;
-	id = "QMLoad"
+	id = "cargounload"
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
@@ -50429,7 +50431,8 @@
 /area/hallway/primary/port)
 "uvd" = (
 /obj/machinery/conveyor{
-	id = "QMLoad"
+	dir = 1;
+	id = "cargounload"
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
@@ -51591,8 +51594,8 @@
 "uUj" = (
 /obj/machinery/conveyor_switch/oneway{
 	dir = 8;
-	id = "QMLoad";
-	name = "Loading Conveyor";
+	id = "cargounload";
+	name = "Unloading Conveyor";
 	pixel_x = 12;
 	pixel_y = -5
 	},
@@ -51940,9 +51943,9 @@
 /turf/open/floor/wood,
 /area/chapel/office)
 "vbT" = (
-/obj/machinery/conveyor{
+/obj/machinery/conveyor/inverted{
 	dir = 10;
-	id = "QMLoad2"
+	id = "cargoload"
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
