@@ -314,6 +314,7 @@
 	H.AddSpell(new /obj/effect/proc_holder/spell/aimed/fireball(null))
 	H.AddSpell(new /obj/effect/proc_holder/spell/targeted/ethereal_jaunt(null))
 	H.AddSpell(new /obj/effect/proc_holder/spell/targeted/forcewall(null))
+	H.AddSpell(new /obj/effect/proc_holder/spell/targeted/shapeshift(null))
 
 
 /// Height changing quirks.

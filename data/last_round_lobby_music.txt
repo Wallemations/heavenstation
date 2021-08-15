@@ -141,3 +141,6 @@ config/title_music/sounds/Tomorrow without you.ogg
 config/title_music/sounds/Noise channel theme.ogg
 config/title_music/sounds/Icarus.ogg
 config/title_music/sounds/By Your Side.ogg
+config/title_music/sounds/Papillons.ogg
+config/title_music/sounds/Corpse Party.ogg
+config/title_music/sounds/Papillons.ogg

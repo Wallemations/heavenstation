@@ -1308,3 +1308,12 @@
 	..()
 	for(var/i in 1 to 7)
 		new /obj/item/tank/internals/emergency_oxygen/engi(src) //in case anyone ever wants to do anything with spawning them, apart from crafting the box
+
+/obj/item/storage/box/rules_of_nachure
+	name = "bulldog equipment package"
+
+/obj/item/storage/box/rules_of_nachure/PopulateContents()
+	new /obj/item/gun/ballistic/shotgun/bulldog/unrestricted(src)
+	new /obj/item/ammo_box/magazine/m12g(src)
+	new /obj/item/ammo_box/magazine/m12g/stun(src)
+	new /obj/item/ammo_box/magazine/m12g/slug(src)
