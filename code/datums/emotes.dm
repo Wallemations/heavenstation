@@ -114,16 +114,19 @@
 		playsound(user, tmp_sound, 50, vary)
 
 	var/user_turf = get_turf(user)
-	for(var/mob/ghost in GLOB.dead_mob_list)
-		if(!ghost.client || isnewplayer(ghost))
-			continue
-		if(ghost.stat == DEAD && ghost.client && user.client && (ghost.client.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(ghost in viewers(user_turf, null)))
-			ghost.show_message("<span class='emote'>[FOLLOW_LINK(ghost, user)] [dchatmsg]</span>")
+	if (user.client)
+		for(var/mob/ghost as anything in GLOB.dead_mob_list)
+			if(!ghost.client || isnewplayer(ghost))
+				continue
+			if(ghost.client.prefs.chat_toggles & CHAT_GHOSTSIGHT && !(ghost in viewers(user_turf, null)))
+				ghost.show_message("<span class='emote'>[FOLLOW_LINK(ghost, user)] [dchatmsg]</span>")
 
 	if(emote_type == EMOTE_AUDIBLE)
 		user.audible_message(msg, deaf_message = "<span class='emote'>You see how <b>[user]</b> [msg]</span>", audible_message_flags = EMOTE_MESSAGE)
 	else
 		user.visible_message(msg, blind_message = "<span class='emote'>You hear how <b>[user]</b> [msg]</span>", visible_message_flags = EMOTE_MESSAGE)
+
+	SEND_SIGNAL(user, COMSIG_MOB_EMOTED(key))
 
 /**
  * For handling emote cooldown, return true to allow the emote to happen.
@@ -140,7 +143,7 @@
 	if(user.emotes_used && user.emotes_used[src] + cooldown > world.time)
 		var/datum/emote/default_emote = /datum/emote
 		if(cooldown > initial(default_emote.cooldown)) // only worry about longer-than-normal emotes
-			to_chat(user, "<span class='danger'>You must wait another [DisplayTimeText(user.emotes_used[src] - world.time + cooldown)] before using that emote.</span>")
+			to_chat(user, span_danger("You must wait another [DisplayTimeText(user.emotes_used[src] - world.time + cooldown)] before using that emote."))
 		return FALSE
 	if(!user.emotes_used)
 		user.emotes_used = list()
@@ -173,7 +176,7 @@
 	if(findtext(msg, "them"))
 		msg = replacetext(msg, "them", user.p_them())
 	if(findtext(msg, "they"))
-		msg = replacetext(message, "they", user.p_they())
+		msg = replacetext(msg, "they", user.p_they())
 	if(findtext(msg, "%s"))
 		msg = replacetext(msg, "%s", user.p_s())
 	return msg
@@ -242,16 +245,16 @@
 				return FALSE
 			switch(user.stat)
 				if(SOFT_CRIT)
-					to_chat(user, "<span class='warning'>You cannot [key] while in a critical condition!</span>")
+					to_chat(user, span_warning("You cannot [key] while in a critical condition!"))
 				if(UNCONSCIOUS, HARD_CRIT)
-					to_chat(user, "<span class='warning'>You cannot [key] while unconscious!</span>")
+					to_chat(user, span_warning("You cannot [key] while unconscious!"))
 				if(DEAD)
-					to_chat(user, "<span class='warning'>You cannot [key] while dead!</span>")
+					to_chat(user, span_warning("You cannot [key] while dead!"))
 			return FALSE
 		if(hands_use_check && HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 			if(!intentional)
 				return FALSE
-			to_chat(user, "<span class='warning'>You cannot use your hands to [key] right now!</span>")
+			to_chat(user, span_warning("You cannot use your hands to [key] right now!"))
 			return FALSE
 
 	if(isliving(user))
@@ -270,13 +273,6 @@
 */
 /mob/proc/manual_emote(text) //Just override the song and dance
 	. = TRUE
-	if(findtext(text, "their"))
-		text = replacetext(text, "their", p_their())
-	if(findtext(text, "them"))
-		text = replacetext(text, "them", p_them())
-	if(findtext(text, "%s"))
-		text = replacetext(text, "%s", p_s())
-
 	if(stat != CONSCIOUS)
 		return
 
@@ -288,10 +284,11 @@
 	var/ghost_text = "<b>[src]</b> [text]"
 
 	var/origin_turf = get_turf(src)
-	for(var/mob/ghost in GLOB.dead_mob_list)
-		if(!ghost.client || isnewplayer(ghost))
-			continue
-		if(ghost.stat == DEAD && ghost.client && (ghost.client.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(ghost in viewers(origin_turf, null)))
-			ghost.show_message("[FOLLOW_LINK(ghost, src)] [ghost_text]")
+	if(client)
+		for(var/mob/ghost as anything in GLOB.dead_mob_list)
+			if(!ghost.client || isnewplayer(ghost))
+				continue
+			if(ghost.client.prefs.chat_toggles & CHAT_GHOSTSIGHT && !(ghost in viewers(origin_turf, null)))
+				ghost.show_message("[FOLLOW_LINK(ghost, src)] [ghost_text]")
 
 	visible_message(text, visible_message_flags = EMOTE_MESSAGE)

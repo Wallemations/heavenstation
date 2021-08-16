@@ -19,7 +19,7 @@
 	/// the amount we offset the person for, with their new size.
 	var/y_offset = 0
 
-/datum/quirk/size_change/add()
+/datum/quirk/size_change/add_unique()
 	if(resize_amount > 1.1)
 		ADD_TRAIT(quirk_holder, TRAIT_GIANT, ROUNDSTART_TRAIT)
 	else if(resize_amount < 0.9)
@@ -71,7 +71,7 @@
 	value = 0
 	medical_record_text = "During physical examination, patient's tongue was found to be uniquely damaged."
 
-/datum/quirk/robotic_talk/on_spawn()
+/datum/quirk/robotic_talk/add_unique()
 	var/mob/living/carbon/human/H = quirk_holder
 	var/obj/item/organ/tongue/old_tongue = locate() in H.internal_organs
 	var/obj/item/organ/tongue/robot/new_tongue = new(get_turf(H))
