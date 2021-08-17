@@ -5,7 +5,7 @@
 	gain_text = "<span class='warning'>You feel your soul trying to escape your body. Try to stay away from sources of holiness!</span>"
 	var/antispam = FALSE // Stops spam in chat
 
-/datum/quirk/unholy/on_process(delta_time)
+/datum/quirk/unholy/process(delta_time)
 	var/mob/living/carbon/human/H = quirk_holder
 	for(var/mob/living/L in get_hearers_in_view(2, H))
 		if(HAS_TRAIT(L, TRAIT_HOLY))

@@ -56,6 +56,8 @@
 	var/obj/item/firing_pin/pin = /obj/item/firing_pin //standard firing pin for most guns
 
 	var/can_flashlight = FALSE //if a flashlight can be added or removed if it already has one.
+	/// True if a gun dosen't need a pin, mostly used for abstract guns like tentacles and meathooks
+	var/pinless = FALSE
 	var/obj/item/flashlight/seclite/gun_light
 	var/datum/action/item_action/toggle_gunlight/alight
 	var/gunlight_state = "flight"
@@ -106,7 +108,7 @@
 
 /obj/item/gun/Initialize()
 	. = ..()
-	if(pin)
+	if(pin && !pinless)
 		pin = new pin(src)
 
 	if(gun_light)
