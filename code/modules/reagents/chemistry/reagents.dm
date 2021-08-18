@@ -99,11 +99,6 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	///The amount a robot will pay for a glass of this (20 units but can be higher if you pour more, be frugal!)
 	var/glass_price
 
-	//NON-MODULE CHANGE
-	// Used to divert specific reagents to our custom sprites
-	var/has_custom_glass = FALSE
-	//NON-MODULE CHANGE
-
 /datum/reagent/New()
 	SHOULD_CALL_PARENT(TRUE)
 	. = ..()

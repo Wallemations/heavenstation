@@ -38,6 +38,13 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass
 	icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
 
+/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass
+	icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
+
+/datum/reagent
+	// Used to divert specific reagents to our custom sprites
+	var/has_custom_glass = FALSE
+
 /datum/reagent/consumable/ethanol/moonshine
 	has_custom_glass = TRUE
 
@@ -82,9 +89,6 @@
 
 /datum/reagent/consumable/coffee
 	has_custom_glass = TRUE
-
-/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass
-	icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
 
 /datum/reagent/consumable/ethanol/wine
 	has_custom_glass = TRUE
