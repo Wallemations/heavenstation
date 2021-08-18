@@ -41,6 +41,12 @@
 
 	var/datum/reagent/largest_reagent = reagents.get_master_reagent()
 	if(largest_reagent?.glass_icon_state)
+		//NON-MODULE CHANGE
+		if(largest_reagent?.has_custom_glass)
+			icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
+		else
+			icon = 'icons/obj/drinks.dmi'
+		//NON-MODULE CHANGE
 		icon_state = largest_reagent.glass_icon_state
 	return ..()
 
