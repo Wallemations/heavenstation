@@ -297,6 +297,10 @@
 	var/handled = FALSE
 	var/answered = FALSE
 
+/obj/item/britevidence/hellphone/Initialize()
+	. = ..()
+	GLOB.phones += src
+
 /obj/item/britevidence/hellphone/suicide_act(mob/user)
 	if(locate(/obj/structure/chair/stool) in user.loc)
 		user.visible_message("<span class='suicide'>[user] begins to tie a noose with [src]'s cord! It looks like [user.p_theyre()] trying to commit suicide!</span>")
@@ -325,9 +329,19 @@
 		if(do_after(user, 20 SECONDS, TRUE) && !answered && handled)
 			playsound(get_turf(user), 'sound/misc/busy_phone.ogg', 50, TRUE)
 			to_chat(user, "<span class='notice'>Looks like they're busy.</span>")
+		else if(!answered)
+			to_chat(user, "<span class='notice'>You dropped the phone!</span>")
+		else
+			to_chat(user, "<span class='notice'>Someone picks up, and you hear their breathing through the handset.</span>")
 	else
 		to_chat(user, "<span class='warning'>[src] is empty!</span>")
 	add_fingerprint(user)
+
+/obj/item/britevidence/hellphone/proc/answer_phone()
+	if(handled)
+		answered = TRUE
+		return TRUE
+	return FALSE
 
 /obj/item/britevidence/hellphone/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/britevidence/bloodphone) && handled)
@@ -352,3 +366,17 @@
 	attack_verb_continuous = list("calls", "rings")
 	attack_verb_simple = list("call", "ring")
 	hitsound = 'sound/weapons/ring.ogg'
+
+/obj/item/britevidence/pager
+	name = "pager"
+	desc = "An admin item, don't touch it."
+	icon = 'icons/obj/telescience.dmi'
+	icon_state = "emp"
+
+/obj/item/britevidence/pager/attack_self(mob/user)
+	. = ..()
+	for(var/obj/item/britevidence/hellphone/phone in GLOB.phones)
+		if(phone.answer_phone(phone))
+			to_chat(user, "<span class='notice'>You paged the phone.</span>")
+		else
+			to_chat(user, "<span class='warning'>Nobody was at the phone, quit hitting the button!</span>")
