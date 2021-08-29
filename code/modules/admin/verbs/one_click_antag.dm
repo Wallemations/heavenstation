@@ -446,6 +446,8 @@
 		for(var/i = 0, i<numTraitors, i++)
 			H = pick(candidates)
 			H.mind.make_advanced_traitor()
+			message_admins("[H] Has been selected as an advanced traitor.")
+			log_admin("[H] Has been selected as an advanced traitor.")
 			candidates.Remove(H)
 
 		return TRUE
