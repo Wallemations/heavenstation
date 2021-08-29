@@ -455,3 +455,141 @@
 
 /obj/structure/fluff/hedge/opaque //useful for mazes and such
 	opacity = TRUE
+
+/obj/structure/fluff/people_pad
+	name = "Nanotrasen Official People-Pad"
+	desc = "A cheaper variant of existing quantum technology which is incapable of being modified by anyone but the manufacturer."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "bounty_trap_on" // Temporary icon
+	layer = HIGH_SIGIL_LAYER
+	anchored = TRUE
+	density = FALSE
+	deconstructible = TRUE
+
+	var/teleport_cooldown = 15 SECONDS
+	var/teleport_speed = 1 SECONDS
+	var/last_teleport
+	var/id = null //what's my name
+	var/obj/structure/fluff/people_pad/my_friend //my friend
+	var/paused = FALSE
+	var/teleporting = FALSE
+	var/area/area
+	var/scan_attempts = 0
+	var/max_attempts = 5
+
+/obj/structure/fluff/people_pad/Initialize()
+	. = ..()
+	area = get_area(src)
+	name = "\improper [get_area_name(area, TRUE)] People-Pad"
+	GLOB.people_pads += src
+	addtimer(CALLBACK(src, /obj/structure/fluff/people_pad/proc/friend_check), 3 SECONDS)
+
+/obj/structure/fluff/people_pad/examine(mob/user)
+	. = ..()
+	. += "Some small text on the side reads \"We garuntee that this transporter is probably safe, as long as you click to teleport!\""
+	if(!my_friend)
+		. += "<span class='warning'>It is not linked to a pad. Click to have it search for linked pads!</span>"
+	else
+		. += "<span class='notice'>It is currently linked to [my_friend.name].</span>"
+
+/obj/structure/fluff/people_pad/proc/friend_check()
+	for(var/obj/structure/fluff/people_pad/pad in GLOB.people_pads)
+		if(is_eligible(pad) && (pad.id == id) && !(pad == src))
+			my_friend = pad
+	if(!my_friend)
+		if(scan_attempts <= max_attempts)
+			visible_message("<span class='notice'>[src] failed to find a linked pad after [max_attempts] scans.</span>")
+			scan_attempts = 0
+			return
+		scan_attempts++
+		friend_check()
+
+
+/obj/structure/fluff/people_pad/interact(mob/user, obj/structure/fluff/people_pad/target_pad = my_friend)
+	. = ..()
+	if(!target_pad || QDELETED(target_pad))
+		to_chat(user, "<span class='notice'>You force [src] to search for linked pads.</span>")
+		friend_check()
+		return
+
+	if(paused)
+		return
+
+	if(world.time < last_teleport + teleport_cooldown)
+		to_chat(user, "<span class='warning'>[src] is recharging power. Please wait [DisplayTimeText(last_teleport + teleport_cooldown - world.time)].</span>")
+		return
+
+	if(teleporting)
+		to_chat(user, "<span class='warning'>[src] is charging up. Please wait.</span>")
+		return
+
+	if(target_pad.teleporting)
+		to_chat(user, "<span class='warning'>Target pad is busy. Please wait.</span>")
+		return
+	doteleport(user, target_pad)
+
+/obj/structure/fluff/people_pad/proc/is_eligible(atom/movable/AM)
+	var/turf/T = get_turf(AM)
+	if(!T)
+		return FALSE
+	if(is_centcom_level(T.z) || is_away_level(T.z))
+		return FALSE
+	var/area/A = get_area(T)
+	if(!A ||(A.area_flags & NOTELEPORT))
+		return FALSE
+	return TRUE
+
+/obj/structure/fluff/people_pad/proc/pause() // To make sure you don't teleport as soon as you appear in a pad
+	paused = TRUE
+	addtimer(CALLBACK(src, /obj/structure/fluff/people_pad/proc/unpause), 1 SECONDS)
+
+/obj/structure/fluff/people_pad/proc/unpause()
+	paused = FALSE
+
+/obj/structure/fluff/people_pad/proc/doteleport(mob/user, obj/structure/fluff/people_pad/target_pad = my_friend)
+	if(target_pad)
+		playsound(get_turf(src), 'sound/weapons/flash.ogg', 25, TRUE)
+		teleporting = TRUE
+
+		spawn(teleport_speed)
+			if(!src || QDELETED(src))
+				teleporting = FALSE
+				return
+			if(!target_pad || QDELETED(target_pad))
+				to_chat(user, "<span class='warning'>Linked pad is not responding to ping. Teleport aborted.</span>")
+				teleporting = FALSE
+				return
+
+			target_pad.pause()
+			teleporting = FALSE
+			last_teleport = world.time
+
+			sparks()
+			target_pad.sparks()
+
+			flick("qpad-beam", src)
+			playsound(get_turf(src), 'sound/weapons/emitter2.ogg', 25, TRUE)
+			flick("qpad-beam", target_pad)
+			playsound(get_turf(target_pad), 'sound/weapons/emitter2.ogg', 25, TRUE)
+			for(var/atom/movable/ROI in get_turf(src))
+				if(QDELETED(ROI))
+					continue //sleeps in CHECK_TICK
+
+				// if is anchored, don't let through
+				if(ROI.anchored)
+					if(isliving(ROI))
+						var/mob/living/L = ROI
+						//only TP living mobs buckled to non anchored items
+						if(!L.buckled || L.buckled.anchored)
+							continue
+					//Don't TP ghosts
+					else if(!isobserver(ROI))
+						continue
+
+				do_teleport(ROI, get_turf(target_pad),null,TRUE,null,null,null,null,TRUE, channel = TELEPORT_CHANNEL_FREE)
+				CHECK_TICK
+
+/obj/structure/fluff/people_pad/proc/sparks()
+	var/datum/effect_system/spark_spread/quantum/s = new /datum/effect_system/spark_spread/quantum
+	s.set_up(5, 1, get_turf(src))
+	s.start()

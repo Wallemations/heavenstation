@@ -45,3 +45,6 @@ GLOBAL_LIST_EMPTY(alert_consoles)			// Station alert consoles, /obj/machinery/co
 
 GLOBAL_LIST_EMPTY(air_scrub_names)			// Name list of all air scrubbers
 GLOBAL_LIST_EMPTY(air_vent_names)			// Name list of all air vents
+
+GLOBAL_LIST_EMPTY(people_pads)				// All people pods
+GLOBAL_LIST_EMPTY(phones)					// Literally just one object, better to move than other alternatives
