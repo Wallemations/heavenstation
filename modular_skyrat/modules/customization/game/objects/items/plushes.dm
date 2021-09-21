@@ -18,7 +18,11 @@
 	attack_verb_continuous = list("headbutts", "boops", "bapps", "bumps")
 	attack_verb_simple = list("headbutt", "boop", "bap", "bump")
 	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
+	unique_reskin = list("Small" = "plushie_deer",
+						"Realistic" = "deer"
+						)
 
+/*
 /obj/item/toy/plush/fermis
 	name = "medcat plushie"
 	desc = "An affectionate stuffed toy that resembles a certain medcat, comes complete with battery operated wagging tail!! You get the impression she's cheering you on to find happiness and be kind to people."
@@ -37,10 +41,10 @@
 	inhand_icon_state = "plushie_chen"
 	attack_verb_continuous = list("snuggles", "meowhuggies", "wigglepurrs")
 	attack_verb_simple = list("snuggle", "meowhuggie", "wigglepurr")
-
+*/
 /obj/item/toy/plush/sechound
 	name = "Sechound plushie"
-	desc = "An adorable stuffed toy of a SecHound, the trusty Nanotrasen sponsored security borg!"
+	desc = "An adorable stuffed toy of a SecHound, the popular childrens TV character, who keeps his station safe!"
 	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
 	icon_state = "plushie_securityk9"
 	inhand_icon_state = "plushie_securityk9"
@@ -50,7 +54,7 @@
 
 /obj/item/toy/plush/medihound
 	name = "Medihound plushie"
-	desc = "An adorable stuffed toy of a medihound."
+	desc = "An adorable stuffed toy of a medihound, the popular childrens TV character, who keeps his station healthy!"
 	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
 	icon_state = "plushie_medihound"
 	inhand_icon_state = "plushie_medihound"
@@ -60,7 +64,7 @@
 
 /obj/item/toy/plush/scrubpuppy
 	name = "Scrubpuppy plushie"
-	desc = "An adorable stuffed toy of a Scrubpuppy, the hard-working pup who keeps the station clean!"
+	desc = "An adorable stuffed toy of a Scrubpuppy, the popular childrens TV character, who keeps the station clean!"
 	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
 	icon_state = "plushie_scrubpuppy"
 	inhand_icon_state = "plushie_scrubpuppy"
@@ -70,7 +74,7 @@
 
 /obj/item/toy/plush/meddrake
 	name = "MediDrake Plushie"
-	desc = "An adorable stuffed toy of a Medidrake."
+	desc = "An adorable stuffed toy of a Medidrake. It's a collectable misprint of a medihound plush!"
 	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
 	icon_state = "plushie_meddrake"
 	inhand_icon_state = "plushie_meddrake"
@@ -80,7 +84,7 @@
 
 /obj/item/toy/plush/secdrake
 	name = "SecDrake Plushie"
-	desc = "An adorable stuffed toy of a Secdrake."
+	desc = "An adorable stuffed toy of a Secdrake. It's a collectable misprint of a sechound plush!"
 	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
 	icon_state = "plushie_secdrake"
 	inhand_icon_state = "plushie_secdrake"
@@ -93,12 +97,23 @@
 	name = "Fox plushie"
 	desc = "An adorable stuffed toy of a Fox."
 	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
-	icon_state = "plushie_fox"
-	inhand_icon_state = "plushie_fox"
+	icon_state = "redfox"
+	inhand_icon_state = "redfox"
 	attack_verb_continuous = list("geckers", "boops","nuzzles")
 	attack_verb_simple = list("gecker", "boop", "nuzzle")
 	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
+	unique_reskin = list("Red" = "redfox",
+						"Black" = "blackfox",
+						"Marble" = "marblefox",
+						"Blue" = "bluefox",
+						"Orange" = "orangefox",
+						"Coffee" = "coffeefox",
+						"Pink" = "pinkfox",
+						"Purple" = "purplefox",
+						"Crimson" = "crimsonfox"
+						)
 
+/*
 /obj/item/toy/plush/leaplush
 	name = "Suspicious deer plushie"
 	desc = "A cute and all too familiar deer."
@@ -162,23 +177,17 @@
   attack_verb_continuous = list("slaps", "challenges")
   attack_verb_simple = list("slap", "challenge")
   squeak_override = list('sound/weapons/slap.ogg' = 1)
-
+*/
 /obj/item/toy/plush/ian
 	name = "plush corgi"
 	desc = "A plushie of an adorable corgi! Don't you just want to hug it and squeeze it and call it \"Ian\"?"
 	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
-	icon_state = "ianplushie"
+	icon_state = "corgi"
 	inhand_icon_state = "corgi"
 	attack_verb_continuous = list("barks", "woofs", "wags his tail at")
 	attack_verb_simple = list("lick", "nuzzle", "bite")
+	gender = MALE
 	young = 1 //No.
-
-/obj/item/toy/plush/ian/small
-	name = "small plush corgi"
-	desc = "A plushie of an adorable corgi! Don't you just want to hug it and squeeze it and call it \"Ian\"?"
-	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
-	icon_state = "corgi"
-	inhand_icon_state = "corgi"
 
 /obj/item/toy/plush/ian/lisa
 	name = "plush girly corgi"
@@ -189,6 +198,16 @@
 	attack_verb_continuous = list("barks", "woofs", "wags her tail at")
 	gender = FEMALE
 
+/obj/item/toy/plush/ian/robo
+	name = "plush robo corgi"
+	desc = "A plushie of an adorable corgi! Don't you just want to hug it and squeeze it and call it \"DESTRUCTON\"?"
+	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
+	icon_state = "robotcorgi"
+	inhand_icon_state = "robotcorgi"
+	attack_verb_continuous = list("barks", "woofs", "wags its tail at")
+	gender = NEUTER
+	squeak_override = list('sound/machines/beep.ogg' = 1)
+
 /obj/item/toy/plush/cat
 	name = "cat plushie"
 	desc = "A small cat plushie with black beady eyes."
@@ -198,16 +217,22 @@
 	attack_verb_continuous = list("cuddles", "meows", "hisses")
 	attack_verb_simple = list("cuddle", "meow", "hiss")
 	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/merowr.ogg' = 1)
+	unique_reskin = list("Black" = "blackcat",
+						"Grey" = "greycat",
+						"White" = "whitecat",
+						"Orange" = "orangecat",
+						"Siamese" = "siamesecat",
+						"Tabby" = "tabbycat",
+						"Tuxedo" = "tuxedocat",
+						"Kitten" = "kittenplushie"
+						)
 
-/obj/item/toy/plush/cat/tux
-	name = "tux cat plushie"
+/obj/item/toy/plush/mouse
+	name = "plush mouse"
+	desc = "A plushie of a tiny little mouse! This one might just"
 	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
-	icon_state = "tuxedocat"
-	inhand_icon_state = "tuxedocat"
-
-/obj/item/toy/plush/cat/white
-	name = "white cat plushie"
-	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
-	icon_state = "whitecat"
-	inhand_icon_state = "whitecat"
+	icon_state = "mouseplushie"
+	inhand_icon_state = "mouseplushie"
+	attack_verb_continuous = list("chitters", "squeaks", "nuzzles")
+	attack_verb_simple = list("squeak", "nuzzle")
 
