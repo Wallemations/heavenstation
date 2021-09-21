@@ -427,6 +427,11 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 		new /datum/stack_recipe("donk-pockets honk box", /obj/item/storage/box/donkpockets/donkpockethonk), \
 		new /datum/stack_recipe("monkey cube box", /obj/item/storage/box/monkeycubes),
 		new /datum/stack_recipe("nugget box", /obj/item/storage/fancy/nugget_box), \
+		// NON-MODULE CHANGE
+		new /datum/stack_recipe("bigmac box", /obj/item/storage/fancy/bigmacbox), \
+		new /datum/stack_recipe("oreo box", /obj/item/storage/fancy/oreobox), \
+		new /datum/stack_recipe("double stuf oreo box", /obj/item/storage/fancy/oreobox/double), \
+		// NON-MODULE CHANGE
 		null, \
 
 		new /datum/stack_recipe("lethal ammo box", /obj/item/storage/box/lethalshot), \

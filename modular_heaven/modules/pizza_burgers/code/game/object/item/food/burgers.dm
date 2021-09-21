@@ -30,7 +30,6 @@
 	icon_state = "bigmacbox"
 	base_icon_state = "bigmacbox"
 	contents_tag = "bigmac"
-	spawn_type = /obj/item/food/burger/bigmac
 
 /obj/item/storage/fancy/bigmacbox/ComponentInitialize()
 	. = ..()

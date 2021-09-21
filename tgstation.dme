@@ -3796,6 +3796,7 @@
 #include "interface\skin.dmf"
 #include "modular_heaven\_module_DEFINES.dm"
 #include "modular_heaven\modules\bottle_matches\code\bottle_matches.dm"
+#include "modular_heaven\modules\custom_food\code\pastries.dm"
 #include "modular_heaven\modules\disposals\code\disposals.dm"
 #include "modular_heaven\modules\gascans\code\canisters.dm"
 #include "modular_heaven\modules\heaven_weaponry\baseball_bats\code\baseball.dm"
