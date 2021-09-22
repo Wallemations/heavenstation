@@ -24,3 +24,7 @@
 /obj/machinery/libraryscanner
 	icon = 'modular_heaven/modules/tauceti_sprites/scanning.dmi'
 
+//////Library//////
+///////////////////
+/////Medipens//////
+

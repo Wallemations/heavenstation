@@ -1,6 +1,6 @@
 ////////////////////
 // Reddit Cookies //
-
+// Sprites made by u/appenem
 /obj/item/food/cookie/sugar/cringe //I found these sprites and I wanted to make cookies out of them.
 	name = "cringe cookie" //Couldn't think of a better name. I know this name is ass.
 	icon = 'modular_heaven/modules/custom_food/icons/food.dmi'
