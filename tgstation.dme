@@ -3938,6 +3938,7 @@
 #include "modular_heaven\modules\quirks\good.dm"
 #include "modular_heaven\modules\quirks\negative.dm"
 #include "modular_heaven\modules\quirks\neutral.dm"
+#include "modular_heaven\modules\tauceti_sprites\easy_sprites.dm"
 #include "modular_skyrat\master_files\code\datums\id_trim\jobs.dm"
 #include "modular_skyrat\master_files\code\datums\traits\good.dm"
 #include "modular_skyrat\master_files\code\datums\traits\negative.dm"
