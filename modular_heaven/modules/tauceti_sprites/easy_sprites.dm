@@ -28,3 +28,5 @@
 ///////////////////
 /////Medipens//////
 
+/obj/item/reagent_containers/hypospray/medipen
+	icon = 'modular_heaven/modules/tauceti_sprites/syringes.dmi'
