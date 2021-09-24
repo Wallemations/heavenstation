@@ -29,7 +29,8 @@
 	to_chat(user, "<span class='notice'>You turn [src] [turned_on ? "off" : "on"].</span>")
 	turned_on = !turned_on
 
-/obj/machinery/plumbing/liquid_input_pump/CtrlClick(mob/living/user)
+/obj/machinery/plumbing/liquid_input_pump/attack_hand_secondary(mob/user, modifiers)
+	. = ..()
 	if(anchored)
 		return ..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
@@ -43,7 +44,7 @@
 /obj/machinery/plumbing/liquid_input_pump/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>It's currently [turned_on ? "ON" : "OFF"].</span>"
-	. += "<span class='notice'>It's height regulator [height_regulator ? "points at [height_regulator]" : "is disabled"]. (Ctrl-click to change)</span>"
+	. += "<span class='notice'>It's height regulator [height_regulator ? "points at [height_regulator]" : "is disabled"]. (Right-click to change)</span>"
 
 /obj/machinery/plumbing/liquid_input_pump/Initialize(mapload, bolt)
 	. = ..()
@@ -116,6 +117,7 @@
 	if(. == SUCCESSFUL_UNFASTEN)
 		turned_on = FALSE
 
+
 /obj/machinery/plumbing/liquid_output_pump/attack_hand(mob/user)
 	if(!anchored)
 		to_chat(user, "<span class='warning'>[src] needs to be anchored first!</span>")
@@ -123,7 +125,8 @@
 	to_chat(user, "<span class='notice'>You turn [src] [turned_on ? "off" : "on"].</span>")
 	turned_on = !turned_on
 
-/obj/machinery/plumbing/liquid_output_pump/CtrlClick(mob/living/user)
+/obj/machinery/plumbing/liquid_output_pump/attack_hand_secondary(mob/user, modifiers)
+	. = ..()
 	if(anchored)
 		return ..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
@@ -137,7 +140,7 @@
 /obj/machinery/plumbing/liquid_output_pump/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>It's currently [turned_on ? "ON" : "OFF"].</span>"
-	. += "<span class='notice'>It's height regulator [height_regulator ? "points at [height_regulator]" : "is disabled"]. (Ctrl-click to change)</span>"
+	. += "<span class='notice'>It's height regulator [height_regulator ? "points at [height_regulator]" : "is disabled"]. (Right-click to change)</span>"
 
 /obj/machinery/plumbing/liquid_output_pump/proc/can_pump()
 	if(!turned_on || !anchored || panel_open || !isturf(loc) || reagents.total_volume == 0)
