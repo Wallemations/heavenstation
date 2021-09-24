@@ -8,3 +8,4 @@
 	gain_text = "<span class='notice'>The ground doesn't feel so rough on your feet anymore.</span>"
 	lose_text = "<span class='danger'>You start feeling the ridges and imperfections on the ground.</span>"
 	medical_record_text = "Patient's feet are more resilient against traction."
+	icon = "boot"

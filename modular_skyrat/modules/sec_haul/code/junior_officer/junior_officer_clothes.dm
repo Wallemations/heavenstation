@@ -5,6 +5,7 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "juniorsoft"
 	soft_type = "junior"
+
 /obj/item/clothing/under/rank/security/peacekeeper/junior
 	name = "peacekeeper junior officer poloshirt"
 	desc = "A sleek peackeeper poloshirt and pants, this one is special. It's for junior officers."
@@ -22,6 +23,6 @@
 	inhand_icon_state = "jacket"
 	blood_overlay_type = "coat"
 	body_parts_covered = CHEST|ARMS
-	allowed = list(/obj/item/gun/ballistic/automatic/pistol/pepperball, /obj/item/melee/classic_baton)
+	allowed = list(/obj/item/gun/ballistic/automatic/pistol/pepperball, /obj/item/melee/baton)
 	armor = list(MELEE = 15, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 50, RAD = 0, FIRE = 50, ACID = 50)
 	togglename = "zipper"

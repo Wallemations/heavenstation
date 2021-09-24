@@ -104,6 +104,14 @@ DEFINE_BITFIELD(smoothing_flags, list(
 
 #define MAX_S_TURF SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS //Always match this value with the one above it.
 
+//SKYRAT EDIT ADDITION
+#define SMOOTH_GROUP_ELEVATED_PLASTEEL S_TURF(31)
+#define SMOOTH_GROUP_LOWERED_PLASTEEL S_TURF(32)
+
+#define SMOOTH_GROUP_FISSURE S_TURF(33)
+
+#define MAX_S_TURF SMOOTH_GROUP_FISSURE //Always match this value with the one above it.
+//SKYRAT EDIT END
 
 #define S_OBJ(num) (MAX_S_TURF + 1 + num)
 /* /obj included */

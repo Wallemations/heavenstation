@@ -2,7 +2,7 @@
 	title = "Civil Disputes Officer"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	department_head = list("Head of Security")
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of security, security sergeants and security officers"
@@ -25,7 +25,7 @@
 	bounty_types = CIV_JOB_SEC
 	departments_list = list(
 		/datum/job_department/security,
-		)
+	)
 
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law, /obj/item/clothing/head/beret/sec)
 
@@ -36,6 +36,8 @@
 		/obj/item/clothing/mask/whistle = 5
 	)
 
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
+
 /datum/outfit/job/junior_officer
 	name = "Civil Disputes Officer"
 	jobtype = /datum/job/junior_officer
@@ -44,20 +46,20 @@
 	ears = /obj/item/radio/headset/headset_sec
 	uniform = /obj/item/clothing/under/rank/security/peacekeeper/junior
 	shoes = /obj/item/clothing/shoes/sneakers/black
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	head = /obj/item/clothing/head/soft/black/junior_officer
 
 	suit = /obj/item/clothing/suit/toggle/labcoat/junior_officer
 
-	backpack_contents = list(/obj/item/melee/classic_baton, /obj/item/storage/box/gunset/pepperball, /obj/item/restraints/handcuffs/cable=2, /obj/item/storage/belt/security/peacekeeper)
+	backpack_contents = list(/obj/item/melee/baton/security/loaded, /obj/item/storage/box/gunset/pepperball, /obj/item/restraints/handcuffs/cable=2, /obj/item/storage/belt/security)
 
 	l_pocket = /obj/item/flashlight
 
 	r_pocket = /obj/item/assembly/flash/handheld
 
-	backpack = /obj/item/storage/backpack/security/peacekeeper
-	satchel = /obj/item/storage/backpack/satchel/sec/peacekeeper
-	duffelbag = /obj/item/storage/backpack/duffelbag/sec/peacekeeper
+	backpack = /obj/item/storage/backpack/security
+	satchel = /obj/item/storage/backpack/satchel/sec
+	duffelbag = /obj/item/storage/backpack/duffelbag/sec
 
 	box = /obj/item/storage/box/survival/security
 

@@ -494,6 +494,8 @@ GLOBAL_VAR(station_nuke_source)
 		SSshuttle.registerHostileEnvironment(src)
 		SSshuttle.lockdown = TRUE
 
+	KillEveryoneOnZLevel(z) //SKYRAT EDIT ADDITION
+
 	//Cinematic
 	GLOB.station_was_nuked = TRUE
 	GLOB.station_nuke_source = off_station
@@ -502,7 +504,8 @@ GLOBAL_VAR(station_nuke_source)
 
 /obj/machinery/nuclearbomb/proc/really_actually_explode(off_station)
 	Cinematic(get_cinematic_type(off_station),world,CALLBACK(SSticker,/datum/controller/subsystem/ticker/proc/station_explosion_detonation,src))
-	INVOKE_ASYNC(GLOBAL_PROC,.proc/KillEveryoneOnZLevel, z)
+	explosion(src, 40, 50, 70, 80, TRUE, TRUE) //SKYRAT EDIT ADDITION
+	//INVOKE_ASYNC(GLOBAL_PROC,.proc/KillEveryoneOnZLevel, z) SKYRAT EDIT REMOVAL
 
 /obj/machinery/nuclearbomb/proc/get_cinematic_type(off_station)
 	if(off_station < 2)
@@ -589,7 +592,7 @@ GLOBAL_VAR(station_nuke_source)
 /obj/machinery/nuclearbomb/beer/really_actually_explode()
 	disarm()
 	stationwide_foam()
-
+/*
 /proc/KillEveryoneOnZLevel(z)
 	if(!z)
 		return
@@ -597,7 +600,7 @@ GLOBAL_VAR(station_nuke_source)
 		var/mob/living/victim = _victim
 		if(victim.stat != DEAD && victim.z == z)
 			victim.gib()
-
+*/
 /*
 This is here to make the tiles around the station mininuke change when it's armed.
 */

@@ -15,7 +15,6 @@
 	can_suppress = TRUE
 	fire_sound_volume = 30
 	w_class = WEIGHT_CLASS_SMALL
-	has_gun_safety = FALSE
 
 /obj/item/gun/ballistic/automatic/pistol/cfa_snub/empty
 	spawnwithmagazine = FALSE
@@ -29,7 +28,6 @@
 	can_suppress = FALSE
 	fire_sound_volume = 120
 	w_class = WEIGHT_CLASS_NORMAL
-	has_gun_safety = FALSE
 
 /obj/item/gun/ballistic/automatic/pistol/cfa_ruby/empty
 	spawnwithmagazine = FALSE
@@ -42,7 +40,6 @@
 	desc = "An advanced magazine with smart type displays. Alt+click to reskin it."
 	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/ammo.dmi'
 	icon_state = "m46x30"
-	possible_types = list(AMMO_TYPE_LETHAL, AMMO_TYPE_AP, AMMO_TYPE_RUBBER, AMMO_TYPE_INCENDIARY)
 	ammo_type = /obj/item/ammo_casing/c46x30mm
 	caliber = CALIBER_46X30MM
 	max_ammo = 16
@@ -50,15 +47,12 @@
 
 /obj/item/ammo_box/magazine/multi_sprite/cfa_snub/ap
 	ammo_type = /obj/item/ammo_casing/c46x30mm/ap
-	round_type = AMMO_TYPE_AP
 
 /obj/item/ammo_box/magazine/multi_sprite/cfa_snub/rubber
 	ammo_type = /obj/item/ammo_casing/c46x30mm/rubber
-	round_type = AMMO_TYPE_RUBBER
 
 /obj/item/ammo_box/magazine/multi_sprite/cfa_snub/incendiary
 	ammo_type = /obj/item/ammo_casing/c46x30mm/inc
-	round_type = AMMO_TYPE_INCENDIARY
 
 /obj/item/ammo_box/magazine/multi_sprite/cfa_snub/empty
 	start_empty = TRUE
@@ -68,7 +62,6 @@
 	desc = "An advanced magazine with smart type displays. Alt+click to reskin it."
 	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/ammo.dmi'
 	icon_state = "m10mm"
-	possible_types = list(AMMO_TYPE_LETHAL, AMMO_TYPE_AP, AMMO_TYPE_RUBBER, AMMO_TYPE_HOLLOWPOINT, AMMO_TYPE_INCENDIARY)
 	ammo_type = /obj/item/ammo_casing/c10mm
 	caliber = CALIBER_10MM
 	max_ammo = 8
@@ -79,16 +72,12 @@
 
 /obj/item/ammo_box/magazine/multi_sprite/cfa_ruby/ap
 	ammo_type = /obj/item/ammo_casing/c10mm/ap
-	round_type = AMMO_TYPE_AP
 
 /obj/item/ammo_box/magazine/multi_sprite/cfa_ruby/rubber
 	ammo_type = /obj/item/ammo_casing/c10mm/rubber
-	round_type = AMMO_TYPE_RUBBER
 
 /obj/item/ammo_box/magazine/multi_sprite/cfa_ruby/hp
 	ammo_type = /obj/item/ammo_casing/c10mm/hp
-	round_type = AMMO_TYPE_HOLLOWPOINT
 
 /obj/item/ammo_box/magazine/multi_sprite/cfa_ruby/incendiary
 	ammo_type = /obj/item/ammo_casing/c10mm/fire
-	round_type = AMMO_TYPE_INCENDIARY

@@ -1,26 +1,3 @@
-/obj/item/clothing/shoes/wraps
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'
-	name = "gilded leg wraps"
-	desc = "Ankle coverings. These ones have a golden design."
-	icon_state = "gildedcuffs"
-	body_parts_covered = FALSE
-
-/obj/item/clothing/shoes/wraps/silver
-	name = "silver leg wraps"
-	desc = "Ankle coverings. Not made of real silver."
-	icon_state = "silvergildedcuffs"
-
-/obj/item/clothing/shoes/wraps/red
-	name = "red leg wraps"
-	desc = "Ankle coverings. Show off your style with these shiny red ones!"
-	icon_state = "redcuffs"
-
-/obj/item/clothing/shoes/wraps/blue
-	name = "blue leg wraps"
-	desc = "Ankle coverings. Hang ten, brother."
-	icon_state = "bluecuffs"
-
 /obj/item/clothing/shoes/cowboyboots
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'
@@ -77,19 +54,7 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'
 	icon_state = "blackjack"
-/*
-/obj/item/clothing/shoes/wraps/poly
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'
-	name = "cloth foot wraps"
-	desc = "Boxer tape or bandages wrapped like a mummy, all left up to the choice of the wearer."
-	icon_state = "clothwrap"
-	body_parts_covered = FALSE
 
-/obj/item/clothing/shoes/wraps/poly/ComponentInitialize()
-	. = ..()
-	AddElement(/datum/element/polychromic, list("FFF"))
-*/
 /obj/item/clothing/shoes/sports
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'

@@ -22,10 +22,3 @@
 /obj/item/card/id/advanced/polychromic/ComponentInitialize()
 	. = ..()
 	AddElement(/datum/element/polychromic, list("666", "CBA", "00F"))
-
-//SOLGOV//
-/obj/item/card/id/advanced/solgov
-	name = "solgov identification card"
-	icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
-	icon_state = "card_solgov"
-	assigned_icon_state = "assigned_solgov"
