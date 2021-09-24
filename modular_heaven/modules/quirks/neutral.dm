@@ -1,5 +1,6 @@
 /datum/quirk/holy
 	name = "Holy Figure"
+	icon = "cross"
 	desc = "You're a diety! Don't let it get to your head."
 	value = 0
 	mob_trait = TRAIT_HOLY
@@ -9,6 +10,7 @@
 // So it's just "average height" Screw it..
 /datum/quirk/size_change
 	name = "Size B - Average Height"
+	icon = "ruler-vertical"
 	desc = "You are average. (0% size change - this quirk does nothing.)"
 	value = 0
 	gain_text = "<span class='notice'>You feel average.</span>"
@@ -67,7 +69,8 @@
 
 /datum/quirk/robotic_talk
 	name = "Robotongue"
-	desc = "you sound like a kickass robot."
+	icon = "robot"
+	desc = "You sound like a kickass robot."
 	value = 0
 	medical_record_text = "During physical examination, patient's tongue was found to be uniquely damaged."
 

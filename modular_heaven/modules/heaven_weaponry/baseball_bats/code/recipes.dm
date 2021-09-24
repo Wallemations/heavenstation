@@ -52,9 +52,9 @@
 
 /datum/crafting_recipe/stun_bat
 	name = "Stun Bat"
-	result = /obj/item/melee/baton/baseball
+	result = /obj/item/melee/baton/security/baseball
 	reqs = list(/obj/item/melee/baseball_bat = 1,
-				/obj/item/melee/baton = 1,
+				/obj/item/melee/baton/security = 1,
 				/obj/item/stack/sticky_tape = 1,)
 	time = 15
 	category = CAT_WEAPONRY

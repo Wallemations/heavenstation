@@ -30,3 +30,8 @@
 
 /obj/item/reagent_containers/hypospray/medipen
 	icon = 'modular_heaven/modules/tauceti_sprites/syringes.dmi'
+
+/obj/item/reagent_containers/hypospray/medipen/inject(mob/living/M, mob/user)
+	. = ..()
+	if(.)
+		playsound(M, 'modular_heaven/modules/tauceti_sprites/medipen.ogg', 20, TRUE, -3)

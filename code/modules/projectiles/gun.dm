@@ -155,10 +155,10 @@
 /obj/item/gun/proc/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	handle_chamber(empty_chamber, from_firing, chamber_next_round)
 	SEND_SIGNAL(src, COMSIG_GUN_CHAMBER_PROCESSED)
-
+*/
 /obj/item/gun/proc/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	return
-
+/*
 //check if there's enough ammo/energy/whatever to shoot one time
 //i.e if clicking would make it shoot
 /obj/item/gun/proc/can_shoot()
@@ -208,7 +208,7 @@
 
 	user.AddComponent(/datum/component/gunpoint, victim, src)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-
+*/
 /obj/item/gun/afterattack(atom/target, mob/living/user, flag, params)
 	. = ..()
 	return fire_gun(target, user, flag, params)
@@ -267,7 +267,7 @@
 				addtimer(CALLBACK(G, /obj/item/gun.proc/process_fire, target, user, TRUE, params, null, bonus_spread), loop_counter)
 
 	return process_fire(target, user, TRUE, params, null, bonus_spread)
-
+/*
 /obj/item/gun/proc/check_botched(mob/living/user, params)
 	if(clumsy_check)
 		if(istype(user))

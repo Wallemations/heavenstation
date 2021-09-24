@@ -327,7 +327,7 @@
 		handled = TRUE //Thinking about it, I'd prefer if people weren't ALL assaulted for picking it up. A death in exchange for this item is enough.
 
 //Baton Bat
-/obj/item/melee/baton/baseball
+/obj/item/melee/baton/security/baseball
 	name = "Stun Bat"
 	desc = "A stun baton taped to a baseball bat, just in case you wanted a ball that didn't move."
 	icon_state = "baseball_bat_stun"
@@ -337,7 +337,7 @@
 	righthand_file = 'modular_heaven/modules/heaven_weaponry/baseball_bats/icons/bats_right.dmi'
 	w_class = WEIGHT_CLASS_HUGE
 	throwforce = 5
-	stun_time = 5 SECONDS
+	knockdown_time = 5 SECONDS
 	cell_hit_cost = 1000
 	throw_stun_chance = 10
 	slot_flags = ITEM_SLOT_BACK
@@ -348,20 +348,8 @@
 	attack_verb_continuous = list("beats", "smacks")
 	hitsound = 'sound/weapons/genhit2.ogg'
 
-/obj/item/melee/baton/baseball/Initialize()
-	. = ..()
-	sparkler = new (src)
 
-/obj/item/melee/baton/baseball/baton_effect()
-	if(sparkler.activate())
-		..()
-
-/obj/item/melee/baton/baseball/Destroy()
-	if(sparkler)
-		QDEL_NULL(sparkler)
-	return ..()
-
-/obj/item/melee/baton/baseball/attack(mob/living/target, mob/living/user)
+/obj/item/melee/baton/security/baseball/attack(mob/living/target, mob/living/user)
 	. = ..()
 	hitsound = 'sound/weapons/genhit2.ogg'
 	var/atom/throw_target = get_edge_target_turf(target, user.dir)
@@ -453,7 +441,7 @@
 		/obj/item/melee/baseball_bat/knife,
 		/obj/item/melee/baseball_bat/magic,
 		/obj/item/melee/baseball_bat/kitty,
-		/obj/item/melee/baton/baseball,
+		/obj/item/melee/baton/security/baseball,
 		/obj/item/melee/baseball_bat/ablative,
 		/obj/item/fireaxe/baseball
 		))
@@ -467,7 +455,7 @@
 	worn_icon_state = initial(worn_icon_state)
 	for(var/obj/item/melee/baseball_bat/B in contents)
 		worn_icon_state += "[B.belt_sprite]"
-	for(var/obj/item/melee/baton/baseball/STUN in contents)
+	for(var/obj/item/melee/baton/security/baseball/STUN in contents)
 		worn_icon_state += "-baton"
 	for(var/obj/item/fireaxe/baseball/EXEC in contents)
 		worn_icon_state += "-exec"

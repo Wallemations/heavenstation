@@ -1,6 +1,7 @@
 //By Melbert
 /datum/quirk/no_appendix
 	name = "Appendicitis Survivor"
+	icon = "band-aid"
 	desc = "You had a run-in with appendicitis in the past and no longer have an appendix."
 	value = 2
 	gain_text = "<span class='notice'>You no longer have an appendix.</span>"

@@ -38,7 +38,7 @@
 	suit = /obj/item/clothing/suit/armor/vest/peacekeeper/black
 	head = /obj/item/clothing/head/beret/sec/peacekeeper/sergeant
 
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic, /obj/item/armament_token/sidearm, /obj/item/armament_token/primary)
+	backpack_contents = list(/obj/item/melee/baton/telescopic, /obj/item/armament_token/sidearm, /obj/item/armament_token/primary)
 
 	backpack = /obj/item/storage/backpack/security/peacekeeper
 	satchel = /obj/item/storage/backpack/satchel/sec/peacekeeper
