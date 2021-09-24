@@ -57,3 +57,18 @@
 	build_path = /obj/item/clothing/glasses/meson/engine/tray/prescription
 	category = list("Equipment")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+
+/datum/techweb_node/upg_huds
+	id = "upghuds"
+	display_name = "Prescription HUDs"
+	description = "HUDs for the visually impaired!"
+	prereq_ids = list("integrated_HUDs", "adv_engi")
+	design_ids = list(
+		"health_hud_prescription",
+		"security_hud_prescription",
+		"diagnostic_hud_prescription",
+		"mesons_prescription",
+		"engine_goggles_prescription",
+		"tray_goggles_prescription",
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)

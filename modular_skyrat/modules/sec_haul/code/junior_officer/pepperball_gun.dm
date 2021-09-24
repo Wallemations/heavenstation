@@ -10,11 +10,7 @@
 	rack_sound = 'sound/weapons/gun/pistol/rack.ogg'
 	lock_back_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
 	bolt_drop_sound = 'sound/weapons/gun/pistol/slide_drop.ogg'
-	realistic = TRUE
 	can_flashlight = TRUE
-	dirt_modifier = 2
-	emp_damageable = TRUE
-	armadyne = TRUE
 	fire_sound_volume = 50
 
 /obj/item/ammo_box/magazine/pepperball
@@ -32,6 +28,7 @@
 	desc = "A pepperball casing."
 	caliber = CALIBER_PEPPERBALL
 	projectile_type = /obj/projectile/bullet/pepperball
+	harmful = FALSE
 
 /obj/projectile/bullet/pepperball
 	name = "pepperball orb"
@@ -45,7 +42,7 @@
 	embedding = null
 	impact_effect_type = /obj/effect/temp_visual/impact_effect
 	var/contained_reagent = /datum/reagent/consumable/condensedcapsaicin
-	var/reagent_volume = 50
+	var/reagent_volume = 5
 
 /obj/projectile/bullet/pepperball/on_hit(atom/target, blocked, pierce_hit)
 	if(isliving(target))
@@ -59,7 +56,7 @@
 	name = "Pepperball Ammo Box"
 	id = "pepperballs"
 	build_type = AUTOLATHE | PROTOLATHE
-	materials = list(/datum/material/iron = 10000)
+	materials = list(/datum/material/iron = 5000)
 	build_path = /obj/item/ammo_box/advanced/pepperballs
 	category = list("intial", "Security", "Ammo")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
@@ -69,5 +66,22 @@
 	icon = 'modular_skyrat/modules/sec_haul/icons/guns/ammoboxes.dmi'
 	icon_state = "box10x24"
 	ammo_type = /obj/item/ammo_casing/pepperball
-	custom_materials = list(/datum/material/iron = 10000)
-	max_ammo = 30
+	custom_materials = list(/datum/material/iron = 5000)
+	max_ammo = 15
+
+
+//PEPPERBALLS
+/obj/item/storage/box/gunset/pepperball
+	name = "pepperball supply box"
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/gun/ballistic/automatic/pistol/pepperball/nomag
+	spawnwithmagazine = FALSE
+
+/obj/item/storage/box/gunset/pepperball/PopulateContents()
+	. = ..()
+	new /obj/item/gun/ballistic/automatic/pistol/pepperball/nomag(src)
+	new /obj/item/ammo_box/magazine/pepperball(src)
+	new /obj/item/ammo_box/magazine/pepperball(src)
+	new /obj/item/ammo_box/magazine/pepperball(src)
+	new /obj/item/ammo_box/magazine/pepperball(src)

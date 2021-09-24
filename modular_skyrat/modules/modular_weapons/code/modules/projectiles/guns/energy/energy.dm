@@ -17,7 +17,6 @@
 	charge_sections = 3
 	can_flashlight = FALSE // Can't attach or detach the flashlight, and override it's icon update
 	gunlight_state = "cfa-disabler-light"
-	has_gun_safety = FALSE
 
 /obj/item/gun/energy/disabler/cfa_disabler/Initialize()
 	set_gun_light(new /obj/item/flashlight/seclite(src))
@@ -29,16 +28,15 @@
 // Similar to the HoS's laser. Fires a bouncing non-lethal, lethal and knockdown projectile.
 
 /obj/item/gun/energy/e_gun/cfa_phalanx
-	name = "\improper Mk.II Phalanx Plasma Carbine"
+	name = "\improper Mk.II Phalanx Plasma Blaster"
 	desc = "Fires a disabling and lethal bouncing projectile, as well as a special muscle-seizing projectile that knocks targets down. It has <b><span style='color:purple'>Cantalan Federal Arms</span></b> etched into the grip."
 	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/guns/projectile.dmi'
-	icon_state = "phalanx"
+	icon_state = "phalanx1"
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 10
 	ammo_type = list(/obj/item/ammo_casing/energy/disabler/bounce, /obj/item/ammo_casing/energy/laser/bounce, /obj/item/ammo_casing/energy/electrode/knockdown)
 	ammo_x_offset = 1
 	charge_sections = 5
-	has_gun_safety = FALSE
 	cell_type = /obj/item/stock_parts/cell/hos_gun
 
 //////////////////////
@@ -54,7 +52,6 @@
 	force = 10
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/double)
 	charge_sections = 5
-	has_gun_safety = FALSE
 
 //////////////////////
 // Bounce Disabler  //

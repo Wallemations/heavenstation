@@ -54,14 +54,6 @@
 	icon_state = "kepi_old"
 	desc = "A flat, white circular cap with a visor, that demands some honor from it's wearer."
 
-/obj/item/clothing/head/maid
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	name = "maid headband"
-	desc = "Maid in China."
-	icon_state = "maid"
-	dynamic_hair_suffix = ""
-
 /obj/item/clothing/head/beret/white
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'

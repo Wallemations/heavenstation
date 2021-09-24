@@ -5,6 +5,7 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "juniorsoft"
 	soft_type = "junior"
+
 /obj/item/clothing/under/rank/security/peacekeeper/junior
 	name = "peacekeeper junior officer poloshirt"
 	desc = "A sleek peackeeper poloshirt and pants, this one is special. It's for junior officers."

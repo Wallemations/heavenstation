@@ -132,7 +132,6 @@
 	fire_delay = 5
 	can_suppress = FALSE
 	burst_size = 0
-	fire_select_modes = list(SELECT_SEMI_AUTOMATIC) //SKYRAT EDIT CHANGE
 	mag_display = FALSE
 	mag_display_ammo = FALSE
 	empty_indicator = FALSE
@@ -142,7 +141,6 @@
 	zoomable = TRUE
 	zoom_amt = 4
 	zoom_out_amt = 2
-	has_gun_safety = FALSE
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/gun/ballistic/automatic/cfa_rifle/empty

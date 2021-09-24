@@ -34,4 +34,4 @@
 /obj/item/reagent_containers/hypospray/medipen/inject(mob/living/M, mob/user)
 	. = ..()
 	if(.)
-		playsound(M, 'modular_heaven/modules/tauceti_sprites/medipen.ogg', 20, TRUE, -3)
+		playsound(M, 'modular_heaven/modules/tauceti_sprites/medipen.ogg', 50, TRUE, -3)

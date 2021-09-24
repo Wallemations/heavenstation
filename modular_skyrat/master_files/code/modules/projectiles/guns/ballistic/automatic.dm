@@ -9,13 +9,11 @@
 	vary_fire_sound = FALSE
 	rack_sound = 'sound/weapons/gun/smg/smgrack.ogg'
 	suppressed_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
-	fire_select_modes = list(SELECT_SEMI_AUTOMATIC, SELECT_BURST_SHOT, SELECT_FULLY_AUTOMATIC)
 
 /obj/item/gun/ballistic/automatic/proto
 	name = "\improper Nanotrasen Saber SMG"
 	desc = "A prototype three-round burst 9mm submachine gun, designated 'SABR'. Has a threaded barrel for suppressors."
 	icon_state = "saber"
-	selector_switch_icon = TRUE
 	mag_display = TRUE
 	empty_indicator = TRUE
 	mag_type = /obj/item/ammo_box/magazine/smgm9mm
@@ -31,7 +29,6 @@
 	desc = "A bullpup three-round burst .45 SMG, designated 'C-20r'. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
 	icon_state = "c20r"
 	inhand_icon_state = "c20r"
-	selector_switch_icon = TRUE
 	mag_type = /obj/item/ammo_box/magazine/smgm45
 	fire_delay = 2
 	burst_size = 3
@@ -65,7 +62,6 @@
 	fire_delay = 2
 	can_suppress = FALSE
 	burst_size = 1
-	fire_select_modes = list(SELECT_SEMI_AUTOMATIC, SELECT_FULLY_AUTOMATIC)
 	can_bayonet = TRUE
 	knife_x_offset = 25
 	knife_y_offset = 12
@@ -104,7 +100,6 @@
 	icon_state = "m90"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "m90"
-	selector_switch_icon = TRUE
 	mag_type = /obj/item/ammo_box/magazine/m556
 	can_suppress = FALSE
 	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel
@@ -146,17 +141,18 @@
 	desc = "Based on the classic 'Chicago Typewriter'."
 	icon_state = "tommygun"
 	inhand_icon_state = "shotgun"
-	selector_switch_icon = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/tommygunm45
 	can_suppress = FALSE
 	burst_size = 1
-	fire_select_modes = list(SELECT_SEMI_AUTOMATIC, SELECT_FULLY_AUTOMATIC)
 	fire_delay = 1
 	bolt_type = BOLT_TYPE_OPEN
 	empty_indicator = TRUE
 	show_bolt_icon = FALSE
+
+/obj/item/gun/ballistic/automatic/tommygun/therealtommy
+	name = "Tommygun"
 
 /obj/item/gun/ballistic/automatic/ar
 	name = "\improper NT-ARG 'Boarder'"
@@ -183,7 +179,6 @@
 	mag_type = /obj/item/ammo_box/magazine/mm712x82
 	weapon_weight = WEAPON_HEAVY
 	burst_size = 1
-	fire_select_modes = list(SELECT_SEMI_AUTOMATIC, SELECT_FULLY_AUTOMATIC)
 	can_suppress = FALSE
 	spread = 7
 	pin = /obj/item/firing_pin/implant/pindicate
@@ -278,7 +273,6 @@
 	zoom_amt = 10 //Long range, enough to see in front of you, but no tiles behind you.
 	zoom_out_amt = 5
 	slot_flags = ITEM_SLOT_BACK
-	fire_select_modes = list(SELECT_SEMI_AUTOMATIC)
 	mag_display = TRUE
 	suppressor_x_offset = 3
 	suppressor_y_offset = 3
@@ -307,7 +301,6 @@
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK
 	//actions_types = list() SKYRAT EDIT REMOVAL
-	fire_select_modes = list(SELECT_SEMI_AUTOMATIC)
 	mag_display = TRUE
 
 // Laser rifle (rechargeable magazine) //
@@ -324,6 +317,5 @@
 	can_suppress = FALSE
 	burst_size = 0
 	//actions_types = list() SKYRAT EDIT REMOVAL
-	fire_select_modes = list(SELECT_SEMI_AUTOMATIC)
 	fire_sound = 'sound/weapons/laser.ogg'
 	casing_ejector = FALSE
