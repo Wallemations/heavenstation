@@ -35,7 +35,7 @@
 
 	var/no_effects = FALSE
 
-	alpha = 225
+	alpha = 190
 
 /obj/effect/abstract/liquid_turf/onShuttleMove(turf/newT, turf/oldT, list/movement_force, move_dir, obj/docking_port/stationary/old_dock, obj/docking_port/mobile/moving_dock)
 	return
@@ -200,7 +200,7 @@
 			overlay.layer = ABOVE_MOB_LAYER
 			underlay.plane = GAME_PLANE
 			underlay.layer = GATEWAY_UNDERLAY_LAYER
-			alpha = 225
+			alpha = 190
 			add_overlay(overlay)
 			add_overlay(underlay)
 		if(LIQUID_STATE_WAIST)
@@ -210,7 +210,7 @@
 			overlay.layer = ABOVE_MOB_LAYER
 			underlay.plane = GAME_PLANE
 			underlay.layer = GATEWAY_UNDERLAY_LAYER
-			alpha = 240
+			alpha = 220
 			add_overlay(overlay)
 			add_overlay(underlay)
 		if(LIQUID_STATE_SHOULDERS)
@@ -220,7 +220,7 @@
 			overlay.layer = ABOVE_MOB_LAYER
 			underlay.plane = GAME_PLANE
 			underlay.layer = GATEWAY_UNDERLAY_LAYER
-			alpha = 255
+			alpha = 245
 			add_overlay(overlay)
 			add_overlay(underlay)
 		if(LIQUID_STATE_FULLTILE)
