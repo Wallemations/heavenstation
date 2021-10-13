@@ -1,6 +1,7 @@
 ////////////////
 ///Eggcellent///
 
+#define EGGS_BABY 50
 #define EGGS_EASY 25
 #define EGGS_NORMAL 10
 #define EGGS_HARD 5
@@ -24,7 +25,9 @@
 	var/set_time = 10
 	/// The upper limit on how many reagents are eaten per bite
 	var/difficulty = EGGS_NORMAL
-	var/list/difficulty_list = list(EGGS_EASY, EGGS_NORMAL, EGGS_HARD, EGGS_TRUE_HERO)
+	var/list/difficulty_list = list(EGGS_BABY, EGGS_EASY, EGGS_NORMAL, EGGS_HARD, EGGS_TRUE_HERO)
+	var/diff_name = "Normal"
+	var/amount_list_position = 1
 
 /obj/item/food/omelette/eggcellent_plate/Initialize()
 	. = ..()
@@ -43,19 +46,28 @@
 	if(!current_challenger)
 		set_time = input(user, "Input minutes allowed for challenge", "Eggcellent Challenge") as num|null
 
+
 /obj/item/food/omelette/eggcellent_plate/CtrlShiftClick(mob/user)
 	. = ..()
+	if(current_challenger)
+		return
+	var/list_len = length(difficulty_list)
 	amount_list_position = (amount_list_position % list_len) + 1
 	difficulty = difficulty_list[amount_list_position]
 	switch(difficulty)
-		if(difficulty == EGGS_EASY)
-			balloon_alert(user, "difficulty set to Easy")
-		if(difficulty == EGGS_NORMAL)
-			balloon_alert(user, "difficulty set to Normal")
-		if(difficulty == EGGS_HARD)
-			balloon_alert(user, "difficulty set to Hard")
-		if(difficulty == EGGS_TRUE_HERO)
-			balloon_alert(user, "difficulty set to TRUE HERO")
+		if(EGGS_BABY)
+			diff_name = "Baby's First Eggs"
+		if(EGGS_EASY)
+			diff_name = "Easy"
+		if(EGGS_NORMAL)
+			diff_name = "Normal"
+		if(EGGS_HARD)
+			diff_name = "Hard"
+		if(EGGS_TRUE_HERO)
+			diff_name = "TRUE HERO"
+		if(!(EGGS_BABY || EGGS_EASY || EGGS_NORMAL || EGGS_HARD || EGGS_TRUE_HERO))
+			CRASH("Non-applicable egg difficulty detected")
+	balloon_alert(user, "Difficulty set to [diff_name]")
 
 /obj/item/food/omelette/eggcellent_plate/examine(mob/user)
 	. = ..()
@@ -64,22 +76,53 @@
 	else
 		. += "The challenger will have [set_time] minutes to finish this dish."
 		. += span_notice("Alt-Clicking this will allow you to change the amount of time that a challenger has to finish this dish.")
+		. += "The current difficulty is set to [diff_name]"
+		. += span_notice("Control-Shift-Clicking this will allow you to change the difficulty of the challenge.")
 
 /obj/item/food/omelette/eggcellent_plate/proc/On_Consume(atom/eggs, mob/egg_eater, mob/egg_feeder)
 	SIGNAL_HANDLER
-
 	if(!isliving(usr))
 		return
 	if(usr == current_challenger)
 		deltimer(timerid)
-		priority_announce("[current_challenger] has completed the challenge! [current_challenger.p_their(TRUE)] rightful crown has been delivered unto [current_challenger.p_them()]!", "Sacred Egg Enrichment Center")
+		spawn_crown(usr)
 		UnregisterSignal(src, COMSIG_FOOD_CONSUMED)
-		new /obj/item/clothing/head/eggcellent_hat(usr.loc)
 	else
 		deltimer(timerid)
 		spawn_bomb(usr)
 		priority_announce("[usr] has attempted to aid in [current_challenger]'s challenge, a sin which will not be forgiven. Measures have been taken to have [usr.p_them()] atone for this crime.", "Sacred Egg Enrichment Center")
 		UnregisterSignal(src, COMSIG_FOOD_CONSUMED)
+
+/obj/item/food/omelette/eggcellent_plate/proc/spawn_crown(mob/user)
+	if(set_time >= 30 && !(difficulty == EGGS_TRUE_HERO))
+		priority_announce("[current_challenger] has completed their test run of the Eggcellent Challenge! [current_challenger.p_they(TRUE)] can try again within a shorter timeframe to attempt to gain [current_challenger.p_their()] true prize!", "Sacred Egg Enrichment Center")
+		return
+	var/obj/item/clothing/head/crown
+	if(difficulty == EGGS_BABY)
+		priority_announce("[current_challenger] has finished [current_challenger.p_their()] 'My First Egg Challenge' playset! We're sure they'll grow up to be quite the capable warrior one day!", "Sacred Egg Enrichment Center")
+		return
+	else if (difficulty == EGGS_TRUE_HERO)
+		priority_announce("[current_challenger] has completed the challenge! [current_challenger.p_their(TRUE)] rightful crown has been delivered unto [current_challenger.p_them()]!", "Sacred Egg Enrichment Center")
+		crown = /obj/item/clothing/head/eggcellent_hat
+		crown.name = span_mind_control("Eggcellent Hat")
+	else
+		priority_announce("[current_challenger] has completed the challenge! [current_challenger.p_their(TRUE)] prize has been delivered unto [current_challenger.p_them()] according to their difficulty!", "Sacred Egg Enrichment Center")
+		new /obj/item/clothing/head/eggcellent_hat(user.loc)
+		switch(difficulty)
+			if(EGGS_EASY)
+				crown = /obj/item/clothing/head/cone
+				crown.name = "Beginner's Crown"
+			if(EGGS_NORMAL)
+				crown = /obj/item/clothing/head/beret
+				crown.desc = "A rather nice beret as a reward for completing the Eggcelent challenge."
+			if(EGGS_HARD)
+				crown = /obj/item/clothing/head/eggcellent_hat
+				crown.desc = "Closer inspection shows this to be a cheap knockoff of the real deal. Still, it took a good amount of skill to get this far."
+	podspawn(list(
+		"target" = get_turf(user),
+		"style" = STYLE_BLUESPACE,
+		"spawn" = crown,
+	))
 
 /obj/item/food/omelette/eggcellent_plate/proc/spawn_bomb(mob/user)
 	var/obj/item/grenade/frag/P = new /obj/item/grenade/frag(user.loc)
@@ -91,11 +134,11 @@
 	spawn_bomb(current_challenger)
 	qdel(src)
 
-
-#define EGGS_EASY
-#define EGGS_NORMAL
-#define EGGS_HARD
-#define EGGS_TRUE_HERO
+#undef EGGS_BABY
+#undef EGGS_EASY
+#undef EGGS_NORMAL
+#undef EGGS_HARD
+#undef EGGS_TRUE_HERO
 
 
 // Recipe
