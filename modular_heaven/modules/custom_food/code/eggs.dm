@@ -78,6 +78,14 @@
 		. += span_notice("Alt-Clicking this will allow you to change the amount of time that a challenger has to finish this dish.")
 		. += "The current difficulty is set to [diff_name]"
 		. += span_notice("Control-Shift-Clicking this will allow you to change the difficulty of the challenge.")
+		if(difficulty == EGGS_TRUE_HERO && set_time >= 45 || !(difficulty == EGGS_TRUE_HERO) && set_time >= 30)
+			var/below_time
+			switch(difficulty)
+				if(EGGS_TRUE_HERO)
+					below_time = 45
+				else
+					below_time = 30
+			. += span_tinynotice("To turn off Trial Run mode for the current difficulty, set timer below [below_time] minutes.")
 
 /obj/item/food/omelette/eggcellent_plate/proc/On_Consume(atom/eggs, mob/egg_eater, mob/egg_feeder)
 	SIGNAL_HANDLER
@@ -94,7 +102,7 @@
 		UnregisterSignal(src, COMSIG_FOOD_CONSUMED)
 
 /obj/item/food/omelette/eggcellent_plate/proc/spawn_crown(mob/user)
-	if(set_time >= 30 && !(difficulty == EGGS_TRUE_HERO))
+	if(difficulty == EGGS_TRUE_HERO && set_time >= 45 || !(difficulty == EGGS_TRUE_HERO) && set_time >= 30)
 		priority_announce("[current_challenger] has completed their test run of the Eggcellent Challenge! [current_challenger.p_they(TRUE)] can try again within a shorter timeframe to attempt to gain [current_challenger.p_their()] true prize!", "Sacred Egg Enrichment Center")
 		return
 	var/obj/item/clothing/head/crown
