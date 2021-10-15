@@ -21,6 +21,15 @@
 	tastes = list("heaven" = 4, "divinity" = 3 )
 	foodtypes = GRAIN | DAIRY
 
+/datum/crafting_recipe/food/royalcheesecake
+	name = "Royal Cheese cake"
+	reqs = list(
+		/obj/item/food/cake/plain = 1,
+		/obj/item/food/cheese/royal = 1
+	)
+	result = /obj/item/food/cake/royalcheese
+	subcategory = CAT_CAKE
+
 // Lemon
 
 /obj/item/food/cake/lemoncheese
@@ -42,6 +51,17 @@
 	icon_state = "lemoncheese_slice"
 	tastes = list("cake" = 4, "cream cheese" = 3, "lemon" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
+
+/datum/crafting_recipe/food/lemoncheesecake
+	name = "Lemon Cheese cake"
+	reqs = list(
+		/obj/item/food/cake/plain = 1,
+		/obj/item/food/cheese = 2,
+		/obj/item/food/grown/citrus/lemon = 1
+	)
+	result = /obj/item/food/cake/lemoncheese
+	subcategory = CAT_CAKE
+
 
 /////// Cheesecakes //////
 //////////////////////////

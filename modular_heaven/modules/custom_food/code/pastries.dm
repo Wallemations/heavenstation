@@ -60,16 +60,55 @@
 /datum/crafting_recipe/food/oreodouble
 	name = "Double Stuf Oreo"
 	reqs = list(
-		/obj/item/food/cookie/oreo = 2
+		/datum/reagent/consumable/flour = 2,
+		/obj/item/food/chocolatebar = 1,
+		/datum/reagent/consumable/cream = 2,
 	)
 	result = /obj/item/food/cookie/oreo/double
 	subcategory = CAT_PASTRY
 
-// Boxes
+// Mega
+/obj/item/food/cookie/oreo/mega
+	name = "mega stuf oreo"
+	desc = "A tasty cookie with <i>quadruple</i> the cream filling!"
+	icon = 'modular_heaven/modules/custom_food/icons/food.dmi'
+	icon_state = "oreo_mega"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/sugar = 8)
+
+/datum/crafting_recipe/food/oreomega
+	name = "Mega Stuf Oreo"
+	reqs = list(
+		/datum/reagent/consumable/flour = 4,
+		/obj/item/food/chocolatebar = 1,
+		/datum/reagent/consumable/cream = 4,
+	)
+	result = /obj/item/food/cookie/oreo/mega
+	subcategory = CAT_PASTRY
+
+// Most
+/obj/item/food/cookie/oreo/most
+	name = "most stuf oreo"
+	desc = "A tasty cookie with <i>octuple</i> the cream filling!"
+	icon = 'modular_heaven/modules/custom_food/icons/food.dmi'
+	icon_state = "oreo_most"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/sugar = 16)
+
+/datum/crafting_recipe/food/oreomost
+	name = "Most Stuf Oreo"
+	reqs = list(
+		/datum/reagent/consumable/flour = 8,
+		/obj/item/food/chocolatebar = 2,
+		/datum/reagent/consumable/cream = 8,
+	)
+	result = /obj/item/food/cookie/oreo/most
+	subcategory = CAT_PASTRY
+
+
+////////////// Boxes ///////////////
 
 /obj/item/storage/fancy/oreobox
 	name = "oreo box"
-	desc = "A cardboard box used for holding lots of oreos."
+	desc = "A cardboard box used for holding a ton of oreos."
 	icon = 'modular_heaven/modules/custom_food/icons/containers.dmi'
 	icon_state = "oreobox"
 	base_icon_state = "oreobox"
@@ -85,6 +124,7 @@
 /obj/item/storage/fancy/oreobox/full
 	spawn_type = /obj/item/food/cookie/oreo
 
+// Double
 /obj/item/storage/fancy/oreobox/double
 	name = "double stuf oreo box"
 	desc = "A cardboard box used for holding lots of double stuf oreos."
@@ -101,6 +141,62 @@
 
 /obj/item/storage/fancy/oreobox/double/full
 	spawn_type = /obj/item/food/cookie/oreo/double
+
+// Mega
+/obj/item/storage/fancy/oreobox/mega
+	name = "mega stuf oreo box"
+	desc = "A cardboard box used for holding some mega stuf oreos."
+	icon_state = "oreobox_mega"
+	base_icon_state = "oreobox_mega"
+	contents_tag = "mega stuf oreo"
+
+/obj/item/storage/fancy/oreobox/mega/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 6
+	STR.set_holdable(list(/obj/item/food/cookie/oreo/mega))
+	STR.max_combined_w_class = 40
+
+/obj/item/storage/fancy/oreobox/mega/full
+	spawn_type = /obj/item/food/cookie/oreo/mega
+
+// Most
+/obj/item/storage/fancy/oreobox/most
+	name = "most stuf oreo box"
+	desc = "A cardboard box used for holding a couple most stuf oreos."
+	icon_state = "oreobox_most"
+	base_icon_state = "oreobox_most"
+	contents_tag = "most stuf oreo"
+
+/obj/item/storage/fancy/oreobox/most/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 4
+	STR.set_holdable(list(/obj/item/food/cookie/oreo/most))
+	STR.max_combined_w_class = 40
+
+/obj/item/storage/fancy/oreobox/most/full
+	spawn_type = /obj/item/food/cookie/oreo/most
+
+// Omni
+/*
+/obj/item/storage/fancy/oreobox/omni
+	name = "omni stuf oreo box"
+	desc = "A cardboard box used for holding an omni stuf oreos."
+	icon_state = "oreobox_omni"
+	base_icon_state = "oreobox_omni"
+	contents_tag = "omni stuf oreo"
+
+/obj/item/storage/fancy/oreobox/omni/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 1
+	STR.set_holdable(list(/obj/item/food/cookie/oreo/omni))
+	STR.max_combined_w_class = 40
+
+/obj/item/storage/fancy/oreobox/omni/full
+	spawn_type = /obj/item/food/cookie/oreo/omni
+*/
 
 /////// Oreos //////
 ////////////////////
