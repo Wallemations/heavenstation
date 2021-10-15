@@ -8,7 +8,7 @@
 	inhand_icon_state = "carpcakes"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("fish" = 1, "breadcrumbs" = 1)
-	foodtypes = MEAT
+	foodtypes = SEAFOOD | GRAIN
 
 /datum/crafting_recipe/food/carpcakes
 	name = "Carpcakes"
@@ -18,7 +18,7 @@
 		/datum/reagent/consumable/eggyolk = 2,
 	)
 	result = /obj/item/food/pancakes/carpcakes
-	subcategory = CAT_MEAT
+	subcategory = CAT_SEAFOOD
 
 ////Carpcakes////
 /////////////////
