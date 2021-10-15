@@ -14,10 +14,9 @@
 	var/lit = FALSE
 	var/infinite = FALSE
 	var/start_lit = FALSE
-
 	var/scented_type //SKYRAT EDIT ADDITION /// Pollutant type for scented candles
 
-/obj/item/candle/Initialize()
+/obj/item/candle/Initialize(mapload)
 	. = ..()
 	if(start_lit)
 		light()
