@@ -190,7 +190,7 @@
 /obj/item/storage/fancy/oreobox/omni/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 4
+	STR.max_items = 1
 	STR.set_holdable(list(/obj/item/food/cookie/oreo/omni))
 	STR.max_combined_w_class = 40
 

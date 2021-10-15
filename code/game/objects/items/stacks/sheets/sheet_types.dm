@@ -432,6 +432,8 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 		new /datum/stack_recipe("bigmac box", /obj/item/storage/fancy/bigmacbox), \
 		new /datum/stack_recipe("oreo box", /obj/item/storage/fancy/oreobox), \
 		new /datum/stack_recipe("double stuf oreo box", /obj/item/storage/fancy/oreobox/double), \
+		new /datum/stack_recipe("mega stuf oreo box", /obj/item/storage/fancy/oreobox/mega), \
+		new /datum/stack_recipe("most stuf oreo box", /obj/item/storage/fancy/oreobox/most), \
 		// NON-MODULE CHANGE
 		null, \
 
