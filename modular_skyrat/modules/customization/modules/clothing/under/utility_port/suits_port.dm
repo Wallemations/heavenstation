@@ -25,8 +25,7 @@
 	body_parts_covered = CHEST|ARMS|GROIN
 	cold_protection = CHEST|ARMS|GROIN
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-
-	togglename = "zipper"
+	toggle_noun = "zipper"
 
 //Job Jackets
 /obj/item/clothing/suit/toggle/jacket/engi

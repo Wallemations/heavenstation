@@ -137,12 +137,12 @@ GLOBAL_LIST_INIT(fishing_weights, list(
 				if(1)
 					generate_fish(get_turf(user), random_fish_type())
 				if(2 to 3)
-					var/obj/spawn_objone = pickweight(GLOB.fishing_weights)
+					var/obj/spawn_objone = pick_weight(GLOB.fishing_weights)
 					new spawn_objone(get_turf(user))
 			fishing_spot = null
 			QDEL_NULL(spawned_bobber)
 			return
-		var/obj/spawn_objtwo = pickweight(GLOB.fishing_weights)
+		var/obj/spawn_objtwo = pick_weight(GLOB.fishing_weights)
 		new spawn_objtwo(get_turf(user))
 		fishing_spot = null
 		QDEL_NULL(spawned_bobber)
