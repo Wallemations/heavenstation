@@ -27,7 +27,7 @@
 	name = "tamales"
 	desc = "A beloved dish from Space Mexico!"
 	icon_state = "tamales"
-	bitesize = 4
+	bite_consumption = 4
 	icon = 'modular_heaven/modules/custom_food/icons/food.dmi'
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/capsaicin = 1)
 	tastes = list("spice" = 1, "meat" = 3, "cheese" = 1, "masa" = 1)
