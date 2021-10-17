@@ -265,8 +265,6 @@
 
 /obj/item/melee/baseball_bat/kitty/attack(mob/living/target, mob/living/user)
 	. = ..()
-	set_light(rand(2, 3))
-	light_power = 10
 	switch(effect)
 		if(2)
 			if(iscarbon(target))
@@ -293,11 +291,11 @@
 			SEND_SIGNAL(L, COMSIG_LIVING_MINOR_SHOCK)
 			addtimer(CALLBACK(src, .proc/apply_stun_effect_end, L), apply_stun_delay)
 			L.visible_message("<span class='danger'>[user] stuns [L]!</span>", "<span class='userdanger'>[user] stunned you!</span>")
-		/*if(7)
+		if(7)
 			var/mob/living/carbon/human/L = target
-			var/amount_left = 5
+			var/amount_left = rand(5, 10)
 			L.apply_status_effect(STATUS_EFFECT_ANTS, amount_left)
-			L.visible_message("<span class='danger'>[L] is covered in ants!</span>", "<span class='userdanger'>JESUS CHRIST YOU'RE COVERED IN ANTS!!!</span>")*/ //Ant module not done
+			L.visible_message("<span class='danger'>[L] is covered in ants!</span>", "<span class='userdanger'>JESUS CHRIST YOU'RE COVERED IN ANTS!!!</span>")
 		if(8)
 			var/atom/throw_target = get_edge_target_turf(target, user.dir)
 			if(!target.anchored)
