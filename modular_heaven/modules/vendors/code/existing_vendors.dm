@@ -1,4 +1,4 @@
-/* Use this file to add to existing vending machines.
+/* Use this file to add to existing vending machines, if the changes would not qualify their own modules.
 To do this, use this as an example:
 --------------------------------------------------------------------
 /obj/machinery/vending/wardrobe/robo_wardrobe/Initialize()
