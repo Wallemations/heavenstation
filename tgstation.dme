@@ -4004,6 +4004,8 @@
 #include "modular_heaven\modules\quirks\negative.dm"
 #include "modular_heaven\modules\quirks\neutral.dm"
 #include "modular_heaven\modules\tauceti_sprites\code\easy_sprites.dm"
+#include "modular_heaven\modules\vendors\code\existing_vendors.dm"
+#include "modular_heaven\modules\vendors\code\custom\blood_machine.dm"
 #include "modular_skyrat\master_files\code\_globalvars\configuration.dm"
 #include "modular_skyrat\master_files\code\datums\id_trim\jobs.dm"
 #include "modular_skyrat\master_files\code\datums\traits\good.dm"
