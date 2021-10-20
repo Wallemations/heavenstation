@@ -4,7 +4,9 @@
 	icon = 'modular_heaven/modules/plushies/icons/plushes.dmi'
 	icon_state = "generic"
 	w_class = WEIGHT_CLASS_SMALL
+	/// Is the plush currently on cooldown
 	var/cooldown = FALSE
+	/// The possible messages that this plush can say
 	var/messages = list("I'm super generic!", "Mathematics class is of variable difficulty!", "I enjoy water without any ice!", "I love the latest season of The Simpsons!")
 	var/span = "danger"
 	var/recharge_time = 30
