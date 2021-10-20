@@ -4004,6 +4004,7 @@
 #include "modular_heaven\modules\pizza_burgers\code\game\object\item\food\burgers.dm"
 #include "modular_heaven\modules\pizza_burgers\code\game\object\item\food\pizza.dm"
 #include "modular_heaven\modules\players\Dor\code\clothes.dm"
+#include "modular_heaven\modules\players\Smiles\code\clothes.dm"
 #include "modular_heaven\modules\players\Spirits\code\clothes.dm"
 #include "modular_heaven\modules\players\Thai\code\clothes.dm"
 #include "modular_heaven\modules\plushies\code\plushes.dm"
