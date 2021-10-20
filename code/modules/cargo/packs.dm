@@ -2742,16 +2742,17 @@
 					/obj/item/vending_refill/sovietsoda,
 					/obj/item/vending_refill/engineering)
 	crate_name = "unlabeled supply crate"
-
+// HEAVEN ADDITION - START - BLOOD VEND
 /datum/supply_pack/vending/medical
 	name = "Medical Vending Crate"
-	desc = "Contains one NanoMed Plus refill, one NanoDrug Plus refill, and one wall-mounted NanoMed refill."
+	desc = "Contains one NanoMed Plus refill, one NanoDrug Plus refill, one Bloodbank refill, and one wall-mounted NanoMed refill."
 	cost = CARGO_CRATE_VALUE * 5
 	contains = list(/obj/item/vending_refill/medical,
 					/obj/item/vending_refill/drugs,
-					/obj/item/vending_refill/wallmed)
+					/obj/item/vending_refill/wallmed,
+					/obj/item/vending_refill/blood)
 	crate_name = "medical vending crate"
-
+// HEAVEN ADDITION - END
 /datum/supply_pack/vending/ptech
 	name = "PTech Supply Crate"
 	desc = "Not enough cartridges after half the crew lost their PDA to explosions? This may fix it."

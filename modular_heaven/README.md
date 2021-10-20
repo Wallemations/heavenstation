@@ -1,4 +1,4 @@
-# Guide from Jollystation
+# Guide lifted from Jollystation - (Thanks!)
 
 ## MODULES AND YOU:
 
@@ -41,15 +41,15 @@ If your idea doesn't have a chance in hell of getting merged to the upstream, or
 - Add a comment before and after your changed code so the spot is known in the future that something was changed.
 Something like so:
 ```
-var/epic_variable = 3 // NON-MODULE CHANGE
+var/epic_variable = 3 // HEAVEN CHANGE
 ```
 
 ```
-/* NON-MODULE CHANGE:
+/* HEAVEN CHANGE:
 /obj/foo/bar/proc/do_thing()
 	to_chat(world, "I added a proc to something")
 	qdel(src)
-NON-MODULE CHANGE END /*
+HEAVEN CHANGE END /*
 ```
 
 ## ...custom things to vendors:
@@ -63,12 +63,40 @@ Defines can only be seen by files if it's been compiled beforehand.
 - Add any defines you need just in that file to the top of the file - make sure to undef it at the end.
 - Add any defines you need to use in core files to their respective core define files, but be sure to comment it.
 
-# Important other notes:
+## Important other notes:
 
 This module system edits the launch.json and the build.bat files so VSCODE can compile with this codebase. This might cause problems in the future if either are edited to any extent. Luckily the vscode edits are not necessary for compiling the project and and reasy to redo, so just overrite the changes if it causes conflicts.
 
-# Upstream merge:
+## Upstream merge:
 
 The time has come for doom. Pull from upstream and pray. Things will probably be broken. Try to fix as many as possible. Merge conflicts will be likely. Try to solve them sensibly.
 
 Everything should be set to try to compile. If there are errors, try to solve them. If it compiles and the game itself seems wonky, then probably call your local coder and cry.
+
+## Making a README.MD file:
+
+If you want to be extra organized, make a README for your PR's and Modules, using the following guide:
+
+```
+## TITLE
+
+DESCRIPTION
+
+### TG Edits
+
+- N/A
+
+### Defines
+
+- N/A
+
+### Included files that are not contained in this module:
+
+- N/A
+
+### Credits
+
+CREDITS
+
+```
+If you're porting something, be sure to link the original PR it was added to its original codebase above the title.

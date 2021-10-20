@@ -3,7 +3,6 @@
 	desc = "You probably shouldn't be seeing this. Shout at a coder."
 	icon = 'modular_heaven/modules/hypospray_2/icons/chemical.dmi'
 	icon_state = "hypovial"
-	fill_icon_state = "hypovial"
 	spillable = FALSE
 	volume = 10
 	possible_transfer_amounts = list(1,2,5,10)
@@ -48,13 +47,13 @@
 	name = "hypovial"
 	desc = "A small, 60u capacity vial compatible with most hyposprays."
 	volume = 60
-	possible_transfer_amounts = list(1,2,5,10,20)
+	possible_transfer_amounts = list(1,2,5,10,20,30,60)
 
 //Fit in CMO hypo only
 /obj/item/reagent_containers/glass/hypovial/large
 	name = "large hypovial"
 	icon_state = "hypoviallarge"
-	fill_icon_state = "hypoviallarge"
+	fill_name = "hypoviallarge"
 	desc = "A large, 120u capacity vial that fits only in the most deluxe hyposprays."
 	volume = 120
 	possible_transfer_amounts = list(1,2,5,10,20,30,40,50,100,120)

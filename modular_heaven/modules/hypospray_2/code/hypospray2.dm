@@ -1,3 +1,4 @@
+
 #define HYPO_SPRAY 0
 #define HYPO_INJECT 1
 
@@ -121,18 +122,20 @@
 	else
 		. += "It has no vial loaded in."
 	. += "[src] is set to [mode ? "Inject" : "Spray"] contents on application."
+	. += span_notice("<b>Ctrl-Click</b> [src] to toggle its mode from spraying to injecting and vice versa.")
+	. += span_notice("<b>Alt-Click</b> [src] to change the amount of reagents per transfer.")
 
 /obj/item/hypospray/mkii/proc/unload_hypo(obj/item/hypo, mob/user)
 	if((istype(hypo, /obj/item/reagent_containers/glass/hypovial)))
 		var/obj/item/reagent_containers/glass/hypovial/container = hypo
 		container.forceMove(user.loc)
 		user.put_in_hands(container)
-		to_chat(user, "<span class='notice'>You remove [vial] from [src].</span>")
+		to_chat(user, span_notice("You remove [vial] from [src]."))
 		vial = null
 		update_icon()
 		playsound(loc, 'sound/weapons/empty.ogg', 50, 1)
 	else
-		to_chat(user, "<span class='notice'>This hypo isn't loaded!</span>")
+		to_chat(user, span_notice("This hypo isn't loaded!"))
 		return
 
 /obj/item/hypospray/mkii/proc/insert_vial(obj/item/new_vial, mob/living/user, obj/item/current_vial)
@@ -231,7 +234,7 @@
 		return
 	log_attack("<font color='red'>[user.name] ([user.ckey]) applied [src] to [injectee.name] ([injectee.ckey]), which had [contained] (COMBAT MODE: [uppertext(user.combat_mode)]) (MODE: [mode])</font>")
 	if(injectee != user)
-		injectee.visible_message(span_danger("[user] uses the [src] on [injectee]!</span>"), \
+		injectee.visible_message(span_danger("[user] uses the [src] on [injectee]!"), \
 						span_userdanger("[user] uses the [src] on you!"))
 	else
 		injectee.log_message("<font color='orange'>applied [src] to themselves ([contained]).</font>", LOG_ATTACK)
@@ -244,7 +247,7 @@
 
 	var/long_sound = vial.amount_per_transfer_from_this >= 15
 	playsound(loc, long_sound ? 'modular_heaven/modules/hypospray_2/sound/hypospray_long.ogg' : pick('modular_heaven/modules/hypospray_2/sound/hypospray.ogg','modular_heaven/modules/hypospray_2/sound/hypospray2.ogg'), 50, 1, -1)
-	to_chat(user, span_notice("You [fp_verb] [vial.amount_per_transfer_from_this] units of the solution. The hypospray's cartridge now contains [vial.reagents.total_volume] units.</span>"))
+	to_chat(user, span_notice("You [fp_verb] [vial.amount_per_transfer_from_this] units of the solution. The hypospray's cartridge now contains [vial.reagents.total_volume] units."))
 	update_appearance()
 
 /obj/item/hypospray/mkii/attack_self(mob/living/user)
@@ -269,9 +272,6 @@
 				to_chat(user, "[src] is now set to spray contents on application.")
 		return TRUE
 
-/obj/item/hypospray/mkii/examine(mob/user)
-	. = ..()
-	. += "<span class='notice'><b>Ctrl-Click</b> it to toggle its mode from spraying to injecting and vice versa.</span>"
 
 #undef HYPO_SPRAY
 #undef HYPO_INJECT
