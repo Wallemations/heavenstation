@@ -31,13 +31,13 @@
 		handled = TRUE
 		ADD_TRAIT(user, TRAIT_HOLY, "suit")
 		to_chat(user, "<span class='notice'>Your skin seems to glow.</span.?>")
-//		user.AddElement(/datum/element/holy_light)
+		user.AddElement(/datum/element/holy_light)
 
 /obj/item/clothing/under/suit/redlady/dropped(mob/user)
 	if(handled)
 		handled = FALSE
 		REMOVE_TRAIT(user, TRAIT_HOLY, "suit")
-//		user.RemoveElement(/datum/element/holy_light)
+		user.RemoveElement(/datum/element/holy_light)
 
 ////////Nar'sie////////
 ///////////////////////
@@ -64,15 +64,16 @@
 		return
 	if(ismoth(user))
 		handled = TRUE
-	//	user.set_species(/datum/species/void)
+		user.set_species(/datum/species/void)
 		to_chat(user, "<span class='notice'>Your body is overtaken by a dark force!</span.?>")
 
-		//obj/item/clothing/under/suit/reshia/dropped(mob/user)
-//	if(handled)
-//		if(ishuman(user)) //same as above
-//			user.set_species(/datum/species/moth)
-//			handled = FALSE
-//			to_chat(user, "<span class='notice'>You feel a wave of light wash over you!</span.?>")
+/obj/item/clothing/under/suit/reshia/dropped(mob/user)
+	. = ..()
+	if(handled)
+		if(ishuman(user)) //same as above
+			user.set_species(/datum/species/moth)
+			handled = FALSE
+			to_chat(user, "<span class='notice'>You feel a wave of light wash over you!</span.?>")
 
 ////////Reshia/////////
 ///////////////////////
