@@ -2555,6 +2555,16 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
+"beo" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/machinery/bounty_board{
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/port)
 "beC" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
@@ -17551,6 +17561,16 @@
 /obj/structure/fluff/vent/west,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"hjm" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/machinery/bounty_board{
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/starboard)
 "hjv" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -20835,6 +20855,9 @@
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
+	},
+/obj/machinery/bounty_board{
+	pixel_y = 32
 	},
 /turf/open/floor/plasteel/dark,
 /area/bridge)
@@ -30540,6 +30563,14 @@
 	},
 /turf/open/floor/plating,
 /area/construction/mining/aux_base)
+"mrv" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/bounty_board{
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/starboard)
 "mrz" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
@@ -57744,6 +57775,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/courtroom)
+"xhb" = (
+/obj/machinery/bounty_board{
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/port)
 "xhj" = (
 /obj/structure/table/glass,
 /obj/item/reagent_containers/glass/beaker/large{
@@ -94243,7 +94281,7 @@ mEt
 mEt
 mEt
 gKr
-mEt
+beo
 gEb
 mEt
 mEt
@@ -94284,7 +94322,7 @@ psT
 eBs
 uok
 gPr
-psT
+xhb
 hCy
 psT
 psT
@@ -101803,7 +101841,7 @@ ezf
 ezf
 otk
 prN
-ezf
+hjm
 aOP
 dll
 dYw
@@ -101844,7 +101882,7 @@ tEz
 eWH
 rQR
 tEz
-tEz
+mrv
 tEz
 roD
 tEz

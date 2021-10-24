@@ -18,6 +18,17 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
 	species_language_holder = /datum/language_holder/skeleton
 
+	//All taken from minecraft
+	species_speech_sounds = list('sound/voice/species/skeleton1.ogg' = 75, \
+								'sound/voice/species/skeleton2.ogg' = 75, \
+								'sound/voice/species/skeleton3.ogg' = 75)
+	species_speech_sounds_ask = list('sound/voice/species/skeleton_ask1.ogg' = 75, \
+									'sound/voice/species/skeleton_ask2.ogg' = 75, \
+									'sound/voice/species/skeleton_ask3.ogg' = 75)
+	species_speech_sounds_exclaim = list('sound/voice/species/skeleton_exclaim1.ogg' = 75, \
+									'sound/voice/species/skeleton_exclaim2.ogg' = 75, \
+									'sound/voice/species/skeleton_exclaim3.ogg' = 75)
+
 /datum/species/skeleton/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
 	. = ..()
 	C.set_safe_hunger_level()
