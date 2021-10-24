@@ -22,22 +22,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACE|HIDEFACIALHAIR
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	var/handled = FALSE
-
-/obj/item/clothing/under/suit/redlady/equipped(mob/user, slot)
-	if(slot != ITEM_SLOT_ICLOTHING)
-		return
-	if(iscarbon(user) && !handled)
-		handled = TRUE
-		ADD_TRAIT(user, TRAIT_HOLY, "suit")
-		to_chat(user, "<span class='notice'>Your skin seems to glow.</span.?>")
-		user.AddElement(/datum/element/holy_light)
-
-/obj/item/clothing/under/suit/redlady/dropped(mob/user)
-	if(handled)
-		handled = FALSE
-		REMOVE_TRAIT(user, TRAIT_HOLY, "suit")
-		user.RemoveElement(/datum/element/holy_light)
 
 ////////Nar'sie////////
 ///////////////////////
