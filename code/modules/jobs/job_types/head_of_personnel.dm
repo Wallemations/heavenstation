@@ -2,7 +2,7 @@
 	title = "Head of Personnel"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	department_head = list("Captain")
-	head_announce = list(RADIO_CHANNEL_SUPPLY, RADIO_CHANNEL_SERVICE)
+	head_announce = list(RADIO_CHANNEL_SUPPLY, RADIO_CHANNEL_SERVICE) // HEAVEN EDIT
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
@@ -18,7 +18,7 @@
 	outfit = /datum/outfit/job/hop
 	plasmaman_outfit = /datum/outfit/plasmaman/head_of_personnel
 	departments_list = list(
-		/datum/job_department/service,
+	//	/datum/job_department/service, HEAVEN REMOVAL
 		/datum/job_department/command,
 		)
 

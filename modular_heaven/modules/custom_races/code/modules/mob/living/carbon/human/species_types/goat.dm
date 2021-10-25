@@ -9,16 +9,24 @@
 	flying_species = FALSE
 	inherent_traits = list(TRAIT_RESISTCOLD)
 	meat = /obj/item/food/meat/slab
-	liked_food = VEGETABLES| FRUIT | GRAIN | RAW
 	disliked_food = MEAT | DAIRY
-	coldmod = 0.5 // = 1/4x heat damage
-	heatmod = 3   // = 3x cold damage
-	burnmod = 2 // = 1/2x generic burn damage
+	liked_food = VEGETABLES| FRUIT | GRAIN | RAW
+	coldmod = 0.5
+	heatmod = 6
+	burnmod = 3
 	damage_overlay_type = ""
 	disliked_food = NONE
 	payday_modifier = 1
 	limbs_id = "goat"
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
-
+	var/datum/component/rammer
 
 // add species sound
+
+/datum/species/goat/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+	rammer = C.AddComponent(/datum/component/tackler, base_knockdown = 2 SECONDS, speed = 2, min_distance = 0)
+	..()
+
+/datum/species/goat/on_species_loss(mob/living/carbon/C)
+	QDEL_NULL(rammer)
+	..()
