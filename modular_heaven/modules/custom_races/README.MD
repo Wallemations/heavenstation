@@ -9,6 +9,7 @@ The roundstart races are the Goat and the Spirit.
 - code/game/objects/effects/decals/cleanable/humans.dm  = /obj/effect/decal/cleanable/blood/footprints/examine(mob/user)
 - code/modules/mob/living/carbon/human/species.dm  = /datum/species/proc/harm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 - code/modules/surgery/bodyparts/_bodyparts.dm = /obj/item/bodypart/proc/get_limb_icon(dropped, draw_external_organs)
+- config/game_options.txt = Roundstart races
 
 ### Defines
 
