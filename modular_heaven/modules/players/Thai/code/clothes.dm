@@ -1,4 +1,4 @@
-///////////////////////
+///////////////////
 ////////Ana////////
 
 /obj/item/clothing/under/suit/casual_outfit
@@ -26,4 +26,3 @@
 	icon_state = "casual_boots"
 	inhand_icon_state = "casual_boots"
 	can_be_tied = FALSE
-	

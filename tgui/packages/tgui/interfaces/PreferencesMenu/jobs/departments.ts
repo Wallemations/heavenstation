@@ -26,9 +26,9 @@ export const Medical: Department = {
 export const Security: Department = {
   head: "Head of Security",
 };
-
+// HEAVEN EDIT - SERVICE
 export const Service: Department = {
-  head: "Head of Personnel",
+  head: "Head of Service",
 };
 
 export const Science: Department = {
