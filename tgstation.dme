@@ -3994,7 +3994,6 @@
 #include "modular_heaven\modules\custom_races\code\interactions\spirit.dm"
 #include "modular_heaven\modules\custom_races\code\languages\spiritual.dm"
 #include "modular_heaven\modules\custom_races\code\modules\mob\living\carbon\human\human.dm"
-#include "modular_heaven\modules\custom_races\code\modules\mob\living\carbon\human\species_types\android.dm"
 #include "modular_heaven\modules\custom_races\code\modules\mob\living\carbon\human\species_types\balan.dm"
 #include "modular_heaven\modules\custom_races\code\modules\mob\living\carbon\human\species_types\goat.dm"
 #include "modular_heaven\modules\custom_races\code\modules\mob\living\carbon\human\species_types\spirit.dm"
