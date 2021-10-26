@@ -33,9 +33,8 @@
 	payday_modifier = 1
 	limbs_id = "balan"
 	changesource_flags = MIRROR_BADMIN | WABBAJACK
-//	species_speech_sounds = list('sound/voice/species/speak_2.ogg' = 120)
-//	species_speech_sounds_exclaim = list('sound/voice/species/speak_2_exclaim.ogg' = 120)
-//	species_speech_sounds_ask = list('sound/voice/species/speak_2_ask.ogg' = 120)
+	species_speech_sounds = list('modular_heaven/modules/text_and_speech_change/sounds/speak_2.ogg' = 120)
+	species_speech_sounds_exclaim = list('modular_heaven/modules/text_and_speech_change/sounds/speak_2_exclaim.ogg' = 120)
+	species_speech_sounds_ask = list('modular_heaven/modules/text_and_speech_change/sounds/speak_2_ask.ogg' = 120)
 
 // the stupid fucking shit i do for a joke
-// species sounds commented out pls fix when voice module gets through

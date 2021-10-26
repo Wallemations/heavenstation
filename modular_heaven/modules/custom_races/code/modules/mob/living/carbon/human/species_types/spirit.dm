@@ -43,11 +43,9 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK
 	species_language_holder = /datum/language_holder/spirit
 	var/our_timer
-//	species_speech_sounds = list('sound/voice/species/huff.ogg' = 120)
-//	species_speech_sounds_exclaim = list('sound/voice/species/huff_ask.ogg' = 120)
-//	species_speech_sounds_ask = list('sound/voice/species/huff_exclaim.ogg' = 120)
-
-// species sounds commented out pls fix when voice module gets through
+	species_speech_sounds = list('modular_heaven/modules/text_and_speech_change/sounds/huff.ogg' = 120)
+	species_speech_sounds_exclaim = list('modular_heaven/modules/text_and_speech_change/sounds/huff_ask.ogg' = 120)
+	species_speech_sounds_ask = list('modular_heaven/modules/text_and_speech_change/sounds/huff_exclaim.ogg' = 120)
 
 /datum/language_holder/spirit
 	understood_languages = list(/datum/language/common = list(LANGUAGE_ATOM),

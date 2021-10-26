@@ -36,4 +36,3 @@
 
 // so nothing is seen when the clothes are off this is so fucking jank i hate my life
 // no species sound
-// wallem if you read this your a homosexual
