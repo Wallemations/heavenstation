@@ -61,7 +61,7 @@
 /datum/species/spirit/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H, delta_time, times_fired)
 	if(chem.type == /datum/reagent/water/holywater)
 		H.visible_message(span_danger("[H]'s body shudders and crackles!") ,span_userdanger("Your soul begins to convulse as it rejects the holy water!"))
-		our_timer += delta_time SECONDS
+		our_timer += delta_time
 		if(our_timer >= (2 SECONDS))
 			if(!H.stuttering)
 				H.stuttering = 1
