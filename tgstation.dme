@@ -4060,7 +4060,7 @@
 #include "modular_heaven\modules\text_and_speech_change\code\pref_menu_changes\toggle_speech.dm"
 #include "modular_heaven\modules\text_and_speech_change\code\speech_changes\living.dm"
 #include "modular_heaven\modules\text_and_speech_change\code\speech_changes\species.dm"
-#include "modular_heaven\modules\vendors\code\existing_vendors.dm"
+#include "modular_heaven\modules\vendors\code\_vending.dm"
 #include "modular_heaven\modules\vendors\code\custom\blood_machine.dm"
 #include "modular_skyrat\master_files\code\_globalvars\configuration.dm"
 #include "modular_skyrat\master_files\code\datums\id_trim\jobs.dm"
