@@ -2,7 +2,7 @@
 	name = "void technician PDA"
 	default_cartridge = /obj/item/cartridge/engineering
 	greyscale_config = /datum/greyscale_config/pda/stripe_thick
-	greyscale_colors = "#C5994C#69DBF3#D9D65B"
+	greyscale_colors = "#ff9933#ffffff#9933ff"
 
 /obj/item/radio/headset/subspace/void
 	name = "voidtech's subspace headset"

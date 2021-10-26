@@ -1,7 +1,8 @@
 import { createLanguagePerk, Species } from "./base";
 
 const Spirit: Species = {
-  description: "",
+  description: "Ghosts kept alive by a single purpose. Generally friendly, \
+  except for the part where they go insane and turn into monsters",
   features: {
     good: [{
       icon: "shield-alt",
@@ -17,7 +18,12 @@ const Spirit: Species = {
       name: "Flight",
       description: "You can float a few feet off the ground.",
     }, createLanguagePerk("Spiritual")],
-    neutral: [],
+    neutral: [{
+      icon: "assistive-listening-systems",
+      name: "Friends on The Other Side",
+      description: "You can occasionally hear the voices of those who've passed. \
+      This is often extremely annoying.",
+    }],
     bad: [{
       icon: "cross",
       name: "Tainted Soul",
@@ -25,12 +31,17 @@ const Spirit: Species = {
     }, {
       icon: "shoe-prints",
       name: "Unholy Light",
-      description: "You're incapable of moving over piles of salt and blessed \
+      description: "You're incapable of moving over piles of salt or blessed \
       floorings. Try to stay on the chaplain's good side, alright?",
+    }, {
+      icon: "lightbulb",
+      name: "Blinded by The Light",
+      description: "Your body leaves you considerably more susceptible to sudden flashes of light.",
     }],
   },
-  lore: [
-  ],
+  lore: ["Spirits can only come about through strange circumstance or the intervention of a higher power, as most ghosts will pass on within hours to a few days after death.",
+    "Their unnatural continued existence causes them to be extremely volatile, becoming hypersensitive to emotions and reaching a 'feral' state if not dispatched, where they'll become destructive forces influenced by what emotion they felt was the strongest.",
+    "Not much research has been done on spirits, as the leading researcher has since gone missing, but it is believed spirits are simple, goal-oriented beings who will pass on naturally after achieving said goals."],
 };
 
 export default Spirit;

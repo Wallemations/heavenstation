@@ -19,8 +19,13 @@ const Goat: Species = {
     bad: [{
       icon: "temperature-high",
       name: "Too Hot to Handle",
-      description: "The goat's fur is a little <i>too<\i> good at insulating it, \
+      description: "The goat's fur is a little TOO good at insulating it, \
       causing them to be more susceptible to warmer temperatures.",
+    }, {
+      icon: "socks",
+      name: "Behooved",
+      description: "Your hooves remove your ability to wear shoes or shoot unmodified guns. \
+      No fun toys or sick kicks for you!",
     }],
   },
   lore: [
