@@ -3984,6 +3984,7 @@
 #include "modular_heaven\_DEFINES\spans.dm"
 #include "modular_heaven\_HELPERS\text_helpers.dm"
 #include "modular_heaven\modules\antagonists\_common\antag_datum.dm"
+#include "modular_heaven\modules\borgtools\code\tools.dm"
 #include "modular_heaven\modules\bottle_matches\code\bottle_matches.dm"
 #include "modular_heaven\modules\custom_food\code\bread.dm"
 #include "modular_heaven\modules\custom_food\code\cake.dm"
