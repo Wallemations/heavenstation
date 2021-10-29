@@ -30,17 +30,12 @@
 	)
 	category = list("Cyborg Upgrade Modules")
 
-/datum/techweb_node/cyborg_upg_engiminer
-	module_designs = list("advanced_materials", )
-
-/datum/techweb_node/cyborg_upg_med
-	module_designs = list("borg_upgrade_surgicaltools")
-
-/datum/design/borg_upgrade_surgicaltools
-	name = "Cyborg Upgrade (Advanced Surgical Tools)"
-	id = "borg_upgrade_surgicaltools"
+/datum/design/borg_upgrade_powertools
+	name = "Cyborg Upgrade (Advanced Power Tools)"
+	id = "borg_upgrade_powertools"
 	build_type = MECHFAB
-	build_path = /obj/item/borg/upgrade/surgerytools
-	materials = list(/datum/material/iron = 14500, /datum/material/glass = 7500, /datum/material/silver = 6000, /datum/material/gold = 1500,  /datum/material/diamond = 200, /datum/material/titanium = 8000, /datum/material/plasma = 2000)
+	build_path = /obj/item/borg/upgrade/powertools
+	materials = list(/datum/material/iron = 7500, /datum/material/silver = 3500,  /datum/material/titanium = 5500, /datum/material/plasma = 750)
 	construction_time = 80
 	category = list("Cyborg Upgrade Modules")
+

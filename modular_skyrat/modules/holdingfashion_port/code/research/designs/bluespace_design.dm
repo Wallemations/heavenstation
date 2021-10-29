@@ -8,7 +8,7 @@
 	category = list("Bluespace Designs")
 	dangerous_construction = TRUE
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
-	
+
 /datum/design/duffel_holding
 	name = "Inert Duffel Bag of Holding"
 	desc = "A block of metal ready to be transformed into a duffel bag of holding with a bluespace anomaly core."
