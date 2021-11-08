@@ -1198,3 +1198,25 @@
 	M.adjust_bodytemperature(20 * TEMPERATURE_DAMAGE_COEFFICIENT, 0, M.get_body_temp_normal())
 	..()
 	. = 1
+
+/datum/reagent/consumable/pilk
+	name = "Pilk"
+	description = "Warning: Not to be used as a vehicle for torture."
+	color = "#a88c84"
+	nutriment_factor = 0
+	taste_description = "bubbly disgustingness"
+	glass_name = "glass of pilk"
+	glass_desc = "Brown and bubbly horribleness!"
+
+/datum/reagent/consumable/pilk/on_mob_life(mob/living/carbon/M)
+	if(M.getBruteLoss() && prob(10))
+		M.heal_bodypart_damage(1,0, 0)
+		. = 1
+	if(M.has_reagent(/datum/reagent/consumable/capsaicin))
+		M.remove_reagent(/datum/reagent/consumable/capsaicin, 1)
+	M.drowsyness = max(0,M.drowsyness-5)
+	M.adjust_bodytemperature(-5 * TEMPERATURE_DAMAGE_COEFFICIENT, M.get_body_temp_normal())
+	if(prob(1))
+		M.adjustToxLoss(5)
+		M.vomit()
+	..()

@@ -67,6 +67,15 @@
 /obj/item/reagent_containers/food/snacks/egg/blue
 	icon_state = "egg-blue"
 
+/obj/item/reagent_containers/food/snacks/egg/blue/pipis
+	name = "pipis"
+
+/obj/item/reagent_containers/food/snacks/egg/blue/pipis/Initialize()
+	. = ..()
+	var/scale = (rand(6, 8) / 10) + (rand(2, 5) / 50)
+	transform = matrix(transform, scale, scale, MATRIX_SCALE)
+	setDir(pick(GLOB.cardinals))
+
 /obj/item/reagent_containers/food/snacks/egg/green
 	icon_state = "egg-green"
 

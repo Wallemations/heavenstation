@@ -598,3 +598,7 @@
 /datum/chemical_reaction/schrodinger
 	results = list(/datum/reagent/consumable/schrodinger = 3)
 	required_reagents = list(/datum/reagent/water = 1, /datum/reagent/toxin/glovepowder = 1)
+
+/datum/chemical_reaction/pilk
+	results = list(/datum/reagent/consumable/pilk = 2)
+	required_reagents = list(/datum/reagent/consumable/space_cola = 1, /datum/reagent/consumable/milk = 1)
