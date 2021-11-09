@@ -196,3 +196,6 @@ Temporary Items
 /tools/LinuxOneShot/TGS_Config
 /tools/LinuxOneShot/TGS_Instances
 /tools/LinuxOneShot/TGS_Logs
+
+#Swear to god if it asks me to add a guest to our admin list one more time
+cfg/admin.txt
