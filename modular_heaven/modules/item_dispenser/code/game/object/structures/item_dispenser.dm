@@ -64,7 +64,7 @@
 		var/datum/component/storage/STR = GetComponent(/datum/component/storage/concrete)
 		STR.rustle_sound = FALSE
 		STR.max_items = charges
-		STR.set_holdable(list(stock.type))
+		STR.set_holdable(list(stock))
 		STR.max_combined_w_class = 30
 
 /obj/structure/item_dispenser/attackby(obj/item/I, mob/user, params)
@@ -202,3 +202,11 @@
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser
 	pixel_shift = -27
+
+/datum/design/item_dispenser_frame
+	name = "Item Dispenser Frame"
+	id = "item_d_frame"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 100, /datum/material/plastic = 500)
+	build_path = /obj/item/wallframe/item_dispenser
+	category = list("initial", "Construction")
