@@ -31,9 +31,10 @@
 		. += span_notice("It's empty!")
 		. += span_notice("Right-Clicking with a wrench, you could take it off the wall now!")
 
-/obj/structure/item_dispenser/update_icon_state()
+/obj/structure/item_dispenser/update_overlays()
 	. = ..()
-	icon_state = "[initial(icon_state)][contents.len ? null : "0"]"
+	if(contents.len > 0)
+		. += "[initial(icon_state)]_full"
 
 /obj/structure/item_dispenser/proc/register_name()
 	item_name = initial(stock.name)
@@ -45,7 +46,7 @@
 	if(stocked) // Used instead of mapload in case anyone wants to leave empty item dispensers in their maps
 		register_name()
 		create_contents()
-	update_icon_state()
+	update_icon(UPDATE_OVERLAYS)
 
 /obj/structure/item_dispenser/proc/create_contents()
 	if(!stocked)
@@ -75,7 +76,7 @@
 			contents += I
 			to_chat(user, span_notice("You insert [I] into [src]."))
 			if(contents.len == 1)
-				update_icon_state()
+				update_icon(UPDATE_OVERLAYS)
 			return
 		else
 			to_chat(user, span_notice("You can't fit more [item_name]\s in [src]!"))
@@ -91,7 +92,7 @@
 			to_chat(user, span_notice("You insert [I] into [src], causing the inner plastic to mold to its shape."))
 			register_name()
 			if(contents.len == 1)
-				update_icon_state()
+				update_icon(UPDATE_OVERLAYS)
 		else
 			to_chat(user, span_notice("[I] is too big to fit in [src]!"))
 		return
@@ -146,7 +147,7 @@
 		to_chat(user, span_notice("You take \a [item_name] from [src]"))
 		playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
 		if(contents.len <= 0)
-			update_icon_state()
+			update_icon(UPDATE_OVERLAYS)
 	else
 		to_chat(user, span_notice("There are no [item_name]\s left in [src]."))
 
