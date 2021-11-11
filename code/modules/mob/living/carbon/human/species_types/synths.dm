@@ -80,6 +80,11 @@
 		use_skintones = S.use_skintones
 		fixed_mut_color = S.fixed_mut_color
 		hair_color = S.hair_color
+		// HEAVEN ADDITION - START
+		species_speech_sounds = S.species_speech_sounds
+		species_speech_sounds_ask = S.species_speech_sounds_ask
+		species_speech_sounds_exclaim = S.species_speech_sounds_exclaim
+		// HEAVEN ADDITION - END
 		fake_species = new S.type
 	else
 		name = initial(name)
@@ -89,6 +94,11 @@
 		attack_verb = initial(attack_verb)
 		attack_effect = initial(attack_verb)
 		attack_sound = initial(attack_sound)
+		// HEAVEN ADDITION - START
+		species_speech_sounds = initial(species_speech_sounds)
+		species_speech_sounds_ask = initial(species_speech_sounds_ask)
+		species_speech_sounds_exclaim = initial(species_speech_sounds_exclaim)
+		// HEAVEN ADDITION - END
 		miss_sound = initial(miss_sound)
 		mutant_bodyparts = list()
 		nojumpsuit = initial(nojumpsuit)
