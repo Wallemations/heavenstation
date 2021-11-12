@@ -4038,6 +4038,7 @@
 #include "modular_heaven\modules\megafauna\code\modules\mob\living\simple_animal\hostile\megafauna\beschutzer.dm"
 #include "modular_heaven\modules\megafauna\code\modules\mob\living\simple_animal\hostile\megafauna\luciftvian.dm"
 #include "modular_heaven\modules\megafauna\code\modules\mob\living\simple_animal\hostile\megafauna\samson.dm"
+#include "modular_heaven\modules\megafauna\code\modules\mob\living\simple_animal\hostile\megafauna\alraune_megafauna\null_war.dm"
 #include "modular_heaven\modules\ores\code\ores.dm"
 #include "modular_heaven\modules\pizza_burgers\code\game\object\item\food\burgers.dm"
 #include "modular_heaven\modules\pizza_burgers\code\game\object\item\food\pizza.dm"
