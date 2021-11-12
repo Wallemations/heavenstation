@@ -2,7 +2,7 @@
 //no dead sprite because its basically invincible on its first encounter
 //more attacks/sprites will be added way later on
 
-/mob/living/simple_animal/hostile/megafauna/alraune_megafauna/null_war
+/mob/living/simple_animal/hostile/megafauna/null_war
 	name = "null"
 	desc = "genesis 1.02b_5II1A. Now the earth was formless and void, darkness was over the surface of the deep, and the UNDEFINED_VARIABLE was hovering over the waters."
 	health = 15000
@@ -66,7 +66,7 @@
 	chosen_message = "<span class='colossus'>You are now firing bulldog shotgun blasts.</span>"
 	chosen_attack_num = 3
 
-/mob/living/simple_animal/hostile/megafauna/alraune_megafauna/null_war/OpenFire()
+/mob/living/simple_animal/hostile/megafauna/null_war/OpenFire()
 	check_enraged()
 	projectile_speed_multiplier = 1 - enraged * 0.5
 	update_cooldowns(list(COOLDOWN_UPDATE_SET_MELEE = 10 SECONDS, COOLDOWN_UPDATE_SET_RANGED = 10 SECONDS))
@@ -140,27 +140,27 @@
 	if(isturf(target) || isobj(target))
 		target.ex_act(EXPLODE_HEAVY)
 
-/mob/living/simple_animal/hostile/megafauna/alraune_megafauna/null_war/ex_act(severity, target)
+/mob/living/simple_animal/hostile/megafauna/null_war/ex_act(severity, target)
 	adjustBruteLoss(-30 * severity)
 	visible_message(span_danger("[src] absorbs the explosion!"), span_userdanger("You absorb the explosion!"))
 
-/mob/living/simple_animal/hostile/megafauna/alraune_megafauna/null_war/Goto(target, delay, minimum_distance)
+/mob/living/simple_animal/hostile/megafauna/null_war/Goto(target, delay, minimum_distance)
 	if(enraging)
 		return
 	return ..()
 
-/mob/living/simple_animal/hostile/megafauna/alraune_megafauna/null_war/MoveToTarget(list/possible_targets)
+/mob/living/simple_animal/hostile/megafauna/null_war/MoveToTarget(list/possible_targets)
 	if(enraging)
 		return
 	return ..()
 
-/mob/living/simple_animal/hostile/megafauna/alraune_megafauna/null_war/Move()
+/mob/living/simple_animal/hostile/megafauna/null_war/Move()
 	if(enraging)
 		return
 	return ..()
 
 /// Shoots out homing missiles that explode into blast projectiles after a couple seconds
-/mob/living/simple_animal/hostile/megafauna/alraune_megafauna/null_war/proc/homing_missiles(added_delay = 10, shoot_times = 8)
+/mob/living/simple_animal/hostile/megafauna/null_war/proc/homing_missiles(added_delay = 10, shoot_times = 8)
 	for(var/i in 1 to shoot_times)
 		var/turf/startloc = get_turf(src)
 		var/turf/endloc = get_turf(target)
@@ -195,7 +195,7 @@
 	qdel(src)
 
 /// Shoots out bullets with a random spread
-/mob/living/simple_animal/hostile/megafauna/alraune_megafauna/null_war/proc/machine_gun(shots = 60, spread = 45)
+/mob/living/simple_animal/hostile/megafauna/null_war/proc/machine_gun(shots = 60, spread = 45)
 	for(var/i in 1 to shots)
 		var/turf/startloc = get_turf(src)
 		var/turf/endloc = get_turf(target)
@@ -212,7 +212,7 @@
 	update_cooldowns(list(COOLDOWN_UPDATE_SET_MELEE = 1.5 SECONDS, COOLDOWN_UPDATE_SET_RANGED = 1.5 SECONDS))
 
 /// bang bang shotgun pattern
-/mob/living/simple_animal/hostile/megafauna/alraune_megafauna/null_war/proc/bulldog_shotgun(shots = 5, list/patterns = list(list(-40, -20, 0, 20, 40), list(-30, -10, 10, 30)))
+/mob/living/simple_animal/hostile/megafauna/null_war/proc/bulldog_shotgun(shots = 5, list/patterns = list(list(-40, -20, 0, 20, 40), list(-30, -10, 10, 30)))
 	for(var/i in 1 to shots)
 		var/list/pattern = patterns[i % length(patterns) + 1] // alternating patterns
 		for(var/spread in pattern)
@@ -231,7 +231,7 @@
 	update_cooldowns(list(COOLDOWN_UPDATE_SET_MELEE = 1.5 SECONDS, COOLDOWN_UPDATE_SET_RANGED = 2 SECONDS))
 
 /// Checks if the funny is ready to be enraged
-/mob/living/simple_animal/hostile/megafauna/alraune_megafauna/null_war/proc/check_enraged()
+/mob/living/simple_animal/hostile/megafauna/null_war/proc/check_enraged()
 	if(enraged)
 		return
 	if(health > maxHealth*0.25)
