@@ -150,3 +150,5 @@ config/title_music/sounds/By Your Side.ogg
 config/title_music/sounds/Bakamitai.ogg
 config/title_music/sounds/The Stand.ogg
 config/title_music/sounds/KK Sparkle.ogg
+config/title_music/sounds/The artichoke king.ogg
+config/title_music/sounds/Define Me.ogg
