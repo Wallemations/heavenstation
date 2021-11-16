@@ -8,10 +8,6 @@
                         /obj/item/clothing/suit/comfy_jacket = 1,
                         /obj/item/clothing/shoes/casual_boots = 1,
                         )
-	/// Assoc list of contraband you want to add (typepath - amount)
-	added_contraband = list()
-	/// Assoc list of premium items you want to add (typepath - amount)
-	added_premium = list()
 
 /obj/machinery/vending/autodrobe
     added_products = list(/obj/item/clothing/suit/silver_knight = 1,
