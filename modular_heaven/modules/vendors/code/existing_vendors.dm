@@ -1,5 +1,4 @@
 /obj/machinery/vending/clothing
-	/// Assoc list of products you want to add (typepath - amount)
 	added_products = list(/obj/item/clothing/under/suit/onfield_medical_outfit = 1,
                         /obj/item/clothing/under/suit/valor_suit = 1,
                         /obj/item/clothing/suit/gambler_jacket = 1,
