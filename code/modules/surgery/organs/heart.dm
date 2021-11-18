@@ -484,6 +484,6 @@
 		picked_trauma = pick(subtypesof(/datum/brain_trauma/severe))
 	else
 		picked_trauma = pick(subtypesof(/datum/brain_trauma/mild))
-	ethereal_heart.owner.gain_trauma(picked_trauma, TRAUMA_RESILIENCE_ABSOLUTE)
+	ethereal_heart.owner.gain_trauma(picked_trauma, TRAUMA_RESILIENCE_LOBOTOMY) // HEAVEN EDIT - Yikes bro you do realize how long our rounds are right
 	playsound(get_turf(ethereal_heart.owner), 'sound/effects/ethereal_revive.ogg', 100)
 	qdel(src)

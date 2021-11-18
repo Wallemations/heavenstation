@@ -1,130 +1,195 @@
+//////////////////////////////////
+//////      Dispensers      //////
+
 /obj/structure/item_dispenser
-	name = "item dispenser"
-	desc = "A small wall-mounted receptacle which dispenses a specific item."
+	name = "empty item dispenser"
+	desc = "A small wall-mounted receptacle which can dispense a specific item."
 	icon = 'modular_heaven/modules/item_dispenser/icons/obj/itemdispenser.dmi'
 	icon_state = "dispenser_generic"
 	anchored = TRUE
 	density = FALSE
 	max_integrity = 200
 	integrity_failure = 0.25
-	var/charges = 0 // How many of the item is in the dispenser
-	var/stock //What item we want
-	var/item_name = null //Otherwise we'd get full item names and that's clutter. Mainly used for pre-set dispensers.
+	/// If the dispenser has been set to an item.
+	var/stocked = FALSE
+	/// How many items this dispenser can hold.
+	var/charges = 7
+	/// What item is inside the dispenser
+	var/obj/item/stock
+	/// The name of the item in the dispenser.
+	var/item_name = ""
 
 /obj/structure/item_dispenser/examine(mob/user)
 	. = ..()
-	if(charges)
-		. += "<span class='notice'>There are [charges] [item_name] remaining.</span>"
-	if(!charges)
-		. += "<span class='notice'>It's empty!</span>"
+	if(!stocked)
+		. += span_notice("Peering inside, the plastic hasn't been molded to an item yet. It looks like any small item would fit.")
+		. += span_notice("Right-Clicking with a screwdriver, you could probably adjust the spring to allow a certain amount of items inside.")
+		return
+	if(contents.len)
+		. += span_notice("There are [contents.len] [item_name]\s remaining.")
+	if(!contents.len)
+		. += span_notice("It's empty!")
+		. += span_notice("Right-Clicking with a wrench, you could take it off the wall now!")
+
+/obj/structure/item_dispenser/update_overlays()
+	. = ..()
+	if(contents.len > 0)
+		. += "[initial(icon_state)]_full"
+
+/obj/structure/item_dispenser/proc/register_name()
+	item_name = initial(stock.name)
+	name = "[item_name] dispenser"
+	desc = "A small wall-mounted receptacle which dispenses [item_name]\s and similar items."
+
+/obj/structure/item_dispenser/Initialize(mapload)
+	. = ..()
+	if(stocked) // Used instead of mapload in case anyone wants to leave empty item dispensers in their maps
+		register_name()
+		create_contents()
+	update_icon(UPDATE_OVERLAYS)
+
+/obj/structure/item_dispenser/proc/create_contents()
+	if(!stocked)
+		return
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	for(var/i = 1 to STR.max_items)
+		new stock(src)
+
+/obj/structure/item_dispenser/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/storage/concrete)
+	storage_update()
+
+/obj/structure/item_dispenser/proc/storage_update()
+	if(stocked)
+		var/datum/component/storage/STR = GetComponent(/datum/component/storage/concrete)
+		STR.rustle_sound = FALSE
+		STR.max_items = charges
+		STR.set_holdable(list(stock))
+		STR.max_combined_w_class = 30
 
 /obj/structure/item_dispenser/attackby(obj/item/I, mob/user, params)
-	if(I.tool_behaviour == TOOL_WRENCH && !charges)
-		to_chat(user, "<span class='notice'>You start unsecuring the [name]...</span>")
+	if(istype(I, stock))
+		if(contents.len < charges)
+			playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
+			SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, I, user)
+			contents += I
+			to_chat(user, span_notice("You insert [I] into [src]."))
+			if(contents.len == 1)
+				update_icon(UPDATE_OVERLAYS)
+			return
+		else
+			to_chat(user, span_notice("You can't fit more [item_name]\s in [src]!"))
+			return
+	if(!stocked)
+		if(I.w_class <= WEIGHT_CLASS_SMALL)
+			stock = I.type
+			stocked = TRUE
+			storage_update()
+			playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
+			SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, I, user)
+			contents += I
+			to_chat(user, span_notice("You insert [I] into [src], causing the inner plastic to mold to its shape."))
+			register_name()
+			if(contents.len == 1)
+				update_icon(UPDATE_OVERLAYS)
+		else
+			to_chat(user, span_notice("[I] is too big to fit in [src]!"))
+		return
+	return ..()
+
+/obj/structure/item_dispenser/attackby_secondary(obj/item/I, mob/user, params)
+	. = ..()
+	if(!stocked && I.tool_behaviour == TOOL_SCREWDRIVER)
+		var/changed_charges = input(user, "Input amount of items this dispenser can allow. It must be an amount between 1 and 8.", "Item Dispenser") as num|null
+		if(changed_charges > 8) // Stops people from being shitters
+			changed_charges = 8
+		if(changed_charges < 1) // I don't even know WHY someone would want it to be zero
+			changed_charges = 1
+		to_chat(user, span_notice("You start fiddling with the spring mechanism..."))
 		I.play_tool_sound(src)
 		if(I.use_tool(src, user, 1 SECONDS))
-			playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-			to_chat(user, "<span class='notice'>You unsecure [name].</span>")
-			new /obj/item/wallframe/item_dispenser(get_turf(src))
-			qdel(src)
-		return
-	if(I.tool_behaviour == TOOL_WRENCH && charges)
-		to_chat(user, "<span class='notice'>The [name] needs to be empty to be deconstructed!</span>")
-	/*if(!I.w_class > 2 && !stock)
-		stock = I
-		item_name = I.name
-		name = "[item_name] dispenser"
-		desc = "A small wall-mounted receptacle which dispenses [item_name]."
-		to_chat(user, "<span class='notice'>The dispenser will now accept [item_name]!</span>")
-		icon_state = "[initial(icon_state)]0"
-		return
-	else if(I.w_class > 2)
-		to_chat(user, "<span class='notice'>It's too large for the dispenser!</span>")
-		return*/
-	if(istype(I, stock))
-		playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
-		qdel(I)
-		charges += 1
-		to_chat(user, "<span class='notice'>You insert the [item_name] into the dispenser.</span>")
-		if(charges == 1)
-			icon_state = "[initial(icon_state)]"
+			charges = changed_charges
+			to_chat(user, span_notice("You make enough room in the dispenser to hold roughly [charges] item\s."))
+			return
+		else
+			to_chat(user, span_warning("Your fingers slip, causing the spring to return to its previous position!"))
+			return
+	if(I.tool_behaviour == TOOL_WRENCH)
+		if(!contents.len)
+			to_chat(user, span_notice("You start unsecuring [src]..."))
+			I.play_tool_sound(src)
+			if(I.use_tool(src, user, 1 SECONDS))
+				playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
+				to_chat(user, span_notice("You unsecure [src]."))
+				new /obj/item/wallframe/item_dispenser(get_turf(src))
+				qdel(src)
+			return
+		else
+			to_chat(user, span_notice("[src] needs to be empty to be deconstructed!"))
+			return
+	return ..()
 
 /obj/structure/item_dispenser/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
-	if(!charges)
-		to_chat(user, "<span class='notice'>It's empty!</span>")
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return
-	if(iscyborg(user) || isalien(user))
+	if(!stocked)
+		to_chat(user, span_notice("[src] hasn't been stocked yet!"))
 		return
-	if(charges)
-		if(charges == 1)
-			icon_state = "[initial(icon_state)]0"
-		var/obj/item/O = new stock(get_turf(src))
-		to_chat(user, "<span class='notice'>You take the [item_name] from the [name].</span>")
-		user.put_in_hands(O)
+	var/obj/item/grabbies = locate(stock) in contents
+	if(grabbies && contents.len > 0)
+		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, grabbies, user)
+		user.put_in_hands(grabbies)
+		contents -= grabbies
+		to_chat(user, span_notice("You take \a [item_name] from [src]"))
 		playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
-		charges -= 1
+		if(contents.len <= 0)
+			update_icon(UPDATE_OVERLAYS)
+	else
+		to_chat(user, span_notice("There are no [item_name]\s left in [src]."))
 
+//////      Dispensers      //////
 //////////////////////////////////
 //////  Pre-set Dispensers  //////
 
 /obj/structure/item_dispenser/glasses
-	name = "glasses dispenser"
-	desc = "A small wall-mounted receptacle which dispenses glasses."
 	icon_state = "dispenser_glasses"
-	stock =	/obj/item/clothing/glasses/regular
-	item_name = "glasses"
-	charges = 7
+	stock = /obj/item/clothing/glasses/regular
+	stocked = TRUE
 
 /obj/structure/item_dispenser/handcuffs
-	name = "handcuff dispenser"
-	desc = "A small wall-mounted receptacle which dispenses handcuffs."
 	icon_state = "dispenser_handcuffs"
-	stock =	/obj/item/restraints/handcuffs
-	item_name = "handcuffs"
-	charges = 7
+	stock = /obj/item/restraints/handcuffs
+	stocked = TRUE
 
 /obj/structure/item_dispenser/latex
-	name = "latex glove dispenser"
-	desc = "A small wall-mounted receptacle which dispenses latex gloves."
 	icon_state = "dispenser_gloves"
-	stock =	/obj/item/clothing/gloves/color/latex
-	item_name = "latex gloves"
-	charges = 7
+	stock = /obj/item/clothing/gloves/color/latex
+	stocked = TRUE
 
 /obj/structure/item_dispenser/mask
-	name = "facemask dispenser"
-	desc = "A small wall-mounted receptacle which dispenses facemasks."
 	icon_state = "dispenser_mask"
-	stock =	/obj/item/clothing/mask/surgical
-	item_name = "facemask"
-	charges = 7
+	stock = /obj/item/clothing/mask/surgical
+	stocked = TRUE
 
 /obj/structure/item_dispenser/id
-	name = "id card dispenser"
-	desc = "A small wall-mounted receptacle which dispenses id cards."
 	icon_state = "dispenser_id"
-	stock =	/obj/item/card/id
-	item_name = "id card"
-	charges = 7
+	stock = /obj/item/card/id
+	stocked = TRUE
 
 /obj/structure/item_dispenser/radio
-	name = "radio dispenser"
-	desc = "A small wall-mounted receptacle which dispenses radios."
 	icon_state = "dispenser_radio"
-	stock =	/obj/item/radio
-	item_name = "radio"
+	stock = /obj/item/radio
 	charges = 3
+	stocked = TRUE
 
 /obj/structure/item_dispenser/bodybag
-	name = "bodybag dispenser"
-	desc = "A small wall-mounted receptacle which dispenses bodybags."
 	icon_state = "dispenser_bodybag"
-	stock =	/obj/item/bodybag
-	item_name = "bodybag"
-	charges = 7
+	stock = /obj/item/bodybag
+	stocked = TRUE
 
 ////////  Pre-set Dispensers  /////////
 ///////////////////////////////////////
@@ -138,3 +203,11 @@
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser
 	pixel_shift = -27
+
+/datum/design/item_dispenser_frame
+	name = "Item Dispenser Frame"
+	id = "item_d_frame"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 100, /datum/material/plastic = 500)
+	build_path = /obj/item/wallframe/item_dispenser
+	category = list("initial", "Construction")
