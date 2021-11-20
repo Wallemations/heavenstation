@@ -1,5 +1,9 @@
 //Tay//
 
+//Sabre replacement
+/obj/item/melee/sabre
+	icon = 'modular_heaven/modules/players/Tay/icons/obj/melee.dmi'
+
 //Rapier code
 /obj/item/melee/rapier
 	name = "officer's rapier"
@@ -36,8 +40,12 @@
 	name = "spear of longinus"
 	desc = "The weapon of an angelic captain. Due to the difficulty in acquiring these weapons, throwing it isn't recommended- but you're gonna do it anyway, right?"
 	icon_state = "longinus"
+	icon = 'modular_heaven/modules/players/Tay/icons/obj/melee.dmi'
 	inhand_icon_state = "longinus"
+	lefthand_file = 'modular_heaven/modules/players/Tay/icons/mob/inhands/melee_lefthand.dmi'
+	righthand_file = 'modular_heaven/modules/players/Tay/icons/mob/inhands/melee_righthand.dmi'
 	worn_icon_state = "longinus"
+	worn_icon = 'modular_heaven/modules/players/Tay/icons/mob/clothing/belts_worn.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	force = 16
 	throwforce = 50
@@ -52,10 +60,10 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	embedding = list("embed_chance" = 100, "fall_chance" = 0)
 	max_integrity = 200
-	var/chaplain_spawnable = FALSE
+	chaplain_spawnable = FALSE
 
 /obj/item/katana/captain
 	name = "captain's katana"
-	desc = "Long and unwieldy to slash but incredibly powerful, it's something of a statement for an officer to carry a weapon like this."
-	armour_penetraction = 10
+	desc = "Long and unwieldy to swing but incredibly powerful, it's something of a statement for an officer to carry a weapon like this."
+	armour_penetration = 10
 //Tay//

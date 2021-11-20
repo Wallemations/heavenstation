@@ -1,12 +1,19 @@
 //Tay//
 
-//Rapier Sheath
+//Sabre sheath replacement
+/obj/item/storage/belt/sabre
+	icon = 'modular_heaven/modules/players/Tay/icons/obj/clothing/belts.dmi'
+	worn_icon = 'modular_heaven/modules/players/Tay/icons/mob/clothing/belts_worn.dmi'
+
+//Rapier sheath
 /obj/item/storage/belt/rapier
 	name = "rapier sheath"
 	desc = "An ornate sheath designed to hold an officer's blade."
+	icon = 'modular_heaven/modules/players/Tay/icons/obj/clothing/belts.dmi'
 	icon_state = "rsheath"
 	inhand_icon_state = "rsheath"
 	worn_icon_state = "rsheath"
+	worn_icon = 'modular_heaven/modules/players/Tay/icons/mob/clothing/belts_worn.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/storage/belt/rapier/ComponentInitialize()
@@ -50,10 +57,11 @@
 	update_icon()
 
 
-//Himbo boxes, box/sabre boxes are used for the blade beacon
+//Himbo boxes; box/sabre/[object] boxes are used for the blade beacon
 /obj/item/storage/box/rules_of_nachure
 	name = "bulldog equipment package"
 	desc = "A box containing a drum-fed shotgun and various ammo selections. Orders for these have spiked in recent months."
+	icon_state = "secbox"
 
 /obj/item/storage/box/rules_of_nachure/PopulateContents()
 	new /obj/item/gun/ballistic/shotgun/bulldog/unrestricted(src)
@@ -64,6 +72,7 @@
 /obj/item/storage/box/sabre
 	name = "Sabre, Standard Issue"
 	desc = "The classic sabre used for ages by NT captains."
+	icon_state = "secbox"
 
 /obj/item/storage/box/sabre/PopulateContents()
 	new /obj/item/storage/belt/sabre(src)
