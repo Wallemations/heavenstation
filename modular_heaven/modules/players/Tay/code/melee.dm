@@ -34,7 +34,7 @@
 
 /obj/item/nullrod/spear/captain
 	name = "spear of longinus"
-	desc = "The weapon of an angelic captain."
+	desc = "The weapon of an angelic captain. Due to the difficulty in acquiring these weapons, throwing it isn't recommended- but you're gonna do it anyway, right?"
 	icon_state = "longinus"
 	inhand_icon_state = "longinus"
 	worn_icon_state = "longinus"
@@ -56,6 +56,6 @@
 
 /obj/item/katana/captain
 	name = "captain's katana"
-	desc = "Long and unwieldy to slash but incredibly powerful, it's something of a statement for an officer to carry something like this."
+	desc = "Long and unwieldy to slash but incredibly powerful, it's something of a statement for an officer to carry a weapon like this."
 	armour_penetraction = 10
 //Tay//

@@ -77,7 +77,7 @@
 
 /obj/item/storage/box/sabre/katana
 	name = "Katana, Standard Issue"
-	desc = "An uncommon sight on station officers, a strain of die-hard adherents keep the katana on NT requisition catalogues."
+	desc = "A rare sight on station officers, a strain of die-hard adherents keep the katana on NT requisition catalogues."
 
 /obj/item/storage/box/sabre/katana/PopulateContents()
 	new /obj/item/katana/captain(src)
