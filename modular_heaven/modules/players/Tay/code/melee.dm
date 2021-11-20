@@ -36,6 +36,7 @@
 		final_block_chance = 0 //Don't bring a sword to a gunfight
 	return ..()
 
+//Spear of Longinus code
 /obj/item/nullrod/spear/captain
 	name = "spear of longinus"
 	desc = "The weapon of an angelic captain. Due to the difficulty in acquiring these weapons, throwing it isn't recommended- but you're gonna do it anyway, right?"
@@ -62,6 +63,7 @@
 	max_integrity = 200
 	chaplain_spawnable = FALSE
 
+//Captain's katana code, if you couldnt tell
 /obj/item/katana/captain
 	name = "captain's katana"
 	desc = "Long and unwieldy to swing but incredibly powerful, it's something of a statement for an officer to carry a weapon like this."
