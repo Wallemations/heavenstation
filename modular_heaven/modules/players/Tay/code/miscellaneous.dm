@@ -18,4 +18,5 @@
 /obj/item/choice_beacon/sabre/spawn_option(obj/choice,mob/living/M)
 	new choice(get_turf(M))
 	to_chat(M, "<span class='hear'>Thank you for your service, Captain.</span>")
-//Tay//
+
+//Tay end//

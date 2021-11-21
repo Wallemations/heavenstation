@@ -83,4 +83,5 @@
 	name = "captain's katana"
 	desc = "Long and unwieldy to swing but incredibly powerful, it's something of a statement for an officer to carry a weapon like this."
 	armour_penetration = 10
+
 //Tay end//
