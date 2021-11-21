@@ -36,10 +36,20 @@
 		final_block_chance = 0 //Don't bring a sword to a gunfight
 	return ..()
 
+/obj/item/melee/rapier/on_exit_storage(datum/component/storage/concrete/S)
+	var/obj/item/storage/belt/rapier/B = S.real_location()
+	if(istype(B))
+		playsound(B, 'sound/items/unsheath.ogg', 25, TRUE)
+
+/obj/item/melee/rapier/on_enter_storage(datum/component/storage/concrete/S)
+	var/obj/item/storage/belt/rapier/B = S.real_location()
+	if(istype(B))
+		playsound(B, 'sound/items/sheath.ogg', 25, TRUE)
+
 //Spear of Longinus code
 /obj/item/nullrod/spear/captain
 	name = "spear of longinus"
-	desc = "The weapon of an angelic captain. Due to the difficulty in acquiring these weapons, throwing it isn't recommended- but you're gonna do it anyway, right?"
+	desc = "The weapon of an angelic captain, it's a special anti-culstist armament. Due to the difficulty in acquiring these weapons, throwing it isn't recommended- but you're gonna do it anyway, right?"
 	icon_state = "longinus"
 	icon = 'modular_heaven/modules/players/Tay/icons/obj/melee.dmi'
 	inhand_icon_state = "longinus"
@@ -53,19 +63,24 @@
 	throw_speed = 5
 	throw_range = 7
 	bare_wound_bonus = 7
-	armour_penetration = 20
+	armour_penetration = 35
+	block_chance = 15
 	sharpness = SHARP_POINTY
 	w_class = WEIGHT_CLASS_HUGE
-	attack_verb_continuous = list("stabs", "pierces", "slashes")
-	attack_verb_simple = list("stab", "pierces", "slash")
+	attack_verb_continuous = list("stabs", "pierces", "slashes", "punctures")
+	attack_verb_simple = list("stab", "pierce", "slash", "puncture")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	embedding = list("embed_chance" = 100, "fall_chance" = 0)
 	max_integrity = 200
-	chaplain_spawnable = FALSE
 
-//Captain's katana code, if you couldnt tell
+/obj/item/nullrod/spear/captain/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+	if(attack_type == PROJECTILE_ATTACK)
+		final_block_chance = 0 //Don't bring a spear to a gunfight- or do, that's pretty metal actually
+	return ..()
+
+//Captain's katana code
 /obj/item/katana/captain
 	name = "captain's katana"
 	desc = "Long and unwieldy to swing but incredibly powerful, it's something of a statement for an officer to carry a weapon like this."
 	armour_penetration = 10
-//Tay//
+//Tay end//
