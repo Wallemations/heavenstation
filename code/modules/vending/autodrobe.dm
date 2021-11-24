@@ -3,6 +3,7 @@
 	desc = "A vending machine for costumes."
 	icon_state = "theater"
 	icon_deny = "theater-deny"
+	panel_type = "panel16"
 	req_access = list(ACCESS_THEATRE)
 	product_slogans = "Dress for success!;Suited and booted!;It's show time!;Why leave style up to fate? Use AutoDrobe!"
 	vend_reply = "Thank you for using AutoDrobe!"
@@ -87,6 +88,10 @@
 		/obj/item/clothing/mask/animal/rat = 1,
 		/obj/item/clothing/suit/apron/overalls = 1,
 		/obj/item/clothing/head/rabbitears =1,
+		/obj/item/clothing/accessory/vest_sheriff =1,
+		/obj/item/clothing/head/cowboy_hat_brown =1,
+		/obj/item/clothing/head/cowboy_hat_red =1,
+		/obj/item/clothing/head/cowboy_hat_black =1,
 		/obj/item/clothing/head/sombrero = 1,
 		/obj/item/clothing/head/sombrero/green = 1,
 		/obj/item/clothing/suit/poncho = 1,
