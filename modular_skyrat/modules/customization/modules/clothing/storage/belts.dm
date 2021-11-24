@@ -80,7 +80,7 @@
 		/obj/item/storage/belt/storage_pouch,
 		/obj/item/melee/sabre,
 		/obj/item/melee/cleric_mace,
-		/obj/item/kitchen/knife,
+		/obj/item/knife,
 		/obj/item/melee/baton,
 		/obj/item/melee/baton,
 		/obj/item/nullrod	//holds any subset of nullrod in the sheath-storage - - -

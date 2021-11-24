@@ -72,6 +72,7 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	embedding = list("embed_chance" = 100, "fall_chance" = 0)
 	max_integrity = 200
+	chaplain_spawnable = FALSE
 
 /obj/item/nullrod/spear/captain/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(attack_type == PROJECTILE_ATTACK)

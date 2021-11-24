@@ -35,7 +35,7 @@
 
 	var/no_effects = FALSE
 
-	alpha = 190
+	alpha = 175
 
 /obj/effect/abstract/liquid_turf/onShuttleMove(turf/newT, turf/oldT, list/movement_force, move_dir, obj/docking_port/stationary/old_dock, obj/docking_port/mobile/moving_dock)
 	return
