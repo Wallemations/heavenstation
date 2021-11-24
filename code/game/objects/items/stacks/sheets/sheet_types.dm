@@ -401,6 +401,7 @@ GLOBAL_LIST_INIT(durathread_recipes, list ( \
 	new/datum/stack_recipe("durathread beret", /obj/item/clothing/head/beret/durathread, 2, time = 40), \
 	new/datum/stack_recipe("durathread beanie", /obj/item/clothing/head/beanie/durathread, 2, time = 40), \
 	new/datum/stack_recipe("durathread bandana", /obj/item/clothing/mask/bandana/durathread, 1, time = 25), \
+	new/datum/stack_recipe("bat sheath", /obj/item/storage/belt/baseball, 4, time = 40), /*NON-MODULE CHANGE*/ \
 	))
 
 /obj/item/stack/sheet/durathread
@@ -468,6 +469,13 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 		new /datum/stack_recipe("donk-pockets honk box", /obj/item/storage/box/donkpockets/donkpockethonk), \
 		new /datum/stack_recipe("monkey cube box", /obj/item/storage/box/monkeycubes),
 		new /datum/stack_recipe("nugget box", /obj/item/storage/fancy/nugget_box), \
+		// NON-MODULE CHANGE
+		new /datum/stack_recipe("bigmac box", /obj/item/storage/fancy/bigmacbox), \
+		new /datum/stack_recipe("oreo box", /obj/item/storage/fancy/oreobox), \
+		new /datum/stack_recipe("double stuf oreo box", /obj/item/storage/fancy/oreobox/double), \
+		new /datum/stack_recipe("mega stuf oreo box", /obj/item/storage/fancy/oreobox/mega), \
+		new /datum/stack_recipe("most stuf oreo box", /obj/item/storage/fancy/oreobox/most), \
+		// NON-MODULE CHANGE
 		null, \
 
 		new /datum/stack_recipe("lethal ammo box", /obj/item/storage/box/lethalshot), \

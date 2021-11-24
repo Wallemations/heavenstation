@@ -77,6 +77,13 @@
 	combat_mode = new_mode
 	if(hud_used?.action_intent)
 		hud_used.action_intent.update_appearance()
+	// SKYRAT EDIT - COMBAT INDICATOR
+	if(!ishuman(src))
+		if(combat_mode)
+			set_combat_indicator(TRUE)
+		else
+			set_combat_indicator(FALSE)
+	// SKYRAT EDIT - COMBAT INDICATOR
 	if(silent || !(client?.prefs.toggles & SOUND_COMBATMODE))
 		return
 	if(combat_mode)

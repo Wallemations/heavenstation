@@ -494,6 +494,8 @@ GLOBAL_VAR(station_nuke_source)
 		SSshuttle.registerHostileEnvironment(src)
 		SSshuttle.lockdown = TRUE
 
+	KillEveryoneOnZLevel(z) //SKYRAT EDIT ADDITION
+
 	//Cinematic
 	GLOB.station_was_nuked = TRUE
 	GLOB.station_nuke_source = off_station
@@ -591,7 +593,7 @@ GLOBAL_VAR(station_nuke_source)
 /obj/machinery/nuclearbomb/beer/really_actually_explode()
 	disarm()
 	stationwide_foam()
-
+/*
 /proc/KillEveryoneOnZLevel(z)
 	if(!z)
 		return
@@ -600,7 +602,7 @@ GLOBAL_VAR(station_nuke_source)
 		to_chat(victim, span_userdanger("You are shredded to atoms!"))
 		if(victim.stat != DEAD && victim.z == z)
 			victim.gib()
-
+*/
 /*
 This is here to make the tiles around the station mininuke change when it's armed.
 */

@@ -72,7 +72,7 @@
 	return TRUE
 
 /datum/keybinding/mob/toggle_move_intent
-	hotkey_keys = list("C")
+	hotkey_keys = list("Alt") //SKYRAT EDIT CHANGE - COMBAT_INDICATOR
 	name = "toggle_move_intent"
 	full_name = "Hold to toggle move intent"
 	description = "Held down to cycle to the other move intent, release to cycle back"
@@ -233,7 +233,7 @@
 	return TRUE
 
 /datum/keybinding/mob/prevent_movement
-	hotkey_keys = list("Alt")
+	hotkey_keys = list("Ctrl") //SKYRAT EDIT CHANGE ALT > CTRL - PIXEL_SHIFT
 	name = "block_movement"
 	full_name = "Block movement"
 	description = "Prevents you from moving"

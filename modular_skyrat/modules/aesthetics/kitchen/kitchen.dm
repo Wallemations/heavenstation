@@ -1,0 +1,17 @@
+/obj/structure/kitchenspike_frame
+	icon = 'modular_skyrat/modules/aesthetics/kitchen/kitchen.dmi'
+
+/obj/structure/kitchenspike
+	icon = 'modular_skyrat/modules/aesthetics/kitchen/kitchen.dmi'
+
+/obj/machinery/processor
+	icon = 'modular_skyrat/modules/aesthetics/kitchen/kitchen.dmi'
+
+/obj/machinery/deepfryer
+	icon = 'modular_skyrat/modules/aesthetics/kitchen/kitchen.dmi'
+
+/obj/machinery/grill
+	icon = 'modular_skyrat/modules/aesthetics/kitchen/kitchen.dmi'
+
+/obj/machinery/gibber
+	icon = 'modular_skyrat/modules/aesthetics/kitchen/kitchen.dmi'

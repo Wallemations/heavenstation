@@ -14,6 +14,7 @@
 	var/lit = FALSE
 	var/infinite = FALSE
 	var/start_lit = FALSE
+	var/scented_type //SKYRAT EDIT ADDITION /// Pollutant type for scented candles
 
 /obj/item/candle/Initialize(mapload)
 	. = ..()
@@ -68,6 +69,11 @@
 	if(wax <= 0)
 		new /obj/item/trash/candle(loc)
 		qdel(src)
+	//SKYRAT EDIT ADDITION
+	if(scented_type)
+		var/turf/my_turf = get_turf(src)
+		my_turf.PolluteTurf(scented_type, 5)
+	//SKYRAT EDIT END
 	update_appearance()
 	open_flame()
 

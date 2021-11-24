@@ -284,6 +284,10 @@
 				. += "[icon2html('icons/mob/human.dmi', user, "monkey")] Some <B>monkey feet</B>."
 			else if(species == SPECIES_HUMAN)
 				. += "[icon2html('icons/mob/human_parts.dmi', user, "default_human_l_leg")] Some <B>human feet</B>."
+			// HEAVEN ADDITION - START
+			else if(species == "spirit" || species == "goat")
+				. += "[icon2html('modular_heaven/modules/custom_races/icons/mob/human_parts.dmi', user, "[species]_l_leg")] Some <B>[species] feet</B>."
+			// HEAVEN ADDITION - END
 			else
 				. += "[icon2html('icons/mob/human_parts.dmi', user, "[species]_l_leg")] Some <B>[species] feet</B>."
 

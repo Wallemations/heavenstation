@@ -892,6 +892,10 @@
 			limb.icon_state = "[species_id]_[body_zone]"
 	else
 		limb.icon = 'icons/mob/human_parts.dmi'
+		// HEAVEN ADDITION - START
+		if(species_id == "goat" || species_id == "spirit")
+			limb.icon = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+		// HEAVEN ADDITION - END
 		if(should_draw_gender)
 			limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
 		else
