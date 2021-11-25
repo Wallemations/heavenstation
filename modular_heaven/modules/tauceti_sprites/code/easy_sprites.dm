@@ -26,7 +26,7 @@
 
 //////Library//////
 ///////////////////
-/////Medipens//////
+//// Medipens /////
 
 /obj/item/reagent_containers/hypospray/medipen
 	icon = 'modular_heaven/modules/tauceti_sprites/icons/syringes.dmi'
@@ -35,3 +35,11 @@
 	. = ..()
 	if(.)
 		playsound(M, 'modular_heaven/modules/tauceti_sprites/sounds/medipen.ogg', 50, TRUE, -3)
+
+
+//// Medipens /////
+///////////////////
+///// Medbots /////
+
+/mob/living/simple_animal/bot/medbot
+	icon = 'modular_heaven/modules/tauceti_sprites/icons/medbots.dmi'
