@@ -152,3 +152,5 @@ config/title_music/sounds/The Stand.ogg
 config/title_music/sounds/KK Sparkle.ogg
 config/title_music/sounds/The artichoke king.ogg
 config/title_music/sounds/Define Me.ogg
+config/title_music/sounds/23rd Century Life.ogg
+config/title_music/sounds/In The Garden.ogg
