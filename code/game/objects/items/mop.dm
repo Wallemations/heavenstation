@@ -30,6 +30,11 @@
 	if(free_space <= 0)
 		to_chat(user, "<span class='warning'>Your mop can't absorb any more!</span>")
 		return TRUE
+	var/clean_speedies = 1
+	if(user.mind)
+		clean_speedies = user.mind.get_skill_modifier(/datum/skill/cleaning, SKILL_SPEED_MODIFIER)
+	if(!do_after(user, mopspeed*clean_speedies, target = liquids))
+		return TRUE
 	var/datum/reagents/tempr = liquids.take_reagents_flat(free_space)
 	tempr.trans_to(the_mop.reagents, tempr.total_volume)
 	to_chat(user, "<span class='notice'>You soak the mop with some liquids.</span>")
@@ -82,14 +87,6 @@
 		if(do_after(user, mopspeed*clean_speedies, target = T))
 			to_chat(user, span_notice("You finish mopping."))
 			clean(T, user)
-
-
-/obj/effect/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/mop) || istype(I, /obj/item/soap))
-		return
-	else
-		return ..()
-
 
 /obj/item/mop/proc/janicart_insert(mob/user, obj/structure/janitorialcart/J)
 	if(insertable)

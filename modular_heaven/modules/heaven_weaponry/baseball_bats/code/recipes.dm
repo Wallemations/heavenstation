@@ -44,7 +44,7 @@
 	name = "Knife Bat"
 	result = /obj/item/melee/baseball_bat/knife
 	reqs = list(/obj/item/melee/baseball_bat = 1,
-				/obj/item/kitchen/knife = 1,
+				/obj/item/knife/kitchen = 1,
 				/obj/item/stack/sticky_tape = 1,)
 	time = 15
 	category = CAT_WEAPONRY
@@ -87,7 +87,7 @@
 	name = "Enchanted Bat"
 	result = /obj/item/melee/baseball_bat/magic
 	reqs = list(/obj/item/melee/baseball_bat = 1,
-				/obj/item/melee/sabre = 1,
+				/obj/item/nullrod = 2,
 				/datum/reagent/water/holywater = 50,
 				)
 	time = 15

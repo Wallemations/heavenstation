@@ -25,8 +25,10 @@
 		. += span_notice("Peering inside, the plastic hasn't been molded to an item yet. It looks like any small item would fit.")
 		. += span_notice("Right-Clicking with a screwdriver, you could probably adjust the spring to allow a certain amount of items inside.")
 		return
-	if(contents.len)
-		. += span_notice("There are [contents.len] [item_name]\s remaining.")
+	if(contents.len == 1)
+		. += span_notice("There is 1 [item_name] remaining.")
+	if(contents.len > 1)
+		. += span_notice("There are [contents.len] [item_name][plural_s(item_name)] remaining.")
 	if(!contents.len)
 		. += span_notice("It's empty!")
 		. += span_notice("Right-Clicking with a wrench, you could take it off the wall now!")
@@ -39,7 +41,7 @@
 /obj/structure/item_dispenser/proc/register_name()
 	item_name = initial(stock.name)
 	name = "[item_name] dispenser"
-	desc = "A small wall-mounted receptacle which dispenses [item_name]\s and similar items."
+	desc = "A small wall-mounted receptacle which dispenses [item_name][plural_s(item_name)] and similar items."
 
 /obj/structure/item_dispenser/Initialize(mapload)
 	. = ..()
@@ -74,12 +76,12 @@
 			playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
 			SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, I, user)
 			contents += I
-			to_chat(user, span_notice("You insert [I] into [src]."))
+			balloon_alert(user, "inserted [I]")
 			if(contents.len == 1)
 				update_icon(UPDATE_OVERLAYS)
 			return
 		else
-			to_chat(user, span_notice("You can't fit more [item_name]\s in [src]!"))
+			to_chat(user, span_warning("You can't fit [item_name] into [src]!"))
 			return
 	if(!stocked)
 		if(I.w_class <= WEIGHT_CLASS_SMALL)
@@ -94,12 +96,11 @@
 			if(contents.len == 1)
 				update_icon(UPDATE_OVERLAYS)
 		else
-			to_chat(user, span_notice("[I] is too big to fit in [src]!"))
+			to_chat(user, span_warning("[I] is too big to fit in [src]!"))
 		return
 	return ..()
 
 /obj/structure/item_dispenser/attackby_secondary(obj/item/I, mob/user, params)
-	. = ..()
 	if(!stocked && I.tool_behaviour == TOOL_SCREWDRIVER)
 		var/changed_charges = input(user, "Input amount of items this dispenser can allow. It must be an amount between 1 and 8.", "Item Dispenser") as num|null
 		if(changed_charges > 8) // Stops people from being shitters
@@ -126,7 +127,7 @@
 				qdel(src)
 			return
 		else
-			to_chat(user, span_notice("[src] needs to be empty to be deconstructed!"))
+			to_chat(user, span_warning("[src] needs to be empty to be deconstructed!"))
 			return
 	return ..()
 
@@ -144,12 +145,12 @@
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, grabbies, user)
 		user.put_in_hands(grabbies)
 		contents -= grabbies
-		to_chat(user, span_notice("You take \a [item_name] from [src]"))
+		balloon_alert(user, "took [item_name]")
 		playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
 		if(contents.len <= 0)
 			update_icon(UPDATE_OVERLAYS)
 	else
-		to_chat(user, span_notice("There are no [item_name]\s left in [src]."))
+		to_chat(user, span_warning("There are no [item_name][plural_s(item_name)] left in [src]."))
 
 //////      Dispensers      //////
 //////////////////////////////////
