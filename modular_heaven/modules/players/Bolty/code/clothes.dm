@@ -1,14 +1,5 @@
 // WHERE'S THAT DAMN CHAOS EMERALD
 
-/obj/item/clothing/under/suit/stolen_captain_uniform
-	name = "Stolen Uniform"
-	desc = "A uniform that seems to fit you perfectly, one of the sleeves appears to be torn off."
-	icon = 'modular_heaven/modules/players/Bolty/icons/suits.dmi'
-	worn_icon = 'modular_heaven/modules/players/Bolty/icons/worn_suits.dmi'
-	icon_state = "stolen_captain_uniform"
-	inhand_icon_state = "stolen_captain_uniform"
-	body_parts_covered = CHEST|GROIN|LEGS|FEET
-
 /obj/item/clothing/under/suit/king_attire
 	name = "King's Attire"
 	desc = "An elegant white suit, fit for someone of high class. Occasionally white pedals can be seen falling out of the suit jacket."
@@ -18,6 +9,15 @@
 	inhand_icon_state = "king_attire"
 
 // lawrence
+
+/obj/item/clothing/under/suit/stolen_captain_uniform
+	name = "Stolen Uniform"
+	desc = "A uniform that seems to fit you perfectly, one of the sleeves appears to be torn off."
+	icon = 'modular_heaven/modules/players/Bolty/icons/suits.dmi'
+	worn_icon = 'modular_heaven/modules/players/Bolty/icons/worn_suits.dmi'
+	icon_state = "stolen_captain_uniform"
+	inhand_icon_state = "stolen_captain_uniform"
+	body_parts_covered = CHEST|GROIN|LEGS|FEET
 
 /obj/item/clothing/neck/chefbandana
 	name = "chef bandana"
