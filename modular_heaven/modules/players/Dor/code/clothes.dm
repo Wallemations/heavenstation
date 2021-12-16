@@ -16,7 +16,7 @@
 	name = "Her Gift"
 	desc = "A new form, courtesy of Her. How nice!"
 	icon = 'modular_heaven/modules/players/Dor/icons/suits.dmi'
-	worn_icon = 'modular_heaven/modules/players/Dor/icons/suits.dmi'
+	worn_icon = 'modular_heaven/modules/players/Dor/icons/mobsuits.dmi'
 	icon_state = "redlady"
 	inhand_icon_state = "redlady"
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
