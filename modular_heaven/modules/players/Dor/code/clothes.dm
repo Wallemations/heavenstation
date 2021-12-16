@@ -16,7 +16,7 @@
 	name = "Her Gift"
 	desc = "A new form, courtesy of Her. How nice!"
 	icon = 'modular_heaven/modules/players/Dor/icons/suits.dmi'
-	worn_icon = 'modular_heaven/modules/players/Dor/icons/mobsuits.dmi'
+	worn_icon = 'modular_heaven/modules/players/Dor/icons/suits.dmi'
 	icon_state = "redlady"
 	inhand_icon_state = "redlady"
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
@@ -26,6 +26,22 @@
 ////////Nar'sie////////
 ///////////////////////
 ////////Reshia/////////
+
+/obj/item/clothing/under/suit/nomura_designs
+    name = "Refined Red Skirt"
+    desc = "Extra accessories to keep yourself together. Literally."
+    icon = 'modular_heaven/modules/players/Dor/icons/suits.dmi'
+    worn_icon = 'modular_heaven/modules/players/Dor/icons/mobsuits.dmi'
+    icon_state = "refined"
+    inhand_icon_state = "refined"
+
+/obj/item/clothing/shoes/nomura_designs
+    name = "Baggy Cowboy Boots"
+    desc = "The belts are essential. Probably."
+    icon = 'modular_heaven/modules/players/Dor/icons/shoes.dmi'
+    worn_icon = 'modular_heaven/modules/players/Dor/icons/worn_shoes.dmi'
+    icon_state = "baggy_boots"
+    inhand_icon_state = "baggy_boots"
 
 /obj/item/clothing/under/suit/reshia
 	name = "Red Ribbon"
