@@ -562,6 +562,15 @@
 	else
 		clear_alert("temp")
 
+/mob/living/simple_animal/hostile/poison/giant_spider/spiderman
+	name = "leak"
+	desc = "No way... You've just GOT to tell people about this..."
+	icon = 'icons/spidah.dmi'
+	icon_state = "spider"
+	speak = list("I'm Spiderman...")
+	speak_chance = 100
+	speak_emote = list("whispers")
+
 #undef SPIDER_IDLE
 #undef SPINNING_WEB
 #undef LAYING_EGGS
