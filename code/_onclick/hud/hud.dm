@@ -56,6 +56,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/action_buttons_hidden = FALSE
 
 	var/obj/screen/healths
+	var/obj/screen/stamina
 	var/obj/screen/healthdoll
 	var/obj/screen/internals
 	var/obj/screen/wanted/wanted_lvl
@@ -103,6 +104,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	QDEL_LIST(infodisplay)
 
 	healths = null
+	stamina = null
 	healthdoll = null
 	wanted_lvl = null
 	internals = null
