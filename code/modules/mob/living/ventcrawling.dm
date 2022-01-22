@@ -47,8 +47,8 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, typecacheof(list(
 	if(vent_found)
 		var/datum/pipeline/vent_found_parent = vent_found.parents[1]
 		if(vent_found_parent && (vent_found_parent.members.len || vent_found_parent.other_atmosmch))
+			flick_overlay_static(image('icons/effects/vent_indicator.dmi', "arrow", ABOVE_MOB_LAYER, dir = get_dir(src.loc, vent_found.loc)), vent_found, 2 SECONDS)
 			visible_message("<span class='notice'>[src] begins climbing into the ventilation system...</span>" ,"<span class='notice'>You begin climbing into the ventilation system...</span>")
-
 			if(!do_after(src, 25, target = vent_found))
 				return
 
@@ -59,7 +59,7 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, typecacheof(list(
 				if(length(get_equipped_items(include_pockets = TRUE)) || get_num_held_items())
 					to_chat(src, "<span class='warning'>You can't crawl around in the ventilation ducts with items!</span>")
 					return
-
+			flick_overlay_static(image('icons/effects/vent_indicator.dmi', "insert", ABOVE_MOB_LAYER), vent_found, 1 SECONDS)
 			visible_message("<span class='notice'>[src] scrambles into the ventilation ducts!</span>","<span class='notice'>You climb into the ventilation ducts.</span>")
 			forceMove(vent_found)
 	else
