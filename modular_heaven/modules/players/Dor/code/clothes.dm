@@ -27,6 +27,22 @@
 ///////////////////////
 ////////Reshia/////////
 
+/obj/item/clothing/under/suit/nomura_designs
+    name = "Refined Red Skirt"
+    desc = "Extra accessories to keep yourself together. Literally."
+    icon = 'modular_heaven/modules/players/Dor/icons/suits.dmi'
+    worn_icon = 'modular_heaven/modules/players/Dor/icons/mobsuits.dmi'
+    icon_state = "refined"
+    inhand_icon_state = "refined"
+
+/obj/item/clothing/shoes/nomura_designs
+    name = "Baggy Cowboy Boots"
+    desc = "The belts are essential. Probably."
+    icon = 'modular_heaven/modules/players/Dor/icons/shoes.dmi'
+    worn_icon = 'modular_heaven/modules/players/Dor/icons/worn_shoes.dmi'
+    icon_state = "baggy_boots"
+    inhand_icon_state = "baggy_boots"
+
 /obj/item/clothing/under/suit/reshia
 	name = "Red Ribbon"
 	desc = "A red ribbon that uncomfortably constricts your neck."

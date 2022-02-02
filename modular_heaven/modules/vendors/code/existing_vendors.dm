@@ -6,6 +6,8 @@
                         /obj/item/clothing/under/suit/casual_outfit = 1,
                         /obj/item/clothing/suit/comfy_jacket = 1,
                         /obj/item/clothing/shoes/casual_boots = 1,
+						/obj/item/clothing/under/suit/nomura_designs = 1,
+						/obj/item/clothing/shoes/nomura_designs = 1,
                         )
 
 /obj/machinery/vending/autodrobe
@@ -30,4 +32,4 @@
 						/obj/item/clothing/under/costume/riamu = 1,
 						/obj/item/clothing/head/medjed = 1,
 						)
-					
+
