@@ -325,21 +325,23 @@
 		icon_state = "hellphone-1"
 		playsound(get_turf(user), 'sound/effects/wounds/blood2.ogg', 50, TRUE)
 		message_admins("[user.key] has begun a phone call. [ADMIN_VERBOSEJMP(src)]")
+		for(var/obj/item/britevidence/pager/paging in GLOB.pagers)
+			paging.page()
 		answered = FALSE
 		if(do_after(user, 20 SECONDS, TRUE) && !answered && handled)
 			playsound(get_turf(user), 'sound/misc/busy_phone.ogg', 50, TRUE)
 			to_chat(user, "<span class='notice'>Looks like they're busy.</span>")
 		else if(!answered)
 			to_chat(user, "<span class='notice'>You dropped the phone!</span>")
-		else
-			to_chat(user, "<span class='notice'>Someone picks up, and you hear their breathing through the handset.</span>")
 	else
 		to_chat(user, "<span class='warning'>[src] is empty!</span>")
 	add_fingerprint(user)
 
 /obj/item/britevidence/hellphone/proc/answer_phone()
-	if(handled)
+	if(handled && !answered)
 		answered = TRUE
+		for(var/mob/living/L in range(1, src))
+			to_chat(L, "<span class='notice'>Someone picks up, and you hear their breathing through the handset.</span>")
 		return TRUE
 	return FALSE
 
@@ -368,10 +370,14 @@
 	hitsound = 'sound/weapons/ring.ogg'
 
 /obj/item/britevidence/pager
-	name = "pager"
-	desc = "An admin item, don't touch it."
+	name = "\improper <span class='warning'>pager</span>"
+	desc = "<span class='warning'>An admin item, for all intents and purposes it does not physically exist. If you find this, please ahelp, thanks.</span>"
 	icon = 'icons/obj/telescience.dmi'
-	icon_state = "emp"
+	icon_state = "blpad-remote"
+
+/obj/item/britevidence/pager/Initialize()
+	. = ..()
+	GLOB.pagers += src
 
 /obj/item/britevidence/pager/attack_self(mob/user)
 	. = ..()
@@ -380,3 +386,42 @@
 			to_chat(user, "<span class='notice'>You paged the phone.</span>")
 		else
 			to_chat(user, "<span class='warning'>Nobody was at the phone, quit hitting the button!</span>")
+
+/obj/item/britevidence/pager/proc/page(mob/user)
+	playsound(src, 'sound/weapons/ring.ogg', 50, TRUE)
+	for(var/mob/living/L in range(0, src))
+		to_chat(L, "<span class='warning'>The pager blinks!</span>")
+
+/obj/item/britevidence/spawner
+	name = "spawn radio"
+	desc = "We need backup!"
+	icon = 'icons/obj/telescience.dmi'
+	icon_state = "blpad-remote"
+	/// What item/spawner does this spawn/trigger?
+	var/spawntype = /obj/item/toy/plush/rouny
+
+/obj/item/britevidence/spawner/attack_self(mob/user)
+	. = ..()
+	new spawntype(loc)
+	balloon_alert(user, "Spawned [spawntype]")
+	qdel(src)
+
+/obj/item/britevidence/spawner/armymen
+	spawntype = /obj/effect/spawner/scatter/armymen
+
+/obj/item/britevidence/spawner/armymen/attack_self(mob/user)
+	user.faction |= list(ROLE_DEATHSQUAD)
+	. = ..()
+
+///This spawner will scatter armymen around the user.
+/obj/effect/spawner/scatter/armymen
+	name = "armymen scatterer"
+	max_spawns = 8
+	radius = 3
+	loot_table = list(/mob/living/simple_animal/hostile/nanotrasen/elite = 20,
+					/mob/living/simple_animal/hostile/nanotrasen/ranged/assault = 30,
+					/mob/living/simple_animal/hostile/nanotrasen/screaming = 30,
+					/mob/living/simple_animal/hostile/nanotrasen = 40,
+					/mob/living/simple_animal/hostile/nanotrasen/ranged = 35,
+					/mob/living/simple_animal/hostile/nanotrasen/ranged/smg = 20
+					)

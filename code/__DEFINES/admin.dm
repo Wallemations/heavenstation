@@ -105,6 +105,7 @@
 #define ADMIN_PUNISHMENT_SHOES "Knot Shoes"
 #define ADMIN_PUNISHMENT_DOCK "Dock Pay"
 #define ADMIN_PUNISHMENT_BREAD "Bread"
+#define ADMIN_PUNISHMENT_TABLE "Tabletide"
 
 #define AHELP_ACTIVE 1
 #define AHELP_CLOSED 2

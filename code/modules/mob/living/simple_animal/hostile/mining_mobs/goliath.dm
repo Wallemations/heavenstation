@@ -252,3 +252,22 @@
 	desc = "This saddle will solve all your problems with being killed by lava beasts!"
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "goliath_saddle"
+
+/mob/living/simple_animal/hostile/asteroid/goliath/beast/andy
+	name = "Andy"
+	desc = "Isn't that the kid you've been sending letters to?"
+	icon_state = "andy"
+	icon_living = "andy"
+	icon_aggro = "andy"
+	icon_dead = "andy_dead"
+	pre_attack_icon = "andy2"
+	mob_biotypes = MOB_BEAST
+	maxHealth = 1000
+	health = 1000
+	guaranteed_butcher_results = list(/obj/item/reagent_containers/food/snacks/candyheart = 1)
+	gold_core_spawnable = NO_SPAWN
+
+/mob/living/simple_animal/hostile/asteroid/goliath/beast/andy/Initialize(mapload)
+	. = ..()
+	var/area/front_door = get_area(src)
+	priority_announce("Your penpal is here to meet you in [front_door]!", "Nanotrasen Penpal Association")

@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/nanotrasen
 	name = "\improper Nanotrasen Private Security Officer"
-	desc = "An officer part of Nanotrasen's private security force, he seems rather unpleased to meet you."
+	desc = "An officer part of Nanotrasen's private security force, they seem rather unpleased to meet you."
 	icon = 'icons/mob/simple_human.dmi'
 	icon_state = "nanotrasen"
 	icon_living = "nanotrasen"
@@ -32,6 +32,7 @@
 	footstep_type = FOOTSTEP_MOB_SHOE
 
 /mob/living/simple_animal/hostile/nanotrasen/screaming
+	name = "\improper Nanotrasen Private Security Major"
 	icon_state = "nanotrasen"
 	icon_living = "nanotrasen"
 
@@ -40,8 +41,12 @@
 	summon_backup(15)
 	say("411 in progress, requesting backup!")
 
+/mob/living/simple_animal/hostile/nanotrasen/screaming/examine(mob/user)
+	. = ..()
+	. += "<span class='warning'>They have a mid-range radio around their waist.</span>"
 
 /mob/living/simple_animal/hostile/nanotrasen/ranged
+	name = "\improper Nanotrasen Private Security Ranger"
 	icon_state = "nanotrasenranged"
 	icon_living = "nanotrasenranged"
 	ranged = 1

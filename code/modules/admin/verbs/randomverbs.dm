@@ -1073,7 +1073,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 									ADMIN_PUNISHMENT_SCARIFY,
 									ADMIN_PUNISHMENT_SHOES,
 									ADMIN_PUNISHMENT_DOCK,
-									ADMIN_PUNISHMENT_BREAD
+									ADMIN_PUNISHMENT_BREAD,
+									ADMIN_PUNISHMENT_TABLE
 									)
 
 	var/punishment = input("Choose a punishment", "DIVINE SMITING") as null|anything in sortList(punishment_list)
@@ -1270,7 +1271,18 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			var/mutable_appearance/transform_scanline = mutable_appearance('icons/effects/effects.dmi',"transform_effect")
 			target.transformation_animation(bread_appearance,time= 5 SECONDS,transform_overlay=transform_scanline,reset_after=TRUE)
 			addtimer(CALLBACK(GLOBAL_PROC, .proc/breadify, target), 5 SECONDS)
-
+		if(ADMIN_PUNISHMENT_TABLE)
+			priority_announce("[target] has brought the wrath of the gods upon themselves and is now being tableslammed across the station. Please stand by.")
+			var/list/areas = list()
+			for(var/area/area in world)
+				if(area.z == SSmapping.station_start)
+					areas += area
+			SEND_SOUND(target, sound('sound/misc/slamofthenorthstar.ogg',volume=40))
+			for(var/area/area in areas)
+				for(var/obj/structure/table/table in area)
+					if(!istype(table, /obj/structure/table/glass))
+						table.tablepush(target, target)
+						sleep(1)
 	punish_log(target, punishment)
 
 /proc/breadify(atom/movable/target)
