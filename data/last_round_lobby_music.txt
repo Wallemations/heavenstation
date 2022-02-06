@@ -158,3 +158,5 @@ config/title_music/sounds/Papillons.ogg
 config/title_music/sounds/THE REAL FOLK BLUES.ogg
 config/title_music/sounds/Duvet.ogg
 config/title_music/sounds/Duvet.ogg
+config/title_music/sounds/Burn A Picture.ogg
+config/title_music/sounds/In The Garden.ogg
