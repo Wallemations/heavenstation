@@ -232,7 +232,10 @@
 	glass_icon_state = "greentea"
 	glass_name = "green tea"
 	glass_desc = "Green Tea served in a traditional Japanese tea cup, just like in your Chinese cartoons!"
-
+	has_custom_glass = TRUE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_STOCK
+	
 /datum/reagent/consumable/greentea/on_mob_life(mob/living/carbon/M)
 	M.dizziness = max(0,M.dizziness-1)
 	M.drowsyness = max(0,M.drowsyness-3)
