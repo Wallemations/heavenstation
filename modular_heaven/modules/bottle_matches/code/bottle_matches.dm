@@ -355,5 +355,4 @@
 /obj/machinery/chem_dispenser/drinks
      modular_reagents = list(
         /datum/reagent/consumable/greentea,
-		/datum/reagent/consumable/tea,
         /datum/reagent/consumable/redtea)
