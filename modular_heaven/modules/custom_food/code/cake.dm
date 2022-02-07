@@ -9,6 +9,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 10)
 	tastes = list("heaven" = 4, "divinity" = 3)
 	foodtypes = GRAIN | DAIRY
+	burns_in_oven = TRUE
 
 /obj/item/food/cake/royalcheese/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/cakeslice/royalcheese, 5, 3)

@@ -8,7 +8,7 @@
 
 /datum/advanced_antag_datum/traitor/infiltrator/greet_message(mob/antagonist)
 	to_chat(antagonist, span_alertsyndie("You are an [name]!"))
-	antagonist.playsound_local(get_turf(antagonist), 'jollystation_modules/sound/radiodrum.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
+	antagonist.playsound_local(get_turf(antagonist), 'modular_heaven/sound/radiodrum.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 	addtimer(CALLBACK(src, .proc/greet_message_two, antagonist), 3 SECONDS)
 
 /datum/advanced_antag_datum/traitor/infiltrator/greet_message_two(mob/antagonist)
