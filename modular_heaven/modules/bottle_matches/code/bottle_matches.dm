@@ -171,7 +171,8 @@
 	glass_name = "glass of nae nae cream"
 	glass_desc = "Now watch me..."
 	overdose_threshold = 50
-
+	has_custom_glass = TRUE
+	
 /datum/reagent/consumable/naenaecream/on_mob_life(mob/living/carbon/M)
 	if(prob(5))
 		M.visible_message("<span class='warning'>nae naes!</span>", visible_message_flags = EMOTE_MESSAGE)
