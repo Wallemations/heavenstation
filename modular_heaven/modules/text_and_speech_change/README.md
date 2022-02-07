@@ -2,7 +2,7 @@ https://github.com/Jolly-66/JollyStation/pull/5
 
 ## Text and Speech Changes
 
-Ports runechat text color changes, speech sounds, and flavor text from Jollystation
+Ports runechat text color changes, speech sounds, and flavor text from Maplestation
 
 ### TG Edits
 

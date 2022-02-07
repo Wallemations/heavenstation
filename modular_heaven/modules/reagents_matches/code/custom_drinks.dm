@@ -1,140 +1,3 @@
-/obj/item/storage/box/matches
-	icon = 'modular_heaven/modules/bottle_matches/icons/matches.dmi'
-
-/obj/item/storage/box/matches/nanotrasen
-	name = "\improper Nanotrasen matchbox"
-	desc = "A small box of specialty Nanotrasen matches, perfect for relaxing after a hard day of bossing everyone around."
-	icon_state = "matchbox-n"
-	base_icon_state = "matchbox-n"
-
-/obj/item/storage/box/matches/syndicate
-	name = "\improper Syndicate matchbox"
-	desc = "While they offer no tactical advantages over conventional matches, the red of the box goes perfectly with your eyes."
-	icon_state = "matchbox-s"
-	base_icon_state = "matchbox-s"
-
-/////// Matches ////////
-////////////////////////
-// Drink Icon Changes //
-
-/obj/item/reagent_containers/food/drinks/ale
-	icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
-
-/obj/item/reagent_containers/food/drinks/beer
-	icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
-
-/obj/item/reagent_containers/food/drinks/bottle/whiskey
-	icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
-
-/obj/item/reagent_containers/food/drinks/bottle/gin
-	icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
-
-/obj/item/reagent_containers/food/drinks/bottle/wine
-	icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
-
-/obj/item/reagent_containers/food/drinks/bottle/fernet
-	icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
-
-/obj/item/reagent_containers/food/drinks/drinkingglass
-	icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
-
-/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass
-	icon = 'modular_heaven/modules/bottle_matches/icons/drinks.dmi'
-
-/datum/reagent
-	// Used to divert specific reagents to our custom sprites
-	var/has_custom_glass = FALSE
-
-/datum/reagent/consumable/ethanol/moonshine
-	has_custom_glass = TRUE
-
-/datum/reagent/water
-	has_custom_glass = TRUE
-
-/datum/reagent/water/holywater
-	has_custom_glass = TRUE
-
-/datum/reagent/hydrogen_peroxide
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/ethanol/creme_de_coconut
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/milk
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/soymilk
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/cream
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/ethanol/eggnog
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/bungojuice
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/aloejuice
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/ethanol/bilk
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/ethanol/creme_de_cacao
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/potato_juice
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/coffee
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/ethanol/wine
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/ethanol/triple_sec
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/ethanol/pruno
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/ethanol/mushi_kombucha
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/orangejuice
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/prunomix
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/ethanol/creme_de_menthe
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/limejuice
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/menthol
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/tomatojuice
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/watermelonjuice
-	has_custom_glass = TRUE
-
-/datum/reagent/blood
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/ethanol/hooch
-	has_custom_glass = TRUE
-
-/datum/reagent/consumable/ethanol/bacchus_blessing
-	has_custom_glass = TRUE
-
-//////////////////////
-// da custom drinks //
-//////////////////////
 
 /datum/reagent/consumable/whipcream //Just like real whipped cream, made of sugar and milk.
 	name = "Whipped Cream"
@@ -172,7 +35,7 @@
 	glass_desc = "Now watch me..."
 	overdose_threshold = 50
 	has_custom_glass = TRUE
-	
+
 /datum/reagent/consumable/naenaecream/on_mob_life(mob/living/carbon/M)
 	if(prob(5))
 		M.visible_message("<span class='warning'>nae naes!</span>", visible_message_flags = EMOTE_MESSAGE)
@@ -235,7 +98,7 @@
 	has_custom_glass = TRUE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_STOCK
-	
+
 /datum/reagent/consumable/greentea/on_mob_life(mob/living/carbon/M)
 	M.dizziness = max(0,M.dizziness-1)
 	M.drowsyness = max(0,M.drowsyness-3)
@@ -259,7 +122,7 @@
 	has_custom_glass = TRUE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_STOCK
-	
+
 /datum/reagent/consumable/redtea/on_mob_life(mob/living/carbon/M)
 	M.dizziness = max(0,M.dizziness-3)
 	M.drowsyness = max(0,M.drowsyness-2)
@@ -283,7 +146,7 @@
 	has_custom_glass = TRUE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
-	
+
 /datum/reagent/consumable/chifir/on_mob_life(mob/living/carbon/M)
 	M.dizziness = max(0,M.dizziness-2)
 	M.drowsyness = max(0,M.drowsyness-2)
@@ -307,7 +170,7 @@
 	has_custom_glass = TRUE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
-	
+
 /datum/reagent/consumable/chamomile/on_mob_life(mob/living/carbon/M)
 	M.dizziness = max(0,M.dizziness-2)
 	M.drowsyness = max(0,M.drowsyness-1)
@@ -339,20 +202,3 @@
 /datum/chemical_reaction/chifir
 	results = list(/datum/reagent/consumable/chifir = 3)
 	required_reagents = list(/datum/reagent/consumable/tea = 1, /datum/reagent/consumable/greentea = 1, /datum/reagent/consumable/redtea = 1)
-
-//////////////////////
-// soda dispenser stuffs //
-//////////////////////
-
-/obj/machinery/chem_dispenser
-/// Reagents added by custom modules
-     var/list/modular_reagents
-
-/obj/machinery/chem_dispenser/Initialize(mapload)
-     . = ..()
-     dispensable_reagents |= modular_reagents
-
-/obj/machinery/chem_dispenser/drinks
-     modular_reagents = list(
-        /datum/reagent/consumable/greentea,
-        /datum/reagent/consumable/redtea)

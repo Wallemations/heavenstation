@@ -1,6 +1,6 @@
 
 /*
-/// This is taken from Jollystation, because it's a MUCH more elegant way of doing this.
+/// This is taken from Maplestation, because it's a MUCH more elegant way of doing this.
 /// It works just like normal vending lists, just use the vars listed below instead.
 /// Scroll to the bottom of this for more info.
 */

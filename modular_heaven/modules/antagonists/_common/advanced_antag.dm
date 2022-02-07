@@ -55,7 +55,7 @@
 /// antagonist - the mob being greeted, the antagonist.
 /datum/advanced_antag_datum/proc/greet_message(mob/antagonist)
 	to_chat(antagonist, span_alertsyndie("You are a [name]!"))
-	antagonist.playsound_local(get_turf(antagonist), 'jollystation_modules/sound/radiodrum.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
+	antagonist.playsound_local(get_turf(antagonist), 'modular_heaven/sound/radiodrum.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 	addtimer(CALLBACK(src, .proc/greet_message_two, antagonist), 3 SECONDS)
 
 /// Give them details on what their role actually means to them, then move to greet_three after 3 seconds.
