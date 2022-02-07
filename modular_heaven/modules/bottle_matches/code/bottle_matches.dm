@@ -304,7 +304,10 @@
 	glass_icon_state = "chamomile"
 	glass_name = "chamomile"
 	glass_desc = "A smooth, herbal tea. Refreshing!"
-
+	has_custom_glass = TRUE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_EASY
+	
 /datum/reagent/consumable/chamomile/on_mob_life(mob/living/carbon/M)
 	M.dizziness = max(0,M.dizziness-2)
 	M.drowsyness = max(0,M.drowsyness-1)
