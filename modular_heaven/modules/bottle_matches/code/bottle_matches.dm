@@ -43,7 +43,7 @@
 
 /datum/reagent
 	// Used to divert specific reagents to our custom sprites
-	var/has_custom_glass = TRUE
+	var/has_custom_glass = FALSE
 
 /datum/reagent/consumable/ethanol/moonshine
 	has_custom_glass = TRUE
