@@ -1,4 +1,4 @@
-# Guide lifted from Jollystation - (Thanks!)
+# Guide lifted from MapleStation - (Thanks!)
 
 ## MODULES AND YOU:
 
