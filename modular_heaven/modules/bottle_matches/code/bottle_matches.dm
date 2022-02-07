@@ -256,7 +256,10 @@
 	glass_icon_state = "redtea"
 	glass_name = "redtea"
 	glass_desc = "Red Tea served in a traditional Chinese tea cup, just like in your Malaysian movies!"
-
+	has_custom_glass = TRUE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_STOCK
+	
 /datum/reagent/consumable/redtea/on_mob_life(mob/living/carbon/M)
 	M.dizziness = max(0,M.dizziness-3)
 	M.drowsyness = max(0,M.drowsyness-2)
