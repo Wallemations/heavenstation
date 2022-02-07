@@ -147,6 +147,9 @@
 	nutriment_factor = 2 * REAGENTS_METABOLISM
 	metabolization_rate = 2 * REAGENTS_METABOLISM
 	overdose_threshold = 300 // Hyperglycaemic shock. Still got sugar in it!
+	has_custom_glass = TRUE
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_EASY
 
 /datum/reagent/consumable/whipcream/on_mob_life(mob/living/carbon/M)
 	if(M.getBruteLoss() && prob(20))
