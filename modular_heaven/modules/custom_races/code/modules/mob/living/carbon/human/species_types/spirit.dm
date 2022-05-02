@@ -101,8 +101,6 @@
 	E.flash_protect = FLASH_PROTECTION_NONE
 	..()
 
-
-
 /datum/species/spirit/get_species_description()
 	return "Ghosts kept alive by a single purpose. Generally friendly, \
 	except for the part where they go insane and turn into monsters"

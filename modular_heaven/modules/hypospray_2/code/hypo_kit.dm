@@ -15,14 +15,13 @@
 	var/static/list/case_designs
 	var/static/list/cmo_case_designs
 	var/cmo_case = FALSE
+
 /obj/item/storage/hypospraykit/examine(mob/living/user)
 	. = ..()
 	. += span_notice("Ctrl-Shift-Click to reskin this")
 
 /obj/item/storage/hypospraykit/Initialize()
 	. = ..()
-	if(!length(case_designs))
-		populate_case_designs()
 	var/datum/component/storage/stored = GetComponent(/datum/component/storage)
 	stored.max_items = 12
 	stored.can_hold = typecacheof(list(
@@ -44,10 +43,6 @@
 	cmo_case_designs = list(
 		"rad" = image(icon= src.icon, icon_state = "rad-mini"))
 	cmo_case_designs += case_designs
-
-/obj/item/storage/hypospraykit/update_icon_state()
-	. = ..()
-	icon_state = "[current_case]-mini"
 
 /obj/item/storage/hypospraykit/proc/case_menu(mob/user)
 	if(.)

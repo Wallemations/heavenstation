@@ -4510,6 +4510,7 @@
 #include "modular_heaven\modules\reagents_matches\code\dispensers.dm"
 #include "modular_heaven\modules\research\_research.dm"
 #include "modular_heaven\modules\research\all_nodes.dm"
+#include "modular_heaven\modules\tauceti_sprites\code\easy_sprites.dm"
 #include "modular_heaven\modules\text_and_speech_change\code\human_code\examine.dm"
 #include "modular_heaven\modules\text_and_speech_change\code\human_code\flavor_text.dm"
 #include "modular_heaven\modules\text_and_speech_change\code\human_code\human.dm"
