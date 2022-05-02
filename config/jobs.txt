@@ -8,6 +8,7 @@ Head of Security=1,1
 Chief Engineer=1,1
 Research Director=1,1
 Chief Medical Officer=1,1
+Head of Service=1,1
 
 Assistant=-1,-1
 Prisoner=0,2
@@ -30,6 +31,7 @@ Chaplain=1,1
 
 Station Engineer=5,5
 Atmospheric Technician=3,2
+Void Technician=3,2
 
 Medical Doctor=5,3
 Paramedic=2,2

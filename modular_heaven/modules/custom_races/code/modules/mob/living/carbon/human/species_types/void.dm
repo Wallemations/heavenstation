@@ -31,8 +31,16 @@
 	damage_overlay_type = ""
 	disliked_food = NONE
 	payday_modifier = 1
-	limbs_id = "void"
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 
-// so nothing is seen when the clothes are off this is so fucking jank i hate my life
+	bodypart_overrides = list(
+		BODY_ZONE_L_ARM = /obj/item/bodypart/l_arm/spirit,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/r_arm/spirit,
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/spirit,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/l_leg/spirit,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/r_leg/spirit,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/spirit,
+	)
+
+// They just borrow their sprite from the spirit since nobody's gonna see under that suit anyways
 // no species sound

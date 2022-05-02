@@ -20,7 +20,7 @@
 	inhand_icon_state = "plushie_deer"
 	attack_verb_continuous = list("headbutts", "boops", "bapps", "bumps")
 	attack_verb_simple = list("headbutt", "boop", "bap", "bump")
-	squeak_override = list('modular_heaven/modules/plushies/sounds/squeak.ogg' = 1)
+	squeak_override = list('modular_heaven/modules/plushies/sounds/squeakie.ogg' = 1)
 	unique_reskin = list("Small" = "plushie_deer",
 						"Realistic" = "deer"
 						)
@@ -67,7 +67,7 @@
 	inhand_icon_state = "redfox"
 	attack_verb_continuous = list("geckers", "boops","nuzzles")
 	attack_verb_simple = list("gecker", "boop", "nuzzle")
-	squeak_override = list('modular_heaven/modules/plushies/sounds/squeak.ogg' = 1)
+	squeak_override = list('modular_heaven/modules/plushies/sounds/squeakie.ogg' = 1)
 	unique_reskin = list("Red" = "redfox",
 						"Black" = "blackfox",
 						"Marble" = "marblefox",

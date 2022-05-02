@@ -21,7 +21,7 @@
 	burnmod = 1.5
 	damage_overlay_type = ""
 	payday_modifier = 1
-	limbs_id = "goat"
+	no_equip = list(ITEM_SLOT_GLOVES, ITEM_SLOT_FEET)
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	var/datum/component/rammer
 	//Goats are able to survive colder temps easier thanks to their fur
@@ -36,6 +36,16 @@
 						'modular_heaven/modules/text_and_speech_change/sounds/goat_ask2.ogg' = 80)
 	species_speech_sounds_exclaim = list('modular_heaven/modules/text_and_speech_change/sounds/goat_yell1.ogg' = 80, \
 						'modular_heaven/modules/text_and_speech_change/sounds/goat_yell2.ogg' = 80)
+
+
+	bodypart_overrides = list(
+		BODY_ZONE_L_ARM = /obj/item/bodypart/l_arm/goat,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/r_arm/goat,
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/goat,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/l_leg/goat,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/r_leg/goat,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/goat,
+	)
 
 
 /datum/species/goat/on_species_gain(mob/living/carbon/C, datum/species/old_species)
@@ -88,9 +98,42 @@
 			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 			SPECIES_PERK_ICON = "socks",
 			SPECIES_PERK_NAME = "Behooved",
-			SPECIES_PERK_DESC = "Your hooves remove your ability to wear shoes or shoot unmodified guns. \
+			SPECIES_PERK_DESC = "Your hooves remove your ability to wear shoes, gloves, or shoot unmodified guns. \
       		No fun toys or sick kicks for you!",
 		),
 	)
 
 	return to_add
+
+
+/obj/item/bodypart/head/goat
+	limb_id = SPECIES_GOAT
+	is_dimorphic = FALSE
+	icon_static = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+	should_draw_greyscale = FALSE
+
+/obj/item/bodypart/chest/goat
+	limb_id = SPECIES_GOAT
+	is_dimorphic = FALSE
+	icon_static = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+	should_draw_greyscale = FALSE
+
+/obj/item/bodypart/l_arm/goat
+	limb_id = SPECIES_GOAT
+	icon_static = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+	should_draw_greyscale = FALSE
+
+/obj/item/bodypart/r_arm/goat
+	limb_id = SPECIES_GOAT
+	icon_static = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+	should_draw_greyscale = FALSE
+
+/obj/item/bodypart/l_leg/goat
+	limb_id = SPECIES_GOAT
+	icon_static = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+	should_draw_greyscale = FALSE
+
+/obj/item/bodypart/r_leg/goat
+	limb_id = SPECIES_GOAT
+	icon_static = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+	should_draw_greyscale = FALSE

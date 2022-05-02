@@ -46,7 +46,7 @@
 	return (pick(TRAIT_PARALYSIS_L_ARM,TRAIT_PARALYSIS_R_ARM,TRAIT_PARALYSIS_R_LEG,TRAIT_PARALYSIS_L_LEG))
 
 /datum/reagent/consumable/naenaecream/overdose_process(mob/living/carbon/M)
-	M.set_drugginess(50)
+	M.set_timed_status_effect(50 SECONDS * REM, /datum/status_effect/drugginess)
 	M.dizziness +=2
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 1*REM, 150)
 	if(prob(35))

@@ -26,7 +26,6 @@
 	worn_icon = 'modular_heaven/modules/players/Bolty/icons/worn_neck.dmi'
 	icon_state = "chefbandana"
 	inhand_icon_state = "chefbandana"
-	dynamic_hair_suffix = ""
 
 /obj/item/clothing/gloves/armistice
 	name = "Armistice"

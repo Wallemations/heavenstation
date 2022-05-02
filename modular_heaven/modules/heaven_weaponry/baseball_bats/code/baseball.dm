@@ -294,7 +294,7 @@
 		if(7)
 			var/mob/living/carbon/human/L = target
 			var/amount_left = rand(5, 10)
-			L.apply_status_effect(STATUS_EFFECT_ANTS, amount_left)
+			L.apply_status_effect(/datum/status_effect/ants, amount_left)
 			L.visible_message("<span class='danger'>[L] is covered in ants!</span>", "<span class='userdanger'>JESUS CHRIST YOU'RE COVERED IN ANTS!!!</span>")
 		if(8)
 			var/atom/throw_target = get_edge_target_turf(target, user.dir)

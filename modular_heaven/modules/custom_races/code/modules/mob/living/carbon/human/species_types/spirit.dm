@@ -39,7 +39,6 @@
 	damage_overlay_type = ""
 	bodytemp_heat_damage_limit = FIRE_MINIMUM_TEMPERATURE_TO_SPREAD
 	payday_modifier = 1
-	limbs_id = "spirit"
 	changesource_flags = MIRROR_BADMIN | WABBAJACK
 	species_language_holder = /datum/language_holder/spirit
 	// Used for handling our chem reaction
@@ -47,6 +46,17 @@
 	species_speech_sounds = list('modular_heaven/modules/text_and_speech_change/sounds/huff.ogg' = 120)
 	species_speech_sounds_exclaim = list('modular_heaven/modules/text_and_speech_change/sounds/huff_ask.ogg' = 120)
 	species_speech_sounds_ask = list('modular_heaven/modules/text_and_speech_change/sounds/huff_exclaim.ogg' = 120)
+
+	bodypart_overrides = list(
+		BODY_ZONE_L_ARM = /obj/item/bodypart/l_arm/spirit,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/r_arm/spirit,
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/spirit,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/l_leg/spirit,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/r_leg/spirit,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/spirit,
+	)
+
+
 
 /datum/language_holder/spirit
 	understood_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
@@ -159,3 +169,34 @@
 
 	return to_add
 
+/obj/item/bodypart/head/spirit
+	limb_id = SPECIES_SPIRIT
+	is_dimorphic = FALSE
+	icon_static = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+	should_draw_greyscale = FALSE
+
+/obj/item/bodypart/chest/spirit
+	limb_id = SPECIES_SPIRIT
+	is_dimorphic = FALSE
+	icon_static = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+	should_draw_greyscale = FALSE
+
+/obj/item/bodypart/l_arm/spirit
+	limb_id = SPECIES_SPIRIT
+	icon_static = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+	should_draw_greyscale = FALSE
+
+/obj/item/bodypart/r_arm/spirit
+	limb_id = SPECIES_SPIRIT
+	icon_static = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+	should_draw_greyscale = FALSE
+
+/obj/item/bodypart/l_leg/spirit
+	limb_id = SPECIES_SPIRIT
+	icon_static = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+	should_draw_greyscale = FALSE
+
+/obj/item/bodypart/r_leg/spirit
+	limb_id = SPECIES_SPIRIT
+	icon_static = 'modular_heaven/modules/custom_races/icons/mob/human_parts.dmi'
+	should_draw_greyscale = FALSE

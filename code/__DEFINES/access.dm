@@ -87,6 +87,9 @@
 /// Service access, for service hallway and service consoles
 #define ACCESS_SERVICE 73
 
+/// HEAVEN ADDITION
+#define ACCESS_HOSE 94
+
 	//BEGIN CENTCOM ACCESS
 	/*Should leave plenty of room if we need to add more access levels.
 	Mostly for admin fun times.*/
