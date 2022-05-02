@@ -73,21 +73,23 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 		/obj/item/toy/plush/talking/eugene = 1,
 		/obj/item/toy/plush/goatplush = 1,
 		/obj/item/toy/plush/talking/geschutzt = 1,
-		/obj/item/toy/plush/borbplushie = 1,
-		/obj/item/toy/plush/deer = 1,
+		/obj/item/toy/plush/rodent/borbplushie = 1,
+		/obj/item/toy/plush/rodent/deer = 1,
 		// I'm retroactively erasing ERP from the human thoughtspace to add these next sprites.
-		/obj/item/toy/plush/sechound = 1,
-		/obj/item/toy/plush/medihound = 1,
-		/obj/item/toy/plush/scrubpuppy = 1,
-		/obj/item/toy/plush/meddrake = 1,
-		/obj/item/toy/plush/secdrake = 1,
+		/obj/item/toy/plush/rodent/bot/sechound = 1,
+		/obj/item/toy/plush/rodent/bot/medihound = 1,
+		/obj/item/toy/plush/rodent/bot/scrubpuppy = 1,
+		/obj/item/toy/plush/rodent/bot/meddrake = 1,
+		/obj/item/toy/plush/rodent/bot/secdrake = 1,
 		// I've done it. ERP is no more.
-		/obj/item/toy/plush/fox = 1,
-		/obj/item/toy/plush/ian = 1,
-		/obj/item/toy/plush/ian/lisa = 1,
-		/obj/item/toy/plush/ian/robo = 1,
-		/obj/item/toy/plush/cat = 1,
-		/obj/item/toy/plush/mouse = 1))
+		/obj/item/toy/plush/rodent/fox = 1,
+		/obj/item/toy/plush/rodent/ian = 1,
+		/obj/item/toy/plush/rodent/ian/lisa = 1,
+		/obj/item/toy/plush/rodent/ian/robo = 1,
+		/obj/item/toy/plush/rodent/cat = 1,
+		/obj/item/toy/plush/rodent/mouse = 1,
+		/obj/item/toy/plush/rodent/spider = 1,
+		/obj/item/toy/plush/rodent/hugger = 1))
 		// HEAVEN ADDITION END
 
 /obj/machinery/computer/arcade
