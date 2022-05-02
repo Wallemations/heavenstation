@@ -33,7 +33,6 @@
 	use_skintones = FALSE
 	flying_species = TRUE
 	meat = null
-	skinned_type = null
 	liked_food = JUNKFOOD | FRIED | GROSS | RAW
 	disliked_food = NUTS
 	damage_overlay_type = ""
@@ -66,9 +65,9 @@
 
 /datum/species/spirit/check_species_weakness(obj/item/weapon, mob/living/attacker)
 	if(istype(weapon, /obj/item/nullrod) || istype(weapon, /obj/item/storage/book/bible))
-		return 12 // Nullrods & Bibles deal 12x damage, they'll pretty much fuck you over instantly
+		return 10 // Nullrods & Bibles deal 10x damage, they'll pretty much fuck you over instantly
 	if(HAS_TRAIT(attacker, TRAIT_HOLY))
-		return 5 // Holy people deal 5x damage. Try not to get punched.
+		return 2 // Holy people deal 2x damage. Try not to get punched.
 	return 1
 
 /datum/species/spirit/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H, delta_time, times_fired)

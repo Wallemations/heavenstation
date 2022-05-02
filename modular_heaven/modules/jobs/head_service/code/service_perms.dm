@@ -1,3 +1,6 @@
+/datum/job_department/service
+	department_head = /datum/job/head_of_service
+
 /datum/job/bartender
 	department_head = list(JOB_HEAD_OF_SERVICE)
 	supervisors = "the head of service"

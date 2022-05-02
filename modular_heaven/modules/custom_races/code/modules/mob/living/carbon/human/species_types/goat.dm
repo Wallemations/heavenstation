@@ -3,11 +3,8 @@
 	id = "goat"
 	say_mod = "bleats"
 	sexes = FALSE
-	nojumpsuit = TRUE
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BEAST
 	species_traits = list(AGENDER, NO_UNDERWEAR, NOEYESPRITES, HAS_FLESH, HAS_BONE)
-	use_skintones = FALSE
-	flying_species = FALSE
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
@@ -82,7 +79,7 @@
 		),
 		list(
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
-			SPECIES_PERK_ICON = "ram",
+			SPECIES_PERK_ICON = "horse-head",
 			SPECIES_PERK_NAME = "Ramming Speed",
 			SPECIES_PERK_DESC = "Goats can ram people with their large horns.\
       							Try not to miss!",
