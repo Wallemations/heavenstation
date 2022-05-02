@@ -358,7 +358,8 @@
 #define REGION_ACCESS_ALL_STATION COMMON_ACCESS + COMMAND_ACCESS + PRIVATE_COMMAND_ACCESS + CAPTAIN_ACCESS
 /// Name for the General region.
 #define REGION_GENERAL "General"
-/// Used to seed the accesses_by_region list in SSid_access. A list of general service accesses that are overseen by the HoP.
+// HEAVEN EDIT - HOSE START
+/// Used to seed the accesses_by_region list in SSid_access. A list of general service accesses that are overseen by the HOSE.
 #define REGION_ACCESS_GENERAL list( \
 	ACCESS_KITCHEN, \
 	ACCESS_BAR, \
@@ -370,7 +371,9 @@
 	ACCESS_THEATRE, \
 	ACCESS_LAWYER, \
 	ACCESS_SERVICE, \
+	ACCESS_HOSE, \
 )
+// HEAVEN EDIT - HOSE END
 /// Name for the Security region.
 #define REGION_SECURITY "Security"
 /// Used to seed the accesses_by_region list in SSid_access. A list of all security regional accesses that are overseen by the HoS.

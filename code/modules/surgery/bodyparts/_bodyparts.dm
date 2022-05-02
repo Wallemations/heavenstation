@@ -746,6 +746,9 @@
 	limb.icon = icon_greyscale
 	if(!should_draw_greyscale || !icon_greyscale)
 		limb.icon = icon_static
+	/// HEAVEN ADDITIONS
+	if(heaven_creature)
+		limb.icon = 
 
 	if(is_dimorphic) //Does this type of limb have sexual dimorphism?
 		limb.icon_state = "[limb_id]_[body_zone]_[limb_gender]"
