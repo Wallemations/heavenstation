@@ -4515,6 +4515,7 @@
 #include "modular_heaven\modules\text_and_speech_change\code\human_code\flavor_text.dm"
 #include "modular_heaven\modules\text_and_speech_change\code\human_code\human.dm"
 #include "modular_heaven\modules\text_and_speech_change\code\human_code\human_helpers.dm"
+#include "modular_heaven\modules\text_and_speech_change\code\non-human_code\bots_n_borgs_n_ais.dm"
 #include "modular_heaven\modules\text_and_speech_change\code\pref_menu_changes\_preferences.dm"
 #include "modular_heaven\modules\text_and_speech_change\code\pref_menu_changes\multiline_preferences.dm"
 #include "modular_heaven\modules\text_and_speech_change\code\pref_menu_changes\runechat_color.dm"

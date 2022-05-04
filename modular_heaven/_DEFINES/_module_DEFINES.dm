@@ -18,4 +18,4 @@
 
 /// Head of Service
 #define JOB_HEAD_OF_SERVICE "Head of Service"
-#define JOB_DISPLAY_ORDER_HEAD_OF_SERVICE 3.5
+

@@ -361,22 +361,17 @@
 	name = "Executioner's Bat"
 	desc = "Die the Death."
 	icon_state = "baseball_bat_exec0"
+	base_icon_state = "baseball_bat_exec"
 	icon = 'modular_heaven/modules/heaven_weaponry/baseball_bats/icons/baseball.dmi'
 	lefthand_file = 'modular_heaven/modules/heaven_weaponry/baseball_bats/icons/bats_left.dmi'
 	righthand_file = 'modular_heaven/modules/heaven_weaponry/baseball_bats/icons/bats_right.dmi'
 	throwforce = 8
 	w_class = WEIGHT_CLASS_HUGE
+	slot_flags = NONE
 
 /obj/item/fireaxe/baseball/ComponentInitialize()
-	AddComponent(/datum/component/two_handed, force_unwielded=2, force_wielded=13, icon_wielded="baseball_bat_exec1", dismemberment_unwielded = 0, dismemberment_wielded = 100)
-
-
-/obj/item/fireaxe/baseball/update_icon_state()
-	icon_state = "baseball_bat_exec0"
-	if(wielded)
-		icon_state = "baseball_bat_exec1"
-	else
-		icon_state = "baseball_bat_exec0"
+	. = ..()
+	AddComponent(/datum/component/two_handed, force_unwielded=2, force_wielded=13, icon_wielded="[base_icon_state]1")
 
 /obj/item/fireaxe/baseball/attack(mob/living/target, mob/living/user)
 	. = ..()

@@ -46,7 +46,7 @@
 	family_heirlooms = list(/obj/item/reagent_containers/food/condiment/saltshaker, /obj/item/kitchen/rollingpin, /obj/item/clothing/head/chefhat)
 	rpg_title = "Tavern Owner"
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
-	display_order = JOB_DISPLAY_ORDER_HEAD_OF_SERVICE
+	display_order = JOB_DISPLAY_ORDER_HEAD_OF_PERSONNEL
 	voice_of_god_power = 1.4 //Command staff has authority
 
 

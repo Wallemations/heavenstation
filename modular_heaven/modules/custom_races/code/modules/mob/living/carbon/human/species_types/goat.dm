@@ -26,13 +26,13 @@
 	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT + 20)
 
 	// All taken from minecraft //
-	species_speech_sounds = list('modular_heaven/modules/text_and_speech_change/sounds/goat_say1.ogg' = 80, \
-						'modular_heaven/modules/text_and_speech_change/sounds/goat_say2.ogg' = 80, \
-						'modular_heaven/modules/text_and_speech_change/sounds/goat_say3.ogg' = 80)
+	species_speech_sounds = list('modular_heaven/modules/text_and_speech_change/sounds/goat_say1.ogg' = 60, \
+						'modular_heaven/modules/text_and_speech_change/sounds/goat_say2.ogg' = 60, \
+						'modular_heaven/modules/text_and_speech_change/sounds/goat_say3.ogg' = 60)
 	species_speech_sounds_ask = list('modular_heaven/modules/text_and_speech_change/sounds/goat_ask1.ogg' = 80, \
 						'modular_heaven/modules/text_and_speech_change/sounds/goat_ask2.ogg' = 80)
-	species_speech_sounds_exclaim = list('modular_heaven/modules/text_and_speech_change/sounds/goat_yell1.ogg' = 80, \
-						'modular_heaven/modules/text_and_speech_change/sounds/goat_yell2.ogg' = 80)
+	species_speech_sounds_exclaim = list('modular_heaven/modules/text_and_speech_change/sounds/goat_yell1.ogg' = 60, \
+						'modular_heaven/modules/text_and_speech_change/sounds/goat_yell2.ogg' = 60)
 
 
 	bodypart_overrides = list(

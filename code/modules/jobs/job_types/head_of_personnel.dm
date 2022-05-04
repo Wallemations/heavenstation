@@ -19,6 +19,7 @@
 
 	outfit = /datum/outfit/job/hop
 	plasmaman_outfit = /datum/outfit/plasmaman/head_of_personnel
+	department_for_prefs = /datum/job_department/captain
 	departments_list = list(
 	//	/datum/job_department/service, HEAVEN REMOVAL
 		/datum/job_department/command,

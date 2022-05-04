@@ -11,24 +11,24 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	for(var/mob/living/L in get_hearers_in_view(2, H))
 		if(HAS_TRAIT(L, TRAIT_HOLY))
-			if(DT_PROB(25, delta_time) && !antispam) // 25% chance to cough
+			if(DT_PROB(10, delta_time)) // 10% chance to cough regardless of spam check, just to make sure the player knows they're still fucked.
 				H.emote("cough")
-			if(DT_PROB(50, delta_time)) // coin flip for brute or burn damage
+			if(DT_PROB(65, delta_time)) // Brute or burn, with brute doing less damage.
 				if(!antispam)
-					H.visible_message("<span class='notice'>begins to seep blood!</span.?>", visible_message_flags = EMOTE_MESSAGE)
+					H.visible_message(span_warning("Blood seeps from [H]'s pores!"))
 				H.bleed(rand(10, 40))
-				H.adjustBruteLoss(2,0)
+				H.adjustBruteLoss(rand(1,2),0)
 			else
 				if(!antispam)
-					H.visible_message("<span class='notice'>starts to emit a red steam.</span.?>", visible_message_flags = EMOTE_MESSAGE)
-				H.adjustFireLoss(6, 0)
+					H.visible_message(span_warning("A red steam collects around [H]'s skin!"))
+				H.adjustFireLoss(rand(1,6), 0)
 			if(DT_PROB(2, delta_time)) // 2% chance to burst into flames
 				if(!antispam)
-					H.visible_message("<span class='notice'>bursts into darkened flames!</span.?>", visible_message_flags = EMOTE_MESSAGE)
+					H.visible_message(span_warning("[H] bursts into darkened flames!"))
 				H.set_fire_stacks(min(5, H.fire_stacks + 3))
 				H.IgniteMob()
 			if(!antispam) // General message
-				to_chat(H, "<span class='warning'>Your soul feels like it's being ripped from your body!</span>")
+				to_chat(H, "<span class='warning'>Your soul feels like it's being ripped from your body, towards [L]!</span>")
 				antispam = TRUE
 				addtimer(CALLBACK(src, .proc/spam_check), 10 SECONDS)
 

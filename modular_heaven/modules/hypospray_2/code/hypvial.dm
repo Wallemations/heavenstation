@@ -6,41 +6,12 @@
 	spillable = FALSE
 	volume = 10
 	possible_transfer_amounts = list(1,2,5,10)
+	reagent_flags = OPENCONTAINER
 	custom_price = 350
-	var/fill_name = "hypovial"
+	fill_icon_state = "hypovial"
 	fill_icon_thresholds = list(0, 10, 50, 75, 100)
 	var/chem_color //Used for hypospray overlay
-
-/obj/item/reagent_containers/glass/hypovial/update_overlays()
-    . = ..()
-    if(!fill_icon_thresholds)
-        return
-    if(reagents.total_volume)
-        var/fill_name = fill_icon_state? fill_icon_state : icon_state
-        var/fill_overlay = 10
-        switch(round((reagents.total_volume / volume)*100))
-            if(1 to 24)
-                fill_overlay = 10
-            if(25 to 49)
-                fill_overlay = 25
-            if(50 to 74)
-                fill_overlay = 50
-            if(75 to 89)
-                fill_overlay = 75
-            if(89 to 100)
-                fill_overlay = 100
-        var/mutable_appearance/filling = mutable_appearance('modular_heaven/modules/hypospray_2/icons/reagentfillings.dmi', "[fill_name][fill_overlay]")
-
-        filling.color = mix_color_from_reagents(reagents.reagent_list)
-        chem_color = filling.color
-        . += filling
-
-/obj/item/reagent_containers/glass/hypovial/Initialize()
-	. = ..()
-	update_icon()
-
-/obj/item/reagent_containers/glass/hypovial/on_reagent_change()
-	update_icon()
+	filling_icon = 'modular_heaven/modules/hypospray_2/icons/reagentfillings.dmi'
 
 //Fit in all hypos
 /obj/item/reagent_containers/glass/hypovial/small
@@ -53,7 +24,7 @@
 /obj/item/reagent_containers/glass/hypovial/large
 	name = "large hypovial"
 	icon_state = "hypoviallarge"
-	fill_name = "hypoviallarge"
+	fill_icon_state = "hypoviallarge"
 	desc = "A large, 120u capacity vial that fits only in the most deluxe hyposprays."
 	volume = 120
 	possible_transfer_amounts = list(1,2,5,10,20,30,40,50,100,120)

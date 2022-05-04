@@ -1,7 +1,3 @@
-
-#define HYPO_SPRAY 0
-#define HYPO_INJECT 1
-
 #define WAIT_SPRAY 20
 #define WAIT_INJECT 20
 #define SELF_SPRAY 15
@@ -35,8 +31,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	custom_price = 600
 	var/list/allowed_containers = list(/obj/item/reagent_containers/glass/hypovial/small)
-	//Inject or spray?
-	var/mode = HYPO_INJECT
 	var/obj/item/reagent_containers/glass/hypovial/vial
 	var/start_vial = /obj/item/reagent_containers/glass/hypovial/small
 	var/spawnwithvial = TRUE
@@ -50,7 +44,7 @@
 	//Time taken to spray self
 	var/spray_self = SELF_SPRAY
 
-	//Can you hotswap vials? - Currently no hyposprays allow this for some reason
+	//Can you hotswap vials?
 	var/quickload = FALSE
 	//Does it go through hardsuits?
 	var/penetrates = FALSE
@@ -66,6 +60,8 @@
 	spray_wait = DELUXE_WAIT_SPRAY
 	spray_self = DELUXE_SELF_SPRAY
 	inject_self = DELUXE_SELF_INJECT
+	quickload = TRUE
+	penetrates = TRUE
 
 /obj/item/hypospray/mkii/combat
 	name = "combat hypospray mk.II"
@@ -79,6 +75,8 @@
 	spray_wait = COMBAT_WAIT_SPRAY
 	spray_self = COMBAT_SELF_SPRAY
 	inject_self = COMBAT_SELF_INJECT
+	quickload = TRUE
+	penetrates = TRUE
 
 /obj/item/hypospray/mkii/combat/nanite
 	name = "nanite hypospray mk.II"
@@ -86,6 +84,8 @@
 	inhand_icon_state = "nanite_hypo"
 	desc = "An air-needle autoinjector for use in combat situations. Vial prefilled with experimental medical nanites and a stimulant for rapid healing and a combat boost."
 	start_vial = /obj/item/reagent_containers/glass/hypovial/large/combat/nanite
+	quickload = FALSE
+	penetrates = TRUE
 
 /obj/item/hypospray/mkii/standard
 	name = "standard hypospray mk.II"
@@ -119,11 +119,22 @@
 	. = ..()
 	if(vial)
 		. += "[vial] has [vial.reagents.total_volume]u remaining."
+		if(quickload)
+			. += "[src] has a quickload mechanism!"
 	else
 		. += "It has no vial loaded in."
-	. += "[src] is set to [mode ? "Inject" : "Spray"] contents on application."
-	. += span_notice("<b>Ctrl-Click</b> [src] to toggle its mode from spraying to injecting and vice versa.")
-	. += span_notice("<b>Alt-Click</b> [src] to change the amount of reagents per transfer.")
+
+/obj/item/hypospray/mkii/add_item_context(obj/item/source, list/context, atom/target, mob/living/user)
+	if (!isliving(target))
+		return NONE
+	context[SCREENTIP_CONTEXT_LMB] = "Inject"
+	context[SCREENTIP_CONTEXT_RMB] = "Spray"
+	return CONTEXTUAL_SCREENTIP_SET
+
+/obj/item/hypospray/mkii/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "Change reagents per transfer."
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/hypospray/mkii/proc/unload_hypo(obj/item/hypo, mob/user)
 	if((istype(hypo, /obj/item/reagent_containers/glass/hypovial)))
@@ -158,7 +169,7 @@
 /obj/item/hypospray/mkii/attackby(obj/item/used_item, mob/living/user)
 	if((istype(used_item, /obj/item/reagent_containers/glass/hypovial) && vial != null))
 		if(!quickload)
-			to_chat(user, span_warning("[src] can not hold more than one vial!"))
+			to_chat(user, span_warning("[src] needs its current vial ejected in order to insert a new one!"))
 			return FALSE
 		else
 			insert_vial(used_item, user, vial)
@@ -192,66 +203,21 @@
 /obj/item/hypospray/mkii/attack_hand(mob/user)
 	. = ..() //Don't bother changing this or removing it from containers will break.
 
-/obj/item/hypospray/mkii/attack(obj/item/hypo, mob/user, params)
+/obj/item/hypospray/mkii/attack(mob/living/victim, mob/user, params)
+	if(!vial || !isliving(victim))
+		return
+	if(!hypo_checker(victim, user))
+		return
+	use_hypospray(victim, user, "inject")
 	return
 
-/obj/item/hypospray/mkii/afterattack(atom/target, mob/living/user, proximity)
-	if((istype(target, /obj/item/reagent_containers/glass/hypovial)))
-		insert_vial(target, user, vial)
-		return TRUE
-
-	if(!vial || !proximity || !isliving(target))
+/obj/item/hypospray/mkii/attack_secondary(mob/living/victim, mob/living/user, params)
+	if(!vial || !isliving(victim))
 		return
-	var/mob/living/injectee = target
-
-	if(!injectee.reagents || !injectee.can_inject(user, user.zone_selected, penetrates))
+	if(!hypo_checker(victim, user))
 		return
-
-	if(iscarbon(injectee))
-		var/obj/item/bodypart/affecting = injectee.get_bodypart(check_zone(user.zone_selected))
-		if(!affecting)
-			to_chat(user, span_warning("The limb is missing!"))
-			return
-	//Always log attemped injects for admins
-	var/list/injected = list()
-	for(var/datum/reagent/injected_reagent in vial.reagents.reagent_list)
-		injected += injected_reagent.name
-	var/contained = english_list(injected)
-	log_combat(user, injectee, "attemped to inject", src, addition="which had [contained]")
-
-	if(!vial)
-		to_chat(user, span_notice("[src] doesn't have any vial installed!"))
-		return
-	if(!vial.reagents.total_volume)
-		to_chat(user, span_notice("[src]'s vial is empty!"))
-		return
-
-	var/fp_verb = mode == HYPO_SPRAY ? "spray" : "inject"
-
-	if(injectee != user)
-		injectee.visible_message(span_danger("[user] is trying to [fp_verb] [injectee] with [src]!"), \
-						span_userdanger("[user] is trying to [fp_verb] you with [src]!"))
-	if(!do_mob(user, injectee, inject_wait, extra_checks = CALLBACK(injectee, /mob/living/proc/can_inject, user, user.zone_selected, penetrates)))
-		return
-	if(!vial.reagents.total_volume)
-		return
-	log_attack("<font color='red'>[user.name] ([user.ckey]) applied [src] to [injectee.name] ([injectee.ckey]), which had [contained] (COMBAT MODE: [uppertext(user.combat_mode)]) (MODE: [mode])</font>")
-	if(injectee != user)
-		injectee.visible_message(span_danger("[user] uses the [src] on [injectee]!"), \
-						span_userdanger("[user] uses the [src] on you!"))
-	else
-		injectee.log_message("<font color='orange'>applied [src] to themselves ([contained]).</font>", LOG_ATTACK)
-
-	switch(mode)
-		if(HYPO_INJECT)
-			vial.reagents.trans_to(injectee, vial.amount_per_transfer_from_this)
-		if(HYPO_SPRAY)
-			vial.reagents.trans_to(injectee, vial.amount_per_transfer_from_this, methods = PATCH)
-
-	var/long_sound = vial.amount_per_transfer_from_this >= 15
-	playsound(loc, long_sound ? 'modular_heaven/modules/hypospray_2/sound/hypospray_long.ogg' : pick('modular_heaven/modules/hypospray_2/sound/hypospray.ogg','modular_heaven/modules/hypospray_2/sound/hypospray2.ogg'), 50, 1, -1)
-	to_chat(user, span_notice("You [fp_verb] [vial.amount_per_transfer_from_this] units of the solution. The hypospray's cartridge now contains [vial.reagents.total_volume] units."))
-	update_appearance()
+	use_hypospray(victim, user, "spray")
+	return
 
 /obj/item/hypospray/mkii/attack_self(mob/living/user)
 	if(user)
@@ -263,21 +229,58 @@
 		else
 			unload_hypo(vial,user)
 
-/obj/item/hypospray/mkii/CtrlClick(mob/living/user)
-	. = ..()
-	if(user.canUseTopic(src, FALSE) && user.get_active_held_item(src))
-		switch(mode)
-			if(HYPO_SPRAY)
-				mode = HYPO_INJECT
-				to_chat(user, "[src] is now set to inject contents on application.")
-			if(HYPO_INJECT)
-				mode = HYPO_SPRAY
-				to_chat(user, "[src] is now set to spray contents on application.")
-		return TRUE
+/obj/item/hypospray/mkii/proc/use_hypospray(mob/living/injectee, mob/user, mode)
+	if(injectee != user)
+		injectee.visible_message(span_danger("[user] is trying to [mode] [injectee] with [src]!"), \
+						span_userdanger("[user] is trying to [mode] you with [src]!"))
+	if(!do_mob(user, injectee, inject_wait, extra_checks = CALLBACK(injectee, /mob/living/proc/can_inject, user, user.zone_selected, penetrates)))
+		return
+	if(!vial.reagents.total_volume)
+		return
+	log_attack("<font color='red'>[user.name] ([user.ckey]) applied [src] to [injectee.name] ([injectee.ckey]), which had [hypo_log_list(injectee, user)] (MODE: [mode])</font>")
+	if(injectee != user)
+		injectee.visible_message(span_danger("[user] uses the [src] on [injectee]!"), \
+						span_userdanger("[user] uses the [src] on you!"))
+	else
+		injectee.log_message("<font color='orange'>applied [src] to themselves ([hypo_log_list(injectee, user)]).</font>", LOG_ATTACK)
 
+	switch(mode)
+		if("inject")
+			vial.reagents.trans_to(injectee, vial.amount_per_transfer_from_this)
+		if("spray")
+			vial.reagents.trans_to(injectee, vial.amount_per_transfer_from_this, methods = PATCH)
 
-#undef HYPO_SPRAY
-#undef HYPO_INJECT
+	var/long_sound = vial.amount_per_transfer_from_this >= 15
+	playsound(loc, long_sound ? 'modular_heaven/modules/hypospray_2/sound/hypospray_long.ogg' : pick('modular_heaven/modules/hypospray_2/sound/hypospray.ogg','modular_heaven/modules/hypospray_2/sound/hypospray2.ogg'), 50, 1, -1)
+	to_chat(user, span_notice("You [mode] [vial.amount_per_transfer_from_this] units of the solution. The hypospray's cartridge now contains [vial.reagents.total_volume] units."))
+	update_appearance()
+
+/obj/item/hypospray/mkii/proc/hypo_checker(mob/living/injectee, mob/user)
+	if(!injectee.reagents || !injectee.can_inject(user, user.zone_selected, penetrates))
+		return FALSE
+
+	if(iscarbon(injectee))
+		var/obj/item/bodypart/affecting = injectee.get_bodypart(check_zone(user.zone_selected))
+		if(!affecting)
+			to_chat(user, span_warning("The limb is missing!"))
+			return FALSE
+	//Always log attemped injects for admins
+	log_combat(user, injectee, "attemped to inject", src, addition="which had [hypo_log_list(injectee, user)]")
+	if(!vial)
+		to_chat(user, span_notice("[src] doesn't have any vial installed!"))
+		return FALSE
+	if(!vial.reagents.total_volume)
+		to_chat(user, span_notice("[src]'s vial is empty!"))
+		return FALSE
+	return TRUE
+
+/obj/item/hypospray/mkii/proc/hypo_log_list(mob/living/injectee, mob/user)
+	var/list/injected = list()
+	for(var/datum/reagent/injected_reagent in vial.reagents.reagent_list)
+		injected += injected_reagent.name
+	var/contained = english_list(injected)
+	return contained
+
 #undef WAIT_SPRAY
 #undef WAIT_INJECT
 #undef SELF_SPRAY

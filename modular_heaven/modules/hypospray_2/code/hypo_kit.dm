@@ -10,16 +10,6 @@
 	throw_range = 7
 	var/empty = FALSE
 
-//Code to give hypospray kits selectable paterns.
-	var/current_case = "firstaid"
-	var/static/list/case_designs
-	var/static/list/cmo_case_designs
-	var/cmo_case = FALSE
-
-/obj/item/storage/hypospraykit/examine(mob/living/user)
-	. = ..()
-	. += span_notice("Ctrl-Shift-Click to reskin this")
-
 /obj/item/storage/hypospraykit/Initialize()
 	. = ..()
 	var/datum/component/storage/stored = GetComponent(/datum/component/storage)
@@ -30,42 +20,6 @@
 	))
 	update_icon_state()
 	update_icon()
-
-/obj/item/storage/hypospraykit/proc/populate_case_designs()
-	case_designs = list(
-		"firstaid" = image(icon = src.icon, icon_state = "firstaid-mini"),
-		"brute" = image(icon = src.icon, icon_state = "brute-mini"),
-		"burn" = image(icon = src.icon, icon_state = "burn-mini"),
-		"toxin" = image(icon = src.icon, icon_state = "toxin-mini"),
-		"tactical" = image(icon= src.icon, icon_state = "tactical-mini"),
-		"purple" = image(icon = src.icon, icon_state = "purple-mini"),
-		"oxy" = image(icon = src.icon, icon_state = "oxy-mini"))
-	cmo_case_designs = list(
-		"rad" = image(icon= src.icon, icon_state = "rad-mini"))
-	cmo_case_designs += case_designs
-
-/obj/item/storage/hypospraykit/proc/case_menu(mob/user)
-	if(.)
-		return
-	var/casetype = cmo_case_designs
-	if(!src.cmo_case)
-		casetype = case_designs
-	var/choice = show_radial_menu(user, src , casetype, custom_check = CALLBACK(src, .proc/check_menu, user), radius = 42, require_near = TRUE)
-	if(!choice)
-		return FALSE
-	current_case = choice
-	update_icon()
-
-/obj/item/storage/hypospraykit/proc/check_menu(mob/user)
-	if(!istype(user))
-		return FALSE
-	if(user.incapacitated() || !user.is_holding(src))
-		return FALSE
-	return TRUE
-
-
-/obj/item/storage/hypospraykit/CtrlShiftClick(mob/user, obj/item/I)
-	case_menu(user)
 
 //END OF HYPOSPRAY CASE MENU CODE
 
@@ -85,7 +39,6 @@
 	desc = "A kit containing a deluxe hypospray and vials."
 	icon_state = "rad-mini"
 	inhand_icon_state = "firstaid-rad"
-	cmo_case = TRUE
 
 /obj/item/storage/hypospraykit/cmo/PopulateContents()
 	if(empty)
