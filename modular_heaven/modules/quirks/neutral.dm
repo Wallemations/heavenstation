@@ -72,12 +72,12 @@
 	icon = "robot"
 	desc = "You sound like a kickass robot."
 	value = 0
-	medical_record_text = "During physical examination, patient's tongue was found to be uniquely damaged."
+	medical_record_text = "During physical examination, patient's tongue was found to be robotically augmented."
 
 /datum/quirk/robotic_talk/add_unique()
 	var/mob/living/carbon/human/H = quirk_holder
-	var/obj/item/organ/tongue/old_tongue = locate() in H.internal_organs
-	var/obj/item/organ/tongue/robot/new_tongue = new(get_turf(H))
+	var/obj/item/organ/internal/tongue/old_tongue = locate() in H.internal_organs
+	var/obj/item/organ/internal/tongue/robot/new_tongue = new(get_turf(H))
 	old_tongue.Remove(H)
 	new_tongue.Insert(H)
 	qdel(old_tongue)

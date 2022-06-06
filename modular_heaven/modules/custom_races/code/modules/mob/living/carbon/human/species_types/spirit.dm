@@ -6,7 +6,7 @@
 	nojumpsuit = TRUE
 	species_traits = list(AGENDER, NO_UNDERWEAR, NOBLOOD, NOEYESPRITES, NOAUGMENTS, NOBLOODOVERLAY)
 	inherent_biotypes = MOB_HUMANOID|MOB_SPIRIT
-	mutantheart = /obj/item/organ/heart/ethereal
+	mutantheart = /obj/item/organ/internal/heart/freedom // Replace with a custom heart later. Make spirit revival cool or something
 	inherent_traits = list(
 		TRAIT_NOHUNGER,
 		TRAIT_NOBREATH,
@@ -76,14 +76,14 @@
 		our_timer += delta_time
 		if(our_timer >= (2 SECONDS))
 			H.adjust_timed_status_effect(min((2 * delta_time), 10), /datum/status_effect/speech/stutter)
-			H.Dizzy(5)
+			H.adjust_timed_status_effect(5 * delta_time, /datum/status_effect/dizziness)
 			H.adjustBruteLoss(round(0.5*delta_time, 0.1))
 			if(DT_PROB(10, delta_time))
 				H.visible_message(span_danger("[H] begins to convulse!"), span_userdanger("Your body is faltering!"))
 				H.Unconscious(12 SECONDS)
 		if(our_timer >= (20 SECONDS))
-			H.Unconscious(100)
-			H.jitteriness = 0
+			H.Unconscious(3 SECONDS * delta_time)
+			H.adjust_timed_status_effect(5 * delta_time, /datum/status_effect/jitter)
 			H.set_timed_status_effect(0, /datum/status_effect/speech/stutter)
 			H.adjustBruteLoss(round(1.665*delta_time, 0.1))
 		return TRUE
@@ -91,13 +91,13 @@
 
 /datum/species/spirit/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	C.gain_trauma(/datum/brain_trauma/special/death_whispers, TRAUMA_RESILIENCE_MAGIC)
-	var/obj/item/organ/eyes/E = C.getorganslot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/internal/eyes/E = C.getorganslot(ORGAN_SLOT_EYES)
 	E.flash_protect = FLASH_PROTECTION_SENSITIVE // Call us DBD 'cause we've got lightburn now
 	..()
 
 /datum/species/spirit/on_species_loss(mob/living/carbon/C)
 	C.cure_trauma_type(/datum/brain_trauma/special/death_whispers, TRAUMA_RESILIENCE_MAGIC)
-	var/obj/item/organ/eyes/E = C.getorganslot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/internal/eyes/E = C.getorganslot(ORGAN_SLOT_EYES)
 	E.flash_protect = FLASH_PROTECTION_NONE
 	..()
 

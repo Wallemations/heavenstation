@@ -36,7 +36,7 @@
 	jobtype = /datum/job/voidtech
 
 	belt = /obj/item/storage/belt/utility/full
-	l_pocket = /obj/item/modular_computer/tablet/pda/voidtech
+	l_pocket = /obj/item/modular_computer/tablet/pda/atmos/voidtech
 	ears = /obj/item/radio/headset/subspace/void
 	uniform = /obj/item/clothing/under/rank/engineering/void
 	shoes = /obj/item/clothing/shoes/workboots
@@ -54,9 +54,8 @@
 	assignment = "Void Technician"
 	trim_icon = 'modular_heaven/modules/jobs/cards/icons/trims.dmi'
 	trim_state = "trim_voidtechnician"
-	extra_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MECH_ENGINE, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION,
-								ACCESS_MINERAL_STOREROOM, ACCESS_ATMOSPHERICS, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS)
-	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MECH_ENGINE, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_MINERAL_STOREROOM)
-	config_job = "void_technician"
+	sechud_icon_state = SECHUD_VOID_TECH
+	extra_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_ENGINEERING, ACCESS_MECH_ENGINE, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_MINERAL_STOREROOM)
 	template_access = list(ACCESS_CAPTAIN, ACCESS_CE, ACCESS_CHANGE_IDS)
 	job = /datum/job/voidtech

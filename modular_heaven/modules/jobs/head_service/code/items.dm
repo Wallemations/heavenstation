@@ -4,20 +4,18 @@
 	icon_state = "com_headset"
 	keyslot = new /obj/item/encryptionkey/heads/hop
 
-/obj/item/computer_hardware/hard_drive/role/hoser
-	name = "\improper Crispy-N'-Clean disk"
-	icon_state = "datadisk7"
-	disk_flags = DISK_MANIFEST | DISK_STATUS | DISK_JANI | DISK_ROBOS | DISK_BUDGET | DISK_SCI
-	bot_access = list(
-		CLEAN_BOT,
-		VIBE_BOT,
-	)
-
 /obj/item/modular_computer/tablet/pda/heads/hoser
 	name = "head of service PDA"
-	default_disk = /obj/item/computer_hardware/hard_drive/role/hop
 	greyscale_config = /datum/greyscale_config/tablet/head
 	greyscale_colors = "#469746#00ff00"
+	default_applications = list(
+		/datum/computer_file/program/crew_manifest,
+		/datum/computer_file/program/status,
+		/datum/computer_file/program/science,
+		/datum/computer_file/program/robocontrol,
+		/datum/computer_file/program/budgetorders,
+		/datum/computer_file/program/radar/custodial_locator,
+	)
 
 /obj/structure/closet/secure_closet/hose
 	name = "\proper head of service's locker"

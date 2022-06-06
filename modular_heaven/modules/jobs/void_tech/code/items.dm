@@ -1,6 +1,5 @@
-/obj/item/modular_computer/tablet/pda/voidtech
+/obj/item/modular_computer/tablet/pda/atmos/voidtech
 	name = "void technician PDA"
-	default_disk = /obj/item/computer_hardware/hard_drive/role/engineering
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick
 	greyscale_colors = "#ff9933#ffffff#9933ff"
 

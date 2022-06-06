@@ -245,7 +245,7 @@
 	animate(src, pixel_z = rand(5, 15), time = 1, loop = 6)
 	animate(pixel_z = 0, time = 1)
 	for(var/mob/living/L in get_hearers_in_view(7, src) - src)
-		L.Dizzy(6)
+		L.adjust_timed_status_effect(1 SECONDS, /datum/status_effect/dizziness)
 		to_chat(L, "<span class='danger'>Luciftvian screams loudly!</span>")
 	update_cooldowns(list(COOLDOWN_UPDATE_SET_MELEE = 0 SECONDS, COOLDOWN_UPDATE_SET_RANGED = 0 SECONDS))
 	SLEEP_CHECK_DEATH(12, src)

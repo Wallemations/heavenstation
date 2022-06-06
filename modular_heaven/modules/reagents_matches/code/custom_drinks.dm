@@ -45,9 +45,9 @@
 /datum/reagent/consumable/naenaecream/proc/picklimb()
 	return (pick(TRAIT_PARALYSIS_L_ARM,TRAIT_PARALYSIS_R_ARM,TRAIT_PARALYSIS_R_LEG,TRAIT_PARALYSIS_L_LEG))
 
-/datum/reagent/consumable/naenaecream/overdose_process(mob/living/carbon/M)
-	M.set_timed_status_effect(50 SECONDS * REM, /datum/status_effect/drugginess)
-	M.dizziness +=2
+/datum/reagent/consumable/naenaecream/overdose_process(mob/living/carbon/M, delta_time)
+	M.set_timed_status_effect(25 SECONDS * REM * delta_time, /datum/status_effect/drugginess)
+	M.set_timed_status_effect(4 SECONDS * REM * delta_time, /datum/status_effect/dizziness)
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 1*REM, 150)
 	if(prob(35))
 		M.adjustStaminaLoss(20)
@@ -99,11 +99,11 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_STOCK
 
-/datum/reagent/consumable/greentea/on_mob_life(mob/living/carbon/M)
-	M.dizziness = max(0,M.dizziness-1)
-	M.drowsyness = max(0,M.drowsyness-3)
-	M.jitteriness = max(0,M.jitteriness-2)
-	M.AdjustSleeping(-20, FALSE)
+/datum/reagent/consumable/greentea/on_mob_life(mob/living/carbon/M, delta_time)
+	M.adjust_timed_status_effect(-1 SECONDS * REM * delta_time, /datum/status_effect/dizziness)
+	M.adjust_drowsyness(-3 * REM * delta_time)
+	M.adjust_timed_status_effect(-2 SECONDS * REM * delta_time, /datum/status_effect/jitter)
+	M.AdjustSleeping(-20 * REM * delta_time)
 	if(M.getToxLoss() && prob(20))
 		M.adjustToxLoss(-1, 0)
 	M.adjust_bodytemperature(20 * TEMPERATURE_DAMAGE_COEFFICIENT, 0, M.get_body_temp_normal())
@@ -123,11 +123,11 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_STOCK
 
-/datum/reagent/consumable/redtea/on_mob_life(mob/living/carbon/M)
-	M.dizziness = max(0,M.dizziness-3)
-	M.drowsyness = max(0,M.drowsyness-2)
-	M.jitteriness = max(0,M.jitteriness-1)
-	M.AdjustSleeping(-20, FALSE)
+/datum/reagent/consumable/redtea/on_mob_life(mob/living/carbon/M, delta_time)
+	M.adjust_timed_status_effect(-3 SECONDS * REM * delta_time, /datum/status_effect/dizziness)
+	M.adjust_drowsyness(-2 * REM * delta_time)
+	M.adjust_timed_status_effect(-1 SECONDS * REM * delta_time, /datum/status_effect/jitter)
+	M.AdjustSleeping(-20 * REM * delta_time)
 	if(M.getToxLoss() && prob(20))
 		M.adjustToxLoss(-1, 0)
 	M.adjust_bodytemperature(20 * TEMPERATURE_DAMAGE_COEFFICIENT, 0, M.get_body_temp_normal())
@@ -147,11 +147,11 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
 
-/datum/reagent/consumable/chifir/on_mob_life(mob/living/carbon/M)
-	M.dizziness = max(0,M.dizziness-2)
-	M.drowsyness = max(0,M.drowsyness-2)
-	M.jitteriness = max(0,M.jitteriness-2)
-	M.AdjustSleeping(-20, FALSE)
+/datum/reagent/consumable/chifir/on_mob_life(mob/living/carbon/M, delta_time)
+	M.adjust_timed_status_effect(-2 SECONDS * REM * delta_time, /datum/status_effect/dizziness)
+	M.adjust_drowsyness(-2 * REM * delta_time)
+	M.adjust_timed_status_effect(-2 SECONDS * REM * delta_time, /datum/status_effect/jitter)
+	M.AdjustSleeping(-20 * REM * delta_time)
 	if(M.getToxLoss() && prob(20))
 		M.adjustToxLoss(-1, 0)
 	M.adjust_bodytemperature(20 * TEMPERATURE_DAMAGE_COEFFICIENT, 0, M.get_body_temp_normal())
@@ -171,11 +171,11 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
 
-/datum/reagent/consumable/chamomile/on_mob_life(mob/living/carbon/M)
-	M.dizziness = max(0,M.dizziness-2)
-	M.drowsyness = max(0,M.drowsyness-1)
-	M.jitteriness = max(0,M.jitteriness-3)
-	M.AdjustSleeping(-20, FALSE)
+/datum/reagent/consumable/chamomile/on_mob_life(mob/living/carbon/M, delta_time)
+	M.adjust_timed_status_effect(-2 SECONDS * REM * delta_time, /datum/status_effect/dizziness)
+	M.adjust_drowsyness(-1 * REM * delta_time)
+	M.adjust_timed_status_effect(-3 SECONDS * REM * delta_time, /datum/status_effect/jitter)
+	M.AdjustSleeping(-20 * REM * delta_time)
 	if(M.getToxLoss() && prob(20))
 		M.adjustToxLoss(-2, 0)
 	M.adjust_bodytemperature(20 * TEMPERATURE_DAMAGE_COEFFICIENT, 0, M.get_body_temp_normal())

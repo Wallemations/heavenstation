@@ -82,12 +82,12 @@
 	intern_alt_name = "Head of Service-in-Training"
 	trim_icon = 'modular_heaven/modules/jobs/cards/icons/trims.dmi'
 	trim_state = "trim_headofservice"
+	sechud_icon_state = SECHUD_HEAD_OF_SERVICE
 	extra_access = list(ACCESS_TELEPORTER)
 	extra_wildcard_access = list()
-	minimal_access = list(ACCESS_BAR, ACCESS_CHAPEL_OFFICE, ACCESS_COURT, ACCESS_EVA, ACCESS_GATEWAY, ACCESS_HEADS, ACCESS_HYDROPONICS, ACCESS_JANITOR,
+	minimal_access = list(ACCESS_BAR, ACCESS_CHAPEL_OFFICE, ACCESS_COURT, ACCESS_EVA, ACCESS_GATEWAY, ACCESS_COMMAND, ACCESS_HYDROPONICS, ACCESS_JANITOR,
 					ACCESS_KEYCARD_AUTH, ACCESS_KITCHEN, ACCESS_LAWYER, ACCESS_LIBRARY, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, ACCESS_PSYCHOLOGY,
 					ACCESS_QM, ACCESS_RC_ANNOUNCE, ACCESS_RESEARCH, ACCESS_BRIG_ENTRANCE, ACCESS_THEATRE)
 	minimal_wildcard_access = list(ACCESS_HOSE)
-	config_job = "head_of_service"
 	template_access = list(ACCESS_CAPTAIN, ACCESS_CHANGE_IDS)
 	job = /datum/job/head_of_service
