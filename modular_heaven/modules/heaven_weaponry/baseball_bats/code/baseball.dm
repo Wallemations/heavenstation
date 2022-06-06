@@ -305,7 +305,7 @@
 	return ..()
 
 /obj/item/melee/baseball_bat/kitty/proc/apply_stun_effect_end(mob/living/target)
-	var/trait_check = HAS_TRAIT(target, TRAIT_STUNRESISTANCE) //var since we check it in out to_chat as well as determine stun duration
+	var/trait_check = HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) //var since we check it in out to_chat as well as determine stun duration
 	if(!target.IsKnockdown())
 		to_chat(target, "<span class='warning'>Your muscles seize, making you collapse[trait_check ? ", but your body quickly recovers..." : "!"]</span>")
 
@@ -388,12 +388,12 @@
 		if(length(parts) && prob(30))
 			var/obj/item/bodypart/bodypart = pick(parts)
 			bodypart.dismember()
-	if(wielded)
+	if(HAS_TRAIT(src, TRAIT_WIELDED))
 		force = 13
 	else
 		force = 2
 	var/atom/throw_target = get_edge_target_turf(target, user.dir)
-	if(!target.anchored && wielded)
+	if(!target.anchored && HAS_TRAIT(src, TRAIT_WIELDED))
 		var/whack_speed = (prob(60) ? 1 : 4)
 		target.throw_at(throw_target, rand(1, 2), whack_speed, user)
 

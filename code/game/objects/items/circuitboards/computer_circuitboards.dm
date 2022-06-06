@@ -19,11 +19,6 @@
 	greyscale_colors = CIRCUIT_COLOR_COMMAND
 	build_path = /obj/machinery/computer/accounting
 
-//obj/item/circuitboard/computer/shield
-// name = "Shield Control (Computer Board)"
-// greyscale_colors = CIRCUIT_COLOR_COMMAND
-// build_path = /obj/machinery/computer/stationshield
-
 //Engineering
 
 /obj/item/circuitboard/computer/apc_control
@@ -61,9 +56,9 @@
 	name = "Incinerator Chamber Monitor (Computer Board)"
 	build_path = /obj/machinery/computer/atmos_control/nocontrol/incinerator
 
-/obj/item/circuitboard/computer/atmos_control/nocontrol/ordnancemix
-	name = "Ordnance Chamber Monitor (Computer Board)"
-	build_path = /obj/machinery/computer/atmos_control/nocontrol/ordnancemix
+/obj/item/circuitboard/computer/atmos_control/ordnancemix
+	name = "Ordnance Chamber Control (Computer Board)"
+	build_path = /obj/machinery/computer/atmos_control/ordnancemix
 
 /obj/item/circuitboard/computer/atmos_control/oxygen_tank
 	name = "Oxygen Supply Control (Computer Board)"
@@ -340,6 +335,10 @@
 /obj/item/circuitboard/computer/tram_controls
 	name = "Tram Controls (Computer Board)"
 	build_path = /obj/machinery/computer/tram_controls
+
+/obj/item/circuitboard/computer/terminal
+	name = "Terminal (Computer Board)"
+	build_path = /obj/machinery/computer/terminal
 
 //Medical
 

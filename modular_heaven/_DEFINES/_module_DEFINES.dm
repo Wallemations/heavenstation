@@ -18,4 +18,7 @@
 
 /// Head of Service
 #define JOB_HEAD_OF_SERVICE "Head of Service"
+#define SECHUD_HEAD_OF_SERVICE "hudheadofservice"
 
+/// Void Tech
+#define SECHUD_VOID_TECH "hudvoidtech"

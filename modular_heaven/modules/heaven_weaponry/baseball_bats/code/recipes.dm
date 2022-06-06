@@ -98,7 +98,7 @@
 	name = "Affront To God"
 	result = /obj/item/melee/baseball_bat/kitty
 	reqs = list(/obj/item/melee/baseball_bat = 1,
-				/obj/item/organ/vocal_cords/colossus = 1,
+				/obj/item/organ/internal/vocal_cords/colossus = 1,
 				/obj/item/storage/book/bible = 1,
 				/obj/item/lighter = 1,
 				)

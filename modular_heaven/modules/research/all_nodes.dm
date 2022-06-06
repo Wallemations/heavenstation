@@ -13,7 +13,7 @@
 	id_additions = list(
 		"borg_upgrade_shrink",
 		)
-
+/*
 /datum/techweb_node/adv_engi
 	id_additions = list(
 		"multi_cell_charger",
@@ -21,14 +21,14 @@
 		"plumbing_eng",
 		"plumbing_sci",
 	)
-
+*/
 /datum/techweb_node/basic_tools
 	id_additions = list(
 		"bowl",
 		"drinking_glass",
 		"shot_glass",
 	)
-
+/*
 /datum/techweb_node/basic_medical
 	id_additions = list(
 		"engi_plumbing",
@@ -84,7 +84,7 @@
 		"satchel_holding",
 		"duffel_holding"
 		)
-
+*/
 /datum/techweb_node/exp_tools
 	id_additions = list(
 		"hyposprayII"
