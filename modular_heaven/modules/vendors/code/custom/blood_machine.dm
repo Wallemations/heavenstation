@@ -1,4 +1,4 @@
-//Credit to coiscin on the ss13 spriting discord for the sprite
+//Credit to coiscin#0134 on the ss13 spriting discord for the sprite
 /obj/machinery/vending/blood
 	name = "\improper Bloodbank"
 	desc = "Blood perfect for a beating heart."

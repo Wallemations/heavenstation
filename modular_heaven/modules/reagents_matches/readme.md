@@ -2,15 +2,14 @@
 
 To create a custom drink reagent, add it to the `custom_drinks.dm` file. 
 
+To create a custom non-drink reagent, shove it into the `custom_reagents.dm` file.
+
 Custom drinks require you to set `has_custom_glass = TRUE` in order for the drinking glass sprite to properly change. 
 Non-drink chemicals do not.
 
 To change the reagents in a chem dispenser, go into `dispensers.dm` and follow the instructions & previous examples.
 
 To change an existing drink's icon, set `has_custom_glass = TRUE` in `bottle_matches.dm`.
-
-
-
 
 # CUSTOM REAGENTS
 

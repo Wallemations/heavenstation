@@ -18,12 +18,12 @@
 	if(M.getBruteLoss() && prob(20))
 		M.heal_bodypart_damage(1,0, 0)
 		. = 1
-	..()
+	return ..()
 
 /datum/reagent/consumable/whipcream/overdose_start(mob/living/M)
 	to_chat(M, "<span class='userdanger'>You go into hyperglycaemic shock! Lay off the twinkies!</span>")
 	M.AdjustSleeping(600, FALSE)
-	. = 1
+	return ..()
 
 /datum/reagent/consumable/naenaecream
 	name = "Nae Nae Cream"
@@ -40,7 +40,7 @@
 	if(prob(5))
 		M.visible_message("<span class='warning'>nae naes!</span>", visible_message_flags = EMOTE_MESSAGE)
 		M.Stun(2)
-	..()
+	return ..()
 
 /datum/reagent/consumable/naenaecream/proc/picklimb()
 	return (pick(TRAIT_PARALYSIS_L_ARM,TRAIT_PARALYSIS_R_ARM,TRAIT_PARALYSIS_R_LEG,TRAIT_PARALYSIS_L_LEG))
@@ -78,8 +78,7 @@
 						if(length(parts))
 							var/obj/item/bodypart/bodypart = pick(parts)
 							bodypart.dismember()
-	. = 1
-	..()
+	return ..()
 
 /datum/reagent/consumable/tea
 	name = "Black Tea"
@@ -107,8 +106,7 @@
 	if(M.getToxLoss() && prob(20))
 		M.adjustToxLoss(-1, 0)
 	M.adjust_bodytemperature(20 * TEMPERATURE_DAMAGE_COEFFICIENT, 0, M.get_body_temp_normal())
-	..()
-	. = 1
+	return ..()
 
 /datum/reagent/consumable/redtea
 	name = "Red Tea"
@@ -131,8 +129,7 @@
 	if(M.getToxLoss() && prob(20))
 		M.adjustToxLoss(-1, 0)
 	M.adjust_bodytemperature(20 * TEMPERATURE_DAMAGE_COEFFICIENT, 0, M.get_body_temp_normal())
-	..()
-	. = 1
+	return ..()
 
 /datum/reagent/consumable/chifir
 	name = "Chifir"
@@ -155,8 +152,7 @@
 	if(M.getToxLoss() && prob(20))
 		M.adjustToxLoss(-1, 0)
 	M.adjust_bodytemperature(20 * TEMPERATURE_DAMAGE_COEFFICIENT, 0, M.get_body_temp_normal())
-	..()
-	. = 1
+	return ..()
 
 /datum/reagent/consumable/chamomile
 	name = "Chamomile"
@@ -179,26 +175,58 @@
 	if(M.getToxLoss() && prob(20))
 		M.adjustToxLoss(-2, 0)
 	M.adjust_bodytemperature(20 * TEMPERATURE_DAMAGE_COEFFICIENT, 0, M.get_body_temp_normal())
-	..()
-	. = 1
+	return ..()
 
+/datum/reagent/consumable/schrodinger
+	name = "Schrodinger's Love"
+	description = "A tea in a state of constant flux. It shifts constantly between sweet and sour."
+	color = "#AE59B9" // rgb: 16, 16, 0
+	nutriment_factor = 0
+	taste_description = "a tea of fluxuating taste"
+	glass_icon_state = "schrodinger"
+	glass_name = "Schrodinger's Love"
+	glass_desc = "A glass of tea in a state of constant flux."
+
+/datum/reagent/consumable/schrodinger/on_mob_life(mob/living/carbon/M, delta_time)
+	M.adjust_timed_status_effect(-2 SECONDS * REM * delta_time, /datum/status_effect/dizziness)
+	M.adjust_drowsyness(-1 * REM * delta_time)
+	M.adjust_timed_status_effect(-3 SECONDS * REM * delta_time, /datum/status_effect/jitter)
+	M.AdjustSleeping(-20 * REM * delta_time)
+	if(prob(30))
+		switch(pick(1,2))
+			if(1)
+				if(M.getToxLoss())
+					M.adjustToxLoss(-5, 0)
+			if(2)
+				M.adjustToxLoss(2, 0)
+	M.adjust_bodytemperature(20 * TEMPERATURE_DAMAGE_COEFFICIENT, 0, M.get_body_temp_normal())
+	return ..()
 
 ////////////////
 // da recipes //
 ////////////////
 
-/datum/chemical_reaction/whipcream
+/datum/chemical_reaction/drink/whipcream
 	results = list(/datum/reagent/consumable/whipcream = 4)
 	required_reagents = list(/datum/reagent/consumable/sugar = 1, /datum/reagent/consumable/cream = 3)
+	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY
 
-/datum/chemical_reaction/naenaecream
+/datum/chemical_reaction/drink/naenaecream
 	results = list(/datum/reagent/consumable/naenaecream = 8)
 	required_reagents = list(/datum/reagent/consumable/whipcream = 4, /datum/reagent/consumable/ethanol/neurotoxin = 8, /datum/reagent/drug/krokodil = 1) //Krokodil was literally the only way to make this even close to balanced.
+	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_MODERATE | REACTION_TAG_DAMAGING | REACTION_TAG_OXY
 
-/datum/chemical_reaction/chamomile
+/datum/chemical_reaction/drink/chamomile
 	results = list(/datum/reagent/consumable/chamomile = 3)
 	required_reagents = list(/datum/reagent/consumable/tea = 1, /datum/reagent/consumable/lemonjuice = 1)
+	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY | REACTION_TAG_TOXIN | REACTION_TAG_HEALING
 
-/datum/chemical_reaction/chifir
+/datum/chemical_reaction/drink/chifir
 	results = list(/datum/reagent/consumable/chifir = 3)
 	required_reagents = list(/datum/reagent/consumable/tea = 1, /datum/reagent/consumable/greentea = 1, /datum/reagent/consumable/redtea = 1)
+	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY | REACTION_TAG_TOXIN | REACTION_TAG_HEALING
+
+/datum/chemical_reaction/drink/schrodinger
+	results = list(/datum/reagent/consumable/schrodinger = 3)
+	required_reagents = list(/datum/reagent/water = 1, /datum/reagent/toxin/glovepowder = 1, /datum/reagent/consumable/sugar = 1)
+	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY | REACTION_TAG_TOXIN

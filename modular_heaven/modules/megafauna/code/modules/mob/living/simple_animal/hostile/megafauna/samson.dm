@@ -1,14 +1,23 @@
 //TIME TO REACH HEAVEN THROUGH VIOLENCE
 
-/obj/effect/ebeam/chain
+/obj/effect/ebeam/chains
 	name = "thick chain"
 	icon = 'icons/effects/spacevines.dmi'
 	icon_state = "chain"
 	mouse_opacity = MOUSE_OPACITY_ICON
 	desc = "A chain, coming from the face of the body below."
 
-/obj/effect/ebeam/chain/Crossed(atom/movable/AM)
+/obj/effect/ebeam/chains/Initialize(mapload)
 	. = ..()
+	RegisterSignal(src, COMSIG_ATOM_ENTERED, .proc/on_crossed)
+
+/obj/effect/ebeam/chains/Destroy()
+	. = ..()
+	UnregisterSignal(src, COMSIG_ATOM_ENTERED)
+
+/obj/effect/ebeam/chains/proc/on_crossed(atom/movable/AM)
+	SIGNAL_HANDLER
+
 	if(isliving(AM))
 		var/mob/living/L = AM
 		if(!isvineimmune(L))
@@ -86,7 +95,7 @@
 			if(O.density)
 				return
 
-	var/datum/beam/newchain = Beam(the_target, "chain", time=INFINITY, maxdistance = chain_grab_distance, beam_type=/obj/effect/ebeam/chain)
+	var/datum/beam/newchain = Beam(the_target, "chain", time=INFINITY, maxdistance = chain_grab_distance, beam_type=/obj/effect/ebeam/chains)
 	RegisterSignal(newchain, COMSIG_PARENT_QDELETING, .proc/remove_chain, newchain)
 	chains += newchain
 	if(isliving(the_target))
@@ -138,14 +147,13 @@
 	if(!H.mind)
 		return
 	to_chat(H, "<span class='danger'>You can now use the ultimate blood magic. Be careful.</span>")
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/samson/P = new
-	H.mind.AddSpell(P)
+	var/datum/action/cooldown/spell/shapeshift/samson/spell = /datum/action/cooldown/spell/shapeshift/samson
+	spell.Grant(H?.mind)
 	playsound(H.loc,'sound/items/drink.ogg', rand(10,50), TRUE)
 	qdel(src)
 
-/obj/effect/proc_holder/spell/targeted/shapeshift/samson
+/datum/action/cooldown/spell/shapeshift/samson
 	name = "Summon Samson"
 	desc = "FUNNY BIRD."
-	invocation_type = "none"
 	convert_damage = FALSE
 	shapeshift_type = /mob/living/simple_animal/hostile/megafauna/samson

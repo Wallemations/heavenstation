@@ -4,7 +4,7 @@
 		protect Ian, run the station when the captain dies."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	department_head = list(JOB_CAPTAIN)
-	head_announce = list(RADIO_CHANNEL_SUPPLY, RADIO_CHANNEL_SERVICE)
+	head_announce = list(RADIO_CHANNEL_SERVICE)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
@@ -21,8 +21,6 @@
 	plasmaman_outfit = /datum/outfit/plasmaman/head_of_personnel
 	department_for_prefs = /datum/job_department/captain
 	departments_list = list(
-	//	/datum/job_department/service, HEAVEN REMOVAL
-		/datum/job_department/cargo,
 		/datum/job_department/command,
 		)
 

@@ -17,10 +17,7 @@ Adds the Head of Service & The Void Technician, and rearranges nanotrasen intern
 
 ### Included files that are not contained in this module:
 
-- tgui/packages/tgui/interfaces/PreferencesMenu/jobs/jobs/civil_disputes_officer.ts
 - tgui/packages/tgui/interfaces/PreferencesMenu/jobs/jobs/head_of_service.ts
-- tgui/packages/tgui/interfaces/PreferencesMenu/jobs/jobs/nanotrasen_representative.ts
-- tgui/packages/tgui/interfaces/PreferencesMenu/jobs/jobs/security_medic.ts
 
 ### Credits
 

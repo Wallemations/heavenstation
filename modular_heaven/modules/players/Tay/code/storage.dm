@@ -44,6 +44,7 @@
 		to_chat(user, "<span class='warning'>[src] is empty!</span>")
 
 /obj/item/storage/belt/rapier/update_icon_state()
+	. = ..()
 	icon_state = initial(inhand_icon_state)
 	inhand_icon_state = initial(inhand_icon_state)
 	worn_icon_state = initial(worn_icon_state)
