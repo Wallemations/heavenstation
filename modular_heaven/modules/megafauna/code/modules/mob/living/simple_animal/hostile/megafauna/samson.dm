@@ -9,13 +9,15 @@
 
 /obj/effect/ebeam/chains/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_MOVABLE_CROSS, .proc/on_crossed)
+	RegisterSignal(src, COMSIG_ATOM_ENTERED, .proc/on_crossed)
 
 /obj/effect/ebeam/chains/Destroy()
 	. = ..()
-	UnregisterSignal(src, COMSIG_MOVABLE_CROSS)
+	UnregisterSignal(src, COMSIG_ATOM_ENTERED)
 
 /obj/effect/ebeam/chains/proc/on_crossed(atom/movable/AM)
+	SIGNAL_HANDLER
+
 	if(isliving(AM))
 		var/mob/living/L = AM
 		if(!isvineimmune(L))
