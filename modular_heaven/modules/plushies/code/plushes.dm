@@ -162,7 +162,7 @@
 	gender = FEMALE
 
 /obj/item/toy/plush/talking/reshia/attackby(obj/item/I,mob/living/user,params)
-	if(istype(I, /obj/item/clothing/neck/collar))
+	if(istype(I, /obj/item/clothing/neck/petcollar/narsie))
 		user.visible_message("<span class='notice'>[user] watches as [src] snatches the leash away!</span>", "<span class='notice'>[src] She undergoes a violent transformation and is possessed by......oh no.</span>")
 		playsound(src, 'sound/creatures/narsie_rises.ogg', 50, 1)
 		qdel(I)

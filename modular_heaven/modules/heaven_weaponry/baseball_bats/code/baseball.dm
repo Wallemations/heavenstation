@@ -445,6 +445,7 @@
 		. += "<span class='notice'>Alt-click it to quickly draw the bat.</span>"
 
 /obj/item/storage/belt/baseball/update_icon_state()
+	. = ..()
 	worn_icon_state = initial(worn_icon_state)
 	for(var/obj/item/melee/baseball_bat/B in contents)
 		worn_icon_state += "[B.belt_sprite]"

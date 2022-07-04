@@ -1,16 +1,11 @@
 ///////////////////////
 ////////Nar'sie////////
 
-/obj/item/clothing/neck/collar
+/obj/item/clothing/neck/petcollar/narsie
 	name = "collar"
 	desc = "Good thing Goat Butlers aren't real,right?"
 	icon = 'modular_heaven/modules/players/Dor/icons/worn_clothes.dmi'
 	icon_state = "collar"
-	var/tagname = null
-
-/obj/item/clothing/neck/collar/attack_self(mob/user)
-	tagname = stripped_input(user, "Would you like to change the name on the tag?", "Name your new pet", "Spot", MAX_NAME_LEN)
-	name = "[initial(name)] - [tagname]"
 
 /obj/item/clothing/under/suit/redlady
 	name = "Her Gift"
@@ -52,7 +47,7 @@
 	inhand_icon_state = "reshia"
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|HEAD
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACE|HIDEFACIALHAIR
-	var/handled = FALSE
+	var/datum/weakref/moff = null
 
 /obj/item/clothing/under/suit/reshia/examine(mob/user)
 	. = ..()
@@ -60,20 +55,20 @@
 		. += "<span class='notice'>OOC: This item is only for Reshia, don't be cringe.</span.?>"
 
 /obj/item/clothing/under/suit/reshia/equipped(mob/user, slot)
+	. = ..()
 	if(slot != ITEM_SLOT_ICLOTHING)
 		return
-	if(ismoth(user))
-		handled = TRUE
+	if(ismoth(user) && isnull(moff))
+		moff = WEAKREF(user)
 		user.set_species(/datum/species/void)
 		to_chat(user, "<span class='notice'>Your body is overtaken by a dark force!</span.?>")
 
 /obj/item/clothing/under/suit/reshia/dropped(mob/user)
 	. = ..()
-	if(handled)
-		if(ishuman(user)) //same as above
-			user.set_species(/datum/species/moth)
-			handled = FALSE
-			to_chat(user, "<span class='notice'>You feel a wave of light wash over you!</span.?>")
+	if(IS_WEAKREF_OF(user, moff))
+		user.set_species(/datum/species/moth)
+		moff = null
+		to_chat(user, "<span class='notice'>You feel a wave of light wash over you!</span.?>")
 
 ////////Reshia/////////
 ///////////////////////
