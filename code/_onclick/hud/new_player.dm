@@ -399,6 +399,37 @@
 	var/mob/dead/new_player/new_player = hud.mymob
 	new_player.handle_player_polling()
 
+/atom/movable/screen/lobby/button/bottom/music
+	name = "Mute Lobby Music"
+	icon_state = "crew_manifest"
+	base_icon_state = "crew_manifest"
+	screen_loc = "TOP:-122,CENTER:+50"
+	var/title_muted = FALSE
+
+/atom/movable/screen/lobby/button/bottom/music/Click(location, control, params)
+	. = ..()
+	if(!.)
+		return
+	var/mob/dead/new_player/new_player = hud.mymob
+	if(!new_player.client)
+		return
+	var/title_volume = 0
+	if(title_muted)
+		title_volume = 100
+	else
+		title_volume = 0
+
+	new_player.client.playtitlemusic(title_volume)
+	!title_muted
+
+/atom/movable/screen/lobby/button/bottom/music/MouseEntered(location,control,params)
+	. = ..()
+	openToolTip(hud.mymob,src,params,title = SSticker.login_music["name"],content = SSticker.login_music["author"] ? SSticker.login_music["author"] : "No author listed.",theme = "")
+
+/atom/movable/screen/lobby/button/bottom/music/MouseExited()
+	. = ..()
+	closeToolTip(hud.mymob)
+
 /atom/movable/screen/lobby/button/collapse
 	name = "Collapse Lobby Menu"
 	icon = 'icons/hud/lobby/collapse_expand.dmi'
